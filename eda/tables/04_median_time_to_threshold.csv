@@ -1,0 +1,5 @@
+lifecycle_label,months_to_1k,months_to_10k,months_to_half_peak_cum
+flash,1.0,3.0,3.0
+gradual_decline,2.0,7.0,13.5
+other,1.0,3.0,6.0
+sustained,2.0,9.0,28.0

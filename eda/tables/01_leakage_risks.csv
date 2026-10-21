@@ -1,0 +1,7 @@
+feature,risk,reason
+tvl,high,"Snapshot TVL at data-collection time, not at launch / early window."
+lifecycle_label / decay_ratio / peak_*,high,Computed from full post-launch history; cannot be used as predictors.
+early_prior_app_share,medium,"Built over all users of the DApp, not restricted to early months."
+n_contracts,medium,Counts contracts deployed after launch as well as before.
+share_of_ecosystem_* (late months),low,Safe within early window; late-month values leak future popularity.
+has_token / symbol,low,Mostly static metadata; token may launch after app — treat carefully.

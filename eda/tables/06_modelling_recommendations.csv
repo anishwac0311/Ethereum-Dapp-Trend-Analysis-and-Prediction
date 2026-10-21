@@ -1,0 +1,6 @@
+recommendation,choice,rationale
+primary_target,y_peak_10k (binary: peak active wallets ≥ 10k),"Clear, interpretable, decent base rate among eligible DApps; aligns with 'becomes popular'."
+secondary_target,y_log_wallets_m12 (regression),Preserves magnitude; useful for ranking. Requires eligible_12m filter.
+observation_window,Prefer k=6 if AUC lift is material; else k=3 for earlier prediction,Compare 06_k3_vs_k6_auc.png; earlier window is more actionable for the research goal.
+exclusions,Drop left_censored; require eligible_12m for labels; never use tvl/lifecycle/decay as features,See 01_leakage_risks.csv
+validation,"Time-based split by launch_year (≤2022 train, 2023–2024 test)",Avoids temporal leakage from shared market regimes within random CV folds.

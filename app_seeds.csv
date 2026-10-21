@@ -1,0 +1,163 @@
+slug,address,role,factory_topic0,child_location,notes
+uniswap-v1,0xc0a47dfe034b400b47bdad5fecda2621de6c4d95,app,,,Uniswap V1 Factory
+uniswap-v2,0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f,factory,0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9,data0,Uniswap V2 Factory (PairCreated)
+uniswap-v2,0x7a250d5630b4cf539739df2c5dacb4c659f2488d,router,,,Uniswap V2 Router02
+uniswap-v2,0xf164fc0ec4e93095b804a4795bbe1e041497b92a,router,,,Uniswap V2 Router01
+uniswap-v3,0x1f98431c8ad98523631ae4a59f267346ea31f984,factory,0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118,data1,Uniswap V3 Factory (PoolCreated; pool is 2nd data word)
+uniswap-v3,0xe592427a0aece92de3edee1f18e0157c05861564,router,,,Uniswap V3 SwapRouter
+uniswap-v3,0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45,router,,,Uniswap V3 SwapRouter02
+uniswap-v3,0xc36442b4a4522e871399cd717abdd847ab11fe88,app,,,Uniswap V3 NonfungiblePositionManager
+uniswap-v3,0xef1c6e67703c7bd7107eed8303fbe6ec2554bf6b,router,,,Uniswap Universal Router (2022)
+uniswap-v3,0x3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad,router,,,Uniswap Universal Router (2023)
+uniswap-v4,0x000000000004444c5dc75cb358380d2e3de08a90,app,,,Uniswap V4 PoolManager
+uniswap-v4,0x66a9893cc07d91d95644aedd05d03f95e1dba8af,router,,,Uniswap V4 Universal Router
+sushiswap,0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac,factory,0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9,data0,SushiSwap V2 Factory
+sushiswap,0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f,router,,,SushiSwap Router
+curve-dex,0x0000000022d53366457f9d5e68ec105046fc4383,app,,,Curve AddressProvider
+curve-dex,0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7,app,,,Curve 3pool
+curve-dex,0xd51a44d3fae010294c616388b506acda1bfaae46,app,,,Curve Tricrypto2
+curve-dex,0xdc24316b9ae028f1497c275eb9192a3ea0f67022,app,,,Curve stETH/ETH pool
+curve-dex,0x8301ae4fc9c624d1d396cbdaa1ed877821d7c511,app,,,Curve CRV/ETH pool
+balancer-v2,0xba12222222228d8ba445958a75a0704d566bf2c8,app,,,Balancer V2 Vault
+balancer-v3,0xba1333333333a1ba1108e8412f11850a5c319ba9,app,,,Balancer V3 Vault
+1inch-swap,0x11111112542d85b3ef69ae05771c2dccff4faa26,router,,,1inch Aggregation Router V3
+1inch-swap,0x1111111254fb6c44bac0bed2854e76f90643097d,router,,,1inch Aggregation Router V4
+1inch-swap,0x1111111254eeb25477b68fb85ed929f73a960582,router,,,1inch Aggregation Router V5
+1inch-swap,0x111111125421ca6dc452d289314280a0f8842a65,router,,,1inch Aggregation Router V6
+0x,0xdef1c0ded9bec7f1a1670819833240f027b25eff,router,,,0x Exchange Proxy
+paraswap,0xdef171fe48cf0115b1d80b88dc8eab59176fee57,router,,,ParaSwap Augustus V5
+paraswap,0x6a000f20005980200259b80c5102003040001068,router,,,ParaSwap Augustus V6
+cowswap,0x9008d19f58aabd9ed0d60971565aa8510560ab41,app,,,CoW Protocol GPv2Settlement
+kyberswap,0x6131b5fae19ea4f9d964eac0408e4408b66337b5,router,,,KyberSwap MetaAggregationRouterV2
+pancakeswap-amm,0x1097053fd2ea711dad45caccc45eff7548fcb362,factory,0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9,data0,PancakeSwap V2 Factory (Ethereum)
+pancakeswap-amm,0x13f4ea83d0bd40e75c8222255bc855a974568dd4,router,,,PancakeSwap Smart Router (Ethereum)
+dydx,0x1e0447b19bb6ecfdae1e4ae1694b0c3659614e4e,app,,,dYdX SoloMargin
+aave-v1,0x398ec7346dcd622edc5ae82352f02be94c62d119,app,,,Aave V1 LendingPool
+aave-v2,0x7d2768de32b0b80b7a3454c06bdac94a69ddc7a9,app,,,Aave V2 LendingPool
+aave-v3,0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2,app,,,Aave V3 Pool
+compound-v2,0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b,app,,,Compound Comptroller
+compound-v2,0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5,app_token,,,cETH
+compound-v2,0x39aa39c021dfbae8fac545936693ac917d5e7563,app_token,,,cUSDC
+compound-v2,0x5d3a536e4d6dbd6114cc1ead35777bab948e3643,app_token,,,cDAI
+compound-v3,0xc3d688b66703497daa19211eedff47f25384cdc3,app_token,,,Compound V3 cUSDCv3
+compound-v3,0xa17581a9e3356d9a858b789d68b4d866e593ae94,app_token,,,Compound V3 cWETHv3
+morpho-blue,0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb,app,,,Morpho Blue
+sparklend,0xc13e21b648a5ee794902342038ff3adab66be987,app,,,Spark Pool
+sky-lending,0x35d1b3f3d7966a1dfe207aa4514c12a259a0492b,app,,,Maker Vat
+sky-lending,0x5ef30b9986345249bc32d8928b7ee64de9435e39,app,,,Maker DssCdpManager
+sky-lending,0x9759a6ac90977b93b58547b4a71c78317f391a28,app,,,Maker DaiJoin
+sky-lending,0xa26e15c895efc0616177b7c1e7270a4c7d51c997,app,,,Maker DSProxyFactory
+liquity-v1,0x24179cd81c9e782a4096035f7ec97fb8b783e007,app,,,Liquity BorrowerOperations
+liquity-v1,0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2,app,,,Liquity TroveManager
+liquity-v1,0x66017d22b0f8556afdd19fc67041899eb65a21bb,app,,,Liquity StabilityPool
+lido,0xae7ab96520de3a18e5e111b5eaab095312d7fe84,app_token,,,stETH
+lido,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,app_token,,,wstETH
+lido,0x889edc2edab5f40e902b864ad4d7ade8e412f9b1,app,,,Lido WithdrawalQueue
+rocket-pool,0xae78736cd615f374d3085123a210448e74fc6393,app_token,,,rETH
+rocket-pool,0xdd3f50f8a6cafbe9b31a427582963f465e745af8,app,,,Rocket Pool DepositPool
+ether.fi-stake,0x308861a430be4cce5502d0a12724771fc6daf216,app,,,ether.fi LiquidityPool
+eigencloud,0x858646372cc42e1a627fce94aa7a7033e7cf075a,app,,,EigenLayer StrategyManager
+eigencloud,0x39053d51b77dc0d36036fc1fcc8cb819df8ef37a,app,,,EigenLayer DelegationManager
+eigencloud,0x91e677b07f7af907ec9a428aafa9fc14a0d3a338,app,,,EigenLayer EigenPodManager
+convex-finance,0xf403c135812408bfbe8713b5a23a04b3d48aae31,app,,,Convex Booster
+aura,0xa57b8d98dae62b26ec3bcc4a365338157060b234,app,,,Aura Booster
+yearn-finance,0x50c1a2ea0a861a967d9d0ffe2ae4012c2e053804,app,,,Yearn Registry
+pendle,0x888888888889758f76e7103c6cbf23abbf58f946,app,,,Pendle Router
+instadapp,0x2971adfa57b20e5a416ae5a708a8655a9c74f723,app,,,Instadapp Index
+notional-v2,0x1344a36a1b56144c3bc62e7757377d288fde0369,app,,,Notional V2 Router
+synthetix,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,app_token,,,SNX proxy
+olympus-dao,0x383518188c0c6d7730d91b2c03a03c837814a899,app_token,,,OHM v1
+olympus-dao,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,app_token,,,OHM v2
+olympus-dao,0xfd31c7d00ca47653c6ce64af53c1571f9c36566a,app,,,Olympus Staking v1
+frax,0x853d955acef822db058eb8505911ed77f175b99e,app_token,,,FRAX
+ankr,0xe95a203b1a91a908f9b9ce46459d101078c2c3cb,app_token,,,ankrETH
+binance-staked-eth,0xa2e3356610840701bdf5611a53974510ae27e2e1,app_token,,,WBETH
+opensea-v1,0x7be8076f4ea4a4ad08075c2508e481d6c946d12b,app,,,OpenSea Wyvern Exchange v1
+opensea-v2,0x7f268357a8c2552623316e2562d90e642bb538e5,app,,,OpenSea Wyvern Exchange v2
+opensea-v2,0x495f947276749ce646f68ac8c248420045cb7b5e,app,,,OpenSea Shared Storefront (ERC1155)
+opensea-seaport,0x00000000006cee72100d161c57ada5bb2be1ca79,app,,,Seaport 1.0
+opensea-seaport,0x00000000006c3852cbef3e08e8df289169ede581,app,,,Seaport 1.1
+opensea-seaport,0x00000000000001ad428e4906ae43d8f9852d0dd6,app,,,Seaport 1.4
+opensea-seaport,0x00000000000000adc04c56bf30ac9d3c0aaf14dc,app,,,Seaport 1.5
+opensea-seaport,0x0000000000000068f116a894984e2db1123eb395,app,,,Seaport 1.6
+blur,0x000000000000ad05ccc4f10045630fb830b95127,app,,,Blur Exchange
+blur,0xb2ecfe4e4d61f8790bbb9de2d1259b9e2410cea5,app,,,Blur Exchange V2
+blur,0x39da41747a83aee658334415666f3ef92dd0d541,router,,,BlurSwap aggregator
+blur-bids,0x0000000000a39bb272e79075ade125fd351887ac,app_token,,,Blur Pool (bid ETH)
+blur-lending,0x29469395eaf6f95920e59f858042f0e28d98a20b,app,,,Blur Blend
+looksrare,0x59728544b08ab483533076417fbbb2fd0b17ce3a,app,,,LooksRare Exchange v1
+looksrare,0x0000000000e655fae4d56241588680f86e3b2377,app,,,LooksRare Exchange v2
+x2y2,0x74312363e45dcaba76c59ec49a7aa8a65a67eed3,app,,,X2Y2 Exchange
+rarible,0x9757f2d2b135150bbeb65308d4a91804107cd8d6,app,,,Rarible ExchangeV2
+sudoswap-v1,0xb16c1342e617a5b6e4b631eb114483fdb289c0a4,app,,,Sudoswap LSSVMPairFactory
+sudoswap-v1,0x2b2e8cda09bba9660dca5cb6233787738ad68329,router,,,Sudoswap LSSVMRouter
+sudoswap-v2,0xa020d57ab0448ef74115c112d18a9c231cc86000,app,,,Sudoswap V2 PairFactory
+nftx,0xbe86f647b167567525ccaafcd6f881f1ee558216,app,,,NFTX VaultFactory
+nftx,0x0fc584529a2aefa997697fafacba5831fac0c22d,router,,,NFTX MarketplaceZap
+superrare,0x6d7c44773c52d396f43c2d511b81aa168e9a7a42,app,,,SuperRare Bazaar
+superrare,0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0,app,,,SuperRare V2 token
+foundation-nft,0xcda72070e455bb31c7690a170224ce43623d0b6f,app,,,Foundation NFTMarket
+element-nft-marketplace,0x20f780a973856b93f63670377900c1d2a50a77c4,app,,,Element Exchange
+gem-nft,0x83c8f28c26bf6aaca652df1dbbe0e1b56f8baba2,router,,,Gem NFT aggregator v2
+genie-nft,0x0a267cf51ef038fc00e71801f5a524aec06e4f07,router,,,Genie NFT aggregator
+cryptopunks,0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb,app,,,CryptoPunks market
+art-blocks,0x059edd72cd353df5106d2b9cc5ab83a52287ac3a,app,,,Art Blocks Core v1
+art-blocks,0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270,app,,,Art Blocks Core v2
+art-blocks,0x99a9b7c1116f9ceeb1652de04d5969cce509b069,app,,,Art Blocks Core v3
+benddao-lending-v1,0x70b97a0da65c15dfb0ffa02aee6fa36e507c2762,app,,,BendDAO LendPool
+ens,0x314159265dd8dbb310642f98f50c066173c1259b,app,,,ENS Registry (old)
+ens,0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e,app,,,ENS Registry
+ens,0x6090a6e47849629b7245dfa1ca21d94cd15878ef,app,,,ENS Auction Registrar (2017)
+ens,0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85,app,,,ENS BaseRegistrar
+ens,0x283af0b28c62c092c9727f1ee09c02ca627eb7f5,app,,,ENS ETHRegistrarController (2019)
+ens,0x253553366da8546fc250f225fe3d25d0c782303b,app,,,ENS ETHRegistrarController (2023)
+ens,0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401,app,,,ENS NameWrapper
+ens,0x4976fb03c32e5b8cfe2b6ccb31c09ba78ebaba41,app,,,ENS PublicResolver (2020)
+ens,0x231b0ee14048e9dccd1d247744d114a4eb5e8e63,app,,,ENS PublicResolver (2023)
+unstoppable-domains,0x049aba7510f45ba5b64ea9e658e342f904db358d,app,,,Unstoppable Domains UNS Registry
+axie-infinity,0xf5b0a3efb8e8e4c201e2a935f110eaaf3ffecb8d,app,,,Axie core (ERC721)
+axie-infinity,0xf4985070ce32b6b1994329df787d1acc9a2dd9e2,app,,,Axie clock auction
+axie-infinity,0x1a2a1c938ce3ec39b6d47113c7955baa9dd454f2,app,,,Ronin bridge mainchain gateway
+the-sandbox,0x5cc5b05a8a13e3fbdb0bb9fccd98d38e50f90c38,app,,,Sandbox LAND v1
+the-sandbox,0x50f5474724e0ee42d9a4e711ccfb275809fd6d4a,app,,,Sandbox LAND v2
+the-sandbox,0xa342f5d851e866e18ff98f351f2c6637f4478db5,app,,,Sandbox ASSETS (ERC1155)
+decentraland,0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d,app,,,Decentraland LAND
+decentraland,0x959e104e1a4db6317fa58f8295f586e1a978c297,app,,,Decentraland Estate
+decentraland,0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539,app,,,Decentraland Marketplace
+decentraland,0x2a187453064356c898cae034eaed119e1663acb8,app,,,Decentraland Names registrar
+gods-unchained,0x0e3a2a1f2146d86a604adc220b4967a898d7fe07,app,,,Gods Unchained cards
+cryptokitties,0x06012c8cf97bead5deae237070f9587f8e7a266d,app,,,CryptoKitties core
+cryptokitties,0xb1690c08e213a35ed9bab7b318de14420fb57d8c,app,,,CryptoKitties sale auction
+cryptokitties,0xc7af99fe5513eb6710e6d5f44f9989da40f27f26,app,,,CryptoKitties siring auction
+wolf-game,0x7f36182dee28c45de6072a34d29855bae76dbe2f,app,,,Wolf Game sheep/wolf
+loot,0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7,app,,,Loot (for Adventurers)
+otherside,0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258,app,,,Otherdeed for Otherside
+parallel,0x76be3b62873462d2142405439777e971754e8e77,app,,,Parallel Alpha cards
+sorare,0x629a673a8242c2ac4b7b8c5d8735fbeac21a6205,app,,,Sorare cards
+gitcoin,0x7d655c57f71464b6f83811c55d84009cd9f5221c,app,,,Gitcoin Grants BulkCheckout
+poap,0x22c1f6050e56d2876009903609a2cc3fef83b415,app,,,POAP (mainnet)
+augur,0x75228dce4d82566d93068a8d5d49435216551599,app,,,Augur v1
+augur,0x23916a8f5c3846e3100e5f587ff14f3098722f5d,app,,,Augur v2
+arbitrum-bridge,0x4dbd4fc535ac27206064b68ffcf827b0a60bab3f,app,,,Arbitrum Delayed Inbox
+arbitrum-bridge,0x72ce9c846789fdb6fc1f34ac4ad25dd9ef7031ef,app,,,Arbitrum L1 GatewayRouter
+arbitrum-bridge,0x8315177ab297ba92a06054ce80a67ed4dbd7ed3a,app,,,Arbitrum Bridge
+optimism-bridge,0x99c9fc46f92e8a1c0dec1b1747d010903e884be1,app,,,Optimism L1StandardBridge
+optimism-bridge,0xbeb5fc579115071764c7423a4f12edde41f106ed,app,,,Optimism Portal
+base-bridge,0x49048044d57e1c92a77f79988d21fa8faf74e97e,app,,,Base Portal
+base-bridge,0x3154cf16ccdb4c6d922629664174b904d80f2c35,app,,,Base L1StandardBridge
+polygon-bridge,0xa0c68c638235ee32657e8f720a23cec1bfc77c77,app,,,Polygon RootChainManager
+polygon-bridge,0x401f6c983ea34274ec46f84d70b31c151321188b,app,,,Polygon Plasma DepositManager
+zksync-era-txbridge,0x32400084c286cf3e17e7b677ea9583e60a000324,app,,,zkSync Era Diamond
+starknet-bridge,0xae0ee0a63a2ce6baeeffe56e7714fb4efe48d419,app,,,StarkGate ETH bridge
+linea-bridge,0xd19d4b5d358258f05d7b411e21a1460d11b0876f,app,,,Linea MessageService
+across,0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5,app,,,Across SpokePool
+hop-protocol,0xb8901acb165ed027e32754e0ffe830802919727f,app,,,Hop ETH Bridge
+stargate-v1,0x8731d54e9d02c286767d56ac03e8037c07e01e98,router,,,Stargate Router
+tornado-cash,0x12d66f87a04a9e220743712ce6d9bb1b5616b8fc,app,,,Tornado Cash 0.1 ETH
+tornado-cash,0x47ce0c6ed5b0ce3d3a51fdb1c52dc66a7c3c2936,app,,,Tornado Cash 1 ETH
+tornado-cash,0x910cbd523d972eb0a6f4cae4618ad62622b39dbf,app,,,Tornado Cash 10 ETH
+tornado-cash,0xa160cdab225685da1d56aa342ad8841c3b53f291,app,,,Tornado Cash 100 ETH
+tornado-cash,0xd90e2f925da726b50c4ed8d0fb90ad053324f31b,router,,,Tornado Cash Router
+safe,0x76e2cfc1f5fa8f6a5b3fc4c8f4788f0116861f9b,app,,,Safe ProxyFactory 1.1.1
+safe,0xa6b71e26c5e0845f74c812102ca7114b6a896ab2,app,,,Safe ProxyFactory 1.3.0
+safe,0xa238cbeb142c10ef7ad8442c6d1f9e89e07e7761,app,,,Safe MultiSend 1.3.0

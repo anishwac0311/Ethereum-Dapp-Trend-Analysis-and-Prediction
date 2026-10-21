@@ -1,0 +1,378 @@
+2026-10-18 22:32:17 INFO    ======================================================================
+2026-10-18 22:32:17 INFO    run started: build_dapp_dataset_v2.py --start 2026-07-01 --end 2026-09-30 --no-deployer-expansion --skip-labels
+2026-10-18 22:32:17 INFO      start=2026-07-01 end=2026-09-30 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 22:32:17 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 22:32:17 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 22:32:17 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (111.7 MB)
+2026-10-18 22:32:17 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-18 22:32:17 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-18 22:32:17 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 22:32:19 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 22:32:19 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-18 22:32:20 INFO      factory scan: 53 months to process for 4 factories
+2026-10-18 22:43:25 INFO        [1/53] 2022-01:    1,734 children (3 factories) in 11m05s
+2026-10-18 22:50:38 INFO        [2/53] 2022-02:    2,670 children (3 factories) in 7m12s
+2026-10-18 22:59:09 INFO        [3/53] 2022-07:    6,843 children (3 factories) in 8m31s
+2026-10-18 23:09:08 INFO        [4/53] 2022-08:    9,090 children (3 factories) in 9m59s
+2026-10-18 23:26:01 INFO        [5/53] 2022-09:    9,401 children (4 factories) in 16m52s
+2026-10-18 23:44:36 INFO        [6/53] 2022-10:   14,488 children (4 factories) in 18m35s
+2026-10-18 23:55:48 INFO        [7/53] 2022-11:    8,975 children (4 factories) in 11m12s
+2026-10-19 00:05:58 INFO        [8/53] 2022-12:    8,940 children (4 factories) in 10m09s
+2026-10-19 00:16:57 INFO        [9/53] 2023-01:    9,881 children (4 factories) in 10m59s
+2026-10-19 00:27:47 INFO        [10/53] 2023-02:    7,172 children (4 factories) in 10m49s
+2026-10-19 00:39:31 INFO        [11/53] 2023-03:    9,311 children (4 factories) in 11m43s
+2026-10-19 00:47:06 INFO        [12/53] 2023-04:   13,331 children (4 factories) in 7m35s
+2026-10-19 00:56:37 INFO        [13/53] 2023-05:   22,778 children (4 factories) in 9m30s
+2026-10-19 01:05:36 INFO        [14/53] 2023-06:   16,368 children (4 factories) in 8m59s
+2026-10-19 01:15:01 INFO        [15/53] 2023-07:   20,963 children (4 factories) in 9m24s
+2026-10-19 01:27:31 INFO        [16/53] 2023-08:   18,784 children (4 factories) in 12m29s
+2026-10-19 01:40:17 INFO        [17/53] 2023-09:   17,914 children (4 factories) in 12m46s
+2026-10-19 01:53:44 INFO        [18/53] 2023-10:   15,889 children (4 factories) in 13m26s
+2026-10-19 02:05:33 INFO        [19/53] 2023-11:   12,620 children (4 factories) in 11m49s
+2026-10-19 02:15:49 INFO        [20/53] 2023-12:    8,614 children (4 factories) in 10m15s
+2026-10-19 02:26:08 INFO        [21/53] 2024-01:    7,387 children (4 factories) in 10m19s
+2026-10-19 02:36:06 INFO        [22/53] 2024-02:    7,854 children (4 factories) in 9m58s
+2026-10-19 02:47:21 INFO        [23/53] 2024-03:    5,624 children (4 factories) in 11m14s
+2026-10-19 02:58:23 INFO        [24/53] 2024-04:    6,165 children (4 factories) in 11m02s
+2026-10-19 03:09:41 INFO        [25/53] 2024-05:    8,540 children (4 factories) in 11m17s
+2026-10-19 03:21:23 INFO        [26/53] 2024-06:   11,611 children (4 factories) in 11m42s
+2026-10-19 03:33:11 INFO        [27/53] 2024-07:   12,968 children (4 factories) in 11m47s
+2026-10-19 03:45:31 INFO        [28/53] 2024-08:   13,012 children (4 factories) in 12m20s
+2026-10-19 03:56:45 INFO        [29/53] 2024-09:   13,259 children (4 factories) in 11m14s
+2026-10-19 04:11:53 INFO        [30/53] 2024-10:   11,689 children (4 factories) in 15m08s
+2026-10-19 04:29:57 INFO        [31/53] 2024-11:    7,833 children (4 factories) in 18m03s
+2026-10-19 04:48:29 INFO        [32/53] 2024-12:    4,392 children (4 factories) in 18m32s
+2026-10-19 05:07:04 INFO        [33/53] 2025-01:    5,806 children (4 factories) in 18m35s
+2026-10-19 05:28:29 INFO        [34/53] 2025-02:    5,084 children (4 factories) in 21m24s
+2026-10-19 05:58:19 INFO        [35/53] 2025-03:    6,709 children (4 factories) in 29m49s
+2026-10-19 06:19:56 INFO        [36/53] 2025-04:    7,683 children (4 factories) in 21m37s
+2026-10-19 06:40:10 INFO        [37/53] 2025-05:   11,962 children (4 factories) in 20m14s
+2026-10-19 07:01:03 INFO        [38/53] 2025-06:   15,913 children (4 factories) in 20m52s
+2026-10-19 07:26:29 INFO        [39/53] 2025-07:   14,374 children (4 factories) in 25m26s
+2026-10-19 07:59:09 INFO        [40/53] 2025-08:   11,452 children (4 factories) in 32m40s
+2026-10-19 08:33:17 INFO        [41/53] 2025-09:    7,939 children (4 factories) in 34m07s
+2026-10-19 09:01:06 INFO        [42/53] 2025-10:    7,545 children (4 factories) in 27m48s
+2026-10-19 09:28:33 INFO        [43/53] 2025-11:    6,061 children (4 factories) in 27m26s
+2026-10-19 10:08:23 INFO        [44/53] 2025-12:    8,298 children (4 factories) in 39m50s
+2026-10-19 10:08:54 ERROR       [45/53] 2026-01: FAILED (Query interrupted)
+2026-10-19 10:08:54 DEBUG   traceback:
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 739, in factory_expand
+    n = execute_retry(con, f"""
+        ~~~~~~~~~~~~~^^^^^^^^^^
+        INSERT INTO factory_children
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+          {topic_len}
+          ^^^^^^^^^^^
+    """).fetchone()[0]
+    ^^^^
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 274, in execute_retry
+    return con.execute(sql)
+           ~~~~~~~~~~~^^^^^
+RuntimeError: Query interrupted
+2026-10-19 10:42:39 INFO    ======================================================================
+2026-10-19 10:42:39 INFO    run started: build_dapp_dataset_v2.py --start 2025-10-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 10:42:39 INFO      start=2025-10-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 10:42:39 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 10:42:40 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 10:42:40 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (14.4 MB)
+2026-10-19 10:42:40 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 10:42:40 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 10:42:40 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-19 10:42:41 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 10:42:41 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-19 10:42:42 INFO      factory scan: 0 months to process for 4 factories
+2026-10-19 10:42:43 INFO      factory children total: 538,941 ({'uniswap-v2': 476626, 'uniswap-v3': 50604, 'pancakeswap-amm': 7254, 'sushiswap': 4457})
+2026-10-19 10:42:43 INFO      --no-deployer-expansion
+2026-10-19 10:42:46 INFO      406 conflict rows -> dapp_data_v2\contract_conflicts.csv
+2026-10-19 10:42:46 INFO      dropped 37 untrusted addresses claimed by 3+ protocols
+2026-10-19 10:42:46 INFO      looking up bytecode/deploy dates for 544,321 contracts ...
+2026-10-19 10:42:47 DEBUG   columns of 'contracts': ['address', 'block_hash', 'block_number', 'block_timestamp', 'bytecode', 'date', 'last_modified']
+2026-10-19 11:10:42 WARNING   bytecode lookup failed (Out of Memory Error: failed to allocate data of size 2.0 MiB (12.4 GiB/12.5 GiB used)
+
+Possible solutions:
+* Reducing the number of threads (SET threads=X)
+* Disabling insertion-order preservation (SET preserve_insertion_order=false)
+* Increasing the memory limit (SET memory_limit='...GB')
+
+See also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads); skipping ERC20 filter
+2026-10-19 11:10:43 INFO      dropped 0 shared ERC20 tokens; kept 0 single-app / curated / pool tokens
+2026-10-19 11:10:47 INFO      544,321 app contracts -> dapp_data_v2\app_contracts.csv ({'factory': 538941, 'adapter': 5218, 'curated': 162})
+2026-10-19 11:10:48 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 11:10:49 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 11:10:50 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 11:10:54 INFO      544,321 contracts; 3 months, 0 cached, 3 to go
+2026-10-19 11:21:09 INFO    ======================================================================
+2026-10-19 11:21:09 INFO    run started: build_dapp_dataset_v2.py --start 2025-10-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 11:21:09 INFO      start=2025-10-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 11:21:09 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 11:21:10 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 11:21:10 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (27.2 MB)
+2026-10-19 11:21:10 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 11:21:10 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 11:21:10 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-19 11:21:11 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 11:21:11 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-19 11:21:11 INFO      factory scan: 0 months to process for 4 factories
+2026-10-19 11:21:13 INFO      factory children total: 538,941 ({'uniswap-v2': 476626, 'uniswap-v3': 50604, 'pancakeswap-amm': 7254, 'sushiswap': 4457})
+2026-10-19 11:21:13 INFO      --no-deployer-expansion
+2026-10-19 11:21:16 INFO      406 conflict rows -> dapp_data_v2\contract_conflicts.csv
+2026-10-19 11:21:16 INFO      dropped 37 untrusted addresses claimed by 3+ protocols
+2026-10-19 11:21:17 INFO      looking up bytecode/deploy dates for 544,321 contracts ...
+2026-10-19 11:21:17 DEBUG   columns of 'contracts': ['address', 'block_hash', 'block_number', 'block_timestamp', 'bytecode', 'date', 'last_modified']
+2026-10-19 11:55:26 INFO      found bytecode for 539,221/544,321 in 34m09s
+2026-10-19 11:55:27 INFO      flagged 486,575 ERC20-like contracts
+2026-10-19 11:55:28 INFO      dropped 25 shared ERC20 tokens; kept 486,550 single-app / curated / pool tokens
+2026-10-19 11:55:29 INFO      544,296 app contracts -> dapp_data_v2\app_contracts.csv ({'factory': 538941, 'adapter': 5193, 'curated': 162})
+2026-10-19 11:55:29 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 11:55:30 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 11:55:30 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 11:55:33 WARNING   contract map changed; clearing cached activity
+2026-10-19 11:55:34 INFO      544,296 contracts; 3 months, 0 cached, 3 to go
+2026-10-19 12:10:52 INFO        [1/3] 2025-10: 2,341,457 wallet rows,  389 DApps in 15m18s | db 146.1 MB
+2026-10-19 12:26:00 INFO        [2/3] 2025-11: 1,884,712 wallet rows,  381 DApps in 15m07s | db 230.6 MB
+2026-10-19 12:48:43 INFO        [3/3] 2025-12: 1,707,455 wallet rows,  378 DApps in 22m43s | db 308.3 MB
+2026-10-19 12:48:51 INFO      aggregating into DApp-month activity ...
+2026-10-19 12:48:51 ERROR   run crashed after 1h27m
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 1625, in main
+    act = step4_activity(con, cmap, start, end, a.heavy_tx_threshold)
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 1152, in step4_activity
+    act = con.execute("""
+          ~~~~~~~~~~~^^^^
+        WITH wf AS (
+        ^^^^^^^^^^^^
+    ...<25 lines>...
+        ORDER BY protocol, month
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    """).df()
+    ^^^^
+_duckdb.BinderException: Binder Error: Ambiguous reference to column name "month" (use: "wf.month" or "h.month")
+
+LINE 11:           protocol, month,
+                             ^
+2026-10-19 13:01:48 INFO    ======================================================================
+2026-10-19 13:01:48 INFO    run started: build_dapp_dataset_v2.py --start 2025-10-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 13:01:48 INFO      start=2025-10-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 13:01:48 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 13:01:49 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 13:01:49 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (502.8 MB)
+2026-10-19 13:01:49 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 13:01:49 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 13:01:50 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-19 13:01:50 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 13:01:51 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 13:01:52 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 13:01:54 INFO      544,296 contracts; 3 months, 3 cached, 0 to go
+2026-10-19 13:01:55 INFO      aggregating into DApp-month activity ...
+2026-10-19 13:01:56 INFO      -> dapp_data_v2\activity.csv
+2026-10-19 13:01:56 INFO      1,148 DApp-month rows, 426 DApps [step 4 took 0m05s]
+2026-10-19 13:01:56 INFO    [5/5] Assembling derived datasets ...
+2026-10-19 13:01:56 INFO      676 DApps -> dapp_static.csv
+2026-10-19 13:01:56 INFO      dapp_panel.csv: 1,851 rows, 622 DApps
+2026-10-19 13:02:00 INFO      cohort_retention.csv: 1,993 rows
+2026-10-19 13:02:01 INFO      category_month.csv: 21 rows
+2026-10-19 13:02:01 INFO      concentration_month.csv: 72 rows
+2026-10-19 13:02:07 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 496, 'other': 121, 'gradual_decline': 5})
+2026-10-19 13:02:07 INFO    run finished in 0m18s
+2026-10-19 13:08:55 INFO    ======================================================================
+2026-10-19 13:08:55 INFO    run started: build_dapp_dataset_v2.py --start 2025-01-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 13:08:55 INFO      start=2025-01-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 13:08:55 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 13:08:56 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 13:08:56 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (574.6 MB)
+2026-10-19 13:08:56 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 13:08:56 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 13:08:57 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-19 13:08:57 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 13:08:58 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 13:08:59 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 13:09:00 INFO      544,296 contracts; 12 months, 3 cached, 9 to go
+2026-10-19 13:19:35 INFO        [1/9] 2025-01: 2,676,030 wallet rows,  359 DApps in 10m34s | db 574.7 MB
+2026-10-19 13:31:03 INFO        [2/9] 2025-02: 2,426,397 wallet rows,  376 DApps in 11m28s | db 672.3 MB
+2026-10-19 13:44:01 INFO        [3/9] 2025-03: 2,048,419 wallet rows,  384 DApps in 12m57s | db 767.8 MB
+2026-10-19 13:55:17 INFO        [4/9] 2025-04: 1,800,613 wallet rows,  384 DApps in 11m16s | db 849.7 MB
+2026-10-19 14:08:24 INFO        [5/9] 2025-05: 2,192,963 wallet rows,  374 DApps in 13m06s | db 948.4 MB
+2026-10-19 14:21:34 INFO        [6/9] 2025-06: 2,165,136 wallet rows,  389 DApps in 13m09s | db 1,048.1 MB
+2026-10-19 14:36:50 INFO        [7/9] 2025-07: 2,469,586 wallet rows,  386 DApps in 15m16s | db 1,160.6 MB
+2026-10-19 14:55:18 INFO        [8/9] 2025-08: 2,598,555 wallet rows,  392 DApps in 18m27s | db 1,280.8 MB
+2026-10-19 15:12:19 INFO        [9/9] 2025-09: 2,651,621 wallet rows,  401 DApps in 17m01s | db 1,399.4 MB
+2026-10-19 15:12:47 INFO      aggregating into DApp-month activity ...
+2026-10-19 15:13:07 INFO      -> dapp_data_v2\activity.csv
+2026-10-19 15:13:07 INFO      4,593 DApp-month rows, 509 DApps [step 4 took 2h04m]
+2026-10-19 15:13:07 INFO    [5/5] Assembling derived datasets ...
+2026-10-19 15:13:08 INFO      676 DApps -> dapp_static.csv
+2026-10-19 15:13:29 INFO      dapp_panel.csv: 7,101 rows, 622 DApps
+2026-10-19 15:14:45 INFO      cohort_retention.csv: 19,939 rows
+2026-10-19 15:15:06 INFO      category_month.csv: 84 rows
+2026-10-19 15:15:06 INFO      concentration_month.csv: 288 rows
+2026-10-19 15:15:33 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 471, 'other': 88, 'gradual_decline': 63})
+2026-10-19 15:15:33 INFO    run finished in 2h06m
+2026-10-19 16:50:15 INFO    ======================================================================
+2026-10-19 16:50:15 INFO    run started: build_dapp_dataset_v2.py --start 2024-01-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 16:50:15 INFO      start=2024-01-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 16:50:15 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 16:50:16 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 16:50:16 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (2,096.6 MB)
+2026-10-19 16:50:16 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 16:50:16 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 16:50:17 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-19 16:50:17 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 16:50:19 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 16:50:20 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 16:50:21 INFO      544,296 contracts; 24 months, 12 cached, 12 to go
+2026-10-19 16:58:09 INFO        [1/12] 2024-01: 2,523,589 wallet rows,  310 DApps in 7m47s | db 2,096.7 MB
+2026-10-19 17:09:34 INFO        [2/12] 2024-02: 2,426,455 wallet rows,  303 DApps in 11m25s | db 2,096.8 MB
+2026-10-19 17:18:04 INFO        [3/12] 2024-03: 3,450,515 wallet rows,  321 DApps in 8m29s | db 2,123.4 MB
+2026-10-19 17:25:59 INFO        [4/12] 2024-04: 3,105,422 wallet rows,  327 DApps in 7m55s | db 2,268.9 MB
+2026-10-19 17:34:25 INFO        [5/12] 2024-05: 2,893,047 wallet rows,  331 DApps in 8m25s | db 2,398.8 MB
+2026-10-19 17:42:59 INFO        [6/12] 2024-06: 2,497,723 wallet rows,  332 DApps in 8m34s | db 2,512.1 MB
+2026-10-19 17:51:50 INFO        [7/12] 2024-07: 2,587,273 wallet rows,  354 DApps in 8m51s | db 2,628.3 MB
+2026-10-19 18:00:39 INFO        [8/12] 2024-08: 2,413,580 wallet rows,  351 DApps in 8m48s | db 2,737.5 MB
+2026-10-19 18:10:52 INFO        [9/12] 2024-09: 1,981,221 wallet rows,  355 DApps in 10m13s | db 2,828.0 MB
+2026-10-19 18:20:41 INFO        [10/12] 2024-10: 2,165,582 wallet rows,  356 DApps in 9m49s | db 2,927.7 MB
+2026-10-19 18:30:31 INFO        [11/12] 2024-11: 2,565,617 wallet rows,  355 DApps in 9m49s | db 3,045.7 MB
+2026-10-19 18:39:53 INFO        [12/12] 2024-12: 2,802,460 wallet rows,  354 DApps in 9m22s | db 3,171.1 MB
+2026-10-19 18:41:01 INFO      aggregating into DApp-month activity ...
+2026-10-19 18:41:50 INFO      -> dapp_data_v2\activity.csv
+2026-10-19 18:41:50 INFO      8,642 DApp-month rows, 553 DApps [step 4 took 1h51m]
+2026-10-19 18:41:50 INFO    [5/5] Assembling derived datasets ...
+2026-10-19 18:41:51 INFO      676 DApps -> dapp_static.csv
+2026-10-19 18:42:36 INFO      dapp_panel.csv: 13,062 rows, 622 DApps
+2026-10-19 18:47:32 INFO      cohort_retention.csv: 61,248 rows
+2026-10-19 18:48:17 INFO      category_month.csv: 168 rows
+2026-10-19 18:48:17 INFO      concentration_month.csv: 576 rows
+2026-10-19 18:49:28 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 448, 'gradual_decline': 69, 'sustained': 46, 'flash': 39, 'other': 20})
+2026-10-19 18:49:28 INFO    run finished in 1h59m
+2026-10-19 18:52:00 INFO    ======================================================================
+2026-10-19 18:52:00 INFO    run started: build_dapp_dataset_v2.py --start 2023-01-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 18:52:00 INFO      start=2023-01-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 18:52:00 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 18:52:01 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 18:52:01 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (4,334.3 MB)
+2026-10-19 18:52:01 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 18:52:01 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 18:52:02 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-19 18:52:02 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 18:52:03 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 18:52:04 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 18:52:05 INFO      544,296 contracts; 36 months, 24 cached, 12 to go
+2026-10-19 18:59:23 INFO        [1/12] 2023-01: 1,640,502 wallet rows,  241 DApps in 7m18s | db 4,334.4 MB
+2026-10-19 19:06:56 INFO        [2/12] 2023-02: 1,790,856 wallet rows,  243 DApps in 7m32s | db 4,334.4 MB
+2026-10-19 19:15:05 INFO        [3/12] 2023-03: 2,175,572 wallet rows,  257 DApps in 8m08s | db 4,334.5 MB
+2026-10-19 19:22:28 INFO        [4/12] 2023-04: 2,220,647 wallet rows,  271 DApps in 7m23s | db 4,334.6 MB
+2026-10-19 19:31:48 INFO        [5/12] 2023-05: 2,332,082 wallet rows,  264 DApps in 9m19s | db 4,334.6 MB
+2026-10-19 19:40:10 INFO        [6/12] 2023-06: 2,199,891 wallet rows,  269 DApps in 8m21s | db 4,334.7 MB
+2026-10-19 19:49:04 INFO        [7/12] 2023-07: 2,396,797 wallet rows,  271 DApps in 8m54s | db 4,334.8 MB
+2026-10-19 19:59:12 INFO        [8/12] 2023-08: 2,449,106 wallet rows,  282 DApps in 10m08s | db 4,405.1 MB
+2026-10-19 20:18:04 INFO        [9/12] 2023-09: 2,253,479 wallet rows,  274 DApps in 18m51s | db 4,510.8 MB
+2026-10-19 20:33:33 INFO        [10/12] 2023-10: 2,156,931 wallet rows,  280 DApps in 15m28s | db 4,613.1 MB
+2026-10-19 20:52:14 INFO        [11/12] 2023-11: 2,056,591 wallet rows,  277 DApps in 18m40s | db 4,707.1 MB
+2026-10-19 21:07:42 INFO        [12/12] 2023-12: 2,347,510 wallet rows,  293 DApps in 15m28s | db 4,813.0 MB
+2026-10-19 21:10:02 INFO      aggregating into DApp-month activity ...
+2026-10-19 21:11:22 INFO      -> dapp_data_v2\activity.csv
+2026-10-19 21:11:22 INFO      11,864 DApp-month rows, 585 DApps [step 4 took 2h19m]
+2026-10-19 21:11:23 INFO    [5/5] Assembling derived datasets ...
+2026-10-19 21:11:23 INFO      676 DApps -> dapp_static.csv
+2026-10-19 21:12:44 INFO      dapp_panel.csv: 17,565 rows, 622 DApps
+2026-10-19 21:22:03 INFO      cohort_retention.csv: 112,214 rows
+2026-10-19 21:24:05 INFO      category_month.csv: 252 rows
+2026-10-19 21:24:05 INFO      concentration_month.csv: 864 rows
+2026-10-19 21:28:00 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 431, 'gradual_decline': 93, 'flash': 43, 'sustained': 35, 'other': 20})
+2026-10-19 21:28:00 INFO    run finished in 2h35m
+2026-10-19 21:33:07 INFO    ======================================================================
+2026-10-19 21:33:07 INFO    run started: build_dapp_dataset_v2.py --start 2022-01-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-19 21:33:07 INFO      start=2022-01-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-19 21:33:07 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-19 21:33:08 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-19 21:33:08 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (6,502.8 MB)
+2026-10-19 21:33:08 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-19 21:33:08 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-19 21:33:09 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-19 21:33:09 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-19 21:33:10 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-19 21:33:11 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-19 21:33:12 INFO      544,296 contracts; 48 months, 36 cached, 12 to go
+2026-10-19 21:50:37 INFO        [1/12] 2022-01: 2,343,275 wallet rows,  190 DApps in 17m25s | db 6,502.8 MB
+2026-10-19 22:09:04 INFO        [2/12] 2022-02: 2,116,939 wallet rows,  193 DApps in 18m27s | db 6,502.9 MB
+2026-10-19 22:29:27 INFO        [3/12] 2022-03: 1,957,615 wallet rows,  201 DApps in 20m23s | db 6,502.9 MB
+2026-10-19 22:48:39 INFO        [4/12] 2022-04: 1,851,528 wallet rows,  205 DApps in 19m11s | db 6,503.0 MB
+2026-10-19 23:03:58 INFO        [5/12] 2022-05: 1,904,523 wallet rows,  207 DApps in 15m19s | db 6,503.0 MB
+2026-10-19 23:23:13 INFO        [6/12] 2022-06: 1,768,452 wallet rows,  215 DApps in 19m15s | db 6,503.1 MB
+2026-10-19 23:36:07 INFO        [7/12] 2022-07: 1,576,897 wallet rows,  215 DApps in 12m54s | db 6,503.2 MB
+2026-10-19 23:46:32 INFO        [8/12] 2022-08: 1,620,550 wallet rows,  217 DApps in 10m24s | db 6,503.2 MB
+2026-10-19 23:56:32 INFO        [9/12] 2022-09: 1,595,305 wallet rows,  219 DApps in 10m00s | db 6,503.3 MB
+2026-10-20 00:07:35 INFO        [10/12] 2022-10: 1,601,131 wallet rows,  226 DApps in 11m02s | db 6,503.3 MB
+2026-10-20 00:15:23 INFO        [11/12] 2022-11: 1,694,557 wallet rows,  236 DApps in 7m48s | db 6,503.4 MB
+2026-10-20 00:23:02 INFO        [12/12] 2022-12: 1,557,097 wallet rows,  234 DApps in 7m38s | db 6,503.4 MB
+2026-10-20 00:25:06 INFO      aggregating into DApp-month activity ...
+2026-10-20 00:26:26 INFO      -> dapp_data_v2\activity.csv
+2026-10-20 00:26:26 INFO      14,422 DApp-month rows, 601 DApps [step 4 took 2h53m]
+2026-10-20 00:26:27 INFO    [5/5] Assembling derived datasets ...
+2026-10-20 00:26:27 INFO      676 DApps -> dapp_static.csv
+2026-10-20 00:27:45 INFO      dapp_panel.csv: 20,900 rows, 622 DApps
+2026-10-20 00:37:55 WARNING   cohort_retention skipped: Out of Memory Error: could not allocate block of size 256.0 KiB (12.4 GiB/12.5 GiB used)
+
+Possible solutions:
+* Reducing the number of threads (SET threads=X)
+* Disabling insertion-order preservation (SET preserve_insertion_order=false)
+* Increasing the memory limit (SET memory_limit='...GB')
+
+See also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads
+2026-10-20 00:40:40 INFO      category_month.csv: 336 rows
+2026-10-20 00:40:41 INFO      concentration_month.csv: 1,152 rows
+2026-10-20 00:45:04 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 411, 'gradual_decline': 108, 'flash': 54, 'sustained': 29, 'other': 20})
+2026-10-20 00:45:04 INFO    run finished in 3h11m
+2026-10-20 00:55:25 INFO    ======================================================================
+2026-10-20 00:55:25 INFO    run started: build_dapp_dataset_v2.py --start 2020-01-01 --end 2025-12-31 --no-deployer-expansion --skip-labels
+2026-10-20 00:55:25 INFO      start=2020-01-01 end=2025-12-31 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-20 00:55:25 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-20 00:55:26 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-20 00:55:26 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (8,097.1 MB)
+2026-10-20 00:55:26 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-20 00:55:26 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-20 00:55:27 INFO    [3/5] Using cached dapp_data_v2\app_contracts.csv (544,296 contracts, 676 DApps)
+2026-10-20 00:55:27 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-20 00:55:28 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-20 00:55:28 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-20 00:55:30 INFO      544,296 contracts; 72 months, 48 cached, 24 to go
+2026-10-20 00:58:13 INFO        [1/24] 2020-01:    57,900 wallet rows,   34 DApps in 2m43s | db 8,103.1 MB
+2026-10-20 01:01:22 INFO        [2/24] 2020-02:   103,572 wallet rows,   38 DApps in 3m09s | db 8,113.6 MB
+2026-10-20 01:04:44 INFO        [3/24] 2020-03:    97,762 wallet rows,   38 DApps in 3m21s | db 8,093.4 MB
+2026-10-20 01:09:31 INFO        [4/24] 2020-04:    90,876 wallet rows,   40 DApps in 4m47s | db 8,102.8 MB
+2026-10-20 01:13:17 INFO        [5/24] 2020-05:   123,169 wallet rows,   43 DApps in 3m45s | db 8,102.8 MB
+2026-10-20 01:16:35 INFO        [6/24] 2020-06:   177,947 wallet rows,   47 DApps in 3m18s | db 8,102.8 MB
+2026-10-20 01:20:39 INFO        [7/24] 2020-07:   290,088 wallet rows,   50 DApps in 4m03s | db 8,102.8 MB
+2026-10-20 01:26:06 INFO        [8/24] 2020-08:   400,285 wallet rows,   57 DApps in 5m27s | db 8,102.9 MB
+2026-10-20 01:30:49 INFO        [9/24] 2020-09:   539,533 wallet rows,   71 DApps in 4m42s | db 8,102.9 MB
+2026-10-20 01:36:08 INFO        [10/24] 2020-10:   620,674 wallet rows,   78 DApps in 5m18s | db 8,102.9 MB
+2026-10-20 01:41:56 INFO        [11/24] 2020-11:   695,135 wallet rows,   85 DApps in 5m48s | db 8,102.9 MB
+2026-10-20 01:47:42 INFO        [12/24] 2020-12:   750,929 wallet rows,   96 DApps in 5m46s | db 8,103.0 MB
+2026-10-20 01:53:28 INFO        [13/24] 2021-01:   780,223 wallet rows,  102 DApps in 5m45s | db 8,103.0 MB
+2026-10-20 01:59:05 INFO        [14/24] 2021-02:   864,431 wallet rows,  110 DApps in 5m37s | db 8,103.0 MB
+2026-10-20 02:05:10 INFO        [15/24] 2021-03: 1,140,160 wallet rows,  116 DApps in 6m04s | db 8,103.1 MB
+2026-10-20 02:11:25 INFO        [16/24] 2021-04: 1,388,364 wallet rows,  127 DApps in 6m15s | db 8,103.1 MB
+2026-10-20 02:18:53 INFO        [17/24] 2021-05: 2,005,117 wallet rows,  135 DApps in 7m27s | db 8,103.2 MB
+2026-10-20 02:24:24 INFO        [18/24] 2021-06: 1,724,277 wallet rows,  148 DApps in 5m31s | db 8,103.3 MB
+2026-10-20 02:29:24 INFO        [19/24] 2021-07: 1,688,822 wallet rows,  152 DApps in 4m59s | db 8,103.3 MB
+2026-10-20 02:35:02 INFO        [20/24] 2021-08: 2,002,361 wallet rows,  164 DApps in 5m38s | db 8,103.4 MB
+2026-10-20 02:40:50 INFO        [21/24] 2021-09: 2,082,799 wallet rows,  165 DApps in 5m47s | db 8,103.4 MB
+2026-10-20 02:46:49 INFO        [22/24] 2021-10: 2,316,106 wallet rows,  175 DApps in 5m59s | db 8,103.5 MB
+2026-10-20 02:52:02 INFO        [23/24] 2021-11: 2,443,061 wallet rows,  184 DApps in 5m12s | db 8,103.6 MB
+2026-10-20 02:57:28 INFO        [24/24] 2021-12: 2,483,229 wallet rows,  191 DApps in 5m25s | db 8,103.6 MB
+2026-10-20 03:00:22 INFO      aggregating into DApp-month activity ...
+2026-10-20 03:02:17 INFO      -> dapp_data_v2\activity.csv
+2026-10-20 03:02:17 INFO      16,868 DApp-month rows, 605 DApps [step 4 took 2h06m]
+2026-10-20 03:02:17 INFO    [5/5] Assembling derived datasets ...
+2026-10-20 03:02:18 INFO      676 DApps -> dapp_static.csv
+2026-10-20 03:03:47 INFO      dapp_panel.csv: 24,297 rows, 622 DApps
+2026-10-20 03:06:11 INFO      cohort_retention.csv: 240,348 rows
+2026-10-20 03:09:10 INFO      category_month.csv: 500 rows
+2026-10-20 03:09:10 INFO      concentration_month.csv: 1,716 rows
+2026-10-20 03:13:48 INFO      dapp_lifecycle.csv: 622 DApps ({'never_adopted': 383, 'gradual_decline': 129, 'flash': 65, 'sustained': 25, 'other': 20})
+2026-10-20 03:13:48 INFO    run finished in 2h18m

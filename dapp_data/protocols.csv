@@ -1,0 +1,885 @@
+slug,name,category,category_group,listed_date,symbol,has_token,seed_address,tvl
+okx,OKX,CEX,Other,2022-11-11,OKB,True,0x75231f58b43240c9718dd58b4967c5114342a86c,31113028549.63796
+lido,Lido,Liquid Staking,DeFi,,LDO,True,0x5a98fcbea516cf06857215779fd812ca3bef1b32,24306503545.073677
+aave-v3,Aave V3,Lending,DeFi,2022-04-01,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,17405247015.857056
+ssv-network,SSV Network,Staking Pool,DeFi,,SSV,True,0x9d65ff81a3c488d585bbfb0bfe3c7707c7917f54,13116266587.852774
+layerzero-v2,LayerZero V2,Bridge,Infrastructure,,ZRO,True,0x6985884c4392d348587b19cb9eaaf157f13271cd,11472189855.168257
+morpho-blue,Morpho Blue,Lending,DeFi,2024-01-14,MORPHO,True,0x58d97b57bb95320f9a05dc918aef65434969c2b2,11241441273.470627
+gate,Gate,CEX,Other,2022-11-28,GT,True,0xe66747a101bff2dba3697199dcce5b743b454759,7401906968.49428
+eigencloud,EigenCloud,Restaking,DeFi,2023-06-14,EIGEN,True,0xec53bf9167f50cdeb3ae105f56099aaab9061f83,6529823420.875037
+sky-lending,Sky Lending,CDP,DeFi,,SKY,True,0x56072c95faa701256059aa122697b133aded9279,5860839185.674924
+mexc,MEXC,CEX,Other,2023-06-07,MX,True,0x11eef04c884e24d9b7b4760e7476d06ddf797f36,5397270716.843109
+sparklend,SparkLend,Lending,DeFi,2023-05-03,SPK,True,0xc20059e0317de91738d13af027dfc4a50781b066,5254154150.504846
+ether.fi-stake,ether.fi Stake,Liquid Staking,DeFi,2023-03-02,ETHFI,True,0xfe0c30065b384f05761f15d0cc899d4f9f9cc0eb,4790763867.81804
+ethena-usde,Ethena USDe,Basis Trading,Other,2024-02-15,ENA,True,0x57e114b691db790c35207b2e685d4a43181e6061,4737746192.109263
+spark-liquidity-layer,Spark Liquidity Layer,Onchain Capital Allocator,Other,2025-04-03,SPK,True,0xc20059e0317de91738d13af027dfc4a50781b066,2825668203.7169566
+maple,Maple,Lending,DeFi,,SYRUP,True,0x643c4e15d7d62ad0abec4a9bd4b001aa3ef52d66,2823780081.642597
+polygon-bridge,Polygon Bridge,Chain,Other,,POL,True,0x455e53cbb86018ac2b8092fdcd39d8444affc3f6,2775230782.96838
+falcon-finance,Falcon Finance,Basis Trading,Other,2025-09-30,FF,True,0xfa1c09fc8b491b6a4d3ff53a10cad29381b3f949,1653111878.5444174
+uniswap-v3,Uniswap V3,Dexs,DEX,2022-10-19,UNI,True,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984,1625946744.980108
+spark-savings,Spark Savings,Yield,DeFi,2025-09-11,SPK,True,0xc20059e0317de91738d13af027dfc4a50781b066,1593649374.6720643
+compound-v3,Compound V3,Lending,DeFi,2022-09-14,COMP,True,0xc00e94cb662c3520282e6f5717214004a7f26888,1440351432.6077075
+grove-finance,Grove Finance,Onchain Capital Allocator,Other,2026-03-26,GROVE,True,0xb30fe1cf884b48a22a50d22a9282004f2c5e9406,1344539907.0834973
+rocket-pool,Rocket Pool,Liquid Staking,DeFi,2021-11-24,RPL,True,0xd33526068d116ce69f19a9ee46f0bd304f21a51f,1307910555.6991084
+curve-dex,Curve DEX,Dexs,DEX,,CRV,True,0xd533a949740bb3306d119cc777fa900ba034cd52,1239531184.8779087
+uniswap-v4,Uniswap V4,Dexs,DEX,2025-01-29,UNI,True,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984,1234734891.1680365
+pendle-v2,Pendle V2,Yield,DeFi,,PENDLE,True,0x808507121b80c02388fad14726482e061b8da827,1219744986.1109803
+swissborg,SwissBorg,CEX,Other,2022-11-18,BORG,True,0x64d0f55cd8c7133a9d7102b13987235f486f2224,1058537746.0986258
+obol,Obol,Staking Pool,DeFi,2025-11-04,OBOL,True,0x0b010000b7624eb9b3dfbc279673c76e9d29d5f7,1043590520.9727739
+kelp,Kelp,Liquid Restaking,DeFi,2023-12-21,KERNEL,True,0x3f80b1c54ae920be41a77f8b902259d48cf24ccf,1034770144.8026048
+uniswap-v2,Uniswap V2,Dexs,DEX,2022-10-19,UNI,True,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984,967899606.4046985
+stakewise-v3,StakeWise V3,Liquid Staking,DeFi,,SWISE,True,0x48c3399719b582dd63eb5aadf12a40b4c3f52fa2,945219999.8379108
+bitmex,Bitmex,CEX,Other,2022-11-17,BMEX,True,0xb113c6cf239f60d380359b762e95c13817275277,732709719.5514557
+tornado-cash,Tornado Cash,Privacy,Infrastructure,,TORN,True,0x77777feddddffc19ff86db637967013e6c6a116c,711150583.9464135
+fluid-lending,Fluid Lending,Lending,DeFi,2024-02-25,FLUID,True,0x6f40d4a6237c257fff2db00fa0510deeecd303eb,688884314.9546651
+aave-v4,Aave V4,Lending,DeFi,2026-03-30,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,663156480.7286897
+lombard-lbtc,Lombard LBTC,Restaked BTC,Other,2024-09-04,BARD,True,0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754,646958038.348182
+lighter-bridge,Lighter Bridge,Bridge,Infrastructure,2025-04-14,LIT,True,0x232ce3bd40fcd6f80f3d55a522d03f25df784ee2,642776704.160999
+meth-protocol,mETH Protocol,Liquid Staking,DeFi,2023-12-04,COOK,True,0x9f0c013016e8656bc256f948cd4b79ab25c7b94d,588437604.6526517
+convex-finance,Convex Finance,Yield,DeFi,,CVX,True,0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b,583490814.821742
+solvbtc,SolvBTC,Bridge,Infrastructure,2024-05-16,SOLV,True,0x256f2d67e52fe834726d2ddcd8413654f5eb8b53,524365480.74890953
+starknet-bridge,Starknet Bridge,Canonical Bridge,Infrastructure,,STRK,True,0xca14007eff0db1f8135f4c25b34de49ab0d42766,470771859.0812653
+ethena-usdtb,Ethena USDtb,RWA,DeFi,2024-12-16,ENA,True,0x57e114b691db790c35207b2e685d4a43181e6061,470163572.814397
+re,Re,RWA,DeFi,2025-12-22,RE,True,0x526526528f35ac738177003b8773b402b8df8143,414588260.7221338
+ether.fi-liquid,ether.fi Liquid,Onchain Capital Allocator,Other,2024-04-03,ETHFI,True,0xfe0c30065b384f05761f15d0cc899d4f9f9cc0eb,410356718.64249593
+tbtc,tBTC,Decentralized BTC,Other,2023-02-14,T,True,0xcdf7028ceab81fa0c6971208e83fa7872994bee5,348716892.90854466
+nexo,Nexo,CEX,Other,2023-01-14,NEXO,True,0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206,317995251.9627223
+euler-v2,Euler V2,Lending,DeFi,2024-08-26,EUL,True,0xd9fcd98c322942075a5c3860693e9f4f03aae07b,301860240.08758914
+weex,WEEX,CEX,Other,2026-01-02,WXT,True,0x1b66474c8eca3827f16202907f41f63785579716,291942344.43249583
+fluid-dex,Fluid DEX,Dexs,DEX,2024-11-04,FLUID,True,0x6f40d4a6237c257fff2db00fa0510deeecd303eb,291044227.438242
+phemex,Phemex,CEX,Other,2022-12-19,PT,True,0xbbb32f99e6f2cb29337eebaa43c5069386de6e6c,284625669.4257587
+xdai-stake-bridge,xDAI Stake Bridge,Canonical Bridge,Infrastructure,,STAKE,True,0x0ae055097c6d159879521c384f1d2123d1f195e6,266049805.99567324
+aave-horizon-rwa,Aave Horizon RWA,Lending,DeFi,2025-12-09,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,255708787.04480046
+stader,Stader,Liquid Staking,DeFi,2021-12-18,SD,True,0x30d20208d987713f46dfd34ef128bb16c404d10f,251963723.44253635
+cooler-loans,Cooler Loans,Lending,DeFi,2026-02-21,OHM,True,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,234322097.77347547
+kpk,KPK,Risk Curators,Other,2025-10-16,KPK,True,0xbf3f63d8ac133b16d7d50c015036b33219dd8d23,222695228.12922058
+fluid-lite,Fluid Lite,Yield Aggregator,DeFi,,FLUID,True,0x6f40d4a6237c257fff2db00fa0510deeecd303eb,215330407.68374464
+cap,cap,Lending,DeFi,2025-08-14,CAP,True,0x99991c6aabba5a096f24f250b73580f5179b9999,212798453.28502387
+m0,M0,Stablecoin Issuer,DeFi,2024-10-15,POWER,True,0x5983b89fa184f14917013b9c3062afd9434c5b03,205482917.1037588
+solv-basis-trading,Solv Basis Trading,Basis Trading,Other,2023-09-29,SOLV,True,0x256f2d67e52fe834726d2ddcd8413654f5eb8b53,203531049.30319908
+yearn-finance,Yearn Finance,Yield Aggregator,DeFi,,YFI,True,0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e,200532869.058874
+liquity-v1,Liquity V1,CDP,DeFi,,LQTY,True,0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d,181064308.03506815
+axelar,Axelar,Bridge,Infrastructure,2022-10-29,AXL,True,0x467719ad09025fcc6cf6f8311755809d45a5e5f3,151924204.54556587
+stake-dao-yield,Stake DAO Yield,Yield,DeFi,,SDT,True,0x73968b9a57c6e53d41345fd57a6e6ae27d6cdb2f,150774671.2949624
+uncx-network-v2,UNCX Network V2,Token Locker,Other,2022-05-17,UNCX,True,0xadb2437e6f65682b85f814fbc12fec0508a7b1d0,143370718.6910137
+avalon-superearn,Avalon Superearn,Yield,DeFi,2026-02-18,AVL,True,0x5c8d0c48810fd37a0a824d074ee290e64f7a8fa2,142256587.87277725
+crvusd,crvUSD,CDP,DeFi,2023-05-03,CRV,True,0xd533a949740bb3306d119cc777fa900ba034cd52,141711852.07850432
+yield-basis,Yield Basis,Leveraged Farming,DeFi,2025-09-25,YB,True,0x01791f726b4103694969820be083196cc7c045ff,130966856.70911296
+fx-protocol,fx Protocol,Dual-Token Stablecoin,DeFi,2023-08-04,FXN,True,0x365accfca291e7d3914637abf1f7635db165bb09,129020423.38003697
+frax-ether,Frax Ether,Liquid Staking,DeFi,2022-10-24,FRAX,True,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0,127176328.58753952
+mantle-bridge,Mantle Bridge,Canonical Bridge,Infrastructure,,MNT,True,0x3c3a81e81dc49a522a592e7622a7e711c06bf354,121621452.27141309
+sky-money,Sky Money,Risk Curators,Other,2026-05-19,SKY,True,0x56072c95faa701256059aa122697b133aded9279,118709688.24111904
+zama,Zama,Privacy,Infrastructure,2026-05-04,ZAMA,True,0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3,116031722.36549023
+railgun,Railgun,Privacy,Infrastructure,2022-01-27,RAIL,True,0xe76c6c83af64e4c60245d8c7de953df673a7a33d,113744524.4660084
+renzo,Renzo,Liquid Restaking,DeFi,2023-12-19,REZ,True,0x3b50805453023a91a8bf641e279401a0b23fa6f9,113224304.07448182
+beefy,Beefy,Yield Aggregator,DeFi,,BIFI,True,0xb1f1ee126e9c96231cc3d3fad7c08b4cf873b1f1,112481144.4165587
+homora-v2,Homora V2,Leveraged Farming,DeFi,,ALPHA,True,0xa1faa113cbe53436df28ff0aee54275c13b40975,110273717.07445696
+aave-v2,Aave V2,Lending,DeFi,,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,108830270.97104076
+nexus-mutual,Nexus Mutual,Insurance,DeFi,,NXM,True,0xd7c49cee7e9188cca6ad8ff264c1da2e69d4cf3b,108583858.76403396
+compound-v2,Compound V2,Lending,DeFi,,COMP,True,0xc00e94cb662c3520282e6f5717214004a7f26888,106959655.10599765
+derive-v3-options,Derive V3 Options,Options,DeFi,2026-10-08,DRV,True,0xb1d1eae60eea9525032a6dcb4c1ce336a1de71be,106869172.08427146
+frax-usd,Frax USD,RWA,DeFi,2025-08-19,FRAX,True,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0,106446703.94634272
+avalon-cedefi,Avalon CeDeFi,Anchor BTC,Other,2024-09-05,AVL,True,0x5c8d0c48810fd37a0a824d074ee290e64f7a8fa2,105699041.63611174
+sosovalue-indexes,SoSoValue Indexes,Indexes,DeFi,2025-01-13,SOSO,True,0x624e2e7fdc8903165f64891672267ab0fcb98831,105306176.29414092
+river-omni-cdp,River Omni-CDP,CeDeFi,Other,2024-03-31,RIVER,True,0xda7ad9dea9397cffddae2f8a052b82f1484252b3,102902253.76865865
+liquity-v2,Liquity V2,CDP,DeFi,2025-01-23,LQTY,True,0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d,99659825.63959561
+stargate-v2,Stargate V2,Cross Chain Bridge,Infrastructure,2024-07-02,STG,True,0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6,99185991.99269795
+enzyme-finance,Enzyme Finance,Indexes,DeFi,,MLN,True,0xec67005c4e498ec7f55e092bd1d35cbc47c91892,97220715.2381848
+stake.link-liquid,stake.link liquid,Liquid Staking,DeFi,2022-12-21,SDL,True,0xa95c5ebb86e0de73b4fb8c47a45b792cfea28c23,93927391.09242482
+concentrator,Concentrator,Yield,DeFi,2022-03-14,CTR,True,0xb3ad645db386d7f6d753b2b9c3f4b853da6890b8,92734321.44455178
+vesper,Vesper,Yield Aggregator,DeFi,,VSP,True,0x1b40183efb4dd766f11bda7a7c3ad8982e998421,90045473.48051578
+usual-usd0,Usual USD0,RWA,DeFi,2024-07-15,USUAL,True,0xc4441c2be5d8fa8126822b9929ca0b81ea0de38e,83777955.85369375
+swell-l2-farm,Swell L2 Farm,Farm,DeFi,2024-04-10,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,79200032.36986148
+lombard-vaults,Lombard Vaults,Onchain Capital Allocator,Other,2024-09-13,BARD,True,0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754,75034665.39472264
+curve-llamalend,Curve LlamaLend,Lending,DeFi,2024-03-19,CRV,True,0xd533a949740bb3306d119cc777fa900ba034cd52,74009036.9842873
+sky-rwa,Sky RWA,RWA,DeFi,2023-10-19,SKY,True,0x56072c95faa701256059aa122697b133aded9279,72758560.68464132
+sodex-bridge,SoDEX Bridge,Bridge,Infrastructure,2026-01-08,SOSO,True,0x624e2e7fdc8903165f64891672267ab0fcb98831,72584146.56715791
+wise-token,Wise Token,Yield,DeFi,2026-08-18,WISE,True,0x66a0f676479cee1d7373f3dc2e2952778bff5bd6,71290187.96984762
+treehouse-protocol,Treehouse Protocol,DOR,Other,2024-09-10,TREE,True,0x77146784315ba81904d654466968e3a7c196d1f3,68938794.22916462
+reservoir-protocol,Reservoir Protocol,CDP,DeFi,2024-11-11,DAM,True,0x0fedba9178b70e8b54e2af08ebffcf28a1e5a43b,67728120.66336493
+frankencoin,Frankencoin,CDP,DeFi,2023-11-14,FCS,True,0xdb861830d9ae2d1fcf99fa0cfd3973de382b0b5b,61067268.07030528
+zerobase-cedefi,ZEROBASE CeDeFi,Basis Trading,Other,2025-06-04,ZBT,True,0xfab99fcf605fd8f4593edb70a43ba56542777777,61017858.480979525
+origin-ether,Origin Ether,Liquid Staking,DeFi,2023-05-08,OGN,True,0x8207c1ffc5b6804f6024322ccf34f29c3541ae26,60738217.43167029
+edgex-bridge,edgeX Bridge,Bridge,Infrastructure,2024-08-07,EDGE,True,0xb0076de78dc50581770bba1d211ddc0ad4f2a241,60284432.35502482
+team-finance,Team Finance,Token Locker,Other,2022-06-29,SWAP,True,0xcc4304a31d09258b0029ea7fe63d032f52e44efe,58511950.47149712
+resupply,Resupply,Lending,DeFi,2025-03-28,RSUP,True,0x419905009e4656fdc02418c7df35b1e61ed5f726,55746962.67675179
+yearn-curating,Yearn Curating,Risk Curators,Other,2025-05-29,YFI,True,0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e,47993351.05736368
+multichain,Multichain,Bridge,Infrastructure,,MULTI,True,0x9fb9a33956351cf4fa040f65a13b835a3c8764e3,44096494.800001875
+sushiswap-v3,SushiSwap V3,Dexs,DEX,2023-04-06,SUSHI,True,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,44064540.12401753
+brickken,Brickken,RWA,DeFi,2024-01-24,BKN,True,0x0a638f07acc6969abf392bb009f216d22adea36d,42355781.439533204
+alchemix-v3,Alchemix V3,Synthetics,DeFi,2026-04-23,ALCX,True,0xdbdb4d16eda451d0503b854cf79d55697f90c8df,40789530.788464084
+curve-llamalend-v2,Curve LlamaLend V2,Lending,DeFi,2026-06-11,CRV,True,0xd533a949740bb3306d119cc777fa900ba034cd52,40735298.5570543
+sushiswap,SushiSwap,Dexs,DEX,,SUSHI,True,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,39654502.75983845
+kaio,KAIO,RWA,DeFi,2025-01-29,KAIO,True,0x00bac91fd8f5b4a0dc03c8021139b76f6549ee7e,39645062.508066446
+autofinance,AUTOfinance,Yield,DeFi,,TOKE,True,0x2e9d63788249371f1dfc918a52f8d799f4a38c94,39563599.51723267
+idex-v1,IDEX V1,Dexs,DEX,,IDEX,True,0xb705268213d593b8fd88d3fdeff93aff5cbdcfae,39421789.642096974
+frax,Frax,Algo-Stables,DeFi,,FRAX,True,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0,39411293.62601049
+reserve-protocol,Reserve Protocol,Indexes,DeFi,,RSR,True,0x320623b8e4ff03373931769a31fc52a4e78b5d70,38134849.017070025
+dydx-v3,dYdX V3,Derivatives,DeFi,,DYDX,True,0x92d6c1e31e14520e676a687f0a93788b716beff5,37909849.707614295
+yo-protocol,YO Protocol,Yield Aggregator,DeFi,2025-03-19,YO,True,0x1925450f5e5fb974b0aae1f3408cf5286fbd1a72,34438194.22773256
+grvt-bridge,Grvt Bridge,Bridge,Infrastructure,2025-01-08,GRVT,True,0xad29f2723fcdbcf665f210f25e06f97477e417cf,34034352.25982408
+paradex-bridge,Paradex Bridge,Bridge,Infrastructure,2023-10-18,DIME,True,0xb32e10022ffbedfe10bc818a1c7e67d9d87e0fa7,32380738.86490315
+inverse-finance-firm,Inverse Finance FiRM,CDP,DeFi,2023-01-13,INV,True,0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68,31866945.786791228
+metis-bridge,Metis Bridge,Canonical Bridge,Infrastructure,,METIS,True,0x9e32b13ce7f2e80a01932b42553652e053d6ed8e,31234177.555322696
+uncx-network-v3,UNCX Network V3,Token Locker,Other,2023-07-06,UNCX,True,0xadb2437e6f65682b85f814fbc12fec0508a7b1d0,31200962.872715544
+immutable-zkevm,Immutable zkEVM,Chain,Other,2024-06-01,IMX,True,0xf57e7e7c23978c3caec3c3548e3d615c346e79ff,31014617.31315018
+connext,Connext,Bridge,Infrastructure,,NEXT,True,0xfe67a4450907459c3e1fff623aa927dd4e28c67a,29943869.42778429
+bitkan,BitKan,CEX,Other,2025-10-09,KAN,True,0x1410434b0346f5be678d0fb554e5c7ab620f8f4a,29680244.889333267
+swell-liquid-staking,Swell Liquid Staking,Liquid Staking,DeFi,2023-04-27,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,29572926.634308312
+swell-liquid-restaking,Swell Liquid Restaking,Liquid Restaking,DeFi,2024-01-30,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,29065508.26220355
+ankr,Ankr,Liquid Staking,DeFi,,ANKR,True,0x8290333cef9e6d528dd5618fb97a76f268f3edd4,28943204.54150755
+termmax,TermMax,Lending,DeFi,2024-06-20,TMX,True,0x3c2f61f2e27c865981d2e7aaf6b2cdf823030039,26727041.198640212
+gain,Gain,Onchain Capital Allocator,Other,2024-10-17,KERNEL,True,0x3f80b1c54ae920be41a77f8b902259d48cf24ccf,26530436.22253754
+chamber-vaults,Chamber Vaults,Indexes,DeFi,,DHT,True,0xca1207647ff814039530d7d35df0e1dd2e91fa84,25037075.049037896
+coinex,CoinEx,CEX,Other,2023-09-21,CET,True,0x081f67afa0ccf8c7b17540767bbe95df2ba8d97f,24715004.78931503
+yieldnest,YieldNest,Onchain Capital Allocator,Other,2024-05-15,YND,True,0x7159cc276d7d17ab4b3beb19959e1f39368a45ba,24352100.722637307
+gearbox,Gearbox,Lending,DeFi,2021-12-27,GEAR,True,0xba3335588d9403515223f109edc4eb7269a9ab5d,23520858.494313113
+fraxlend,Fraxlend,Lending,DeFi,2022-09-08,FRAX,True,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0,23047526.89225929
+cronos-zkevm-bridge,Cronos zkEVM Bridge,Canonical Bridge,Infrastructure,,ZKCRO,True,0x28ff2e4dd1b58efeb0fc138602a28d5ae81e44e2,21381340.233198974
+clearpool-tpool,Clearpool TPOOL,RWA,DeFi,2024-07-12,CPOOL,True,0x66761fa41377003622aee3c7675fc7b5c1c2fac5,20938537.565764543
+harvest-finance,Harvest Finance,Yield Aggregator,DeFi,,FARM,True,0xa0246c9032bc3a600820415ae600c6388619a14d,20605466.312731843
+balancer-v3,Balancer V3,Dexs,DEX,2024-12-11,BAL,True,0xba100000625a3754423978a60c9317c58a424e3d,20506424.388725534
+stakestone-stone,StakeStone STONE,Liquid Staking,DeFi,2023-09-25,STO,True,0x1d88713b483a8e45cff0e5cd7c2e15e5fab4534d,19635063.22583792
+piku-finance,Piku Finance,Basis Trading,Other,2025-11-19,PIKU,True,0x2e4039e8e31475d65dc00293c366fdbfbbc02dc3,19602956.228415113
+geth,GETH,Liquid Staking,DeFi,2023-01-19,GETH,True,0x3802c218221390025bceabbad5d8c59f40eb74b8,19204293.779489547
+dxsale,DxSale,Launchpad,DeFi,2022-07-15,DX,True,0xf063fe1ab7a291c5d06a86e14730b00bf24cb589,19155215.35311225
+across,Across,Cross Chain Bridge,Infrastructure,2022-01-07,ACX,True,0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f,19038065.522589553
+balancer-v2,Balancer V2,Dexs,DEX,,BAL,True,0xba100000625a3754423978a60c9317c58a424e3d,18872411.95215472
+api3,Api3,Risk Curators,Other,2022-02-01,API3,True,0x0b38210ea11411557c13457d4da7dc6ea731b88a,18771996.187166974
+blur-bids,Blur Bids,NFT Marketplace,NFT,2023-01-06,BLUR,True,0x5283d291dbcf85356a21ba090e6db59121208b44,17704634.168967877
+orderly-bridge,Orderly Bridge,Bridge,Infrastructure,2022-11-10,ORDER,True,0xabd4c63d2616a5201454168269031355f4764337,17569162.764724
+superform,Superform,Yield Aggregator,DeFi,2024-04-06,UP,True,0x1d926bbe67425c9f507b9a0e8030eedc7880bf33,17050544.98019432
+gaib,GAIB,RWA,DeFi,2025-08-06,GAIB,True,0xc19d38925f9f645337b1d1f37baf3c0647a48e50,16942240.465212654
+bancor-v3,Bancor V3,Dexs,DEX,2022-08-19,BNT,True,0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c,16316936.653031385
+aevo-perps,Aevo Perps,Derivatives,DeFi,2023-04-10,AEVO,True,0xb528edbef013aff855ac3c50b381f253af13b997,15262740.616283868
+index-coop,Index Coop,Indexes,DeFi,,INDEX,True,0x0954906da0bf32d5479e25f46056d22f08464cab,15183816.689095657
+cbridge,cBridge,Bridge,Infrastructure,2021-11-07,CELR,True,0x4f9254c83eb525f9fcf346490bbb3ed28a81c667,15009897.19402721
+gate-us,Gate US,CEX,Other,2025-11-19,GT,True,0xe66747a101bff2dba3697199dcce5b743b454759,14803912.432903903
+gravity-by-galxe,Gravity by Galxe,Canonical Bridge,Infrastructure,,G,True,0x9c7beba8f6ef6643abd725e45a4e8387ef260649,14278325.442456681
+flying-tulip-lend,Flying Tulip Lend,Lending,DeFi,2026-01-26,FT,True,0x5dd1a7a369e8273371d2dbf9d83356057088082c,13814122.10968055
+anvil,Anvil,Collateral Management,Other,2025-04-02,ANVL,True,0xaeeaa594e7dc112d67b8547fe9767a02c15b5597,13641815.199352698
+origin-arm,Origin ARM,Yield,DeFi,2024-10-25,OGN,True,0x8207c1ffc5b6804f6024322ccf34f29c3541ae26,13262431.07964792
+badger-dao,Badger DAO,Yield Aggregator,DeFi,,BADGER,True,0x3472a5a71965499acd81997a54bba8d852c6e53d,13165738.063708838
+pnetwork,pNetwork,Bridge,Infrastructure,,PNT,True,0x89ab32156e46f46d02ade3fecbe5fc4243b9aaed,13099805.903342
+juicebox-v1,Juicebox V1,Launchpad,DeFi,2023-04-15,JBX,True,0x3abf2a4f8452ccc2cf7b4c1e4663147600646f66,12945642.710573267
+probit-global,ProBit Global,CEX,Other,2024-07-20,PROB,True,0xfb559ce67ff522ec0b9ba7f5dc9dc7ef6c139803,12870447.732203104
+flokifi-locker,FlokiFi Locker,Token Locker,Other,2023-01-04,FLOKI,True,0xcf0c122c6b73ff809c693db761e7baebe62b6a2e,12815346.50848338
+dodo-amm,DODO AMM,Dexs,DEX,,DODO,True,0x43dfc4159d86f3a37a5a4b3d4580b888ad7d4ddd,12466211.510688987
+taiko-bridge,Taiko Bridge,Canonical Bridge,Infrastructure,2024-05-28,TAIKO,True,0x10dea67478c5f8c5e2d90e5e9b26dbe60c54d800,12041439.537654165
+chainflip-amm,Chainflip AMM,Dexs,DEX,2023-11-28,FLIP,True,0x826180541412d574cf1336d22c0c0a287822678a,11714307.854743244
+frax-swap,Frax Swap,Dexs,DEX,2022-09-23,FRAX,True,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0,10824126.603440907
+bancor-v2.1,Bancor V2.1,Dexs,DEX,,BNT,True,0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c,10529056.72172028
+metronome-synth,Metronome Synth,Synthetics,DeFi,2023-01-12,MET,True,0x2ebd53d035150f328bd754d6dc66b99b0edb89aa,10513949.911587382
+aura,Aura,Yield,DeFi,2022-07-22,AURA,True,0xc0c293ce456ff0ed870add98a0828dd4d2903dbf,10376835.233006297
+bifi,BiFi,Lending,DeFi,,BiFi,True,0x2791bfd60d232150bff86b39b7146c0eaaa2ba81,9861963.273885785
+stargate-v1,Stargate V1,Cross Chain Bridge,Infrastructure,2022-03-22,STG,True,0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6,9660518.982595272
+synapse-cross-chain-bridge,Synapse Cross Chain Bridge,Cross Chain Bridge,Infrastructure,,SYN,True,0x0f2d719407fdbeff09d87557abb7232601fd9f29,9638488.607474515
+hegic,Hegic,Options,DeFi,,HEGIC,True,0x584bc13c7d411c00c01a62e8019472de68768430,9499618.825257288
+aave-v1,Aave V1,Lending,DeFi,2022-06-18,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,7934674.139461463
+morpho-midnight,Morpho Midnight,Lending,DeFi,2026-07-22,MORPHO,True,0x58d97b57bb95320f9a05dc918aef65434969c2b2,7359395.302913908
+aurus,Aurus,RWA,DeFi,2024-07-09,AX,True,0xcb0d82f4dfa503c9e3b8abc7a3caa01175b2da39,7335723.397797124
+blur-lending,Blur Lending,NFT Lending,NFT,2023-05-01,BLUR,True,0x5283d291dbcf85356a21ba090e6db59121208b44,7003691.184746547
+ichi,ICHI,Liquidity Manager,DeFi,2021-11-20,ICHI,True,0x111111517e4929d3dcbdfa7cce55d30d4b6bc4d6,6974153.47976046
+the-idols,The Idols,Reserve Currency,Other,2022-03-31,VIRTUE,True,0x9416ba76e88d873050a06e5956a3ebf10386b863,6800313.312228927
+symbiosis,Symbiosis,Cross Chain Bridge,Infrastructure,2022-03-30,SIS,True,0xd38bb40815d2b0c2d2c866e0c72c5728ffc76dd9,6632949.724648391
+cvault-finance,cVault Finance,Yield,DeFi,,CORE,True,0x62359ed7505efc61ff1d56fef82158ccaffa23d7,6557469.374597825
+lisk-bridge,Lisk Bridge,Canonical Bridge,Infrastructure,,LISK,True,0x6033f7f88332b8db6ad452b7c6d5bb643990ae3f,6489755.19301762
+unitus,Unitus,Lending,DeFi,2023-12-19,UTS,True,0x3b6564b5da73a41d3a66e6558a98fd0e9e1e77ad,6397316.455117266
+clever,CLever,Yield,DeFi,2022-04-28,CLEV,True,0x72953a5c32413614d24c29c84a66ae4b59581bbf,6384254.256709869
+silo-v2,Silo V2,Lending,DeFi,2025-01-10,SILO,True,0xf0b2dd79324a66d2108c961d680f7616e1486bb0,6371691.063942719
+resolv-usr,Resolv USR,Basis Trading,Other,2025-01-23,RESOLV,True,0x259338656198ec7a76c729514d3cb45dfbf768a1,6239275.202670717
+penpie,Penpie,Yield,DeFi,2023-06-08,PNP,True,0x7dedbce5a2e31e4c75f87fea60bf796c17718715,6230496.293526098
+shibaswap-v1,ShibaSwap V1,Dexs,DEX,,BONE,True,0x9813037ee2218799597d83d4a5b6f3b6778218d9,6179075.023134708
+adi-bridge,ADI Bridge,Canonical Bridge,Infrastructure,2026-07-10,ADI,True,0x8b1484d57abbe239bb280661377363b03c89caea,6154559.516481539
+balancer-v1,Balancer V1,Dexs,DEX,,BAL,True,0xba100000625a3754423978a60c9317c58a424e3d,6001619.10332974
+axelar-cross-chain,Axelar Cross Chain,Bridge,Infrastructure,2025-04-02,AXL,True,0x467719ad09025fcc6cf6f8311755809d45a5e5f3,5904425.415157236
+origin-dollar,Origin Dollar,Yield Aggregator,DeFi,,OGN,True,0x8207c1ffc5b6804f6024322ccf34f29c3541ae26,5574075.043121001
+hakka-finance,Hakka Finance,Derivatives,DeFi,,HAKKA,True,0x0e29e5abbb5fd88e28b2d355774e73bd47de3bcd,5500899.775726356
+eclipse-bridge,Eclipse Bridge,Canonical Bridge,Infrastructure,,ES,True,0x6055dc6ff1077eebe5e6d2ba1a1f53d7ef8430de,5321097.654681596
+inverse-finance-frontier,Inverse Finance Frontier,CDP,DeFi,,INV,True,0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68,5213464.450840881
+bitmart,BitMart,CEX,Other,,BMX,True,0x986ee2b944c42d017f52af21c4c69b84dbea35d8,5185629.851100989
+easedefi.org,Easedefi.org,Insurance,DeFi,2022-10-06,EASE,True,0xea5edef1287afdf9eb8a46f9773abfc10820c61c,4976709.728978378
+injective-bridge,Injective Bridge,Bridge,Infrastructure,,INJ,True,0xe28b3b32b6c345a34ff64674606124dd5aceca30,4962562.003120238
+pickle,Pickle,Yield Aggregator,DeFi,,PICKLE,True,0x429881672b9ae42b8eba0e26cd9c73711b891ca5,4899649.149461299
+abracadabra-spell,Abracadabra Spell,CDP,DeFi,,SPELL,True,0x090185f2135308bad17527004364ebcc2d37e5f6,4850636.597411884
+pooltogether-v3,PoolTogether V3,Yield Lottery,DeFi,,POOL,True,0x0cec1a9154ff802e7934fc916ed7ca50bde6844e,4819193.912952569
+uncx-network-v4,UNCX Network V4,Token Locker,Other,2026-07-03,UNCX,True,0xadb2437e6f65682b85f814fbc12fec0508a7b1d0,4814247.266817001
+zircuit,Zircuit,Canonical Bridge,Infrastructure,,ZRC,True,0xfd418e42783382e86ae91e445406600ba144d162,4809692.818154527
+stafi,Stafi,Liquid Staking,DeFi,,FIS,True,0xef3a930e1ffffacd2fc13434ac81bd278b0ecc8d,4776354.898796166
+ribbon,Ribbon,Options Vault,DeFi,,RBN,True,0x6123b0049f904d730db3c36a31167d9d4121fa6b,4170445.0354137374
+uniswap-v1,Uniswap V1,Dexs,DEX,2022-10-19,UNI,True,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984,4131011.317679506
+mstable-v2,mStable V2,CDP,DeFi,2025-10-15,DHT,True,0xca1207647ff814039530d7d35df0e1dd2e91fa84,4127860.7150328965
+eth-strategy,ETH Strategy,Onchain Capital Allocator,Other,2025-11-06,STRAT,True,0x14cf922aa1512adfc34409b63e18d391e4a86a2f,3877493.7872956395
+hop-protocol,Hop Protocol,Cross Chain Bridge,Infrastructure,,HOP,True,0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc,3779262.135285557
+unslashed,Unslashed,Insurance,DeFi,,USF,True,0xe0e05c43c097b0982db6c9d626c4eb9e95c3b9ce,3733016.708732237
+bio-protocol,Bio Protocol,Launchpad,DeFi,2025-10-17,BIO,True,0xcb1592591996765ec0efc1f92599a19767ee5ffa,3722865.5026709093
+stakestone-berachain-vault,StakeStone Berachain Vault,Onchain Capital Allocator,Other,2024-12-25,STO,True,0x1d88713b483a8e45cff0e5cd7c2e15e5fab4534d,3552975.073938292
+woofi-swap,WOOFi Swap,Dexs,DEX,2022-02-23,WOO,True,0x4691937a7508860f876c9c0a2a617e7d9e945d4b,3459885.9686279874
+pirex,Pirex,Yield,DeFi,2022-09-15,BTRFLY,True,0xc55126051b22ebb829d00368f4b12bde432de5da,3457117.194391432
+compound-v1,Compound V1,Lending,DeFi,,COMP,True,0xc00e94cb662c3520282e6f5717214004a7f26888,3292877.9527787566
+1inch-swap,1inch Swap,DEX Aggregator,DEX,,1INCH,True,0x111111111117dc0aa78b770fa6a738034120c302,3288514.4313196125
+keep3r-network,Keep3r Network,Derivatives,DeFi,,KP3R,True,0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44,3225193.5115460693
+gamma,Gamma,Liquidity Manager,DeFi,,GAMMA,True,0x6bea7cfef803d1e3d5f7c0103f7ded065644e197,3096608.093821293
+notional-v2,Notional V2,Lending,DeFi,,NOTE,True,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5,3096346.814779559
+universe-xyz,Universe XYZ,Yield,DeFi,,XYZ,True,0x618679df9efcd19694bb1daa8d00718eacfa2883,2990205.3795522596
+bob-bridge,BOB Bridge,Bridge,Infrastructure,2024-05-01,BOB,True,0xc9746f73cc33a36c2cd55b8aefd732586946cedd,2879961.2969215102
+mstable-cdp,mStable CDP,CDP,DeFi,,DHT,True,0xca1207647ff814039530d7d35df0e1dd2e91fa84,2799267.4038557173
+saffron-vaults,Saffron Vaults,Yield,DeFi,2026-07-28,SFI,True,0xb753428af26e81097e7fd17f40c88aaa3e04902c,2630497.6544333035
+reflexer,Reflexer,CDP,DeFi,,FLX,True,0x6243d8cea23066d098a15582d81a598b4e8391f4,2627821.533706599
+sushi-bentobox,Sushi BentoBox,Yield,DeFi,2022-10-18,SUSHI,True,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,2542397.162666675
+yala,Yala,CDP,DeFi,2025-05-07,YALA,True,0xf970706063b7853877f39515c96932d49d5ac9cd,2386146.7304690285
+usual-eth0,Usual ETH0,Synthetics,DeFi,2026-02-25,USUAL,True,0xc4441c2be5d8fa8126822b9929ca0b81ea0de38e,2379917.3535064375
+woo-x,WOO X,CEX,Other,2022-12-09,WOO,True,0x4691937a7508860f876c9c0a2a617e7d9e945d4b,2371680.41748829
+ledgity-yield,Ledgity Yield,Yield,DeFi,2026-04-21,LDY,True,0x482df7483a52496f4c65ab499966dfcdf4ddfdbc,2343925.725954003
+blast-pre-launch-farm,Blast pre-launch Farm,Farm,DeFi,2023-11-22,BLAST,True,0xb1a5700fa2358173fe465e6ea4ff52e36e88e2ad,2284719.325693821
+pooltogether-v5,PoolTogether V5,Yield Lottery,DeFi,2023-10-25,POOL,True,0x0cec1a9154ff802e7934fc916ed7ca50bde6844e,2253444.845275737
+threshold-thusd,Threshold thUSD,CDP,DeFi,2024-06-25,T,True,0xcdf7028ceab81fa0c6971208e83fa7872994bee5,2213813.930506391
+asymmetry-finance,Asymmetry Finance,Indexes,DeFi,2023-05-16,ASF,True,0x59a529070fbb61e6d6c91f952ccb7f35c34cf8aa,2116581.4556555008
+nftx,NFTX,NFT Marketplace,NFT,,NFTX,True,0x87d73e916d7057945c9bcd8cdd94e42a6f47f776,2084016.3760527861
+augur,Augur,Prediction Market,DeFi,,REP,True,0x221657776846890989a759ba2973e427dff5c9bb,1954768.9458012357
+goldfinch,Goldfinch,Uncollateralized Lending,DeFi,2021-10-24,GFI,True,0xdab396ccf3d84cf2d07c4454e10c8a6f5b008d2b,1901417.6503746822
+fake-world-assets-v2,Fake World Assets V2,Luck Games,Gaming,2026-09-25,FWA,True,0xa0df17b5ac76ababa36e1450e2cbcd18a620c845,1894300.5529472227
+baseline-protocol,Baseline Protocol,Liquidity Manager,DeFi,2024-03-04,B,True,0x9fdbde76236998dc2836fe67a9954ede456a1d63,1852609.1749778315
+benddao-ape-staking,BendDAO APE Staking,Yield,DeFi,2023-02-20,BEND,True,0x0d02755a5700414b26ff040e1de35d337df56218,1835858.5273541885
+b.protocol,B.Protocol,Liquidations,Other,,BPRO,True,0xbbbbbbb5aa847a2003fbc6b5c16df0bd1e725f61,1821764.6378951264
+angle,Angle,CDP,DeFi,2021-11-03,ANGLE,True,0x31429d1856ad1377a8a0079410b297e1a9e214c2,1804157.2022285503
+gro,Gro,Yield,DeFi,,GRO,True,0x3ec8798b81485a254928b70cda1cf0a2bb0b74d7,1780268.900301043
+defil,DeFIL,Lending,DeFi,2022-03-22,DFL,True,0x09ce2b746c32528b7d864a1e3979bd97d2f095ab,1757158.68489552
+idex-classic,IDEX Classic,Dexs,DEX,,IDEX,True,0xb705268213d593b8fd88d3fdeff93aff5cbdcfae,1714579.3362147694
+interest-protocol,Interest Protocol,CDP,DeFi,2022-06-18,USDI,True,0x2a54ba2964c8cd459dc568853f79813a60761b58,1713959.2728778452
+creth2,CRETH2,Liquid Staking,DeFi,2023-05-08,CREAM,True,0x2ba592f78db6436527729929aaf6c908497cb200,1713185.5076022053
+iziswap,iZiSwap,Dexs,DEX,2022-07-06,IZI,True,0x9ad37205d608b8b219e6a2573f922094cec5c200,1699247.9245012496
+hope-collateral,HOPE Collateral,Basis Trading,Other,2023-10-17,HOPE,True,0xc353bf07405304aeab75f4c2fac7e88d6a68f98e,1676042.572252847
+landx-finance,LandX Finance,RWA,DeFi,2023-12-26,LNDX,True,0x08a1c30bbb26425c1031ee9e43fa0b9960742539,1641600.699371383
+peapods-finance,Peapods Finance,Yield,DeFi,2024-01-25,PEAS,True,0x02f92800f57bcd74066f5709f1daa1a4302df875,1612046.273535763
+lusd-chickenbonds,LUSD ChickenBonds,Yield Aggregator,DeFi,2022-10-05,bLUSD,True,0xb9d7dddca9a4ac480991865efef82e01273f79c3,1495858.9242620827
+apex-pro,ApeX Pro,Derivatives,DeFi,2022-07-04,APEX,True,0x52a8845df664d76c69d2eea607cd793565af42b8,1426671.0449133099
+cyclone,Cyclone,Yield,DeFi,,CYC,True,0x8861cff2366c1128fd699b68304ad99a0764ef9a,1411566.7952270652
+mcdex,MCDEX,Dexs,DEX,,MCB,True,0x4e352cf164e64adcbad318c3a1e222e9eba4ce42,1407430.6236552927
+mountain-protocol,Mountain Protocol,RWA,DeFi,2023-10-05,USDM,True,0x59d9356e565ab3a36dd77763fc0d87feaf85508c,1392053.2984101342
+avalon-finance,Avalon Finance,Lending,DeFi,2024-04-12,AVL,True,0x5c8d0c48810fd37a0a824d074ee290e64f7a8fa2,1316159.9421065173
+overtime,Overtime,Prediction Market,DeFi,,OVER,True,0x90ce5720c17587d28e4af120ae2d313b3bad1722,1270515.2310067946
+sofa.org,SOFA.org,Options,DeFi,2024-06-16,RCH,True,0x57b96d4af698605563a4653d882635da59bf11af,1266081.3069744445
+blueberry,Blueberry,Yield,DeFi,2024-01-30,BLB,True,0x904f36d74bed2ef2729eaa1c7a5b70dea2966a02,1242865.428465131
+lendflare,LendFlare,Lending,DeFi,2022-04-08,LFT,True,0xb620be8a1949aa9532e6a3510132864ef9bc3f82,1220063.6030335526
+rook,Rook,Dexs,DEX,,ROOK,True,0xfa5047c9c78b8877af97bdcb85db743fd7313d4a,1195701.6444314371
+maverick-v2,Maverick V2,Dexs,DEX,2024-06-11,MAV,True,0x7448c7456a97769f6cd04f1e83a4a23ccdc46abd,1182829.3655125543
+silo-v3,Silo V3,Lending,DeFi,2026-05-18,SILO,True,0xf0b2dd79324a66d2108c961d680f7616e1486bb0,1180089.4099073168
+hemi,Hemi,Canonical Bridge,Infrastructure,2025-03-03,HEMI,True,0xeb964a1a6fab73b8c72a0d15c7337fa4804f484d,1114473.761915327
+ribbon-earn,Ribbon Earn,Options,DeFi,,RBN,True,0x6123b0049f904d730db3c36a31167d9d4121fa6b,1079835.7669867727
+gnosis-protocol-v1,Gnosis Protocol v1,Prediction Market,DeFi,,-,False,0x6810e776880c02933d47db1b9fc05908e5386b96,1073061.308023314
+defi-swap,Defi Swap,Dexs,DEX,,CRO,True,0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b,1072215.0610777652
+kyberswap-classic,KyberSwap Classic,Dexs,DEX,,KNC,True,0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202,1056705.59350703
+flexa,Flexa,Payments,DeFi,,AMP,True,0xff20817765cb7f73d4bde2e66e067e58d11095c2,1045054.0750100776
+dforce-lending,dForce Lending,Lending,DeFi,,DF,True,0x431ad2ff6a9c365805ebad47ee021148d6f7dbe0,1024853.1224594573
+rari-capital,Rari Capital,Yield Aggregator,DeFi,,RGT,True,0xd291e7a03283640fdc51b121ac401383a46cc623,1024328.7450832297
+maverick-v1,Maverick V1,Dexs,DEX,2023-03-08,MAV,True,0x7448c7456a97769f6cd04f1e83a4a23ccdc46abd,1016186.8467602674
+stake-dao-curator,Stake DAO Curator,Risk Curators,Other,2026-09-05,SDT,True,0x73968b9a57c6e53d41345fd57a6e6ae27d6cdb2f,1009400.4850546785
+saddle-finance,Saddle Finance,Dexs,DEX,,SDL,True,0xf1dc500fde233a4055e25e5bbf516372bc4f6871,977121.5274728067
+sommelier,Sommelier,Onchain Capital Allocator,Other,2022-09-30,SOMM,True,0xa670d7237398238de01267472c6f13e5b8010fd1,969053.7694954122
+silo-v1,Silo V1,Lending,DeFi,2022-08-25,SILO,True,0xf0b2dd79324a66d2108c961d680f7616e1486bb0,926695.8782015711
+keep-network,KEEP Network,Cross Chain Bridge,Infrastructure,,KEEP,True,0x85eee30c52b0b379b046fb0f85f4f3dc3009afec,918266.1467792988
+cana-holdings-california-carbon-credits,CANA Holdings California Carbon Credits,RWA,DeFi,2025-09-03,CANA,True,0x01995a697752266d8e748738aaa3f06464b8350b,893976.7415455879
+synthetix-v4,Synthetix V4,Derivatives,DeFi,,SNX,True,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,886812.4074158987
+tokenlon-amm,Tokenlon AMM,Dexs,DEX,,LON,True,0x0000000000095413afc295d19edeb1ad7b71c952,884260.7065276001
+xtoken,xToken,Liquidity Manager,DeFi,,XTK,True,0x7f3edcdd180dbe4819bd98fee8929b5cedb3adeb,847152.7613927503
+parallel-protocol-v3,Parallel Protocol V3,CDP,DeFi,2025-07-29,PRL,True,0x6c0aeceedc55c9d55d8b99216a670d85330941c3,829007.2868755378
+clipper,Clipper,Dexs,DEX,,SAIL,True,0xd8f1460044925d2d5c723c7054cd9247027415b7,790917.2974817446
+wepiggy,WePiggy,Lending,DeFi,,WPC,True,0x6f620ec89b8479e97a6985792d0c64f237566746,735276.5986118239
+pooltogether-v4,PoolTogether V4,Yield Lottery,DeFi,2023-10-25,POOL,True,0x0cec1a9154ff802e7934fc916ed7ca50bde6844e,729454.06268492
+turtle-club,Turtle Club,Onchain Capital Allocator,Other,2025-05-06,TURTLE,True,0x66fd8de541c0594b4dccdfc13bf3a390e50d3afd,711152.6681969208
+airpuff,AirPuff,Leveraged Farming,DeFi,2024-03-15,APUFF,True,0x2be056e595110b30ddd5eaf674bdac54615307d9,687108.041095468
+chainport,ChainPort,Bridge,Infrastructure,2021-12-19,PORTX,True,0x104f3152d8ebfc3f679392977356962ff36566ac,683601.0845710216
+puffer-vaults,Puffer Vaults,Onchain Capital Allocator,Other,2025-03-06,PUFFER,True,0x4d1c297d39c5c1277964d0e3f8aa901493664530,659176.7838220866
+idle,Idle,Yield Aggregator,DeFi,,IDLE,True,0x875773784af8135ea0ef43b5a374aad105c5d39e,631189.3100906257
+derivadex,DerivaDEX,Derivatives,DeFi,,DDX,True,0x3a880652f47bfaa771908c07dd8673a787daed3a,617046.9509809618
+immutablex,ImmutableX,NFT Marketplace,NFT,2023-07-10,IMX,True,0xf57e7e7c23978c3caec3c3548e3d615c346e79ff,612209.1749446455
+sudoswap-v2,Sudoswap V2,NFT Marketplace,NFT,2023-06-09,SUDO,True,0x3446dd70b2d52a6bf4a5a192d9b0a161295ab7f9,606996.9939909735
+puffer-unifi,Puffer UniFi,Yield,DeFi,2025-03-06,PUFFER,True,0x4d1c297d39c5c1277964d0e3f8aa901493664530,605069.4401930345
+otsea,OTSea,Dexs,DEX,2024-06-18,OTSEA,True,0x5da151b95657e788076d04d56234bd93e409cb09,594655.9859650824
+ethervista,Ethervista,Dexs,DEX,2024-09-02,VISTA,True,0xc9bca88b04581699fab5aa276ccaff7df957cbbf,593338.261102691
+impermax-v2,Impermax V2,Lending,DeFi,,IBEX,True,0xf655c8567e0f213e6c634cd2a68d992152161dc6,586714.0079341365
+jpegd,JPEG'd,NFT Lending,NFT,2022-04-06,JPGD,True,0xce722f60f35c37ab295adc4e6ba45bcc7ca89dd6,573065.1697442466
+vaultcraft,VaultCraft,Yield,DeFi,2022-05-30,VCX,True,0xce246eea10988c495b4a90a905ee9237a0f91543,547700.7356509494
+cyber,Cyber,Chain,Other,,CYBER,True,0x14778860e937f509e651192a90589de711fb88a9,542181.9198060912
+swell-earn,Swell Earn,Yield Aggregator,DeFi,2024-10-23,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,539529.90126149
+yaxis,yAxis,Yield Aggregator,DeFi,,YAXIS,True,0x0ada190c81b814548ddc2f6adc4a689ce7c1fe73,536537.8668715387
+cache.gold,CACHE.Gold,RWA,DeFi,2022-08-22,CGT,True,0xf5238462e7235c7b62811567e63dd17d12c2eaa0,535455.5056947868
+itrust-finance,iTrust Finance,Insurance,DeFi,,ITG,True,0xf88b137cfa667065955abd17525e89edcf4d6426,524742.650995405
+benddao-lending-v1,BendDAO Lending V1,NFT Lending,NFT,2022-05-19,BEND,True,0x0d02755a5700414b26ff040e1de35d337df56218,522471.2478390182
+parallel-protocol-v2,Parallel Protocol V2,CDP,DeFi,,PRL,True,0x6c0aeceedc55c9d55d8b99216a670d85330941c3,517401.37326642073
+cover-protocol,Cover Protocol,Insurance,DeFi,,COVER,True,0x5d8d9f5b96f4438195be9b99eee6118ed4304286,508982.6395846362
+sudoswap-v1,Sudoswap V1,NFT Marketplace,NFT,2022-07-21,SUDO,True,0x3446dd70b2d52a6bf4a5a192d9b0a161295ab7f9,504910.64395764907
+unicly,Unicly,Dexs,DEX,,UNIC,True,0x94e0bab2f6ab1f19f4750e42d7349f2740513ad5,496706.52594945533
+radioshack,RadioShack,Dexs,DEX,2022-04-05,RADIO,True,0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636,492709.1632830819
+smoothy,Smoothy,Dexs,DEX,,SMTY,True,0xbf776e4fca664d791c4ee3a71e2722990e003283,488765.52193475637
+alongside,Alongside,Indexes,DeFi,2023-02-21,AMKT,True,0xf17a3fe536f8f7847f1385ec1bc967b2ca9cae8d,479094.3654414831
+swell-btc-lrt,Swell BTC LRT,Yield Aggregator,DeFi,2024-08-14,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,478204.8121162018
+siren,Siren,Options,DeFi,,SI,True,0xd23ac27148af6a2f339bd82d0e3cff380b5093de,469866.79406054725
+yfii,YFII,Yield Aggregator,DeFi,,YFII,True,0xa1d0e215a23d7030842fc67ce582a6afa3ccab83,466022.9301258712
+beta-finance-v1,Beta Finance V1,Lending,DeFi,,BETA,True,0xbe1a001fe942f96eea22ba08783140b9dcc09d28,465951.3378632995
+arca-labs-arcoin,Arca Labs ArCoin,RWA,DeFi,2024-07-06,RCOIN,True,0x252739487c1fa66eaeae7ced41d6358ab2a6bca9,455291.1959047618
+singularitydao,SingularityDAO,Yield,DeFi,2022-04-09,SDAO,True,0x993864e43caa7f7f12953ad6feb1d1ca635b875f,451346.9265522726
+cryptex-v1,Cryptex V1,Indexes,DeFi,,CTX,True,0x321c2fe4446c7c963dc41dd58879af648838f98d,447907.29597718595
+perpetual-protocol,Perpetual Protocol,Derivatives,DeFi,,PERP,True,0xbc396689893d065f41bc2c6ecbee5e0085233447,437810.3281489409
+gyroscope-protocol,Gyroscope Protocol,Dexs,DEX,2022-12-30,GYD,True,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,430833.66681822884
+derive-v2,Derive V2,Derivatives,DeFi,2023-12-15,DRV,True,0xb1d1eae60eea9525032a6dcb4c1ce336a1de71be,430595.4056579165
+teleswap,TeleSwap,Bridge,Infrastructure,2024-11-13,TST,True,0x0828096494ad6252f0f853abfc5b6ec9dfe9fdad,428993.97931690275
+apy-finance,APY Finance,Yield,DeFi,,APY,True,0x95a4492f028aa1fd432ea71146b433e7b4446611,413935.149737367
+88mph,88mph,Lending,DeFi,,MPH,True,0x8888801af4d980682e47f1a9036e589479e835c5,409640.322640853
+bob-fusion,BOB Fusion,Farm,DeFi,2024-03-27,BOB,True,0xc9746f73cc33a36c2cd55b8aefd732586946cedd,406259.39885708014
+convergence,Convergence,Dexs,DEX,,CONV,True,0xc834fa996fa3bec7aad3693af486ae53d8aa8b50,401823.6860525367
+piedao,PieDAO,Indexes,DeFi,,DOUGH,True,0xad32a8e6220741182940c5abf610bde99e737b2d,397801.5345437283
+boringdao,BoringDAO,Cross Chain Bridge,Infrastructure,,BORING,True,0xbc19712feb3a26080ebf6f2f7849b417fdd792ca,397361.44525394007
+fyde-protocol,Fyde Protocol,Yield Aggregator,DeFi,2024-01-24,TRSY,True,0x87cc45fff5c0933bb6af6bae7fc013b7ec7df2ee,391234.798266929
+asymmetry-usdaf,Asymmetry USDaf,CDP,DeFi,2025-05-28,ASF,True,0x59a529070fbb61e6d6c91f952ccb7f35c34cf8aa,390562.8869175613
+knit-finance,Knit Finance,Bridge,Infrastructure,2021-11-25,KFT,True,0xef53462838000184f35f7d991452e5f25110b207,383875.6141403846
+almanak,Almanak,Onchain Capital Allocator,Other,2025-06-12,ALMANAK,True,0xdefa1d21c5f1cbeac00eeb54b44c7d86467cc3a3,372681.0479047531
+hord,Hord,Liquid Staking,DeFi,2023-02-28,HORD,True,0x43a96962254855f16b925556f9e97be436a43448,360731.40682686877
+lybra-v1,Lybra V1,CDP,DeFi,2023-04-27,LBR,True,0xed1167b6dc64e8a366db86f2e952a482d0981ebd,356303.27233393706
+prismalst,PrismaLST,CDP,DeFi,2023-08-31,PRISMA,True,0xda47862a83dac0c112ba89c6abc2159b95afd71c,345093.7557322634
+cove-boosties,Cove Boosties,Yield Aggregator,DeFi,2024-05-01,COVE,True,0x32fb7d6e0cbeb9433772689aa4647828cc7cbba8,321858.30656690977
+xsigma,xSigma,Dexs,DEX,2021-11-09,SIG,True,0x7777777777697cfeecf846a76326da79cc606517,317038.5664123213
+the-interfold,The Interfold,Privacy,Infrastructure,2026-09-25,FOLD,True,0xe172e9b6cfbeeb5593bdce3f077356fdb33af904,317037.7221028694
+swerve,Swerve,Dexs,DEX,,SWRV,True,0xb8baa0e4287890a5f79863ab62b7f175cecbd433,304689.7317403698
+orion-pools,Orion Pools,Dexs,DEX,,ORN,True,0x0258f474786ddfd37abce6df6bbb1dd5dfc4434a,303153.31589088024
+verse,Verse,Dexs,DEX,2022-05-05,VERSE,True,0x249ca82617ec3dfb2589c4c17ab7ec9765350a18,294447.7438282477
+bundles,Bundles,Indexes,DeFi,2025-09-09,BUN,True,0x695f775551fb0d28b64101c9507c06f334b4ba86,291086.496481588
+wagmi,WAGMI,Dexs,DEX,2023-04-15,WAGMI,True,0x92cc36d66e9d739d50673d1f27929a371fb83a67,284460.62699301285
+defi-franc,DeFi Franc,CDP,DeFi,2022-09-29,DCHF,True,0x045da4bfe02b320f4403674b3b7d121737727a36,277060.9736531718
+alchemist,Alchemist,Yield,DeFi,,MIST,True,0x88acdd2a6425c3faae4bc9650fd7e27e0bebb7ab,274511.8076789249
+onx-finance,OnX Finance,Yield Aggregator,DeFi,,ONX,True,0xe0ad1806fd3e7edf6ff52fdb822432e847411033,270623.4237425532
+orderly-chain,Orderly Chain,Canonical Bridge,Infrastructure,,ORDER,True,0xabd4c63d2616a5201454168269031355f4764337,269851.2346237635
+mesher,Mesher,Lending,DeFi,2021-11-23,DON,True,0x4576e6825b462b6916d2a41e187626e9090a92c6,269269.1650324343
+unipower,UniPower,Yield,DeFi,2021-11-29,POWER,True,0xf2f9a7e93f845b3ce154efbeb64fb9346fcce509,268336.4226964096
+unit-protocol,Unit Protocol,CDP,DeFi,,DUCK,True,0x92e187a03b6cd19cb6af293ba17f2745fd2357d5,268290.3845617466
+hashflow,Hashflow,DEX Aggregator,DEX,2022-02-22,HFT,True,0xb3999f658c0391d94a37f7ff328f3fec942bcadc,268103.2363211955
+union-protocol,Union Protocol,Uncollateralized Lending,DeFi,2022-06-22,UNION,True,0x5dfe42eea70a3e6f93ee54ed9c321af07a85535c,265894.8517885326
+0x0.ai,0x0.ai,Privacy,Infrastructure,2023-07-20,0X0,True,0x5a3e6a77ba2f983ec0d371ea3b475f8bc0811ad5,262400.4890835915
+ancient8,Ancient8,Chain,Other,,A8,True,0x3e5a19c91266ad8ce2477b91585d1856b84062df,256122.20107725897
+tokenpocket,TokenPocket,Staking Pool,DeFi,2023-04-24,TPT,True,0x4161725d019690a3e0de50f6be67b07a86a9fae1,250315.38657890222
+pepu-bridge,Pepu Bridge,Bridge,Infrastructure,2026-01-26,PEPU,True,0x93aa0ccd1e5628d3a841c4dbdf602d9eb04085d6,245850.66341987482
+sturdy-v2,Sturdy V2,Lending,DeFi,2024-02-14,STRDY,True,0xaeb3607ec434454ceb308f5cd540875efb54309a,245760.23162648146
+pell-network,Pell Network,Restaking,DeFi,2024-05-29,PELL,True,0xc65d8d96cdddb31328186efa113a460b0af9ec63,234076.49786359968
+finnexus,FinNexus,Options,DeFi,,FNX,True,0xef9cd7882c067686691b6ff49e650b43afbbcc6b,232189.5381649286
+boson-protocol,Boson Protocol,RWA,DeFi,2024-07-24,BOSON,True,0xc477d038d5420c6a9e0b031712f61c5120090de9,230031.70632696844
+unifarm,UniFarm,Yield,DeFi,2021-10-17,UFARM,True,0x40986a85b4cfcdb054a6cbfb1210194fee51af88,229385.8893752604
+usual-eur0,Usual EUR0,RWA,DeFi,2026-02-25,USUAL,True,0xc4441c2be5d8fa8126822b9929ca0b81ea0de38e,227670.2905199187
+premia-v2,Premia V2,Options,DeFi,,PREMIA,True,0x6399c842dd2be3de30bf99bc7d1bbf6fa3650e70,222170.55828189355
+bunni-v2,Bunni V2,Dexs,DEX,2025-02-05,BUNNI,True,0xfd0205066521550d7d7ab19da8f72bb004b4c341,220185.52836125265
+arcade.xyz,Arcade.xyz,NFT Lending,NFT,2023-01-15,ARCD,True,0xe020b01b6fbd83066aa2e8ee0ccd1eb8d9cc70bf,215371.7572055986
+thetanuts-finance,Thetanuts Finance,Options,DeFi,2021-12-23,NUTS,True,0x23f3d4625aef6f0b84d50db1d53516e6015c0c9b,214819.6405701943
+smartcredit,SmartCredit,Lending,DeFi,2022-04-26,SMARTCREDIT,True,0x72e9d9038ce484ee986fea183f8d8df93f9ada13,211393.4712285597
+basis-cash,Basis Cash,Algo-Stables,DeFi,,BAC,True,0x3449fc1cd036255ba1eb19d65ff4ba2b8903a69a,205665.03954505385
+theoriq-alphavault-eth,Theoriq AlphaVault ETH,Onchain Capital Allocator,Other,2026-02-27,THQ,True,0xaffbe9a60f1f45e057fd9b6dc70004bb0ccc8b99,205651.72474911032
+wasabix,Wasabix,Yield,DeFi,,WASABI,True,0x896e145568624a498c5a909187363ae947631503,205539.22972154646
+clearpool-lending,Clearpool Lending,Uncollateralized Lending,DeFi,2022-04-11,CPOOL,True,0x66761fa41377003622aee3c7675fc7b5c1c2fac5,200064.67360442987
+unsheth,unshETH,Indexes,DeFi,2023-02-15,USH,True,0xe60779cc1b2c1d0580611c526a8df0e3f870ec48,199068.1272513247
+jaypeggers,Jaypeggers,Yield,DeFi,2024-03-30,JAY,True,0xda7c0810ce6f8329786160bb3d1734cf6661ca6e,190879.9645305684
+elk,Elk,Dexs,DEX,,ELK,True,0xeeeeeb57642040be42185f49c52f7e9b38f8eeee,186685.1899516823
+frigg.eco,Frigg.eco,RWA,DeFi,2022-10-13,ATT,True,0x90d53b872ce6421122b41a290acdd22a5ed931bd,182532.150863
+granary-finance,Granary Finance,Lending,DeFi,2022-03-05,GRAIN,True,0xf88baf18fab7e330fa0c4f83949e23f52fececce,180521.3404756469
+solv-vesting,Solv Vesting,RWA,DeFi,2022-04-20,SOLV,True,0x256f2d67e52fe834726d2ddcd8413654f5eb8b53,171092.4155517818
+juicebox-v3,Juicebox V3,Launchpad,DeFi,2023-04-15,JBX,True,0x4554cc10898f92d45378b98d6d6c2dd54c687fb2,168571.28179466582
+indexed-finance,Indexed Finance,Indexes,DeFi,,NDX,True,0x86772b1409b61c639eaac9ba0acfbb6e238e5f83,163616.3099443368
+zkswap,ZKSwap,Chain,Other,,ZKS,True,0xe4815ae53b124e7263f08dcdbbb757d41ed658c6,159007.71927755437
+luaswap,LuaSwap,Dexs,DEX,2021-10-24,LUA,True,0xb1f66997a5760428d3a87d68b90bfe0ae64121cc,151112.84402012033
+varen,Varen,Dexs,DEX,,VRN,True,0x72377f31e30a405282b522d588aebbea202b4f23,150938.24309703975
+xave-finance,Xave Finance,Dexs,DEX,2023-11-02,XAV,True,0x40370aed88933021e20cf7c4d67e00417cda2202,149262.53104653658
+geyser,Geyser,Yield,DeFi,,GYSR,True,0xbea98c05eeae2f3bc8c3565db7551eb738c8ccab,149254.82005214118
+cream-lending,CREAM Lending,Lending,DeFi,,CREAM,True,0x2ba592f78db6436527729929aaf6c908497cb200,149162.07474307503
+insurace,InsurAce,Insurance,DeFi,,INSUR,True,0x544c42fbb96b39b21df61cf322b5edc285ee7429,146175.73395224856
+smardex-amm,SMARDEX AMM,Dexs,DEX,2023-03-20,SDEX,True,0x5de8ab7e27f6e7a1fff3e5b337584aa43961beef,145128.1825528101
+morpho-optimizer-aavev2,Morpho Optimizer AaveV2,Lending,DeFi,2022-10-07,MORPHO,True,0x58d97b57bb95320f9a05dc918aef65434969c2b2,138690.54755253784
+metronome-v1,Metronome V1,Yield,DeFi,,MET,True,0x2ebd53d035150f328bd754d6dc66b99b0edb89aa,138229.67563135037
+fungify,Fungify,Lending,DeFi,2024-03-22,FUNG,True,0x0e4e7f2aecf408aff4f82f067677050239bdc58a,135244.8011654454
+solidly-v3,Solidly V3,Dexs,DEX,2023-09-04,SOLID,True,0x777172d858dc1599914a1c4c6c9fc48c99a60990,135096.35854813733
+derive-v1,Derive V1,Options,DeFi,,DRV,True,0xb1d1eae60eea9525032a6dcb4c1ce336a1de71be,134336.6382196698
+kyberswap-elastic,KyberSwap Elastic,Dexs,DEX,,KNC,True,0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202,131805.70449380844
+mars-poolin,Mars Poolin,Yield,DeFi,,MARS,True,0x66c0dded8433c9ea86c8cf91237b14e10b4d70b7,130284.42561791351
+antfarm-finance,Antfarm finance,Liquidity Manager,DeFi,2023-03-30,ATF,True,0x518b63da813d46556fea041a88b52e3caa8c16a8,127825.56892988438
+insuredao,InsureDAO,Insurance,DeFi,2022-06-23,INSURE,True,0xd83ae04c9ed29d6d3e6bf720c71bc7beb424393e,123644.42522983151
+chickenswap,ChickenSwap,Dexs,DEX,2021-12-05,KFC,True,0xe63684bcf2987892cefb4caa79bd21b34e98a291,123124.12124521825
+izumi-liquidbox,iZUMi LiquidBox,Yield,DeFi,2022-03-19,IZI,True,0x9ad37205d608b8b219e6a2573f922094cec5c200,121703.13858301341
+domani-protocol,Domani Protocol,Indexes,DeFi,,DEXTF,True,0x5f64ab1544d28732f0a24f4713c2c8ec0da089f0,121450.53496031681
+ixs,IXS,Dexs,DEX,2024-03-25,IXS,True,0x73d7c860998ca3c01ce8c808f5577d94d545d1b4,119265.87099925037
+yam-finance,Yam Finance,Synthetics,DeFi,,YAM,True,0x0aacfbec6a24756c20d41914f2caba817c0d8521,118786.13345139041
+cvi-finance,CVI Finance,Synthetics,DeFi,,GOVI,True,0xeeaa40b28a2d1b0b08f6f97bb1dd4b75316c6107,118613.38766085291
+babylon-finance,Babylon Finance,Indexes,DeFi,2021-12-03,BABL,True,0xf4dc48d260c93ad6a96c5ce563e70ca578987c74,117823.28996837664
+multibit-protocol,MultiBit Protocol,Bridge,Infrastructure,2023-12-23,MUBI,True,0x38e382f74dfb84608f3c1f10187f6bef5951de93,114542.88606788336
+hope-swap,HOPE Swap,Dexs,DEX,2023-07-12,HOPE,True,0xc353bf07405304aeab75f4c2fac7e88d6a68f98e,114141.51036188674
+synfutures-v1,SynFutures V1,Derivatives,DeFi,2022-12-02,F,True,0x6e15a54b5ecac17e58dadeddbe8506a7560252f9,112274.54213830184
+peakdefi,PEAKDEFI,Yield,DeFi,,PEAK,True,0x630d98424efe0ea27fb1b3ab7741907dffeaad78,110200.68431450322
+revest-finance,Revest Finance,NFT Lending,NFT,2021-11-11,RVST,True,0x120a3879da835a5af037bb2d1456bebd6b54d4ba,109854.0092863661
+swinghook,SwingHook,Dexs,DEX,2026-08-11,SWING,True,0x89cf5c1b3bc04ea54795b37a85258f1dfc9c31df,106657.97669737814
+fiat-dao,FIAT DAO,Yield,DeFi,2021-12-19,FDT,True,0xed1480d12be41d92f36f5f7bdd88212e381a3677,105489.759280682
+basketdao,BasketDAO,Indexes,DeFi,,BASK,True,0x44564d0bd94343f72e3c8a0d22308b7fa71db0bb,105423.87050241661
+miniswap,MiniSwap,Dexs,DEX,2021-11-24,MINI,True,0x4d953cf077c0c95ba090226e59a18fcf97db44ec,105231.15188183085
+minterest,Minterest,Lending,DeFi,2024-01-22,MINTY,True,0x149cac67f1cd5d80651e7c9bb359ec285d821a05,104837.65563251017
+fractional-art,Fractional Art,Indexes,DeFi,2021-11-02,HARAMBE,True,0xade6fdaba1643e4d1eef68da7170f234470938c6,101885.79943648312
+stakehouse,Stakehouse,Liquid Staking,DeFi,2023-04-15,BSN,True,0x534d1f5e617e0f72a6b06a04aa599839af776a5e,101495.18007
+hyphen,Hyphen,Bridge,Infrastructure,2022-03-24,BICO,True,0xf17e65822b568b3903685a7c9f496cf7656cc6c2,100361.00731605997
+openleverage,OpenLeverage,Dexs,DEX,2022-01-07,OLE,True,0x92cfbec26c206c90aee3b7c66a9ae673754fab7e,100174.18970662588
+lixir-finance,Lixir Finance,Liquidity Manager,DeFi,,LIX,True,0xd0345d30fd918d7682398acbcdf139c808998709,98646.15337671337
+liquis,Liquis,Yield,DeFi,2023-09-07,LIQ,True,0xd82fd4d6d62f89a1e50b1db69ad19932314aa408,96567.17763787466
+uwu-lend,UwU Lend,Lending,DeFi,2022-09-22,UWU,True,0x55c08ca52497e2f1534b59e2917bf524d4765257,94691.1380884759
+frax-fpi,Frax FPI,Algo-Stables,DeFi,2023-02-28,FPIS,True,0xc2544a32872a91f4a553b404c6950e89de901fdb,94405.61011214834
+lien,Lien,Options,DeFi,,LIEN,True,0xab37e1358b639fd877f015027bb62d3ddaa7557e,92980.66045040973
+alchemix-v2,Alchemix V2,Synthetics,DeFi,,ALCX,True,0xdbdb4d16eda451d0503b854cf79d55697f90c8df,84635.95679522486
+dfx-v2,DFX V2,Dexs,DEX,,DFX,True,0x888888435fde8e7d4c54cab67f206e4199454c60,84077.84563100441
+sumswap,SumSwap,Dexs,DEX,2021-11-25,SUM,True,0x043c308bb8a5ae96d0093444be7f56459f1340b1,80475.80736786683
+snowswap,SnowSwap,Dexs,DEX,,SNOW,True,0xfe9a29ab92522d14fc65880d817214261d8479ae,79712.23236967942
+opium,Opium,Options,DeFi,,OPIUM,True,0x888888888889c00c67689029d7856aac1065ec11,76940.96788191823
+sturdy-v1,Sturdy V1,Lending,DeFi,2022-03-23,STRDY,True,0xaeb3607ec434454ceb308f5cd540875efb54309a,76697.43639503689
+yellow,Yellow,Dexs,DEX,2024-09-17,YELLOW,True,0x236eb848c95b231299b4aa9f56c73d6893462720,76054.29297925347
+creamswap,CreamSwap,Dexs,DEX,,CREAM,True,0x2ba592f78db6436527729929aaf6c908497cb200,75769.8671817024
+big-data-protocol,Big Data Protocol,Yield,DeFi,2021-11-27,BDP,True,0xf3dcbc6d72a4e1892f7917b7c43b74131df8480e,73648.79072426444
+hundred-finance,Hundred Finance,Lending,DeFi,,HND,True,0x10010078a54396f62c96df8532dc2b4847d47ed3,72978.45770506667
+stonedefi,StoneDefi,Yield Aggregator,DeFi,2022-01-06,STN,True,0xe63d6b308bce0f6193aec6b7e6eba005f41e36ab,71925.59043968804
+shibaswap-v2,ShibaSwap V2,Dexs,DEX,2025-10-07,BONE,True,0x9813037ee2218799597d83d4a5b6f3b6778218d9,70994.33421864871
+nft20,NFT20,NFT Marketplace,NFT,2021-11-11,MUSE,True,0xb6ca7399b4f9ca56fc27cbff44f4d2e4eef1fc81,70967.32937976526
+crosschain-bridge,CrossChain Bridge,Cross Chain Bridge,Infrastructure,2022-01-14,BRIDGE,True,0x92868a5255c628da08f550a858a802f5351c5223,70034.02885090325
+bitswap,BitSwap,Cross Chain Bridge,Infrastructure,2023-12-29,AMMX,True,0xc881255e4d639b42e326158c7b8ccb7f33459261,69701.97425742856
+governor-dao,Governor DAO,Yield,DeFi,,GDAO,True,0x515d7e9d75e2b76db60f8a051cd890eba23286bc,69598.13316084846
+hidden-hand,Hidden Hand,Governance Incentives,Other,2023-07-13,BTRFLY,True,0xc55126051b22ebb829d00368f4b12bde432de5da,68946.2535483243
+rigoblock,Rigoblock,Onchain Capital Allocator,Other,2023-05-22,GRG,True,0x4fbb350052bca5417566f188eb2ebce5b19bc964,65144.070102427584
+conic-finance,Conic Finance,Yield,DeFi,2023-03-01,CNC,True,0x9ae380f0272e2162340a5bb646c354271c0f5cfc,64532.14431888026
+solidly-v2,Solidly V2,Dexs,DEX,2023-01-02,SOLID,True,0x777172d858dc1599914a1c4c6c9fc48c99a60990,63834.57338924178
+halodao,HaloDAO,Yield,DeFi,2021-10-20,RNBW,True,0xe94b97b6b43639e238c851a7e693f50033efd75c,61656.94238706433
+powerpool,PowerPool,Indexes,DeFi,,CVP,True,0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1,60326.290296763436
+restake-finance,Restake Finance,Liquid Restaking,DeFi,2024-02-14,RSTK,True,0x12ef10a4fc6e1ea44b4ca9508760ff51c647bb71,59128.57104547846
+motoswap-amm,Motoswap AMM,Dexs,DEX,2026-10-02,MOTO,True,0xbd965230588eaa536de6aa45e8ebbc01638535e0,57895.65486579438
+aave-arc,Aave Arc,Lending,DeFi,2022-06-18,AAVE,True,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,57254.00121391331
+bridge-mutual,Bridge Mutual,Insurance,DeFi,2021-11-05,BMI,True,0x725c263e32c72ddc3a19bea12c5a0479a81ee688,56227.57215593857
+cook-finance,Cook Finance,Indexes,DeFi,2021-10-22,COOK,True,0xff75ced57419bcaebe5f05254983b013b0646ef5,54555.93442677599
+flashstake,Flashstake,Yield,DeFi,2022-09-23,FLASH,True,0xb1f1f47061a7be15c69f378cb3f69423bd58f2f8,53022.13812609878
+ape-finance,Ape Finance,Lending,DeFi,2022-10-15,APEFI,True,0x4332f8a38f14bd3d8d1553af27d7c7ac6c27278d,52922.23179592113
+ribbon-lend,Ribbon Lend,Uncollateralized Lending,DeFi,,RBN,True,0x6123b0049f904d730db3c36a31167d9d4121fa6b,52323.07804133249
+balancer-cow-amm,Balancer CoW AMM,Dexs,DEX,2024-08-06,BAL,True,0xba100000625a3754423978a60c9317c58a424e3d,52144.28629468377
+hot-cross,Hot Cross,Chain,Other,,HOTCROSS,True,0x4297394c20800e8a38a619a243e9bbe7681ff24e,51782.837445959965
+lybra-v2,Lybra V2,CDP,DeFi,2023-08-30,LBR,True,0xed1167b6dc64e8a366db86f2e952a482d0981ebd,51418.877964710846
+unbound,Unbound,Derivatives,DeFi,2022-08-10,UNB,True,0x8db253a1943dddf1af9bcf8706ac9a0ce939d922,51347.89144280902
+paladin-vote,Paladin Vote,Lending,DeFi,,PAL,True,0xab846fb6c81370327e784ae7cbb6d6a6af6ff4bf,50779.122998850165
+kwikswap,KwikSwap,Dexs,DEX,2021-11-23,KWIK,True,0x286c0936c7eaf6651099ab5dab9ee5a6cb5d229d,48644.68019717458
+sakeperp,SakePerp,Dexs,DEX,,SAKE,True,0x066798d9ef0833ccc719076dab77199ecbd178b0,48216.37208248509
+ajna-v2,Ajna V2,Lending,DeFi,2024-01-12,AJNA,True,0x9a96ec9b57fb64fbc60b423d1f4da7691bd35079,47632.789703204464
+bamboodefi,BambooDeFi,Dexs,DEX,,BAMBOO,True,0xf56842af3b56fd72d17cb103f92d027bba912e89,47415.7697350725
+phuture,Phuture,Indexes,DeFi,2022-06-06,PHTR,True,0xe1fc4455f62a6e89476f1072530c20cf1a0622da,47087.129224053475
+altitude,Altitude,Cross Chain Bridge,Infrastructure,2023-08-28,ALTD,True,0x8929e9dbd2785e3ba16175e596cdd61520fee0d1,45265.67535722138
+oneswap,OneSwap,Dexs,DEX,2021-12-18,ONES,True,0x0b342c51d1592c41068d5d4b4da4a68c0a04d5a4,44786.10368409024
+float-protocol,Float Protocol,Yield,DeFi,,BANK,True,0x24a6a37576377f63f194caa5f518a60f45b42921,42990.5464178369
+typhoon-cash,Typhoon Cash,Privacy,Infrastructure,2021-11-24,PHOON,True,0x79256db1bdb6259315a1a3d7dd237f69cadfd8fc,42805.468432805195
+dotoracle,DotOracle,Bridge,Infrastructure,2022-08-04,DTO,True,0xb57420fad6731b004309d5a0ec7c6c906adb8df7,41132.72388165997
+saitaswap,SaitaSwap,Dexs,DEX,2023-04-18,STC,True,0x19ae49b9f38dd836317363839a5f6bfbfa7e319a,39589.4172699613
+warp-protocol,Warp Protocol,Lending,DeFi,,WARP,True,0xed40834a13129509a89be39a9be9c0e96a0ddd71,39252.0095696551
+form-network,Form Network,Chain,Other,2025-02-23,FORM,True,0xe7dee4823ee18f1347f1cf7997f70b94efde2e1f,38890.517142767014
+crosscurve,CrossCurve,Cross Chain Bridge,Infrastructure,2024-09-13,EYWA,True,0x8cb8c4263eb26b2349d74ea2cb1b27bc40709e12,38662.39203093571
+multiplier,Multiplier,Lending,DeFi,,MXX,True,0x8a6f3bf52a26a21531514e23016eeae8ba7e7018,38248.84173337654
+superfarm,SuperFarm,Services,Other,2021-12-26,SUPER,True,0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55,37843.126659558206
+complifi,CompliFi,Derivatives,DeFi,,COMFI,True,0x752efadc0a7e05ad1bcccda22c141d01a75ef1e4,37387.21509542369
+oin-finance,Oin Finance,Algo-Stables,DeFi,2022-01-11,OIN,True,0x9aeb50f542050172359a0e1a25a9933bc8c01259,35699.34637698134
+tranche-finance,Tranche Finance,Yield,DeFi,,SLICE,True,0x0aee8703d34dd9ae107386d3eff22ae75dd616d1,35609.47244235779
+loopring,Loopring,Dexs,DEX,,LRC,True,0xbbbbca6a901c926f240b89eacb641d8aec7aeafd,34005.270988633325
+bunni-v1,Bunni v1,Liquidity Manager,DeFi,2023-01-19,BUNNI,True,0x000000c396558ffbab5ea628f39658bdf61345b3,33719.920866448265
+mushrooms-finance,Mushrooms Finance,Yield Aggregator,DeFi,,MM,True,0xa283aa7cfbb27ef0cfbcb2493dd9f4330e0fd304,32539.639956671628
+gasp,Gasp,Cross Chain Bridge,Infrastructure,2024-12-19,GASP,True,0x736ecc5237b31edec6f1ab9a396fae2416b1d96e,31666.27916157591
+singularity-finance,Singularity Finance,Yield,DeFi,2025-09-05,SFI,True,0x7636d8722fdf7cd34232a915e48e96aa3eb386bf,30846.11691760708
+everrise,EverRise,Cross Chain Bridge,Infrastructure,2022-01-04,RISE,True,0xc17c30e98541188614df99239cabd40280810ca3,30725.06941446502
+morpho-optimizer-compoundv2,Morpho Optimizer CompoundV2,Lending,DeFi,2022-08-19,MORPHO,True,0x58d97b57bb95320f9a05dc918aef65434969c2b2,30550.44254678938
+emiswap,EmiSwap,Dexs,DEX,,ESW,True,0x5a75a093747b72a0e14056352751edf03518031d,30491.38019099892
+dfx-v3,DFX V3,Dexs,DEX,2023-11-29,DFX,True,0x888888435fde8e7d4c54cab67f206e4199454c60,30449.222277952944
+mover,Mover,Yield,DeFi,2022-01-19,MOVE,True,0x3fa729b4548becbad4eab6ef18413470e6d5324c,30374.307432488262
+onyx-protocol,Onyx Protocol,Lending,DeFi,2022-04-11,XCN,True,0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18,29745.992884633335
+euler-v1,Euler V1,Lending,DeFi,2022-01-03,EUL,True,0xd9fcd98c322942075a5c3860693e9f4f03aae07b,29547.996855633017
+xusd-money,XUSD Money,Algo-Stables,DeFi,2021-12-23,XUSD,True,0x1c9ba9144505aaba12f4b126fda9807150b88f80,29252.70028045649
+defiplaza,DefiPlaza,Dexs,DEX,2021-10-29,DFP2,True,0x2f57430a6ceda85a67121757785877b4a71b8e6d,28741.328554989475
+cofix,CoFiX,Dexs,DEX,,COFI,True,0x1a23a6bfbadb59fa563008c0fb7cf96dfcf34ea1,28434.62174017547
+mind-network,Mind Network,AI Agents,Other,2024-07-08,FHE,True,0xd55c9fb62e176a8eb6968f32958fefdd0962727e,28405.725773845465
+morpho-optimizer-aavev3,Morpho Optimizer AaveV3,Lending,DeFi,2023-05-24,MORPHO,True,0x58d97b57bb95320f9a05dc918aef65434969c2b2,28175.304665142074
+alkemi,Alkemi,Lending,DeFi,,ALK,True,0x6c16119b20fa52600230f074b349da3cb861a7e3,28139.907135264137
+bao-masterchef-v1,Bao Masterchef V1,Farm,DeFi,,BAO,True,0x374cb8c27130e2c9e04f44303f3c8351b9de61c1,28041.526014307303
+ooki,Ooki,Lending,DeFi,,OOKI,True,0x0de05f6447ab4d22c8827449ee4ba2d5c288379b,27516.32652865551
+nsure,Nsure,Insurance,DeFi,,NSURE,True,0x20945ca1df56d237fd40036d47e866c7dccd2114,27515.95981126252
+boardwalk,Boardwalk,Launchpad,DeFi,,BWLK,True,0xf9a352b7c7b62a852e5c8a64a455246dd9596461,26841.154403595807
+universe-finance,Universe Finance,Liquidity Manager,DeFi,2021-10-28,UNT,True,0xe4b5936dce1820f84509c89cce0f28c87988bad8,26685.323056429475
+swarm-markets,Swarm Markets,Dexs,DEX,2021-12-02,SMT,True,0xb17548c7b510427baac4e267bea62e800b247173,26684.153866719407
+agility-lsd,Agility LSD,Indexes,DeFi,2023-04-12,AGI,True,0x5f18ea482ad5cc6bc65803817c99f477043dce85,26388.397806327826
+bent-finance,Bent Finance,Yield,DeFi,2022-01-19,BENT,True,0x01597e397605bf280674bf292623460b4204c375,25896.56852297787
+stake.link-index,stake.link index,Indexes,DeFi,2023-04-10,SDL,True,0xa95c5ebb86e0de73b4fb8c47a45b792cfea28c23,25650.031774371342
+yapeswap,Yapeswap,Dexs,DEX,,YAPE,True,0x757bc268bd50da88b2d0cf1966652b18e56ca803,25374.306738271815
+gooddollar,GoodDollar,Yield,DeFi,2022-02-17,G$,True,0x67c5870b4a41d4ebef24d2456547a03f1f3e094b,25364.040872581627
+arcadia-v1,Arcadia V1,Leveraged Farming,DeFi,2023-07-07,AAA,True,0xaaa843fb2916c0b57454270418e121c626402aaa,24915.82545928984
+juicebox-v2,Juicebox V2,Launchpad,DeFi,2023-04-15,JBX,True,0x4554cc10898f92d45378b98d6d6c2dd54c687fb2,24370.125033922577
+stakestone-sbtc,StakeStone SBTC,Indexes,DeFi,2024-09-23,STO,True,0x1d88713b483a8e45cff0e5cd7c2e15e5fab4534d,24107.529143188018
+sandclock,SandClock,Yield,DeFi,2022-12-24,QUARTZ,True,0xba8a621b4a54e61c442f5ec623687e2a942225ef,24058.63330798281
+barnbridge,BarnBridge,Yield Aggregator,DeFi,,BOND,True,0x0391d2021f89dc339f60fff84546ea23e337750f,23831.467687233093
+value-liquid,Value Liquid,Dexs,DEX,,VALUE,True,0x49e833337ece7afe375e44f4e3e8481029218e5c,23777.231912585823
+pine-protocol,Pine Protocol,NFT Lending,NFT,2023-02-21,PINE,True,0x569424c5ee13884a193773fdc5d1c5f79c443a51,23269.33173809148
+bnpl-pay,BNPL Pay,Lending,DeFi,2022-08-31,BNPL,True,0x84d821f7fbdd595c4c4a50842913e6b1e07d7a53,23194.251631828847
+crafting-finance,Crafting Finance,Synthetics,DeFi,2022-01-19,CRF,True,0x508df5aa4746be37b5b6a69684dfd8bdc322219d,23169.6652828096
+dsu-money,DSU Money,CDP,DeFi,2023-02-27,ESS,True,0x24ae124c4cc33d6791f8e8b63520ed7107ac8b3e,21757.63921135304
+truefi,TrueFi,Uncollateralized Lending,DeFi,,TRU,True,0x4c19596f5aaff459fa38b0f7ed92f11ae6543784,21726.174423312557
+bella-protocol,Bella Protocol,Yield,DeFi,,BEL,True,0xa91ac63d040deb1b7a5e4d4134ad23eb0ba07e14,21466.61525272544
+coinw,CoinW,CEX,Other,2023-09-21,CWT,True,0x901ea3606d567f9f1e964639d5cbb8659080be8a,21303.017852489174
+tonpound,Tonpound,Lending,DeFi,2023-04-12,TPI,True,0x5cb17273bfe227bd791ceee31c9d5db6289f2797,21053.215984483835
+raft,Raft,CDP,DeFi,2023-06-06,RAFT,True,0x4c5cb5d87709387f8821709f7a6664f00dcf0c93,20830.5009078739
+mahadao-arth,MahaDAO Arth,CDP,DeFi,2022-02-25,MAHA,True,0xb4d930279552397bba2ee473229f89ec245bc365,20244.501279862227
+aladdin-dao,Aladdin DAO,Yield Aggregator,DeFi,,ALD,True,0xb26c4b3ca601136daf98593feaeff9e0ca702a8d,20219.175176426354
+umee,Umee,Lending,DeFi,2023-02-06,UMEE,True,0xc0a4df35568f116c370e6a6a6022ceb908eeddac,20069.073163105335
+sashimiswap,SashimiSwap,Dexs,DEX,,SASHIMI,True,0xc28e27870558cf22add83540d2126da2e4b464c2,19372.14126587267
+orion-money,Orion Money,Yield,DeFi,,ORION,True,0x727f064a78dc734d33eec18d5370aef32ffd46e4,19292.664555592983
+beta-finance-v2,Beta Finance V2,Lending,DeFi,2023-12-01,BETA,True,0xbe1a001fe942f96eea22ba08783140b9dcc09d28,18969.26718367637
+swipe,Swipe,Dexs,DEX,,SXP,True,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9,18953.103110070686
+naos-finance,NAOS Finance,RWA,DeFi,,NAOS,True,0x4a615bb7166210cce20e6642a6f8fb5d4d044496,18755.912487387064
+vanilla,Vanilla,Derivatives,DeFi,,VNL,True,0xbf900809f4c73e5a3476eb183d8b06a27e61f8e5,18603.35387771069
+golff-protocol,Golff Protocol,Yield,DeFi,2021-11-25,GOF,True,0x488e0369f9bc5c40c002ea7c1fe4fd01a198801c,17991.214150684013
+stabull-finance,Stabull Finance,Dexs,DEX,2025-12-02,STABUL,True,0x6a43795941113c2f58eb487001f4f8ee74b6938a,17859.57569092461
+yfdai,YFDAI,Services,Other,,YFDAI,True,0xf4cd3d3fda8d7fd6c5a500203e38640a70bf9577,16842.714633264583
+bitstable-finance,BitStable Finance,CDP,DeFi,2023-12-20,BSSB,True,0xda31d0d1bc934fc34f7189e38a413ca0a5e8b44f,16503.817042665003
+mfinance,MFinance,Yield,DeFi,2021-12-18,MG,True,0x06b0c26235699b15e940e8807651568b995a8e01,16182.138898406827
+nftfi,NFTfi,NFT Lending,NFT,2022-11-06,NFTFI,True,0x09d6f0f5a21f5be4f59e209747e2d07f50bc694c,15697.19064211294
+hedgehog,Hedgehog,Liquidity Manager,DeFi,2022-12-15,HEDGEHOG,True,0x6d4ca1177087924edfe0908ef655169ea766fdc3,15218.30779870727
+antimatter,Antimatter,Options,DeFi,2022-02-09,MATTER,True,0x9b99cca871be05119b2012fd4474731dd653febe,15183.950824598565
+fringe-v1,Fringe V1,Lending,DeFi,2022-06-28,FRIN,True,0xc9fe6e1c76210be83dc1b5b20ec7fd010b0b1d15,14947.272972879879
+auctus,Auctus,Options,DeFi,,AUC,True,0xc12d099be31567add4e4e4d0d45691c3f58f5663,14879.164816193568
+ajna-v1,Ajna V1,Lending,DeFi,2023-07-15,AJNA,True,0x9a96ec9b57fb64fbc60b423d1f4da7691bd35079,14403.88841846688
+prismalrt,PrismaLRT,CDP,DeFi,2024-02-22,PRISMA,True,0xda47862a83dac0c112ba89c6abc2159b95afd71c,14185.941427964743
+drops,Drops,NFT Lending,NFT,2021-12-08,DOP,True,0x6bb61215298f296c55b19ad842d3df69021da2ef,13991.012825310707
+blueprint,Blueprint,Dexs,DEX,2024-02-14,BLUE,True,0x95d8bf2f57cf973251972b496dc6b1d9c6b5bce3,13984.91423273695
+polkamarkets,Polkamarkets,Prediction Market,DeFi,2021-12-21,POLK,True,0xd478161c952357f05f0292b56012cd8457f1cfbf,13794.369846543274
+levva,Levva,Liquidity Manager,DeFi,2024-11-27,LVVA,True,0x6243558a24cc6116abe751f27e6d7ede50abfc76,13688.176575673751
+lsdx-ethx,LSDx ETHx,Indexes,DeFi,2023-05-01,LSD,True,0xfac77a24e52b463ba9857d6b758ba41ae20e31ff,13656.55245866709
+international-meme-fund-v1,International Meme Fund V1,CDP,DeFi,2024-07-17,IMF,True,0x05be1d4c307c19450a6fd7ce7307ce72a3829a60,13578.07207882778
+powaa-protocol,Powaa Protocol,Services,Other,2022-09-06,POWAA,True,0x14b14f83e94d81a0b2bd26e5a2d5343f9355fd12,13165.80318459103
+ethernity-chain,Ethernity Chain,Yield,DeFi,,ERN,True,0xbbc2ae13b23d715c30720f079fcd9b4a74093505,13029.036831473259
+fringe-v2,Fringe V2,Lending,DeFi,2024-01-26,FRIN,True,0xc9fe6e1c76210be83dc1b5b20ec7fd010b0b1d15,12751.446056665407
+yelay-v1,Yelay V1,Yield Aggregator,DeFi,2022-05-09,YLAY,True,0xaee5913ffd19dbca4fd1ef6f3925ed0414407d37,12482.615906901076
+primex-finance,Primex Finance,Derivatives,DeFi,2023-10-19,PMX,True,0x0b3eaead748facdb9d943d3407011f16eb17d0cf,12365.911111369622
+dam-finance,DAM Finance,CDP,DeFi,2023-02-07,d2O,True,0x2fda8c6783aa36bed645bad28a4cdc8769dcd252,12314.01517366826
+t2t2,T2T2,SoFi,Other,2023-11-10,T2T2,True,0x390e61f798267fe7aa9bbe61be8bb1776250d44c,11860.334570825064
+alvara,Alvara,Yield Aggregator,DeFi,2026-05-05,ALVA,True,0x8e729198d1c59b82bd6bba579310c40d740a11c2,11542.96059761873
+monox,MonoX,Dexs,DEX,2021-12-01,MONO,True,0x2920f7d6134f4669343e70122ca9b8f19ef8fa5d,11087.66643674155
+whale-game,Whale Game,Prediction Market,DeFi,2023-07-24,WHALE,True,0x0f5f3e11302a91f806d5589ec6081494b63ba05a,11032.687696332781
+lendexe-finance,LendeXe Finance,Lending,DeFi,2023-03-03,LEXE,True,0x53011e93f21ec7a74cdfbb7e6548f1abce306833,10892.965927528667
+timeless-finance,Timeless Finance,Yield,DeFi,2022-07-27,LIT,True,0xfd0205066521550d7d7ab19da8f72bb004b4c341,10414.764597520709
+daoventures,DAOventures,Yield,DeFi,,DVD,True,0x77dce26c03a9b833fc2d7c31c22da4f42e9d9582,10243.545298487597
+polkaex,PolkaEx,Dexs,DEX,2022-01-05,PKEX,True,0xe6f143a0e0a8f24f6294ce3432ea10fad0206920,10130.837822198042
+dego-finance,Dego Finance,Services,Other,2024-03-25,DEGO,True,0x3da932456d082cba208feb0b096d49b202bf89c8,9976.996124128318
+router-protocol,Router Protocol,Cross Chain Bridge,Infrastructure,2022-08-26,ROUTE,True,0x60f67e1015b3f069dd4358a78c38f83fe3a667a9,9877.849197658474
+unilend-v1,Unilend V1,Lending,DeFi,2021-11-20,UFT,True,0x0202be363b8a4820f3f4de7faf5224ff05943ab1,9585.757655440364
+enterdao,EnterDAO,Gaming,Gaming,,ENTR,True,0xd779eea9936b4e323cddff2529eb6f13d0a4d66e,9422.51809640391
+yel-finance,Yel Finance,Yield,DeFi,2021-10-19,YEL,True,0x949185d3be66775ea648f4a306740ea9eff9c567,9100.602730137001
+manga-fi,Manga FI,Yield,DeFi,2023-09-19,HONO,True,0x8f5ac7f3cfeffb6eb638a8add2d32661f82c03fd,8795.47343604669
+spice-trade,Spice Trade,Algo-Stables,DeFi,2022-06-08,SPICE,True,0x18a1ea69a50a85752b7bc204a2c45a95ce6e429d,8257.6151868569
+alternity,Alternity,CDP,DeFi,2023-09-01,LCNY,True,0x7635b612792e4bfb7f2fa12a3e5d5a3f2e3c34bc,8243.954021312282
+wild-credit,Wild Credit,Lending,DeFi,,WILD,True,0x403d512ab96103562dcafe4635545e8ee2753f6e,8231.27096052324
+amphora,Amphora,Lending,DeFi,2023-09-08,AMPH,True,0x943c5f4f54509d1e78b1fcd93b92c43ce83d3141,8010.548217656646
+asymetrix-protocol,Asymetrix Protocol,Yield,DeFi,2023-04-24,ASX,True,0x67d85a291fcdc862a78812a3c26d55e28ffb2701,7888.864322697216
+mercurity,Mercurity,Dexs,DEX,2021-12-18,MEE,True,0xe1b583dc66e0a24fd9af2dc665f6f5e48978e106,7799.251942931435
+tranchess-ether,Tranchess Ether,Liquid Staking,DeFi,2023-05-31,CHESS,True,0xd6123271f980d966b00ca4fca6c2c021f05e2e73,7704.140860742504
+metalswap,MetalSwap,Derivatives,DeFi,2022-07-28,XMT,True,0x3e5d9d8a63cc8a88748f229999cf59487e90721e,7672.740380260608
+whiteheart,Whiteheart,Options,DeFi,,WHITE,True,0x5f0e628b693018f639d10e4a4f59bd4d8b2b6b44,7583.7114738673845
+pepedex,PepeDex,Gaming,Gaming,2023-06-20,PPDEX,True,0xf1f508c7c9f0d1b15a76fba564eef2d956220cf7,7568.473691056499
+h2odata,H2Odata,CDP,DeFi,2022-08-22,PSDN,True,0xa5b947687163fe88c3e6af5b17ae69896f4abccf,7557.943473501401
+rbx,RBX,Dexs,DEX,2022-12-09,RBX,True,0x8254e26e453eb5abd29b3c37ac9e8da32e5d3299,7498.814678957597
+aelin,Aelin,Charity Fundraising,Other,2022-02-22,Aelin,True,0xa9c125bf4c8bb26f299c00969532b66732b1f758,7478.643331811773
+lode-markets,Lode Markets,Liquidity Manager,DeFi,2026-05-28,LODE,True,0xadaf95906c05c5c5de12db00a38e0b02d7ffd5e9,7453.644409741632
+integral,Integral,Dexs,DEX,,ITGR,True,0xd502f487e1841fdc805130e13eae80c61186bc98,7027.000818434139
+titi-protocol,TiTi Protocol,Algo-Stables,DeFi,2023-06-24,TITI,True,0x3bdffa70f4b4e6985eed50453c7c0d4a15dcec52,7009.142695405264
+nord-finance,Nord Finance,Yield Aggregator,DeFi,2022-04-20,NORD,True,0x6e9730ecffbed43fd876a264c982e254ef05a0de,6889.150310338057
+stryke-ssov,Stryke SSOV,Options,DeFi,,DPX,True,0xeec2be5c91ae7f8a338e1e5f3b5de49d07afdc81,6502.769801759157
+aavegotchi,Aavegotchi,Gaming,Gaming,2021-10-15,GHST,True,0x3f382dbd960e3a9bbceae22651e88158d2791550,6286.520216511614
+orion-liquidity-nodes,Orion Liquidity Nodes,Dexs,DEX,2023-12-29,ORN,True,0x0258f474786ddfd37abce6df6bbb1dd5dfc4434a,6140.945918496953
+gvnr-diamond-hands,GVNR Diamond Hands,CDP,DeFi,2026-10-06,GVNR,True,0xfc60fc0145d7330e5abcfc52af7b043a1ce18e7d,6120.730869865655
+bounce-finance,Bounce Finance,Launchpad,DeFi,2023-08-10,Auction,True,0xa9b1eb5908cfc3cdf91f9b8b3a74108598009096,6067.708906196392
+qian,QIAN,Synthetics,DeFi,,KUN,True,0x65d9bc970aa9b2413027fa339f7f179b3f3f2604,5782.441391439137
+zeroliquid,ZeroLiquid,Synthetics,DeFi,2023-10-05,ZERO,True,0xb0ed33f79d89541dfdcb04a8f04bc2c6be025ecc,5334.209594658464
+strike,Strike,Lending,DeFi,,STRK,True,0x74232704659ef37c08995e386a2e26cc27a8d7b1,5269.408718669063
+arkham-exchange,Arkham Exchange,CEX,Other,2024-11-25,ARKM,True,0x6e2a43be0b1d33b726f0ca3b8de60b3482b8b050,5225.512979787252
+friendroom,FriendRoom,SoFi,Other,2023-09-07,FRIEND,True,0xbde4c4a9057595fa16d38e0bd7871ef119045a84,4463.658977788515
+unifi,UniFi,Dexs,DEX,,UNFI,True,0x441761326490cacf7af299725b6292597ee822c2,4123.833682508491
+shezmu,Shezmu,CDP,DeFi,2024-07-20,SHEZMU,True,0x5fe72ed557d8a02fff49b3b826792c765d5ce162,3936.700184877019
+stacker-ventures,Stacker Ventures,Yield,DeFi,,STACK,True,0xe0955f26515d22e347b17669993fcefcc73c3a0a,3871.967558451323
+flashstake-old,Flashstake OLD,Yield,DeFi,,FLASH,True,0x20398ad62bb2d930646d45a6d4292baa0b860c1f,3869.6329146223966
+interport-finance,Interport Finance,Cross Chain Bridge,Infrastructure,2023-04-15,ITP,True,0x2b1d36f5b61addaf7da7ebbd11b35fd8cfb0de31,3613.3771679235233
+moto.fun,moto.fun,Launchpad,DeFi,2026-10-01,MOTO,True,0xbd965230588eaa536de6aa45e8ebbc01638535e0,3325.1183642673254
+zenith,Zenith,Leveraged Farming,DeFi,2023-05-09,ZTH,True,0x00000000a82b4758df44fcb124e26a9b441e59a0,3170.364067978229
+zivoe,Zivoe,RWA,DeFi,,ZVE,True,0xe412d46a0fbd567332b7689cfffe1f8a4f19a9d2,3044.201778066208
+paladin-dullahan,Paladin Dullahan,Yield,DeFi,2023-08-07,PAL,True,0xab846fb6c81370327e784ae7cbb6d6a6af6ff4bf,2734.4471893586388
+dehive,DeHive,Indexes,DeFi,2021-12-03,DHV,True,0x62dc4817588d53a056cbbd18231d91ffccd34b2a,2698.1257544000264
+oh-finance,Oh Finance,Yield,DeFi,2021-11-22,OH,True,0x16ba8efe847ebdfef99d399902ec29397d403c30,2694.6094009924345
+sushiswap-v4,SushiSwap V4,Dexs,DEX,2026-09-17,SUSHI,True,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,2659.6088812095354
+lsdx-farm,LSDx Farm,Farm,DeFi,2023-04-03,LSD,True,0xfac77a24e52b463ba9857d6b758ba41ae20e31ff,2448.995320604654
+erasure,Erasure,Derivatives,DeFi,,NMR,True,0x1776e1f26f98b1a5df9cd347953a26dd3cb46671,2429.837670989017
+chfry-finance,CHFRY Finance,Lending,DeFi,,CHEESE,True,0x332e824e46fceeb9e59ba9491b80d3e6d42b0b59,2321.2305635547905
+mantra-dao,MANTRA DAO,Lending,DeFi,,OM,True,0x3593d125a4f7849a1b059e64f4517a86dd60c95d,2220.493419730874
+hodltree,Hodltree,Lending,DeFi,2022-04-11,HTRE,True,0xdea67845a51e24461d5fed8084e69b426af3d5db,2009.9819235418704
+behodler,Behodler,Dexs,DEX,2021-10-24,EYE,True,0x155ff1a85f440ee0a382ea949f24ce4e0b751c65,1989.528605375496
+rabbitx,RabbitX,Derivatives,DeFi,2023-04-24,RBX,True,0x3ba925fdeae6b46d0bb4d424d829982cb2f7309e,1900.72529786125
+synthetix-v1+v2,Synthetix v1+v2,Synthetics,DeFi,,SNX,True,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,1789.2176490690797
+rivus-dao,Rivus DAO,Liquid Staking,DeFi,2024-05-08,RIVUS,True,0x60e254e35dd712394b3aba7a1d19114732e143dd,1775.6477027224537
+archimedes-finance,Archimedes Finance,Leveraged Farming,DeFi,2023-02-17,ARCH,True,0x73c69d24ad28e2d43d03cbf35f79fe26ebde1011,1742.166408554975
+trustswap,TrustSwap,Token Locker,Other,,SWAP,True,0xcc4304a31d09258b0029ea7fe63d032f52e44efe,1724.915695820409
+tenet,Tenet,Yield,DeFi,2022-01-05,TEN,True,0x74159651a992952e2bf340d7628459aa4593fc05,1696.7656645452535
+relaychain,RelayChain,Bridge,Infrastructure,2022-03-01,RELAY,True,0x5d843fa9495d23de997c394296ac7b4d721e841c,1608.073371579154
+pop-town,Pop Town,Yield,DeFi,2021-11-20,POP!,True,0x7fc3ec3574d408f3b59cd88709bacb42575ebf2b,1511.8407503707713
+phission-finance,Phission Finance,Derivatives,DeFi,2022-08-30,PHI,True,0x04e60c5f1c3a9fff297a7498d6fa571f5266c233,1401.0969043748914
+perlin,Perlin,Dexs,DEX,,PERL,True,0xeca82185adce47f39c684352b0439f030f860318,1362.8983519221822
+sharpe-magnum,Sharpe Magnum,Yield,DeFi,2023-03-31,SAI,True,0x3567aa22cd3ab9aef23d7e18ee0d7cf16974d7e6,1252.2344442056074
+csigma-finance,cSigma Finance,Uncollateralized Lending,DeFi,2025-03-10,SIGMA,True,0x53162ec0adae49f21515bb8ca91534dd3872c8db,1243.9730787028363
+capitaldex,CapitalDEX,Dexs,DEX,2022-02-04,CGT,True,0xf56b164efd3cfc02ba739b719b6526a6fa1ca32a,1175.3031043200324
+unfederalreserve,unFederalReserve,Lending,DeFi,,eRSDL,True,0x5218e472cfcfe0b64a064f055b43b4cdc9efd3a6,947.8204220774286
+xy-finance,XY Finance,Cross Chain Bridge,Infrastructure,2022-07-07,XY,True,0x77777777772cf0455fb38ee0e75f38034dfa50de,890.3211339056753
+edel,Edel,Lending,DeFi,2026-03-25,EDEL,True,0xbf59dbc154421a7b37f4f2841e11f4ed2a1dee7c,886.7491314654702
+numbers-protocol,Numbers Protocol,Services,Other,2021-12-18,NUM,True,0x3496b523e5c00a4b4150d6721320cddb234c3079,839.062806686273
+protectorate-protocol,Protectorate Protocol,Yield Aggregator,DeFi,2023-07-04,PRTC,True,0xb9098d3669a78e9afe8b94a97290407400d9da31,835.3612650169019
+stonebtc,STONEBTC,Yield Aggregator,DeFi,2024-12-09,STO,True,0x1d88713b483a8e45cff0e5cd7c2e15e5fab4534d,824.4831536482017
+x2y2,X2Y2,NFT Lending,NFT,2022-02-17,X2Y2,True,0x1e4ede388cbc9f4b5c79681b7f94d36a11abebc9,810.9155866190519
+avatr,Avatr,Yield,DeFi,2023-04-23,AVART,True,0xa5d04fd00ed911ba809b4d1bc9e90f79ee5a4e47,800.3845587933965
+defi-yield-protocol,Defi Yield Protocol,Yield,DeFi,,DYP,True,0x961c8c0b1aad0c0b10a51fef6a867e3091bcef17,703.0647770577253
+notional-v3,Notional V3,Lending,DeFi,2023-11-14,NOTE,True,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5,693.1864478299409
+salty.io,Salty.IO,Dexs,DEX,2024-04-27,SALT,True,0x0110b0c3391584ba24dbf8017bf462e9f78a6d9f,596.6723127784223
+bullionfx,BullionFX,Dexs,DEX,2023-01-18,BULL,True,0xb439b8731ee047799019ef0b745a51d256b116af,513.9953035607757
+envelop,Envelop,NftFi,NFT,2024-03-18,NIFTSY,True,0x7728cd70b3dd86210e2bd321437f448231b81733,453.9029033697777
+bring.finance,Bring.Finance,Yield,DeFi,2021-12-22,BRNG,True,0x3ecb96039340630c8b82e5a7732bc88b2aeade82,445.7602415017458
+definer,DeFiner,Lending,DeFi,,FIN,True,0x054f76beed60ab6dbeb23502178c52d6c5debe40,431.05918182422886
+suterusu,Suterusu,Services,Other,2021-11-12,SUTER,True,0xaa2ce7ae64066175e0b90497ce7d9c190c315db4,385.11160834600685
+ubiquity-dao,Ubiquity DAO,Services,Other,2021-12-07,UBQ,True,0x4e38d89362f7e5db0096ce44ebd021c3962aa9a0,379.04901615955146
+redacted-protocol,Redacted Protocol,Yield,DeFi,2021-12-20,BTRFLY,True,0xc55126051b22ebb829d00368f4b12bde432de5da,375.81807552452057
+hashai,HashAI,Farm,DeFi,2024-12-10,HASHAI,True,0x292fcdd1b104de5a00250febba9bc6a5092a0076,344.3853067687418
+augmented-finance,Augmented Finance,Lending,DeFi,,AGF,True,0xb3ed706b564bba9cab64042f4e1b391be7bebce5,326.65169644014406
+opengpu,OpenGPU,Staking Pool,DeFi,2024-12-17,oGPU,True,0x067def80d66fb69c276e53b641f37ff7525162f6,320.5475777494477
+numisme,NumisMe,Yield,DeFi,2022-10-06,NUME,True,0x34769d3e122c93547836addd3eb298035d68f1c3,300.1260083606041
+monolith,Monolith,Yield Aggregator,DeFi,2023-02-03,moSOLID,True,0x848578e351d25b6ec0d486e42677891521c3d743,270.17294650006306
+cove-protocol,Cove Protocol,Yield,DeFi,2025-08-28,COVE,True,0x32fb7d6e0cbeb9433772689aa4647828cc7cbba8,262.86796986448576
+ethichub,EthicHub,RWA,DeFi,2022-09-16,ETHIX,True,0xfd09911130e6930bf87f2b0554c44f400bd80d3e,249.03093204700386
+klondike-finance,Klondike Finance,Synthetics,DeFi,2021-11-26,KLONX,True,0xbf15797bb5e47f6fb094a4abdb2cfc43f77179ef,235.4367386998072
+quantoswap,QuantoSwap,Dexs,DEX,2024-05-13,QNS,True,0x37a2f8701856a78de92dbe35df2200c355eae090,210.9444179156182
+bumper-finance,Bumper Finance,Options,DeFi,,BUMP,True,0x785c34312dfa6b74f6f1829f79ade39042222168,210.83041086591666
+yield-wars,Yield Wars,Farm,DeFi,,WAR,True,0xf4a81c18816c9b0ab98fac51b36dcb63b0e58fde,195.7217885962774
+yelay-v2,Yelay V2,Yield Aggregator,DeFi,2023-11-22,YLAY,True,0xaee5913ffd19dbca4fd1ef6f3925ed0414407d37,195.01347033061953
+notional-exponent,Notional Exponent,Leveraged Farming,DeFi,2026-01-28,NOTE,True,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5,187.75074369563612
+lenft,leNFT,NFT Marketplace,NFT,2023-07-04,LE,True,0x219a56e6056c6e72005bda1f967af5d626af4501,164.61126116688155
+degate,DeGate,Dexs,DEX,2023-12-07,DG,True,0x53c8395465a84955c95159814461466053dedede,159.33558377878262
+hope-lend,HOPE Lend,Lending,DeFi,2023-10-17,HOPE,True,0xc353bf07405304aeab75f4c2fac7e88d6a68f98e,158.33960000000002
+vega-protocol,Vega Protocol,Derivatives,DeFi,2023-05-16,VEGA,True,0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e,137.89050869359673
+supersweth-vault,SuperSweth Vault,Farm,DeFi,2023-10-25,SWELL,True,0x0a6e7ba5042b38349e437ec6db6214aec7b35676,128.44882330365357
+panther-protocol,Panther Protocol,Services,Other,2024-01-05,ZKP,True,0x909e34d3f6124c324ac83dcca84b74398a6fa173,100.35004196046127
+spiraldao,SpiralDao,Yield,DeFi,2023-05-23,SPR,True,0x85b6acaba696b9e4247175274f8263f99b4b9180,53.56807307742574
+stablz,Stablz,Yield,DeFi,2023-04-03,STABLZ,True,0xa4eb9c64ec359d093eac7b65f51ef933d6e5f7cd,49.54702140463748
+structured-lsd,Structured LSD,Yield,DeFi,2023-05-01,SLSD,True,0xb668f51f1d63452b566456053fa348c3037e2b1f,47.59963816298788
+stablecomp,Stablecomp,Yield Aggregator,DeFi,2023-12-13,SCOMP,True,0xd94a8f9caed25e63ecc90edfefaf3635ea1e182a,45.33249640423107
+elyfi,ELYFI,RWA,DeFi,2022-02-23,ELFI,True,0x4da34f8264cb33a5c9f17081b9ef5ff6091116f4,39.19863819319599
+enni,ENNI,CDP,DeFi,2026-04-19,ENNI,True,0xe364450b3f702d12b02f0290e0392f02de53b8e2,38.49533077941281
+s-finance,S Finance,Dexs,DEX,,SFG,True,0x8a6aca71a218301c7081d4e96d64292d3b275ce0,34.02554238879794
+genius,Genius,Yield,DeFi,2023-02-28,GENI,True,0x444444444444c1a66f394025ac839a535246fcc8,25.21466981534206
+elixir,Elixir,Yield,DeFi,2024-09-12,ELX,True,0x89a8c847f41c0dfa6c8b88638bacca8a0b777da7,17.86928565294703
+onyx-v2,Onyx V2,Lending,DeFi,2024-09-25,XCN,True,0xa2cd3d43c775978a96bdbf12d733d5a1ed94fb18,17.370446977270813
+xdefi,XDeFi,Dexs,DEX,,XDEX,True,0x000000000000d0151e748d25b766e77efe2a6c83,17.268855224286387
+astrofi,AstroFi,Dexs,DEX,2023-04-11,AFI,True,0x360111d897d32614619f37f151061c8d431a47f9,13.707994198845565
+zenland,Zenland,Services,Other,2026-02-20,ZEN,True,0x5e7a494312d1943aa01682059df1c0d2f3a27c32,13.489427151497097
+futureswap,FutureSwap,Derivatives,DeFi,,FST,True,0x0e192d382a36de7011f795acc4391cd302003606,13.014185063989425
+syncus,Syncus,Reserve Currency,Other,2023-12-18,SYNC,True,0xa41d2f8ee4f47d3b860a149765a7df8c3287b7f0,11.963933905936354
+flooring-protocol,Flooring Protocol,NFT Marketplace,NFT,2023-10-17,FLC,True,0x102c776ddb30c754ded4fdcc77a19230a60d4e4f,11.925791479699303
+opal-defi,Opal DeFi,Yield Aggregator,DeFi,2024-07-16,GEM,True,0x0447d3454b25935eed47f65b4bd22b9b23be326a,10.397463913205877
+international-meme-fund-v2,International Meme Fund V2,Onchain Capital Allocator,Other,,IMF,True,0x05be1d4c307c19450a6fd7ce7307ce72a3829a60,8.049268404742241
+fei-protocol,Fei Protocol,Algo-Stables,DeFi,,TRIBE,True,0xc7283b66eb1eb5fb86327f08e1b5816b0720212b,7.558453841562304
+miner-ercx,Miner ERCX,Farm,DeFi,2024-05-20,MINER,True,0x23cbb9f0de3258de03baad2bcea4fccc55233af0,7.530780190235285
+concave,Concave,Services,Other,2022-04-05,CNV,True,0x000000007a58f5f58e697e51ab0357bc9e260a04,6.109228045722316
+unilend-v2,Unilend V2,Lending,DeFi,2024-03-13,UFT,True,0x0202be363b8a4820f3f4de7faf5224ff05943ab1,3.5728572358638475
+epoch-island,Epoch Island,Farm,DeFi,2024-04-12,EPOCH,True,0x97d0cfeb4fde54b430307c9482d6f79c761fe9b6,3.07923887149302
+avalon-usda,Avalon USDa,CDP,DeFi,2024-11-01,AVL,True,0x5c8d0c48810fd37a0a824d074ee290e64f7a8fa2,2.9978666435929218
+chi-protocol,Chi Protocol,Partially Algorithmic Stablecoin,DeFi,2024-05-16,CHI,True,0x3b21418081528845a6df4e970bd2185545b712ba,1.1889268252698968
+templedao,TempleDAO,Reserve Currency,Other,2021-11-20,TEMPLE,True,0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7,0.6170377035491459
+synthetix-v3,Synthetix V3,Derivatives,DeFi,2024-04-05,SNX,True,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,0.4193181599217959
+vaultmintcurve,VaultMintCurve,Reserve Currency,Other,2026-08-07,VMINT,True,0x6981021fe4a69b14488b9f9f86d06c17297a8fbf,0.20298582713815128
+manifest,Manifest,Services,Other,2021-11-29,MNFST,True,0x21585bbcd5bdc3f5737620cf0db2e51978cf60ac,0.17551547040052293
+portal-to-bitcoin,Portal To Bitcoin,Bridge,Infrastructure,2025-11-25,PTB,True,0x30a25cc9c9eade4d4d9e9349be6e68c3411367d3,0.12581034058465168
+spherium,Spherium,Cross Chain Bridge,Infrastructure,2022-10-27,SPHRI,True,0x8a0cdfab62ed35b836dc0633482798421c81b3ec,0.01592934207626475
+mstable-yield,mStable Yield,Yield,DeFi,2022-12-10,DHT,True,0xca1207647ff814039530d7d35df0e1dd2e91fa84,0.011430120158768422
+chaintools,ChainTools,Yield,DeFi,2023-07-13,CTLS,True,0xe155f64b9ad8c81318c313196a60c72e72fd2cd1,0.007130573671686544
+fortube,ForTube,Lending,DeFi,,FOR,True,0x1fcdce58959f536621d76f5b7ffb955baa5a672f,0.0015596969253291967
+everclear,Everclear,Cross Chain Bridge,Infrastructure,2025-12-10,CLEAR,True,0x58b9cb810a68a7f3e1e4f8cb45d1b9b3c79705e8,8.958160158399481e-05
+yearn-ether,Yearn Ether,Indexes,DeFi,2023-12-29,YFI,True,0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e,2.5980112729737968e-11
+ora-protocol,Ora Protocol,Farm,DeFi,2024-11-15,OLM,True,0xe5018913f2fdf33971864804ddb5fca25c539032,2.513637974181651e-15
+renvm,RenVM,Bridge,Infrastructure,,REN,True,0x408e41876cccdc0f92210600ef50372656052a38,0.0
+dracula,Dracula,Yield Aggregator,DeFi,,DRC,True,0xb78b3320493a4efaa1028130c5ba26f0b6085ef8,0.0
+dev-protocol,Dev Protocol,Yield,DeFi,,DEV,True,0x5caf454ba92e6f2c929df14667ee360ed9fd5b26,0.0
+synlev,SynLev,Synthetics,DeFi,,SYN,True,0x1695936d6a953df699c38ca21c2140d497c08bd9,0.0
+bt.finance,BT.Finance,Yield Aggregator,DeFi,,BT,True,0x76c5449f4950f6338a393f53cda8b53b0cd3ca3a,0.0
+n3rd-finance,N3RD Finance,Yield,DeFi,,N3RDz,True,0x32c868f6318d6334b2250f323d914bc2239e4eee,0.0
+defidollar-dao,DefiDollar DAO,Algo-Stables,DeFi,,DFD,True,0x20c36f062a31865bed8a5b1e512d9a1a20aa333a,0.0
+strudel-finance,Strudel Finance,Bridge,Infrastructure,,TRDL,True,0x297d33e17e61c2ddd812389c2105193f8348188a,0.0
+flamincome,Flamincome,Yield Aggregator,DeFi,,FLAG,True,0x57dd84042ec9507963016596a34edad42f7e4cce,0.0
+sharedstake,SharedStake,Liquid Staking,DeFi,,SGT,True,0x84810bcf08744d5862b8181f12d17bfd57d3b078,0.0
+stakehound,StakeHound,Liquid Staking,DeFi,,-,False,0x160b1e5aabfd70b2fc40af815014925d71ceed7e,0.0
+bondappetit,BondAppetit,Lending,DeFi,,BAG,True,0x28a06c02287e657ec3f8e151a13c36a1d43814b0,0.0
+ruler,Ruler,Lending,DeFi,,RULER,True,0x2aeccb42482cc64e087b6d2e5da39f5a7a7001f8,0.0
+o3-swap,O3 Swap,Cross Chain Bridge,Infrastructure,,O3,True,0xee9801669c6138e84bd50deb500827b776777d28,0.0
+olympus-dao,Olympus DAO,Reserve Currency,Other,,OHM,True,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0.0
+armor,Armor,Insurance,DeFi,,ARMOR,True,0x1337def16f9b486faed0293eb623dc8395dfe46a,0.0
+cardstarter,Cardstarter,Launchpad,DeFi,,CARDS,True,0x3d6f0dea3ac3c607b3998e6ce14b6350721752d9,0.0
+witswap,WitSwap,Oracle,Infrastructure,,eWIT,True,0x56ee175fe37cd461486ce3c3166e0cafccd9843f,0.0
+illuvium,Illuvium,Gaming,Gaming,,ILV,True,0x767fe9edc9e0df98e07454847909b5e959d7ca0e,0.0
+asgard-finance,Asgard Finance,Yield,DeFi,,ASG,True,0x0dc5189ec8cde5732a01f0f592e927b304370551,0.0
+ramp,Ramp,CDP,DeFi,,RAMP,True,0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f,0.0
+timewarp,Timewarp,Yield,DeFi,,TIME,True,0x485d17a6f1b8780392d53d64751824253011a260,0.0
+sunrise-gaming,Sunrise Gaming,Luck Games,Gaming,,SUNC,True,0x692accdd8b86692427e0aa4752ae917df01cc56f,0.0
+popsicle-finance,Popsicle Finance,Liquidity Manager,DeFi,,ICE,True,0xf16e81dce15b08f326220742020379b855b87df9,0.0
+shapeshift,ShapeShift,Dexs,DEX,,FOX,True,0xc770eefad204b5180df6a14ee197d99d808ee52d,0.0
+beanstalk,Beanstalk,Algo-Stables,DeFi,,BEAN,True,0xbea0000029ad1c77d3d5d23ba2d8893db9d1efab,0.0
+sync-network,SYNC Network,NFT Lending,NFT,,SYNC,True,0xb6ff96b8a8d214544ca0dbc9b33f7ad6503efd32,0.0
+fodl-finance,FODL Finance,Leveraged Farming,DeFi,2021-10-15,FODL,True,0x4c2e59d098df7b6cbae0848d66de2f8a4889b9c3,0.0
+fegex,Fegex,Services,Other,2021-10-15,FEG,True,0x389999216860ab8e0175387a0c90e5c52522c945,0.0
+oraichain,OraiChain,Yield,DeFi,2021-10-18,ORAI,True,0x4c11249814f11b9346808179cf06e71ac328c1b5,0.0
+squiddao,SquidDao,Reserve Currency,Other,2021-11-07,SQUID,True,0x21ad647b8f4fe333212e735bfc1f36b4941e6ad2,0.0
+doki-doki-finance,Doki Doki Finance,Yield,DeFi,2021-11-09,DOKI,True,0x9ceb84f92a0561fa3cc4132ab9c0b76a59787544,0.0
+component,Component,Dexs,DEX,2021-11-14,CMP,True,0x9f20ed5f919dc1c1695042542c13adcfc100dcab,0.0
+capital-dao,Capital DAO,Services,Other,2021-11-17,CDS,True,0x3c48ca59bf2699e51d4974d4b6d284ae52076e5e,0.0
+nest-protocol-staking,Nest Protocol Staking,Oracle,Infrastructure,2021-11-17,NEST,True,0x04abeda201850ac0124161f037efd70c74ddc74c,0.0
+axedao,AxeDAO,Reserve Currency,Other,2021-11-17,AXE,True,0x30ac8317dfb0ab4263cd8db1c4f10749911b126c,0.0
+saffron-staking,Saffron Staking,Yield,DeFi,2021-11-20,SFI,True,0xb753428af26e81097e7fd17f40c88aaa3e04902c,0.0
+velora,Velora,DEX Aggregator,DEX,2021-11-23,VLR,True,0x4e107a0000db66f0e9fd2039288bf811dd1f9c74,0.0
+blackpool,BlackPool,Indexes,DeFi,2021-11-23,BPT,True,0x0ec9f76202a7061eb9b3a7d6b59d36215a7e37da,0.0
+dao-maker-vesting,DAO Maker Vesting,Services,Other,2021-11-27,DAO,True,0x0f51bb10119727a7e5ea3538074fb341f56b09ad,0.0
+hex,Hex,Yield,DeFi,2021-11-29,HEX,True,0x2b591e99afe9f32eaa6214f7b7629768c40eeb39,0.0
+alpaca-city,Alpaca City,Yield,DeFi,2021-12-02,ALPA,True,0x7ca4408137eb639570f8e647d9bd7b7e8717514a,0.0
+fantohm,Fantohm,Reserve Currency,Other,2021-12-02,FHM,True,0xfa1fbb8ef55a4855e5688c0ee13ac3f202486286,0.0
+cerberusdao,CerberusDAO,Reserve Currency,Other,2021-12-03,3DOG,True,0x8a14897ea5f668f36671678593fae44ae23b39fb,0.0
+zai-finance,Zai Finance,Algo-Stables,DeFi,2021-12-03,ZAI,True,0x9d1233cc46795e94029fda81aaadc1455d510f15,0.0
+thorstarter,Thorstarter,Launchpad,DeFi,2021-12-10,XRUNE,True,0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c,0.0
+base-protocol,Base Protocol,Indexes,DeFi,2021-12-18,BASE,True,0x07150e919b4de5fd6a63de1f9384828396f25fdc,0.0
+bitpif,BITPIF,Dexs,DEX,2021-12-18,BPF,True,0x5197fbe1a86679ff1360e27862bf88b0c5119bd8,0.0
+tempus-finance,Tempus Finance,Services,Other,2021-12-18,TEMP,True,0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9,0.0
+merit-circle,Merit Circle,Launchpad,DeFi,2021-12-18,MC,True,0x949d48eca67b17269629c7194f4b727d4ef9e5d6,0.0
+leaguedao,LeagueDAO,Reserve Currency,Other,2021-12-19,LEAG,True,0x7b39917f9562c8bc83c7a6c2950ff571375d505d,0.0
+the-sandbox,The Sandbox,Gaming,Gaming,2021-12-21,SAND,True,0x3845badade8e6dff049820680d1f14bd3903a5d0,0.0
+brokoli-network,Brokoli Network,Dexs,DEX,2021-12-21,BRKL,True,0x4674a4f24c5f63d53f22490fb3a08eaaad739ff8,0.0
+polkastarter,Polkastarter,Launchpad,DeFi,2021-12-22,POLS,True,0x83e6f1e41cdd28eaceb20cb649155049fac3d5aa,0.0
+umbria-network,Umbria Network,Cross Chain Bridge,Infrastructure,2021-12-23,UMBR,True,0xa4bbe66f151b22b167127c770016b15ff97dd35c,0.0
+iq,IQ,Services,Other,2021-12-23,IQ,True,0x579cea1889991f68acc35ff5c3dd0621ff29b0c9,0.0
+one-cash,One Cash,Yield,DeFi,2021-12-26,ONC,True,0xd90e69f67203ebe02c917b5128629e77b4cd92dc,0.0
+stand-cash,Stand Cash,Yield,DeFi,2021-12-26,SAC,True,0xacd8f2523a4613eee78904354187c81bb05ae2b8,0.0
+umbrella-network,Umbrella Network,Oracle,Infrastructure,2021-12-30,UMB,True,0x6fc13eace26590b80cccab1ba5d51890577d83b2,0.0
+marginswap,MarginSwap,Dexs,DEX,2022-01-03,MFI,True,0xaa4e3edb11afa93c41db59842b29de64b72e355b,0.0
+instrumental-finance,Instrumental Finance,Yield,DeFi,2022-01-05,STRM,True,0x0edf9bc41bbc1354c70e2107f80c42cae7fbbca8,0.0
+ferrum,Ferrum,Services,Other,2022-01-05,FRM,True,0xe5caef4af8780e59df925470b050fb23c43ca68c,0.0
+voyager,Voyager,CEX,Other,2022-01-07,VGX,True,0x3c4b6e6e1ea3d4863700d7f76b36b7f3d3f13e3d,0.0
+ovr,OVR,Services,Other,2022-01-08,OVR,True,0x21bfbda47a0b4b5b1248c767ee49f7caa9b23697,0.0
+looksrare,LooksRare,NFT Marketplace,NFT,2022-01-11,LOOKS,True,0xf4d2888d29d722226fafa5d9b24f9164c092421e,0.0
+proof-of-humanity,Proof of Humanity,Services,Other,2022-01-14,UBI,True,0xdd1ad9a21ce722c151a836373babe42c868ce9a4,0.0
+delta-financial,Delta Financial,Options,DeFi,2022-01-14,DELTA,True,0x9ea3b5b4ec044b70375236a281986106457b20ef,0.0
+smartpad,SmartPad,Launchpad,DeFi,2022-01-14,PAD,True,0x5067006f830224960fb419d7f25a3a53e9919bb0,0.0
+x,X,Services,Other,2022-01-14,X,True,0x7f3141c4d6b047fb930991b450f1ed996a51cb26,0.0
+fees.wtf,fees.wtf,Services,Other,2022-01-14,WTF,True,0xa68dd8cb83097765263adad881af6eed479c4a33,0.0
+the-open-dao-sos,The Open DAO SOS,Services,Other,2022-01-14,SOS,True,0x3b484b82567a09e2588a13d54d032153f0c0aee0,0.0
+tornado-finance,Tornado Finance,Yield,DeFi,2022-01-17,TCORE,True,0x7a3d5d49d64e57dbd6fbb21df7202bd3ee7a2253,0.0
+bloxmove,BloXmove,Services,Other,2022-01-21,BLXM,True,0x38d9eb07a7b8df7d86f440a4a5c4a4c1a27e1a08,0.0
+unizen,Unizen,DEX Aggregator,DEX,2022-01-29,ZCX,True,0xc52c326331e9ce41f04484d3b5e5648158028804,0.0
+dogs-of-elon,Dogs of Elon,Farm,DeFi,2022-02-03,DOE,True,0xf8e9f10c22840b613cda05a0c5fdb59a4d6cd7ef,0.0
+qao,QAO,Indexes,DeFi,2022-02-06,QAO,True,0x3402e15b3ea0f1aec2679c4be4c6d051cef93953,0.0
+bright-union,Bright Union,Insurance,DeFi,2022-02-09,BRIGHT,True,0xbeab712832112bd7664226db7cd025b153d3af55,0.0
+deus-finance,DEUS Finance,CDP,DeFi,2022-02-10,DEUS,True,0xde5ed76e7c05ec5e4572cfc88d1acea165109e44,0.0
+parasset,Parasset,CDP,DeFi,2022-02-10,ASET,True,0x139cec55d1ec47493dfa25ca77c9208aba4d3c68,0.0
+wrapped-ilcoin,Wrapped ILCOIN,Yield,DeFi,2022-02-25,WILC,True,0xc98a910ede52e7d5308525845f19e17470dbccf7,0.0
+floor-dao,Floor Dao,Reserve Currency,Other,2022-03-04,FLOOR,True,0xf59257e961883636290411c11ec5ae622d19455e,0.0
+metavault-dao,Metavault DAO,Services,Other,2022-03-09,MVD,True,0x788b6d2b37aa51d916f2837ae25b05f0e61339d1,0.0
+kleros,Kleros,Services,Other,2022-03-16,PNK,True,0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d,0.0
+axl-inu,Axl Inu,Launchpad,DeFi,2022-03-28,AXL,True,0x25b24b3c47918b7962b3e49c4f468367f73cc0e0,0.0
+ambire-wallet,Ambire Wallet,Wallets,Infrastructure,2022-04-07,WALLET,True,0x88800092ff476844f74dc2fc427974bbee2794ae,0.0
+epns,EPNS,Services,Other,2022-04-11,PUSH,True,0xf418588522d5dd018b425e472991e52ebbeeeeee,0.0
+yup,Yup,Services,Other,2022-04-28,YUP,True,0x69bbc3f8787d573f1bbdd0a5f40c7ba0aee9bcc9,0.0
+candle,Candle,Dexs,DEX,2022-05-02,CNDL,True,0xbc138bd20c98186cc0342c8e380953af0cb48ba8,0.0
+0x-nodes,0x NODES,Yield Aggregator,DeFi,2022-05-02,BIOS,True,0xaaca86b876ca011844b5798eca7a67591a9743c8,0.0
+jelly,Jelly,Yield,DeFi,2022-05-18,JELLY,True,0xf5f06ffa53ad7f5914f493f16e57b56c8dd2ea80,0.0
+axia-protocol,Axia Protocol,Indexes,DeFi,2022-06-07,AXIAv3,True,0x793786e2dd4cc492ed366a94b88a3ff9ba5e7546,0.0
+zeroswap,ZeroSwap,Dexs,DEX,2022-06-18,ZEE,True,0x2edf094db69d6dcd487f1b3db9febe2eec0dd4c5,0.0
+sushi-kashi,Sushi Kashi,Lending,DeFi,2022-06-18,SUSHI,True,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,0.0
+sideshift,SideShift,Cross Chain Bridge,Infrastructure,2022-07-13,XAI,True,0x35e78b3982e87ecfd5b3f3265b601c046cdbe232,0.0
+pony-finance,Pony Finance,Indexes,DeFi,2022-07-20,PONY,True,0x0d97fee619d955509e54b046c9992b6e9f5b0630,0.0
+homecoin,HomeCoin,CDP,DeFi,2022-07-26,HOME,True,0xb8919522331c59f5c16bdfaa6a121a6e03a91f62,0.0
+civfund,CivFund,Yield,DeFi,2022-08-03,CIV,True,0x37fe0f067fa808ffbdd12891c0858532cfe7361d,0.0
+dogeswap,Dogeswap,Farm,DeFi,2022-08-16,DOGES,True,0xb4fbed161bebcb37afb1cb4a6f7ca18b977ccb25,0.0
+xcarnival,XCarnival,NFT Lending,NFT,2022-08-17,XCV,True,0x493cbbd4a5da462e3dbc3e5c8e2a1e37d1d03cac,0.0
+sudo-inu,Sudo Inu,Farm,DeFi,2022-08-23,SNACK,True,0x93b743fb12a2677adb13093f8ea8464a436da008,0.0
+giveth,Giveth,Charity Fundraising,Other,2022-09-08,GIV,True,0x900db999074d9277c5da2a43f252d74366230da0,0.0
+templedao-trade,TempleDAO Trade,Dexs,DEX,2022-10-12,TEMPLE,True,0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7,0.0
+bepro-network,Bepro Network,Services,Other,2022-10-20,BEPRO,True,0xcf3c8be2e2c42331da80ef210e9b1b307c03d36a,0.0
+goober,Goober,Yield,DeFi,2022-11-22,GBR,True,0x2275d4937b6bfd3c75823744d3efbf6c3a8de473,0.0
+neptune-mutual,Neptune Mutual,Insurance,DeFi,2022-12-01,NPM,True,0x57f12fe6a4e5fe819eec699fadf9db2d06606bb4,0.0
+nestfi,NestFi,Derivatives,DeFi,2023-01-04,NEST,True,0xcd6926193308d3b371fdd6a6219067e550000000,0.0
+y2b-finance,Y2B Finance,Derivatives,DeFi,2023-01-09,Y2B,True,0xf9c12b27ce5058ab98ce11bd53900f84e18c0650,0.0
+changex,Changex,Yield,DeFi,2023-01-16,CHANGE,True,0x7051faed0775f664a0286af4f75ef5ed74e02754,0.0
+vidya,Vidya,Gaming,Gaming,2023-01-19,VIDYA,True,0x3d3d35bb9bec23b06ca00fe472b50e7a4c692c30,0.0
+meme-dollar,Meme Dollar,Algo-Stables,DeFi,2023-01-29,PINA,True,0x02814f435dd04e254be7ae69f61fca19881a780d,0.0
+citadao,CitaDAO,RWA,DeFi,2023-01-31,KNIGHT,True,0x3541a5c1b04adaba0b83f161747815cd7b1516bc,0.0
+perion,Perion,Gaming,Gaming,2023-02-22,PERC,True,0x60be1e1fe41c1370adaf5d8e66f07cf1c2df2268,0.0
+arc-swap,Arc Swap,Services,Other,2023-03-18,ARC,True,0xc82e3db60a52cf7529253b4ec688f631aad9e7c2,0.0
+get-protocol,GET Protocol,Services,Other,,GET,True,0x8a854288a5976036a725879164ca3e91d30c6a1b,0.0
+dypius,Dypius,Yield,DeFi,2023-04-12,DYP,True,0x39b46b212bdf15b42b166779b9d1787a68b9d0c3,0.0
+cortexdao,CortexDAO,Indexes,DeFi,2023-04-14,CXD,True,0x5a56da75c50aa2733f5fa9a2442aaefcbc60b2e6,0.0
+kei-finance,Kei Finance,Yield,DeFi,2023-05-04,KEI,True,0xf75c7a59bcd9bd207c4ab1beb0b32eed3b6392f3,0.0
+merkl,Merkl,Yield,DeFi,2023-05-15,-,False,0x31429d1856ad1377a8a0079410b297e1a9e214c2,0.0
+tai.money,tai.money,CDP,DeFi,2023-05-29,TAI,True,0xf915110898d9a455ad2da51bf49520b41655ccea,0.0
+houdini-swap,Houdini Swap,DEX Aggregator,DEX,2023-05-30,LOCK,True,0x922d8563631b03c2c4cf817f4d18f6883aba0109,0.0
+paladin-warlord,Paladin Warlord,Indexes,DeFi,2023-06-05,PAL,True,0xab846fb6c81370327e784ae7cbb6d6a6af6ff4bf,0.0
+superrare,SuperRare,NFT Marketplace,NFT,2023-10-17,RARE,True,0xba5bde662c17e2adff1075610382b9b691296350,0.0
+arpa-staking,ARPA Staking,Staking Pool,DeFi,2023-07-04,ARPA,True,0xba50933c268f567bdc86e1ac131be072c6b0b71a,0.0
+safe,Safe,Services,Other,2023-08-01,SAFE,True,0x5afe3855358e112b5647b952709e6165e1c1eeee,0.0
+meowl,Meowl,Services,Other,2023-08-20,MEOWL,True,0x1f1f26c966f483997728bed0f9814938b2b5e294,0.0
+stealthpad,StealthPad,Launchpad,DeFi,2023-09-05,STEALTH,True,0xb18f98822c22492bd6b77d19cae9367f3d60fcbf,0.0
+tholgar-yield,Tholgar Yield,Yield,DeFi,2023-09-23,thWAR,True,0x2fc1e74bc8a6d15fe768c10c2ede7d6d95ec27e9,0.0
+escrow,ESCROW,Services,Other,2023-10-06,ESCROW,True,0x75ab8164fcfc7224266d6397c298a69427af8835,0.0
+tokenfi,TokenFi,Farm,DeFi,2023-10-28,TOKEN,True,0x4507cef57c46789ef8d1a19ea45f4216bae2b528,0.0
+paal-ai,PAAL AI,Telegram Bot,Other,,PAAL,True,0x14fee680690900ba0cccfc76ad70fd1b95d10e16,0.0
+chainlink-staking,Chainlink Staking,Services,Other,2023-12-11,LINK,True,0x514910771af9ca656af840dff83e8264ecf986ca,0.0
+vault-tech,Vault Tech,Services,Other,2023-12-13,$VAULT,True,0x7f9b09f4717072cf4dc18b95d1b09e2b30c76790,0.0
+love.io,Love.io,SoFi,Other,2023-12-15,LOVE,True,0xb55ee890426341fe45ee6dc788d2d93d25b59063,0.0
+gracy-staking,Gracy Staking,Staking Pool,DeFi,2023-12-21,GRACY,True,0x7c95e7ad2b349dc2f82d0f1117a44b561fa2699a,0.0
+bank-ai,Bank AI,Services,Other,2024-03-23,BANK,True,0xe18ab3568fa19e0ed38bc1d974eddd501e61e12d,0.0
+ispolink,Ispolink,Gaming,Gaming,2024-01-30,ISP,True,0xc8807f0f5ba3fa45ffbdc66928d71c5289249014,0.0
+vector-reserve,Vector Reserve,Indexes,DeFi,2024-02-01,VEC,True,0x1bb9b64927e0c5e207c9db4093b3738eef5d8447,0.0
+0xscans,0xScans,Developer Tools,Infrastructure,2024-02-19,SCAN,True,0x10703ca5e253306e2ababd68e963198be8887c81,0.0
+blackrockfund,BlackrockFund,Reserve Currency,Other,2024-02-22,BTC,True,0xbd6323a83b613f668687014e8a5852079494fb68,0.0
+pond0x,Pond0x,DEX Aggregator,DEX,2024-03-01,PNDC,True,0x423f4e6138e475d85cf7ea071ac92097ed631eea,0.0
+mvl-staking,MVL Staking,Yield,DeFi,2024-03-15,MVL,True,0xa849eaae994fb86afa73382e9bd88c2b6b18dc71,0.0
+akropolis,Akropolis,Yield,DeFi,2024-03-25,AKRO,True,0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7,0.0
+meeds-finance,Meeds Finance,Farm,DeFi,,MEED,True,0x8503a7b00b4b52692cc6c14e5b96f142e30547b7,0.0
+zero1-labs,Zero1 Labs,Developer Tools,Infrastructure,2024-04-10,DEAI,True,0x1495bc9e44af1f8bcb62278d2bec4540cf0c05ea,0.0
+neo-tokyo,Neo Tokyo,Gaming,Gaming,2024-04-10,BYTE,True,0xa19f5264f7d7be11c451c093d8f92592820bea86,0.0
+nxd-protocol,NXD Protocol,Farm,DeFi,2024-04-30,NXD,True,0x70536d44820fe3ddd4a2e3eedbc937b8b9d566c7,0.0
+tg-casino,TG Casino,Luck Games,Gaming,2024-05-06,TGC,True,0x25b4f5d4c314bcd5d7962734936c957b947cb7cf,0.0
+sensay,Sensay,Farm,DeFi,2024-05-30,SNSY,True,0x82a605d6d9114f4ad6d5ee461027477eeed31e34,0.0
+open-ticketing-ecosystem,OPEN Ticketing Ecosystem,Farm,DeFi,2024-07-26,OPN,True,0xc28eb2250d1ae32c7e74cfb6d6b86afc9beb6509,0.0
+maha.xyz,MAHA.xyz,CDP,DeFi,2024-08-02,MAHA,True,0x745407c86df8db893011912d3ab28e68b62e49b0,0.0
+the-graph,The Graph,Developer Tools,Infrastructure,,GRT,True,0xc944e90c64b2c07662a292be6244bdf05cda44a7,0.0
+genesis-dao,Genesis DAO,Farm,DeFi,2024-08-20,GEN,True,0x99999999999997fceb5549c58ab66df52385ca4d,0.0
+zoth-ztln,Zoth ZTLN,RWA,DeFi,2024-09-13,ZTLN,True,0x917991d52aa2fc1b5612a6aa5e4e81d580f97532,0.0
+k9-finance-dao,K9 Finance DAO,Liquid Staking,DeFi,2024-09-23,KNINE,True,0x91fbb2503ac69702061f1ac6885759fc853e6eae,0.0
+stables-labs-usdx,Stables Labs USDX,Basis Trading,Other,2024-10-11,USDX,True,0xf3527ef8de265eaa3716fb312c12847bfba66cef,0.0
+neuralai,NeuralAI,Farm,DeFi,2024-10-29,NEURAL,True,0x32b053f2cba79f80ada5078cb6b305da92bde6e1,0.0
+mon-protocol,MON Protocol,Gaming,Gaming,2024-11-06,MON,True,0xc555d625828c4527d477e595ff1dd5801b4a600e,0.0
+reformdao,ReformDAO,Farm,DeFi,2024-11-08,RFRM,True,0xea3eed8616877f5d3c4aebf5a799f2e8d6de9a5e,0.0
+ocean-point,Ocean Point,Farm,DeFi,2024-11-11,BST,True,0x509a38b7a1cc0dcd83aa9d06214663d9ec7c7f4a,0.0
+based-ai,based AI,Farm,DeFi,2024-11-14,BASEDAI,True,0x44971abf0251958492fee97da3e5c5ada88b9185,0.0
+linqai,LinqAI,Farm,DeFi,2024-11-25,LNQ,True,0xd4f4d0a10bcae123bb6655e8fe93a30d01eebd04,0.0
+devve,DevvE,Launchpad,DeFi,2024-12-18,DEVVE,True,0x8248270620aa532e4d64316017be5e873e37cc09,0.0
+zeebu,Zeebu,Farm,DeFi,2024-12-20,ZBU,True,0xe77f6acd24185e149e329c1c0f479201b9ec2f4b,0.0
+orbs,Orbs,Farm,DeFi,2024-12-26,ORBS,True,0xff56cc6b1e6ded347aa0b7676c85ab0b3d08b0fa,0.0
+aethir,Aethir,Developer Tools,Infrastructure,2025-10-28,ATH,True,0xbe0ed4138121ecfc5c0e56b40517da27e6c5226b,0.0
+botto,Botto,AI Agents,Other,2025-01-13,BOTTO,True,0x9dfad1b7102d46b1b197b90095b5c4e9f5845bba,0.0
+5ire-dapp-staking,5ire Dapp Staking,Yield,DeFi,2025-01-21,5IRE,True,0x3bd7d4f524d09f4e331577247a048d56e4b67a7f,0.0
+heroes-of-mavia,Heroes of Mavia,Gaming,Gaming,2025-02-26,MAVIA,True,0x24fcfc492c1393274b6bcd568ac9e225bec93584,0.0
+maple-rwa,Maple RWA,RWA,DeFi,2025-03-03,SYRUP,True,0x643c4e15d7d62ad0abec4a9bd4b001aa3ef52d66,0.0
+yelay-v3,Yelay V3,Yield Aggregator,DeFi,2025-05-16,YLAY,True,0xaee5913ffd19dbca4fd1ef6f3925ed0414407d37,0.0
+euler-dao,Euler DAO,Risk Curators,Other,2025-05-20,EUL,True,0xd9fcd98c322942075a5c3860693e9f4f03aae07b,0.0
+redstone-oracles,RedStone Oracles,Oracle,Infrastructure,2025-08-25,RED,True,0xc43c6bfeda065fe2c4c11765bf838789bd0bb5de,0.0
+thorswap,THORSwap,DEX Aggregator,DEX,2025-11-03,THOR,True,0xa5f2211b9b8170f694421f2046281775e8468044,0.0
+offshore-cash,Offshore Cash,Privacy,Infrastructure,2026-02-16,OFF,True,0x1d0a521b57850a94abcd78ad4180764285225842,0.0
+tokamak-network-staking,Tokamak Network Staking,Staking Pool,DeFi,2026-06-09,TON,True,0x2be5e8c109e2197d077d13a82daead6a9b3433c5,0.0
+paperhands,PaperHands,Farm,DeFi,2026-07-21,PHANDS,True,0x11157da1fc6dcfd58b50ed79082183b2c6176245,0.0
+pupcup-hammer,PupCup Hammer,Farm,DeFi,2026-08-11,PUPCUP,True,0x884649f1fe3bf3ae0bd720eaf660cb561dce39ef,0.0
+motoswap-farm,Motoswap Farm,Farm,DeFi,2026-09-16,MOTO,True,0xbd965230588eaa536de6aa45e8ebbc01638535e0,0.0
+unicrypt-vesting-v2,Unicrypt Vesting V2,Token Locker,Other,2026-09-30,UNCX,True,0xadb2437e6f65682b85f814fbc12fec0508a7b1d0,0.0
+zipcoin,Zipcoin,Privacy,Infrastructure,2026-10-05,ZC,True,0x4e67db19044549ff420860834c91b45bad298722,0.0
+numerai-staking,Numerai Staking,Staking Pool,DeFi,2026-10-09,NMR,True,0x1776e1f26f98b1a5df9cd347953a26dd3cb46671,0.0

@@ -1,0 +1,268 @@
+2026-10-12 15:25:15 INFO    ======================================================================
+2026-10-12 15:25:15 INFO    run started: build_dapp_dataset_s3.py --start 2018-01-01 --end 2026-09-30
+2026-10-12 15:25:15 INFO      start=2018-01-01 end=2026-09-30 top_n=None seed_only=False max_per_deployer=3000 threads=8
+2026-10-12 15:25:15 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data\run.log
+2026-10-12 15:25:15 INFO    DuckDB 1.5.6 connected to dapp_data\dapp.duckdb (0.0 MB)
+2026-10-12 15:25:15 INFO    [1/4] Using cached dapp_data\protocols.csv (884 DApps)
+2026-10-12 15:25:15 INFO    [2/4] Mapping DApps to contracts ...
+2026-10-12 15:25:16 DEBUG   columns of 'contracts': ['address', 'block_hash', 'block_number', 'block_timestamp', 'bytecode', 'date', 'last_modified']
+2026-10-12 15:25:16 INFO      looking up deployment dates of 744 seed contracts (scans the full 'contracts' table, can take a while) ...
+2026-10-12 15:35:32 INFO      found deployment dates for 739/744 seeds in 10m16s
+2026-10-12 15:35:33 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-12 15:35:33 INFO      scanning contract-creation transactions: 135 months, 0 already cached, 135 to go
+2026-10-12 15:35:34 INFO        [1/135] 2015-07: no data on S3 (skipped)
+2026-10-12 15:35:37 INFO        [2/135] 2015-08:       739 contracts in 0m03s | db 0.1 MB
+2026-10-12 15:35:42 INFO        [3/135] 2015-09:     1,057 contracts in 0m04s | db 0.2 MB
+2026-10-12 15:35:46 INFO        [4/135] 2015-10:     1,486 contracts in 0m04s | db 0.3 MB
+2026-10-12 15:35:50 INFO        [5/135] 2015-11:     1,211 contracts in 0m04s | db 0.4 MB
+2026-10-12 15:35:55 INFO        [6/135] 2015-12:     1,521 contracts in 0m04s | db 0.6 MB
+2026-10-12 15:36:00 INFO        [7/135] 2016-01:     1,724 contracts in 0m04s | db 0.7 MB
+2026-10-12 15:36:05 INFO        [8/135] 2016-02:     3,923 contracts in 0m04s | db 1.1 MB
+2026-10-12 15:36:10 INFO        [9/135] 2016-03:     4,466 contracts in 0m05s | db 1.5 MB
+2026-10-12 15:36:17 INFO        [10/135] 2016-04:     3,521 contracts in 0m06s | db 1.8 MB
+2026-10-12 15:36:25 INFO        [11/135] 2016-05:    10,514 contracts in 0m07s | db 2.7 MB
+2026-10-12 15:36:33 INFO        [12/135] 2016-06:    15,204 contracts in 0m07s | db 4.1 MB
+2026-10-12 15:36:40 INFO        [13/135] 2016-07:     8,583 contracts in 0m07s | db 4.9 MB
+2026-10-12 15:36:48 INFO        [14/135] 2016-08:     4,163 contracts in 0m07s | db 5.2 MB
+2026-10-12 15:36:56 INFO        [15/135] 2016-09:     4,322 contracts in 0m08s | db 5.6 MB
+2026-10-12 15:37:04 INFO        [16/135] 2016-10:    31,501 contracts in 0m08s | db 8.5 MB
+2026-10-12 15:37:12 INFO        [17/135] 2016-11:     4,853 contracts in 0m07s | db 8.9 MB
+2026-10-12 15:37:19 INFO        [18/135] 2016-12:     5,614 contracts in 0m07s | db 9.4 MB
+2026-10-12 15:37:26 INFO        [19/135] 2017-01:     7,683 contracts in 0m07s | db 10.1 MB
+2026-10-12 15:37:35 INFO        [20/135] 2017-02:     6,750 contracts in 0m08s | db 10.7 MB
+2026-10-12 15:37:46 INFO        [21/135] 2017-03:    17,329 contracts in 0m10s | db 12.3 MB
+2026-10-12 15:38:01 INFO        [22/135] 2017-04:    24,794 contracts in 0m14s | db 14.5 MB
+2026-10-12 15:38:19 INFO        [23/135] 2017-05:    69,017 contracts in 0m18s | db 7.4 MB
+2026-10-12 15:38:52 INFO        [24/135] 2017-06:   141,257 contracts in 0m32s | db 11.8 MB
+2026-10-12 15:39:20 INFO        [25/135] 2017-07:   119,474 contracts in 0m28s | db 25.7 MB
+2026-10-12 15:39:56 INFO        [26/135] 2017-08:    90,345 contracts in 0m35s | db 33.8 MB
+2026-10-12 15:40:32 INFO        [27/135] 2017-09:    53,097 contracts in 0m36s | db 19.7 MB
+2026-10-12 15:41:10 INFO        [28/135] 2017-10:    53,607 contracts in 0m38s | db 24.5 MB
+2026-10-12 15:41:56 INFO        [29/135] 2017-11:    91,540 contracts in 0m45s | db 32.7 MB
+2026-10-12 15:43:22 INFO        [30/135] 2017-12:   225,363 contracts in 1m26s | db 36.9 MB
+2026-10-12 15:45:00 INFO        [31/135] 2018-01:   206,696 contracts in 1m38s | db 42.4 MB
+2026-10-12 15:46:17 INFO        [32/135] 2018-02:   213,422 contracts in 1m16s | db 48.2 MB
+2026-10-12 15:47:20 INFO        [33/135] 2018-03:   112,943 contracts in 1m03s | db 46.9 MB
+2026-10-12 15:48:21 INFO        [34/135] 2018-04:    62,981 contracts in 1m00s | db 52.6 MB
+2026-10-12 15:49:38 INFO        [35/135] 2018-05:    62,146 contracts in 1m17s | db 58.2 MB
+2026-10-12 15:50:50 INFO        [36/135] 2018-06:    63,222 contracts in 1m11s | db 63.9 MB
+2026-10-12 15:51:50 INFO        [37/135] 2018-07:   128,821 contracts in 0m59s | db 52.2 MB
+2026-10-12 15:52:54 INFO        [38/135] 2018-08:    49,274 contracts in 1m04s | db 56.6 MB
+2026-10-12 15:53:49 INFO        [39/135] 2018-09:    54,642 contracts in 0m54s | db 61.5 MB
+2026-10-12 15:54:46 INFO        [40/135] 2018-10:    98,420 contracts in 0m56s | db 70.4 MB
+2026-10-12 15:55:37 INFO        [41/135] 2018-11:    56,824 contracts in 0m51s | db 69.0 MB
+2026-10-12 15:56:27 INFO        [42/135] 2018-12:    65,709 contracts in 0m50s | db 74.9 MB
+2026-10-12 15:57:13 INFO        [43/135] 2019-01:    68,244 contracts in 0m46s | db 81.0 MB
+2026-10-12 15:57:49 INFO        [44/135] 2019-02:    64,676 contracts in 0m35s | db 86.8 MB
+2026-10-12 15:58:42 INFO        [45/135] 2019-03:    80,460 contracts in 0m53s | db 76.8 MB
+2026-10-12 15:59:50 INFO        [46/135] 2019-04:    90,018 contracts in 1m07s | db 84.9 MB
+2026-10-12 16:01:01 INFO        [47/135] 2019-05:   116,203 contracts in 1m11s | db 95.4 MB
+2026-10-12 16:02:15 INFO        [48/135] 2019-06:    75,897 contracts in 1m13s | db 85.7 MB
+2026-10-12 16:03:23 INFO        [49/135] 2019-07:    77,383 contracts in 1m07s | db 92.7 MB
+2026-10-12 16:04:28 INFO        [50/135] 2019-08:    70,554 contracts in 1m05s | db 99.1 MB
+2026-10-12 16:05:23 INFO        [51/135] 2019-09:    51,422 contracts in 0m54s | db 103.7 MB
+2026-10-12 16:06:23 INFO        [52/135] 2019-10:    74,619 contracts in 0m59s | db 85.5 MB
+2026-10-12 16:07:32 INFO        [53/135] 2019-11:    76,806 contracts in 1m09s | db 92.4 MB
+2026-10-12 16:08:23 INFO        [54/135] 2019-12:    51,638 contracts in 0m51s | db 97.0 MB
+2026-10-12 16:09:19 INFO        [55/135] 2020-01:    52,102 contracts in 0m55s | db 101.7 MB
+2026-10-12 16:10:21 INFO        [56/135] 2020-02:    56,496 contracts in 1m02s | db 89.4 MB
+2026-10-12 16:11:35 INFO        [57/135] 2020-03:    56,978 contracts in 1m14s | db 94.5 MB
+2026-10-12 16:12:53 INFO        [58/135] 2020-04:    65,815 contracts in 1m17s | db 100.5 MB
+2026-10-12 16:14:14 INFO        [59/135] 2020-05:    89,343 contracts in 1m21s | db 108.5 MB
+2026-10-12 16:15:29 INFO        [60/135] 2020-06:    88,487 contracts in 1m15s | db 99.1 MB
+2026-10-12 16:17:06 INFO        [61/135] 2020-07:    95,767 contracts in 1m36s | db 107.7 MB
+2026-10-12 16:18:57 INFO        [62/135] 2020-08:   119,519 contracts in 1m51s | db 121.6 MB
+2026-10-12 16:20:28 INFO        [63/135] 2020-09:    58,683 contracts in 1m31s | db 107.0 MB
+2026-10-12 16:21:55 INFO        [64/135] 2020-10:    51,134 contracts in 1m26s | db 111.6 MB
+2026-10-12 16:23:26 INFO        [65/135] 2020-11:    50,640 contracts in 1m31s | db 116.1 MB
+2026-10-12 16:25:06 INFO        [66/135] 2020-12:    50,771 contracts in 1m39s | db 120.7 MB
+2026-10-12 16:26:53 INFO        [67/135] 2021-01:    61,577 contracts in 1m46s | db 126.2 MB
+2026-10-12 16:28:34 INFO        [68/135] 2021-02:    45,654 contracts in 1m40s | db 124.0 MB
+2026-10-12 16:30:26 INFO        [69/135] 2021-03:    14,774 contracts in 1m52s | db 125.3 MB
+2026-10-12 16:32:28 INFO        [70/135] 2021-04:    20,488 contracts in 2m02s | db 127.2 MB
+2026-10-12 16:34:38 INFO        [71/135] 2021-05:    31,318 contracts in 2m10s | db 130.0 MB
+2026-10-12 16:36:19 INFO        [72/135] 2021-06:    53,129 contracts in 1m40s | db 134.8 MB
+2026-10-12 16:38:08 INFO        [73/135] 2021-07:    43,871 contracts in 1m48s | db 138.7 MB
+2026-10-12 16:39:51 INFO        [74/135] 2021-08:    25,292 contracts in 1m43s | db 141.0 MB
+2026-10-12 16:41:44 INFO        [75/135] 2021-09:    16,859 contracts in 1m53s | db 131.3 MB
+2026-10-12 16:43:42 INFO        [76/135] 2021-10:    22,181 contracts in 1m58s | db 133.3 MB
+2026-10-12 16:45:36 INFO        [77/135] 2021-11:    15,773 contracts in 1m53s | db 134.8 MB
+2026-10-12 16:47:23 INFO        [78/135] 2021-12:    50,318 contracts in 1m47s | db 139.3 MB
+2026-10-12 16:49:07 INFO        [79/135] 2022-01:    20,571 contracts in 1m43s | db 141.1 MB
+2026-10-12 16:50:37 INFO        [80/135] 2022-02:    21,599 contracts in 1m30s | db 143.1 MB
+2026-10-12 16:52:16 INFO        [81/135] 2022-03:    26,262 contracts in 1m39s | db 145.5 MB
+2026-10-12 16:53:59 INFO        [82/135] 2022-04:    25,489 contracts in 1m42s | db 147.8 MB
+2026-10-12 16:55:36 INFO        [83/135] 2022-05:    28,735 contracts in 1m37s | db 131.1 MB
+2026-10-12 16:57:10 INFO        [84/135] 2022-06:    23,494 contracts in 1m34s | db 133.2 MB
+2026-10-12 16:58:58 INFO        [85/135] 2022-07:    28,572 contracts in 1m47s | db 135.8 MB
+2026-10-12 17:00:53 INFO        [86/135] 2022-08:    36,500 contracts in 1m54s | db 139.1 MB
+2026-10-12 17:02:39 INFO        [87/135] 2022-09:    38,898 contracts in 1m45s | db 142.6 MB
+2026-10-12 17:04:21 INFO        [88/135] 2022-10:    42,760 contracts in 1m41s | db 146.4 MB
+2026-10-12 17:06:10 INFO        [89/135] 2022-11:    36,775 contracts in 1m48s | db 149.7 MB
+2026-10-12 17:07:56 INFO        [90/135] 2022-12:    33,520 contracts in 1m46s | db 141.3 MB
+2026-10-12 17:09:46 INFO        [91/135] 2023-01:    34,341 contracts in 1m50s | db 144.4 MB
+2026-10-12 17:11:28 INFO        [92/135] 2023-02:    29,262 contracts in 1m41s | db 147.0 MB
+2026-10-12 17:13:19 INFO        [93/135] 2023-03:    31,258 contracts in 1m51s | db 149.8 MB
+2026-10-12 17:15:18 INFO        [94/135] 2023-04:    31,020 contracts in 1m58s | db 152.6 MB
+2026-10-12 17:17:07 INFO        [95/135] 2023-05:    42,796 contracts in 1m49s | db 156.5 MB
+2026-10-12 17:18:59 INFO        [96/135] 2023-06:    35,981 contracts in 1m52s | db 159.7 MB
+2026-10-12 17:20:42 INFO        [97/135] 2023-07:    38,613 contracts in 1m42s | db 152.6 MB
+2026-10-12 17:22:30 INFO        [98/135] 2023-08:    36,238 contracts in 1m47s | db 155.8 MB
+2026-10-12 17:24:11 INFO        [99/135] 2023-09:    34,637 contracts in 1m41s | db 159.0 MB
+2026-10-12 17:25:57 INFO        [100/135] 2023-10:    34,102 contracts in 1m45s | db 162.0 MB
+2026-10-12 17:27:43 INFO        [101/135] 2023-11:    26,978 contracts in 1m46s | db 164.5 MB
+2026-10-12 17:29:33 INFO        [102/135] 2023-12:    22,533 contracts in 1m50s | db 166.5 MB
+2026-10-12 17:31:39 INFO        [103/135] 2024-01:    24,577 contracts in 2m05s | db 168.7 MB
+2026-10-12 17:33:34 INFO        [104/135] 2024-02:    21,048 contracts in 1m54s | db 162.0 MB
+2026-10-12 17:35:49 INFO        [105/135] 2024-03:    23,138 contracts in 2m15s | db 164.1 MB
+2026-10-12 17:37:57 INFO        [106/135] 2024-04:    21,756 contracts in 2m08s | db 166.1 MB
+2026-10-12 17:39:54 INFO        [107/135] 2024-05:    26,048 contracts in 1m57s | db 168.4 MB
+2026-10-12 17:41:50 INFO        [108/135] 2024-06:    27,953 contracts in 1m55s | db 170.9 MB
+2026-10-12 17:43:56 INFO        [109/135] 2024-07:    33,446 contracts in 2m06s | db 173.9 MB
+2026-10-12 17:45:58 INFO        [110/135] 2024-08:    40,874 contracts in 2m02s | db 177.6 MB
+2026-10-12 17:47:51 INFO        [111/135] 2024-09:    34,345 contracts in 1m52s | db 172.0 MB
+2026-10-12 17:50:00 INFO        [112/135] 2024-10:    30,137 contracts in 2m09s | db 174.7 MB
+2026-10-12 17:52:11 INFO        [113/135] 2024-11:    29,425 contracts in 2m11s | db 177.3 MB
+2026-10-12 17:54:46 INFO        [114/135] 2024-12:    44,407 contracts in 2m34s | db 181.3 MB
+2026-10-12 17:57:21 INFO        [115/135] 2025-01:    50,390 contracts in 2m35s | db 185.9 MB
+2026-10-12 17:59:40 INFO        [116/135] 2025-02:    32,068 contracts in 2m18s | db 188.8 MB
+2026-10-12 18:01:50 INFO        [117/135] 2025-03:    43,154 contracts in 2m09s | db 182.2 MB
+2026-10-12 18:04:28 INFO        [118/135] 2025-04:    37,512 contracts in 2m38s | db 185.6 MB
+2026-10-12 18:07:10 INFO        [119/135] 2025-05:    39,552 contracts in 2m41s | db 189.1 MB
+2026-10-12 18:09:59 INFO        [120/135] 2025-06:    35,878 contracts in 2m49s | db 192.4 MB
+2026-10-12 18:13:22 INFO        [121/135] 2025-07:    38,678 contracts in 3m22s | db 195.9 MB
+2026-10-12 18:17:36 INFO        [122/135] 2025-08:    41,710 contracts in 4m13s | db 199.6 MB
+2026-10-12 18:20:45 INFO        [123/135] 2025-09:    44,888 contracts in 3m09s | db 192.7 MB
+2026-10-12 18:23:35 INFO        [124/135] 2025-10:    42,307 contracts in 2m49s | db 196.5 MB
+2026-10-12 18:26:10 INFO        [125/135] 2025-11:    47,093 contracts in 2m35s | db 200.7 MB
+2026-10-12 18:29:07 INFO        [126/135] 2025-12:    55,953 contracts in 2m56s | db 205.8 MB
+2026-10-12 18:32:57 INFO        [127/135] 2026-01:    46,944 contracts in 3m49s | db 210.0 MB
+2026-10-12 18:36:20 INFO        [128/135] 2026-02:    47,856 contracts in 3m23s | db 202.1 MB
+2026-10-12 18:40:22 INFO        [129/135] 2026-03:    57,801 contracts in 4m01s | db 207.3 MB
+2026-10-12 18:44:50 INFO        [130/135] 2026-04:    38,907 contracts in 4m27s | db 210.8 MB
+2026-10-12 18:49:09 INFO        [131/135] 2026-05:    59,394 contracts in 4m19s | db 216.2 MB
+2026-10-12 18:53:40 INFO        [132/135] 2026-06:    71,755 contracts in 4m31s | db 222.6 MB
+2026-10-12 18:58:53 INFO        [133/135] 2026-07:    53,328 contracts in 5m12s | db 212.9 MB
+2026-10-12 19:03:25 INFO        [134/135] 2026-08:    43,896 contracts in 4m32s | db 216.8 MB
+2026-10-12 19:06:28 INFO        [135/135] 2026-09:    44,046 contracts in 3m03s | db 220.8 MB
+2026-10-12 19:06:28 INFO      creation scan: 6,405,845 new contracts this run in 3h30m
+2026-10-12 19:06:28 INFO      6,405,845 contract creations in total; matching deployers to DApps (no progress output, may take minutes) ...
+2026-10-12 19:06:30 INFO      deployer expansion: 30,600 contracts for 641 DApps in 0m02s
+2026-10-12 19:06:30 DEBUG     5 seeds have no known deployment date
+2026-10-12 19:06:30 INFO      30,703 contracts mapped to 744 DApps ({'deployer': 29959, 'seed': 744}) -> dapp_data\contract_map.csv [step 2 took 3h41m]
+2026-10-12 19:06:30 INFO    [3/4] Computing monthly activity from S3 (resumable) ...
+2026-10-12 19:06:31 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-12 19:06:31 INFO      30,703 contracts tracked; 105 months, 0 already cached, 105 to go
+2026-10-12 19:08:48 INFO        [1/105] 2018-01:    17,257 wallet rows,    9 DApps active in 2m16s | db 224.1 MB
+2026-10-12 19:10:17 INFO        [2/105] 2018-02:    16,204 wallet rows,   12 DApps active in 1m29s | db 225.5 MB
+2026-10-12 19:11:28 INFO        [3/105] 2018-03:    11,826 wallet rows,   14 DApps active in 1m10s | db 226.6 MB
+2026-10-12 19:12:57 INFO        [4/105] 2018-04:    16,248 wallet rows,   17 DApps active in 1m29s | db 228.0 MB
+2026-10-12 19:14:34 INFO        [5/105] 2018-05:    32,968 wallet rows,   17 DApps active in 1m36s | db 221.3 MB
+2026-10-12 19:16:16 INFO        [6/105] 2018-06:    18,044 wallet rows,   19 DApps active in 1m42s | db 222.8 MB
+2026-10-12 19:17:50 INFO        [7/105] 2018-07:    16,275 wallet rows,   21 DApps active in 1m34s | db 224.3 MB
+2026-10-12 19:19:13 INFO        [8/105] 2018-08:    10,669 wallet rows,   19 DApps active in 1m23s | db 225.3 MB
+2026-10-12 19:21:10 INFO        [9/105] 2018-09:    11,493 wallet rows,   21 DApps active in 1m56s | db 226.3 MB
+2026-10-12 19:23:00 INFO        [10/105] 2018-10:    23,845 wallet rows,   22 DApps active in 1m49s | db 228.4 MB
+2026-10-12 19:24:25 INFO        [11/105] 2018-11:    22,197 wallet rows,   23 DApps active in 1m25s | db 230.3 MB
+2026-10-12 19:26:06 INFO        [12/105] 2018-12:    15,509 wallet rows,   24 DApps active in 1m40s | db 231.7 MB
+2026-10-12 19:27:45 INFO        [13/105] 2019-01:    10,663 wallet rows,   26 DApps active in 1m39s | db 232.6 MB
+2026-10-12 19:29:53 INFO        [14/105] 2019-02:     8,447 wallet rows,   27 DApps active in 2m07s | db 233.4 MB
+2026-10-12 19:31:55 INFO        [15/105] 2019-03:    22,175 wallet rows,   29 DApps active in 2m01s | db 235.3 MB
+2026-10-12 19:33:24 INFO        [16/105] 2019-04:    34,708 wallet rows,   32 DApps active in 1m29s | db 228.1 MB
+2026-10-12 19:35:51 INFO        [17/105] 2019-05:    26,519 wallet rows,   36 DApps active in 2m26s | db 230.4 MB
+2026-10-12 19:38:50 INFO        [18/105] 2019-06:    36,160 wallet rows,   37 DApps active in 2m59s | db 233.7 MB
+2026-10-12 19:41:55 INFO        [19/105] 2019-07:    50,323 wallet rows,   41 DApps active in 3m04s | db 238.3 MB
+2026-10-12 19:45:18 INFO        [20/105] 2019-08:    40,432 wallet rows,   43 DApps active in 3m23s | db 242.1 MB
+2026-10-12 19:47:42 INFO        [21/105] 2019-09:    33,577 wallet rows,   42 DApps active in 2m24s | db 234.6 MB
+2026-10-12 19:49:28 INFO        [22/105] 2019-10:    39,906 wallet rows,   43 DApps active in 1m45s | db 238.3 MB
+2026-10-12 19:51:08 INFO        [23/105] 2019-11:    45,326 wallet rows,   44 DApps active in 1m39s | db 242.5 MB
+2026-10-12 19:53:07 INFO        [24/105] 2019-12:    41,929 wallet rows,   45 DApps active in 1m59s | db 246.2 MB
+2026-10-12 19:54:55 INFO        [25/105] 2020-01:    50,001 wallet rows,   48 DApps active in 1m48s | db 250.8 MB
+2026-10-12 19:57:11 INFO        [26/105] 2020-02:    89,621 wallet rows,   49 DApps active in 2m16s | db 243.8 MB
+2026-10-12 19:59:27 INFO        [27/105] 2020-03:    66,270 wallet rows,   52 DApps active in 2m16s | db 250.0 MB
+2026-10-12 20:01:54 INFO        [28/105] 2020-04:    86,279 wallet rows,   55 DApps active in 2m26s | db 257.9 MB
+2026-10-12 20:05:00 INFO        [29/105] 2020-05:    85,447 wallet rows,   58 DApps active in 3m06s | db 262.9 MB
+2026-10-12 20:09:54 INFO        [30/105] 2020-06:   110,700 wallet rows,   60 DApps active in 4m53s | db 273.2 MB
+2026-10-12 20:13:45 INFO        [31/105] 2020-07:   218,650 wallet rows,   70 DApps active in 3m51s | db 273.2 MB
+2026-10-12 20:19:34 INFO        [32/105] 2020-08:   399,272 wallet rows,   93 DApps active in 5m49s | db 283.9 MB
+2026-10-12 20:24:01 INFO        [33/105] 2020-09:   714,188 wallet rows,  128 DApps active in 4m27s | db 309.9 MB
+2026-10-12 20:28:49 INFO        [34/105] 2020-10:   456,766 wallet rows,  163 DApps active in 4m47s | db 326.7 MB
+2026-10-12 20:33:58 INFO        [35/105] 2020-11:   521,385 wallet rows,  178 DApps active in 5m09s | db 345.6 MB
+2026-10-12 20:38:49 INFO        [36/105] 2020-12:   751,519 wallet rows,  207 DApps active in 4m50s | db 372.6 MB
+2026-10-12 20:44:25 INFO        [37/105] 2021-01:   837,247 wallet rows,  225 DApps active in 5m36s | db 402.2 MB
+2026-10-12 20:48:34 INFO        [38/105] 2021-02: 1,010,483 wallet rows,  243 DApps active in 4m08s | db 438.7 MB
+2026-10-12 20:52:49 INFO        [39/105] 2021-03:   968,226 wallet rows,  267 DApps active in 4m14s | db 473.0 MB
+2026-10-12 20:57:11 INFO        [40/105] 2021-04:   952,411 wallet rows,  286 DApps active in 4m22s | db 506.6 MB
+2026-10-12 21:01:38 INFO        [41/105] 2021-05:   776,426 wallet rows,  306 DApps active in 4m26s | db 534.4 MB
+2026-10-12 21:06:02 INFO        [42/105] 2021-06:   601,844 wallet rows,  316 DApps active in 4m24s | db 555.4 MB
+2026-10-12 21:10:20 INFO        [43/105] 2021-07:   635,590 wallet rows,  331 DApps active in 4m17s | db 579.2 MB
+2026-10-12 21:14:24 INFO        [44/105] 2021-08:   636,153 wallet rows,  346 DApps active in 4m04s | db 603.4 MB
+2026-10-12 21:18:49 INFO        [45/105] 2021-09:   613,977 wallet rows,  354 DApps active in 4m24s | db 626.7 MB
+2026-10-12 21:24:50 INFO        [46/105] 2021-10:   698,852 wallet rows,  376 DApps active in 6m01s | db 653.2 MB
+2026-10-12 21:28:50 INFO        [47/105] 2021-11:   776,740 wallet rows,  394 DApps active in 3m59s | db 682.3 MB
+2026-10-12 21:33:57 INFO        [48/105] 2021-12: 1,021,629 wallet rows,  410 DApps active in 5m07s | db 721.6 MB
+2026-10-12 21:43:05 INFO        [49/105] 2022-01:   823,158 wallet rows,  420 DApps active in 9m08s | db 752.6 MB
+2026-10-12 21:50:21 INFO        [50/105] 2022-02:   579,302 wallet rows,  428 DApps active in 7m16s | db 774.6 MB
+2026-10-12 21:55:12 INFO        [51/105] 2022-03:   542,174 wallet rows,  438 DApps active in 4m50s | db 795.3 MB
+2026-10-12 21:59:19 INFO        [52/105] 2022-04:   468,969 wallet rows,  441 DApps active in 4m06s | db 813.2 MB
+2026-10-12 22:05:30 INFO        [53/105] 2022-05:   403,849 wallet rows,  446 DApps active in 6m11s | db 829.4 MB
+2026-10-12 22:08:56 INFO        [54/105] 2022-06:   370,327 wallet rows,  457 DApps active in 3m26s | db 843.6 MB
+2026-10-12 22:13:08 INFO        [55/105] 2022-07:   388,242 wallet rows,  457 DApps active in 4m11s | db 858.5 MB
+2026-10-12 22:17:54 INFO        [56/105] 2022-08:   379,795 wallet rows,  467 DApps active in 4m45s | db 873.2 MB
+2026-10-12 22:22:41 INFO        [57/105] 2022-09:   349,198 wallet rows,  474 DApps active in 4m47s | db 886.6 MB
+2026-10-12 22:26:41 INFO        [58/105] 2022-10:   357,211 wallet rows,  476 DApps active in 4m00s | db 900.2 MB
+2026-10-12 22:30:06 INFO        [59/105] 2022-11:   456,121 wallet rows,  479 DApps active in 3m24s | db 917.3 MB
+2026-10-12 22:34:03 INFO        [60/105] 2022-12:   409,480 wallet rows,  485 DApps active in 3m57s | db 933.0 MB
+2026-10-12 22:37:57 INFO        [61/105] 2023-01:   488,454 wallet rows,  495 DApps active in 3m53s | db 951.4 MB
+2026-10-12 22:42:19 INFO        [62/105] 2023-02:   638,646 wallet rows,  497 DApps active in 4m21s | db 975.5 MB
+2026-10-12 22:45:28 INFO        [63/105] 2023-03:   460,042 wallet rows,  502 DApps active in 3m09s | db 993.1 MB
+2026-10-12 22:48:44 INFO        [64/105] 2023-04:   371,935 wallet rows,  513 DApps active in 3m15s | db 1,007.2 MB
+2026-10-12 22:51:35 INFO        [65/105] 2023-05:   277,108 wallet rows,  508 DApps active in 2m51s | db 1,018.5 MB
+2026-10-12 22:54:45 INFO        [66/105] 2023-06:   410,714 wallet rows,  511 DApps active in 3m10s | db 1,034.0 MB
+2026-10-12 22:57:37 INFO        [67/105] 2023-07:   416,165 wallet rows,  522 DApps active in 2m51s | db 1,049.5 MB
+2026-10-12 23:00:22 INFO        [68/105] 2023-08:   306,999 wallet rows,  532 DApps active in 2m44s | db 1,061.3 MB
+2026-10-12 23:03:05 INFO        [69/105] 2023-09:   314,294 wallet rows,  533 DApps active in 2m42s | db 1,073.3 MB
+2026-10-12 23:05:25 INFO        [70/105] 2023-10:   341,827 wallet rows,  543 DApps active in 2m19s | db 1,086.4 MB
+2026-10-12 23:07:54 INFO        [71/105] 2023-11:   451,093 wallet rows,  551 DApps active in 2m28s | db 1,103.0 MB
+2026-10-12 23:10:57 INFO        [72/105] 2023-12:   630,497 wallet rows,  568 DApps active in 3m03s | db 1,126.8 MB
+2026-10-12 23:14:22 INFO        [73/105] 2024-01:   514,690 wallet rows,  581 DApps active in 3m24s | db 1,146.0 MB
+2026-10-12 23:17:25 INFO        [74/105] 2024-02:   579,273 wallet rows,  569 DApps active in 3m02s | db 1,167.0 MB
+2026-10-12 23:21:08 INFO        [75/105] 2024-03:   894,236 wallet rows,  581 DApps active in 3m42s | db 1,200.0 MB
+2026-10-12 23:24:54 INFO        [76/105] 2024-04:   678,720 wallet rows,  608 DApps active in 3m46s | db 1,225.2 MB
+2026-10-12 23:28:11 INFO        [77/105] 2024-05:   637,077 wallet rows,  606 DApps active in 3m16s | db 1,248.5 MB
+2026-10-12 23:31:11 INFO        [78/105] 2024-06:   726,083 wallet rows,  618 DApps active in 2m59s | db 1,274.5 MB
+2026-10-12 23:34:24 INFO        [79/105] 2024-07:   530,055 wallet rows,  610 DApps active in 3m12s | db 1,294.7 MB
+2026-10-12 23:37:14 INFO        [80/105] 2024-08:   463,692 wallet rows,  624 DApps active in 2m50s | db 1,311.5 MB
+2026-10-12 23:40:35 INFO        [81/105] 2024-09:   446,638 wallet rows,  611 DApps active in 3m20s | db 1,328.2 MB
+2026-10-12 23:43:59 INFO        [82/105] 2024-10:   746,058 wallet rows,  613 DApps active in 3m23s | db 1,355.0 MB
+2026-10-12 23:47:21 INFO        [83/105] 2024-11:   793,688 wallet rows,  619 DApps active in 3m22s | db 1,383.6 MB
+2026-10-12 23:50:33 INFO        [84/105] 2024-12:   918,440 wallet rows,  628 DApps active in 3m11s | db 1,418.5 MB
+2026-10-12 23:53:58 INFO        [85/105] 2025-01:   751,856 wallet rows,  622 DApps active in 3m25s | db 1,446.5 MB
+2026-10-12 23:56:54 INFO        [86/105] 2025-02:   547,587 wallet rows,  640 DApps active in 2m56s | db 1,466.7 MB
+2026-10-12 23:59:47 INFO        [87/105] 2025-03:   527,820 wallet rows,  635 DApps active in 2m52s | db 1,485.9 MB
+2026-10-13 00:02:43 INFO        [88/105] 2025-04:   444,990 wallet rows,  632 DApps active in 2m56s | db 1,502.4 MB
+2026-10-13 00:05:50 INFO        [89/105] 2025-05:   518,938 wallet rows,  632 DApps active in 3m06s | db 1,524.7 MB
+2026-10-13 00:08:47 INFO        [90/105] 2025-06:   447,689 wallet rows,  625 DApps active in 2m57s | db 1,541.2 MB
+2026-10-13 00:13:14 INFO        [91/105] 2025-07:   552,760 wallet rows,  635 DApps active in 4m26s | db 1,561.1 MB
+2026-10-13 00:17:22 INFO        [92/105] 2025-08:   550,228 wallet rows,  643 DApps active in 4m08s | db 1,581.6 MB
+2026-10-13 00:20:43 INFO        [93/105] 2025-09:   633,530 wallet rows,  643 DApps active in 3m20s | db 1,604.4 MB
+2026-10-13 00:23:38 INFO        [94/105] 2025-10:   539,808 wallet rows,  647 DApps active in 2m54s | db 1,624.1 MB
+2026-10-13 00:26:31 INFO        [95/105] 2025-11:   442,637 wallet rows,  652 DApps active in 2m53s | db 1,640.1 MB
+2026-10-13 00:29:44 INFO        [96/105] 2025-12:   378,223 wallet rows,  660 DApps active in 3m12s | db 1,654.2 MB
+2026-10-13 00:33:32 INFO        [97/105] 2026-01:   457,493 wallet rows,  659 DApps active in 3m48s | db 1,670.8 MB
+2026-10-13 00:37:38 INFO        [98/105] 2026-02:   343,908 wallet rows,  638 DApps active in 4m06s | db 1,683.3 MB
+2026-10-13 00:41:42 INFO        [99/105] 2026-03:   365,498 wallet rows,  628 DApps active in 4m03s | db 1,696.5 MB
+2026-10-13 00:45:51 INFO        [100/105] 2026-04:   469,008 wallet rows,  647 DApps active in 4m09s | db 1,713.5 MB
+2026-10-13 00:49:32 INFO        [101/105] 2026-05:   262,086 wallet rows,  638 DApps active in 3m40s | db 1,723.7 MB
+2026-10-13 00:53:32 INFO        [102/105] 2026-06:   330,346 wallet rows,  659 DApps active in 3m59s | db 1,735.8 MB
+2026-10-13 00:57:49 INFO        [103/105] 2026-07:   299,398 wallet rows,  627 DApps active in 4m17s | db 1,747.3 MB
+2026-10-13 01:01:47 INFO        [104/105] 2026-08:   317,890 wallet rows,  630 DApps active in 3m57s | db 1,761.0 MB
+2026-10-13 01:04:59 INFO        [105/105] 2026-09:   432,051 wallet rows,  654 DApps active in 3m11s | db 1,777.5 MB
+2026-10-13 01:04:59 INFO      activity scan finished in 5h58m
+2026-10-13 01:04:59 INFO      aggregating wallet rows into DApp-month activity ...
+2026-10-13 01:05:33 INFO      -> dapp_data\activity.csv
+2026-10-13 01:05:33 INFO      38,135 DApp-month rows, 742 DApps with activity [step 3 took 5h59m]
+2026-10-13 01:05:33 INFO    [4/4] Assembling final dataset ...
+2026-10-13 01:05:33 INFO      744 DApps -> dapp_data\dapp_static.csv
+2026-10-13 01:05:33 INFO      FINAL: 41,494 rows, 744 DApps, 8% of DApp-months have no activity -> dapp_data\dapp_panel.csv
+2026-10-13 01:05:33 INFO    run finished in 9h40m

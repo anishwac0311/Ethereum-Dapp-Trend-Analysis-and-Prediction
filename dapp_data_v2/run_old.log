@@ -1,0 +1,243 @@
+2026-10-18 00:34:28 INFO    [1/5] Fetching DApp registry from DeFiLlama ...
+2026-10-18 00:34:30 DEBUG     8756 protocols returned
+2026-10-18 00:34:30 DEBUG     1878 list Ethereum
+2026-10-18 00:34:30 DEBUG     dropped 94 CEX/Chain protocols
+2026-10-18 00:34:30 INFO      51 DApps -> dapp_data_v2\protocols.csv
+2026-10-18 00:34:30 DEBUG     by category group: {'DeFi': 27, 'Other': 10, 'Infrastructure': 7, 'DEX': 7}
+2026-10-18 00:34:31 INFO      curated seeds: 109 addresses (63 protocols)
+2026-10-18 00:35:03 INFO    [1/5] Fetching DApp registry from DeFiLlama ...
+2026-10-18 00:35:03 DEBUG     8756 protocols returned
+2026-10-18 00:35:03 DEBUG     1878 list Ethereum
+2026-10-18 00:35:03 DEBUG     dropped 94 CEX/Chain protocols
+2026-10-18 00:35:03 INFO      113 DApps -> dapp_data_v2\protocols.csv
+2026-10-18 00:35:03 DEBUG     by category group: {'DeFi': 58, 'DEX': 18, 'Other': 16, 'Infrastructure': 15, 'NFT': 6}
+2026-10-18 00:35:03 INFO      curated seeds: 109 addresses (61 protocols)
+2026-10-18 00:35:03 INFO    [2/5] Discovering app contracts (curated + adapters + labels) ...
+2026-10-18 00:35:03 INFO      curated seeds: 109 addresses (61 protocols)
+2026-10-18 00:35:03 INFO      --skip-adapters
+2026-10-18 00:35:03 INFO      --skip-labels
+2026-10-18 00:35:03 INFO      discovered 109 raw mappings ({'curated': 109}) -> dapp_data_v2\discovered_raw.csv
+2026-10-18 00:36:01 INFO    [1/5] Fetching DApp registry from DeFiLlama ...
+2026-10-18 00:36:01 DEBUG     8756 protocols returned
+2026-10-18 00:36:01 DEBUG     1878 list Ethereum
+2026-10-18 00:36:01 DEBUG     dropped 94 CEX/Chain protocols
+2026-10-18 00:36:01 INFO      injected 10 curated-only protocols (['eigenlayer', '0x', 'ens', 'ether.fi', 'rarible', 'cow-protocol', 'paraswap', 'polygon-bridge', 'opensea', 'instadapp'])
+2026-10-18 00:36:01 INFO      124 DApps -> dapp_data_v2\protocols.csv
+2026-10-18 00:36:01 DEBUG     by category group: {'DeFi': 58, 'Other': 23, 'DEX': 18, 'Infrastructure': 16, 'NFT': 8, 'Gaming': 1}
+2026-10-18 00:36:01 INFO      curated seeds: 109 addresses (53 protocols)
+2026-10-18 00:36:01 INFO    [2/5] Discovering app contracts (curated + adapters + labels) ...
+2026-10-18 00:36:02 INFO      curated seeds: 109 addresses (53 protocols)
+2026-10-18 00:36:02 INFO      --skip-adapters
+2026-10-18 00:36:02 INFO      --skip-labels
+2026-10-18 00:36:02 INFO      discovered 109 raw mappings ({'curated': 109}) -> dapp_data_v2\discovered_raw.csv
+2026-10-18 00:38:16 INFO    ======================================================================
+2026-10-18 00:38:16 INFO    run started: build_dapp_dataset_v2.py --start 2022-01-01 --end 2022-06-30 --top-n 50 --no-deployer-expansion --skip-labels
+2026-10-18 00:38:16 INFO      start=2022-01-01 end=2022-06-30 top_n=50 skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 00:38:16 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 00:38:17 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 00:38:17 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (0.0 MB)
+2026-10-18 00:38:17 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (124 DApps)
+2026-10-18 00:38:17 WARNING   cached file has 124 DApps but --top-n is 50; delete dapp_data_v2\protocols.csv to apply --top-n
+2026-10-18 00:38:17 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (109 rows)
+2026-10-18 00:38:17 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 00:38:18 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 00:38:18 ERROR   Table 'logs' is missing expected columns ['topic0']. Columns found: ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']. Adjust the SQL in this script.
+2026-10-18 00:38:18 ERROR   run stopped after 0m01s
+2026-10-18 00:40:34 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 00:40:34 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (0.0 MB)
+2026-10-18 00:40:35 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 00:40:35 INFO      factory expansion: 1 factories; using topics[1] as topic0
+2026-10-18 00:40:35 INFO      factory scan: 49 months to process (0 cached)
+2026-10-18 00:41:52 INFO        [1/49] 2018-01:        0 children in 1m17s
+2026-10-18 00:43:06 INFO        [2/49] 2018-02:        0 children in 1m14s
+2026-10-18 00:44:33 INFO        [3/49] 2018-03:        0 children in 1m26s
+2026-10-18 00:46:02 INFO        [4/49] 2018-04:        0 children in 1m28s
+2026-10-18 00:47:50 INFO        [5/49] 2018-05:        0 children in 1m48s
+2026-10-18 00:49:39 INFO        [6/49] 2018-06:        0 children in 1m49s
+2026-10-18 00:51:42 INFO        [7/49] 2018-07:        0 children in 2m02s
+2026-10-18 00:53:57 INFO        [8/49] 2018-08:        0 children in 2m15s
+2026-10-18 00:56:00 INFO        [9/49] 2018-09:        0 children in 2m03s
+2026-10-18 00:57:43 INFO        [10/49] 2018-10:        0 children in 1m42s
+2026-10-18 00:59:23 INFO        [11/49] 2018-11:        0 children in 1m40s
+2026-10-18 01:00:52 INFO        [12/49] 2018-12:        0 children in 1m29s
+2026-10-18 01:02:45 INFO        [13/49] 2019-01:        0 children in 1m52s
+2026-10-18 01:04:10 INFO        [14/49] 2019-02:        0 children in 1m25s
+2026-10-18 01:05:56 INFO        [15/49] 2019-03:        0 children in 1m45s
+2026-10-18 01:06:42 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 01:06:42 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (0.0 MB)
+2026-10-18 01:06:43 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 01:06:43 INFO      factory expansion: 2 factories; using topics[1] as topic0
+2026-10-18 01:06:43 INFO      factory scan: 1 months to process (12 cached)
+2026-10-18 01:13:46 INFO        [1/1] 2021-05:    5,946 children in 7m03s
+2026-10-18 01:13:47 INFO      factory children total: 5,946
+2026-10-18 01:19:16 INFO    ======================================================================
+2026-10-18 01:19:16 INFO    run started: build_dapp_dataset_v2.py --start 2022-01-01 --end 2022-06-30 --top-n 50 --no-deployer-expansion --skip-labels
+2026-10-18 01:19:16 INFO      start=2022-01-01 end=2022-06-30 top_n=50 skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 01:19:16 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 01:19:16 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 01:19:16 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (0.3 MB)
+2026-10-18 01:19:16 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (124 DApps)
+2026-10-18 01:19:16 WARNING   cached file has 124 DApps but --top-n is 50; delete dapp_data_v2\protocols.csv to apply --top-n
+2026-10-18 01:19:16 INFO    [2/5] Discovering app contracts (curated + adapters + labels) ...
+2026-10-18 01:19:16 INFO      curated seeds: 109 addresses (53 protocols)
+2026-10-18 01:19:16 INFO      downloading DefiLlama-Adapters ...
+2026-10-18 01:19:18 INFO      saved dapp_data_v2\cache\DefiLlama-Adapters-main.zip (7.3 MB)
+2026-10-18 01:19:19 WARNING   adapter extraction failed: 'float' object has no attribute 'strip'
+2026-10-18 01:19:19 DEBUG   traceback:
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 691, in step2_discover
+    parts.append(extract_adapter_addresses(reg))
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 528, in extract_adapter_addresses
+    module = (row["module"] or "").strip().strip("/")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'float' object has no attribute 'strip'
+2026-10-18 01:19:19 INFO      --skip-labels
+2026-10-18 01:19:19 INFO      discovered 109 raw mappings ({'curated': 109}) -> dapp_data_v2\discovered_raw.csv
+2026-10-18 01:19:19 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 01:19:19 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 01:19:19 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-18 01:19:19 INFO      factory scan: 26 months to process (0 cached)
+2026-10-18 01:21:47 INFO        [1/26] 2020-05:      467 children in 2m27s
+2026-10-18 01:23:58 INFO        [2/26] 2020-06:    1,177 children in 2m11s
+2026-10-18 01:26:42 INFO        [3/26] 2020-07:    1,660 children in 2m43s
+2026-10-18 01:30:41 INFO        [4/26] 2020-08:    3,574 children in 3m58s
+2026-10-18 01:34:15 INFO        [5/26] 2020-09:    5,430 children in 3m34s
+2026-10-18 01:39:32 INFO        [6/26] 2020-10:    7,675 children in 5m17s
+2026-10-18 01:45:10 INFO        [7/26] 2020-11:    4,912 children in 5m37s
+2026-10-18 01:51:19 INFO        [8/26] 2020-12:    3,124 children in 6m08s
+2026-10-18 01:57:39 INFO        [9/26] 2021-01:    2,008 children in 6m20s
+2026-10-18 02:03:39 INFO        [10/26] 2021-02:    1,189 children in 6m00s
+2026-10-18 02:10:08 INFO        [11/26] 2021-03:    1,626 children in 6m28s
+2026-10-18 02:16:49 INFO        [12/26] 2021-04:    3,127 children in 6m40s
+2026-10-18 02:25:01 INFO        [13/26] 2021-05:    6,161 children in 8m12s
+2026-10-18 02:32:04 INFO        [14/26] 2021-06:    8,068 children in 7m02s
+2026-10-18 02:38:40 INFO        [15/26] 2021-07:    4,942 children in 6m36s
+2026-10-18 02:45:42 INFO        [16/26] 2021-08:    2,390 children in 7m01s
+2026-10-18 02:53:25 INFO        [17/26] 2021-09:    1,601 children in 7m43s
+2026-10-18 03:01:14 INFO        [18/26] 2021-10:    2,416 children in 7m49s
+2026-10-18 03:07:31 INFO        [19/26] 2021-11:    4,024 children in 6m16s
+2026-10-18 03:13:56 INFO        [20/26] 2021-12:    3,046 children in 6m25s
+2026-10-18 11:36:39 ERROR       [21/26] 2022-01: FAILED (Query interrupted)
+2026-10-18 11:36:39 DEBUG   traceback:
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 791, in factory_expand
+    n = execute_retry(con, f"""
+        ~~~~~~~~~~~~~^^^^^^^^^^
+        INSERT INTO factory_children
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+          {topic_len}
+          ^^^^^^^^^^^
+    """).fetchone()[0]
+    ^^^^
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 285, in execute_retry
+    return con.execute(sql)
+           ~~~~~~~~~~~^^^^^
+RuntimeError: Query interrupted
+2026-10-18 11:40:44 ERROR       [22/26] 2022-02: FAILED (Query interrupted)
+2026-10-18 11:40:44 DEBUG   traceback:
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 791, in factory_expand
+    n = execute_retry(con, f"""
+        ~~~~~~~~~~~~~^^^^^^^^^^
+        INSERT INTO factory_children
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+          {topic_len}
+          ^^^^^^^^^^^
+    """).fetchone()[0]
+    ^^^^
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 285, in execute_retry
+    return con.execute(sql)
+           ~~~~~~~~~~~^^^^^
+RuntimeError: Query interrupted
+2026-10-18 11:51:22 INFO        [23/26] 2022-03:    4,386 children in 10m37s
+2026-10-18 11:59:13 INFO        [24/26] 2022-04:    4,910 children in 7m50s
+2026-10-18 12:07:16 INFO        [25/26] 2022-05:    3,382 children in 8m03s
+2026-10-18 12:16:28 INFO        [26/26] 2022-06:    2,720 children in 9m11s
+2026-10-18 12:16:28 INFO      factory children total: 87,932
+2026-10-18 12:16:28 INFO      --no-deployer-expansion
+2026-10-18 12:16:29 INFO      no cross-protocol conflicts
+2026-10-18 12:16:29 INFO      looking up bytecode/deploy dates for 88,024 contracts ...
+2026-10-18 12:16:29 DEBUG   columns of 'contracts': ['address', 'block_hash', 'block_number', 'block_timestamp', 'bytecode', 'date', 'last_modified']
+2026-10-18 12:44:49 INFO      found bytecode for 87,459/88,024 in 28m19s
+2026-10-18 12:44:56 INFO      flagged 80,761 ERC20-like contracts
+2026-10-18 12:44:56 INFO      dropped 0 ERC20 tokens (kept app_token roles)
+2026-10-18 12:44:57 INFO      88,024 app contracts -> dapp_data_v2\app_contracts.csv ({'factory': 87932, 'curated': 92})
+2026-10-18 12:44:57 INFO    [4/5] Computing monthly activity from logs + direct calls ...
+2026-10-18 12:44:58 DEBUG   columns of 'transactions': ['block_hash', 'block_number', 'block_timestamp', 'date', 'from_address', 'gas', 'gas_price', 'hash', 'input', 'last_modified', 'max_fee_per_gas', 'max_priority_fee_per_gas', 'nonce', 'receipt_contract_address', 'receipt_cumulative_gas_used', 'receipt_effective_gas_price', 'receipt_gas_used', 'receipt_status', 'to_address', 'transaction_index', 'transaction_type', 'value']
+2026-10-18 12:44:58 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 12:44:59 INFO      88,024 contracts; 6 months, 0 cached, 6 to go
+2026-10-18 13:01:04 INFO        [1/6] 2022-01: 1,056,284 wallet rows,   28 DApps in 16m05s | db 117.7 MB
+2026-10-18 17:01:10 ERROR       [2/6] 2022-02: FAILED (Query interrupted) - re-run to retry
+2026-10-18 17:01:10 DEBUG   traceback:
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 1139, in step4_activity
+    n = execute_retry(con, sql).fetchone()[0]
+        ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Anish\Downloads\dapp project\build_dapp_dataset_v2.py", line 285, in execute_retry
+    return con.execute(sql)
+           ~~~~~~~~~~~^^^^^
+RuntimeError: Query interrupted
+2026-10-18 17:35:01 INFO    [1/5] Fetching DApp registry from DeFiLlama ...
+2026-10-18 17:35:02 DEBUG     8758 protocols returned
+2026-10-18 17:35:02 DEBUG     1878 list Ethereum
+2026-10-18 17:35:02 DEBUG     dropped 94 CEX/Chain protocols
+2026-10-18 17:35:02 INFO      injected 32 curated-only protocols (['0x', 'art-blocks', 'axie-infinity', 'blur', 'cowswap', 'cryptokitties', 'cryptopunks', 'decentraland', 'dydx', 'ens', 'foundation-nft', 'gem-nft', 'genie-nft', 'gitcoin', 'gods-unchained', 'instadapp', 'kyberswap', 'loot', 'opensea-seaport', 'opensea-v1', 'opensea-v2', 'otherside', 'parallel', 'paraswap', 'pendle', 'poap', 'polygon-bridge', 'rarible', 'sorare', 'synthetix', 'unstoppable-domains', 'wolf-game'])
+2026-10-18 17:35:02 INFO      1816 DApps -> dapp_data_v2\protocols.csv
+2026-10-18 17:35:02 DEBUG     by category group: {'DeFi': 1047, 'Infrastructure': 269, 'DEX': 209, 'Other': 202, 'NFT': 53, 'Gaming': 26, 'Social': 10}
+2026-10-18 17:35:02 INFO    [2/5] Discovering app contracts (curated + adapters + labels) ...
+2026-10-18 17:35:02 INFO      curated seeds: 162 addresses (86 protocols)
+2026-10-18 17:35:02 INFO      using cached adapters zip (7.3 MB)
+2026-10-18 17:35:03 INFO      adapters: 5,731 addresses for 624 protocols
+2026-10-18 17:35:03 INFO      --skip-labels
+2026-10-18 17:35:03 INFO      discovered 5,893 raw mappings ({'adapter': 5731, 'curated': 162}) -> dapp_data_v2\discovered_raw.csv
+2026-10-18 17:35:38 INFO    ======================================================================
+2026-10-18 17:35:38 INFO    run started: build_dapp_dataset_v2.py --start 2022-01-01 --end 2022-06-30 --no-deployer-expansion --skip-labels
+2026-10-18 17:35:38 INFO      start=2022-01-01 end=2022-06-30 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 17:35:38 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 17:35:39 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 17:35:39 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (172.0 MB)
+2026-10-18 17:35:39 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-18 17:35:39 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-18 17:35:39 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 17:35:45 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 17:35:45 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-18 17:35:45 INFO      factory scan: 2 months to process for 4 factories
+2026-10-18 22:05:26 INFO    ======================================================================
+2026-10-18 22:05:26 INFO    run started: build_dapp_dataset_v2.py --start 2018-01-01 --end 2026-09-30 --no-deployer-expansion --skip-labels
+2026-10-18 22:05:26 INFO      start=2018-01-01 end=2026-09-30 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 22:05:26 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 22:05:26 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 22:05:26 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (172.0 MB)
+2026-10-18 22:05:27 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-18 22:05:27 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-18 22:05:27 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 22:05:28 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 22:05:28 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-18 22:05:28 INFO      factory scan: 53 months to process for 4 factories
+2026-10-18 22:11:33 INFO    ======================================================================
+2026-10-18 22:11:33 INFO    run started: build_dapp_dataset_v2.py --start 2018-01-01 --end 2026-09-30 --no-deployer-expansion --skip-labels
+2026-10-18 22:11:33 INFO      start=2018-01-01 end=2026-09-30 top_n=None skip_adapters=False skip_labels=True no_factory=False no_deployer=True
+2026-10-18 22:11:33 INFO      log file: C:\Users\Anish\Downloads\dapp project\dapp_data_v2\run.log
+2026-10-18 22:11:33 INFO    attached v1 DB (6,405,845 creation rows) from dapp_data\dapp.duckdb
+2026-10-18 22:11:33 INFO    DuckDB 1.5.6 connected to dapp_data_v2\dapp_v2.duckdb (172.0 MB)
+2026-10-18 22:11:33 INFO    [1/5] Using cached dapp_data_v2\protocols.csv (1816 DApps)
+2026-10-18 22:11:33 INFO    [2/5] Using cached dapp_data_v2\discovered_raw.csv (5,893 rows)
+2026-10-18 22:11:33 INFO    [3/5] Expanding and cleaning app contracts ...
+2026-10-18 22:11:34 DEBUG   columns of 'logs': ['address', 'block_hash', 'block_number', 'block_timestamp', 'data', 'date', 'last_modified', 'log_index', 'topics', 'transaction_hash', 'transaction_index']
+2026-10-18 22:11:34 INFO      factory expansion: 4 factories; using topics[1] as topic0
+2026-10-18 22:11:34 INFO      factory scan: 53 months to process for 4 factories
