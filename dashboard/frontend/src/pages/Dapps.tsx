@@ -68,25 +68,32 @@ export function DappDetail() {
   const v1m = Object.fromEntries(v1s.map((r: any) => [r.month, r]))
   const v2m = Object.fromEntries(v2s.map((r: any) => [r.month, r]))
 
-  const metricKey = metric in (v2s[0] || {}) || metric in (v1s[0] || {})
-    ? metric
-    : 'active_wallets'
+  const inV1 = v1s.length > 0 && metric in v1s[0]
+  const inV2 = v2s.length > 0 && metric in v2s[0]
+  const metricKey = inV1 || inV2 ? metric : 'active_wallets'
+  const baseKey = metricKey.replace(/_ex_heavy$/, '')
+  const exHeavyKey = `${baseKey}_ex_heavy`
+  const showExHeavy = metricKey === baseKey && v2s.some((r: any) => r[exHeavyKey] != null)
 
   const seriesOpt = {
-    title: { text: metricKey, textStyle: { color: '#e8eef9', fontSize: 14 } },
-    legend: { data: ['v1', 'v2', 'v2 ex-heavy'].filter(Boolean) },
+    title: {
+      text: metricKey,
+      subtext: !inV1 && v1s.length > 0 ? 'not available in v1' : undefined,
+      textStyle: { color: '#e8eef9', fontSize: 14 },
+    },
+    legend: { data: ['v1', 'v2', ...(showExHeavy ? ['v2 ex-heavy'] : [])] },
     tooltip: { trigger: 'axis' },
     dataZoom: [{ type: 'inside' }, { type: 'slider', height: 18 }],
     xAxis: { type: 'category', data: months.map(monthLabel) },
     yAxis: { type: 'value' },
     series: [
       { name: 'v1', type: 'line', showSymbol: false, color: COLORS.v1,
-        data: months.map(m => v1m[m]?.[metricKey] ?? v1m[m]?.active_wallets ?? null) },
+        data: months.map(m => v1m[m]?.[metricKey] ?? null) },
       { name: 'v2', type: 'line', showSymbol: false, color: COLORS.v2,
-        data: months.map(m => v2m[m]?.[metricKey] ?? v2m[m]?.active_wallets ?? null) },
-      ...(v2s.some((r: any) => r.active_wallets_ex_heavy != null) ? [{
+        data: months.map(m => v2m[m]?.[metricKey] ?? null) },
+      ...(showExHeavy ? [{
         name: 'v2 ex-heavy', type: 'line', showSymbol: false, color: COLORS.accent2, lineStyle: { type: 'dashed' },
-        data: months.map(m => v2m[m]?.active_wallets_ex_heavy ?? null),
+        data: months.map(m => v2m[m]?.[exHeavyKey] ?? null),
       }] : []),
     ],
   }

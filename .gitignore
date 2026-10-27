@@ -42,6 +42,11 @@ Thumbs.db
 *.pem
 credentials.json
 
+# Model figure outputs (regenerable)
+model/figures/
+model/tables/
+model/artifacts/
+
 # Jupyter
 .ipynb_checkpoints/
 

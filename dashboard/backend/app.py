@@ -474,17 +474,18 @@ def compare_ecosystem(
     wh1 = ("WHERE " + " AND ".join(clauses_v1)) if clauses_v1 else ""
     wh2 = ("WHERE " + " AND ".join(clauses_v2)) if clauses_v2 else ""
 
-    v1 = _df(
-        f"SELECT month, SUM({metric}) AS value, COUNT(DISTINCT slug) FILTER (WHERE {metric} > 0) AS active_dapps "
-        f"FROM v1_dapp_panel {wh1} GROUP BY month ORDER BY month",
-        params_v1,
-    )
-    # metric may not exist in v1 for ex_heavy etc.
+    # *_ex_heavy metrics exist only in v2
     snap = STORE.get()
     v1_cols = set(snap.tables.get("v1_dapp_panel", {}).get("columns", []))
     v2_cols = set(snap.tables.get("v2_dapp_panel", {}).get("columns", []))
-    if metric not in v1_cols:
-        v1 = []
+    v1 = []
+    if metric in v1_cols:
+        v1 = _df(
+            f"SELECT month, SUM({metric}) AS value, "
+            f"COUNT(DISTINCT slug) FILTER (WHERE {metric} > 0) AS active_dapps "
+            f"FROM v1_dapp_panel {wh1} GROUP BY month ORDER BY month",
+            params_v1,
+        )
     v2 = []
     if metric in v2_cols:
         v2 = _df(
@@ -493,7 +494,10 @@ def compare_ecosystem(
             f"FROM v2_dapp_panel {wh2} GROUP BY month ORDER BY month",
             params_v2,
         )
-    return {"metric": metric, "v1": v1, "v2": v2}
+    return {
+        "metric": metric, "v1": v1, "v2": v2,
+        "unavailable": [d for d, c in (("v1", v1_cols), ("v2", v2_cols)) if metric not in c],
+    }
 
 
 @app.get("/api/compare/scatter")
@@ -504,10 +508,10 @@ def compare_scatter(
 ):
     metric = _ok_ident(metric)
     snap = STORE.get()
-    if metric not in snap.tables.get("v1_dapp_panel", {}).get("columns", []):
-        raise HTTPException(400, f"{metric} not in v1 panel")
-    if metric not in snap.tables.get("v2_dapp_panel", {}).get("columns", []):
-        raise HTTPException(400, f"{metric} not in v2 panel")
+    missing = [d for d in ("v1", "v2")
+               if metric not in snap.tables.get(f"{d}_dapp_panel", {}).get("columns", [])]
+    if missing:
+        return {"metric": metric, "points": [], "unavailable": missing}
 
     wh_parts = []
     params: list[Any] = []
@@ -700,7 +704,7 @@ def ecosystem_top(
     t = _table(dataset, "dapp_panel")
     cols = STORE.get().tables.get(t, {}).get("columns", [])
     if metric not in cols:
-        raise HTTPException(400, f"{metric} not in {t}")
+        return {"rows": [], "unavailable": True}
     if month:
         return {"rows": _df(
             f"SELECT slug, name, category_group, {metric} AS value, month "
@@ -728,7 +732,7 @@ def variations_dist(
     t = _table(dataset, "dapp_panel")
     cols = set(STORE.get().tables.get(t, {}).get("columns", []))
     if metric not in cols or group_by not in cols:
-        raise HTTPException(400, "metric or group_by not available")
+        return {"metric": metric, "group_by": group_by, "rows": [], "unavailable": True}
     rows = _df(f"""
         SELECT {group_by} AS grp,
                COUNT(*) AS n,

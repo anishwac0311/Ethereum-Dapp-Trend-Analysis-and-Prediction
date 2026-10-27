@@ -17,6 +17,11 @@ export function Overview() {
     queryFn: () => api.top('v1', metric),
   })
 
+  const eco = useQuery({
+    queryKey: ['eco', metric, start, end, dataVersion],
+    queryFn: () => api.ecosystem(metric, start || undefined, end || undefined),
+  })
+
   const v1 = (coverage.data?.v1 || []).filter((r: any) =>
     (!start || r.month >= start) && (!end || r.month <= end))
   const v2 = (coverage.data?.v2 || []).filter((r: any) =>
@@ -25,17 +30,24 @@ export function Overview() {
   const months = Array.from(new Set([...v1.map((r: any) => r.month), ...v2.map((r: any) => r.month)])).sort()
   const v1map = Object.fromEntries(v1.map((r: any) => [r.month, r]))
   const v2map = Object.fromEntries(v2.map((r: any) => [r.month, r]))
+  const v1eco = Object.fromEntries((eco.data?.v1 || []).map((r: any) => [r.month, r.value]))
+  const v2eco = Object.fromEntries((eco.data?.v2 || []).map((r: any) => [r.month, r.value]))
+  const v1Missing = (eco.data?.unavailable || []).includes('v1')
 
   const lineOpt = {
-    title: { text: `Ecosystem ${metric}`, left: 0, textStyle: { color: '#e8eef9', fontSize: 14 } },
+    title: {
+      text: `Ecosystem ${metric}`,
+      subtext: v1Missing ? 'v1 has no heavy-wallet split - v2 only' : undefined,
+      left: 0, textStyle: { color: '#e8eef9', fontSize: 14 },
+    },
     legend: { data: ['v1', 'v2'], top: 0, right: 0 },
     tooltip: { trigger: 'axis' },
     dataZoom: [{ type: 'inside' }, { type: 'slider', height: 18 }],
     xAxis: { type: 'category', data: months.map(monthLabel) },
     yAxis: { type: 'value', scale: true },
     series: [
-      { name: 'v1', type: 'line', showSymbol: false, data: months.map(m => v1map[m]?.[metric === 'tx_count' ? 'tx_count' : 'active_wallets'] ?? null), color: COLORS.v1 },
-      { name: 'v2', type: 'line', showSymbol: false, data: months.map(m => v2map[m]?.[metric === 'tx_count' ? 'tx_count' : 'active_wallets'] ?? null), color: COLORS.v2 },
+      { name: 'v1', type: 'line', showSymbol: false, data: months.map(m => v1eco[m] ?? null), color: COLORS.v1 },
+      { name: 'v2', type: 'line', showSymbol: false, data: months.map(m => v2eco[m] ?? null), color: COLORS.v2 },
     ],
   }
 
@@ -96,7 +108,8 @@ export function Overview() {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
         <TopList title={`Top v2 by Σ ${metric}`} rows={topV2.data?.rows || []} color="var(--v2)" />
-        <TopList title={`Top v1 by Σ ${metric}`} rows={topV1.data?.rows || []} color="var(--v1)" />
+        <TopList title={`Top v1 by Σ ${metric}`} rows={topV1.data?.rows || []} color="var(--v1)"
+          empty={topV1.data?.unavailable ? `${metric} is not in v1 (v1 has no heavy-wallet split)` : undefined} />
       </div>
     </div>
   )
@@ -112,10 +125,11 @@ function Stat({ label, value, sub, color }: { label: string; value: string; sub?
   )
 }
 
-function TopList({ title, rows, color }: { title: string; rows: any[]; color: string }) {
+function TopList({ title, rows, color, empty }: { title: string; rows: any[]; color: string; empty?: string }) {
   return (
     <div className="card">
       <div style={{ fontWeight: 600, marginBottom: 8 }}>{title}</div>
+      {empty && <div className="muted" style={{ fontSize: 13 }}>{empty}</div>}
       <div className="table-wrap" style={{ maxHeight: 320 }}>
         <table className="data">
           <thead><tr><th>#</th><th>DApp</th><th>Category</th><th>Value</th></tr></thead>

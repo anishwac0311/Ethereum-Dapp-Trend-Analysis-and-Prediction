@@ -36,8 +36,11 @@ export function Compare() {
 
   const points = (scatter.data?.points || []).filter((p: any) => p.v1 > 0 && p.v2 > 0)
 
+  const v1Missing = (eco.data?.unavailable || []).includes('v1')
+  const missingNote = v1Missing ? 'v1 has no heavy-wallet split - showing v2 only; nothing to compare per DApp' : undefined
+
   const lineOpt = {
-    title: { text: `Ecosystem total · ${metric}`, textStyle: { color: '#e8eef9', fontSize: 14 } },
+    title: { text: `Ecosystem total · ${metric}`, subtext: missingNote, textStyle: { color: '#e8eef9', fontSize: 14 } },
     legend: { data: ['v1', 'v2'] },
     tooltip: { trigger: 'axis' },
     dataZoom: [{ type: 'inside' }, { type: 'slider', height: 18 }],
@@ -50,7 +53,7 @@ export function Compare() {
   }
 
   const scatterOpt = {
-    title: { text: `Per-DApp Σ ${metric} (log–log)`, textStyle: { color: '#e8eef9', fontSize: 14 } },
+    title: { text: `Per-DApp Σ ${metric} (log–log)`, subtext: missingNote, textStyle: { color: '#e8eef9', fontSize: 14 } },
     tooltip: {
       trigger: 'item',
       formatter: (p: any) => {
