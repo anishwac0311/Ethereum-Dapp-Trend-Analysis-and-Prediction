@@ -117,27 +117,33 @@ Cox PH C-index ≈ **0.69** (k=3) and **0.78** (k=6) on holdout. Useful as a sec
 
 ---
 
-## Ablations (k=3, HGB)
+## Ablations (k=3, HGB holdout AP)
 
-| Variant | Holdout AP |
-|---------|------------|
-| full | 0.567 |
-| no_levels | 0.551 |
-| no_has_token | 0.567 |
-| levels_only | 0.533 |
+| Variant | HGB AP | Calibrated HGB AP |
+|---------|--------|-------------------|
+| full (on-chain + off-chain) | 0.577 | 0.569 |
+| on_chain_only | 0.567 | **0.605** |
+| on_chain_plus_gov (timed Snapshot) | 0.581 | 0.572 |
+| on_chain_plus_static (audit/OSS/verified today) | 0.585 | 0.570 |
+| no_levels | 0.537 | 0.510 |
+| levels_only | 0.533 | 0.527 |
 
-Shape / retention / context features still carry signal when raw size is removed. `has_token` is nearly inert under permutation (token may launch after the app). Levels alone are strong on AUC but weaker on PR-AUC than the full set.
+Off-chain columns come from `model/dapp_offchain/data/dapp_offchain_by_k.csv` (merged on `slug`+`k`). Governance counts are window-timed; audit / open-source / verified are **today’s** snapshots.
+
+**Takeaway:** adding off-chain does **not** clearly beat a well-calibrated on-chain-only model on PR-AUC. Timed governance (`log_n_proposals_window`) shows up in permutation importance, but lift is small and calibration can prefer the leaner on-chain set. Keep off-chain as an optional block / ablation, not the default headline model, until as-of-launch audit/OSS histories exist.
+
+Shape / retention / context features still carry signal when raw size is removed. `has_token` is nearly inert under permutation.
 
 ---
 
 ## What drives predictions (k=3 HGB, permutation on AP)
 
-Top features: **`early_cat_share`**, **`log_last_wallets`**, **`last_to_max_ratio`**, **`log_mean_gas`**, **`launch_cat_growth_3m`**, growth slope, early retention.
+Top features: **`early_cat_share`**, **`log_last_wallets`**, **`last_to_max_ratio`**, **`log_mean_gas`**, growth slope, **`launch_cat_growth_3m`**, then **`log_n_proposals_window`** among off-chain fields.
 
 Interpretation:
 - Ending the window still large (last wallets) and not already fading (`last_to_max`) matters for persistence.
 - Category share and launch-month category growth capture competition / regime.
-- Whale share and gas/tx are unstable or negatively associated in this cut.
+- Early governance activity is a weak positive signal; static audit/OSS flags are weak under this split.
 
 See `figures/perm_importance_y_sustained_12_k3.png` and `figures/pdp_y_sustained_12_k3.png`.
 
@@ -164,9 +170,10 @@ Writes:
 1. **Small n / rare positives** — holdout has ~27–32 positives; CIs are wide (see bootstrap columns in holdout CSVs).  
 2. **Market regime** — 2021 bull vs 2023–25 cooler market; eco-share label and launch growth features mitigate but do not eliminate shift.  
 3. **Attribution** — panel credits full gas to every protocol touched in a tx; prefer within-app trends over cross-app gas totals (`build_dapp_dataset_v2.py` caveats).  
-4. **No off-chain features** — GitHub / social / audits left out; literature suggests they would help.  
+4. **Off-chain snapshot bias** — audit / open-source / verified reflect *today*, not launch-time status; only Snapshot proposal counts are cut at window k. Empirically they add little holdout PR-AUC vs on-chain-only.  
 5. **Mechanical baseline** — size alone is powerful; always report the Szabo–Huberman and no-levels ablations.  
-6. **Conditional flash-vs-grower** — underpowered; needs more adopted DApps or a softer threshold.
+6. **Conditional flash-vs-grower** — underpowered; needs more adopted DApps or a softer threshold.  
+7. **2025 scoring** — young launches are often absent from the 512-row off-chain study table, so off-chain fields impute to training medians for those apps.
 
 ---
 

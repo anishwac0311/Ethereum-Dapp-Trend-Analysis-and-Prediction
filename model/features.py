@@ -57,14 +57,35 @@ CONTEXT_FEATURES = [
     "has_token",
     "launch_year",
 ]
-FEATURE_COLS = (
+# Snapshot-as-of-today flags (not as-of launch) — keep separate for ablations
+OFFCHAIN_STATIC_FEATURES = [
+    "is_audited",
+    "is_open_source",
+    "is_verified",
+]
+# Timed by observation window k (leakage-safe)
+OFFCHAIN_GOV_FEATURES = [
+    "has_governance",
+    "log_n_proposals",
+    "log_n_proposals_window",
+]
+OFFCHAIN_FEATURES = OFFCHAIN_STATIC_FEATURES + OFFCHAIN_GOV_FEATURES
+ONCHAIN_FEATURES = (
     LEVEL_FEATURES
     + SHAPE_FEATURES
     + QUALITY_FEATURES
     + CONCENTRATION_FEATURES
     + CONTEXT_FEATURES
 )
+FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES
 CAT_COLS = ["category_group"]
+
+OFFCHAIN_BY_K = (
+    __import__("pathlib").Path(__file__).resolve().parent
+    / "dapp_offchain"
+    / "data"
+    / "dapp_offchain_by_k.csv"
+)
 
 
 def _cohort_m1_in_window(
@@ -342,7 +363,33 @@ def build_dataset(
     labs = labs[[c for c in label_cols if c in labs.columns]]
     # Drop overlapping meta from labels that features already has
     ds = feats.merge(labs, on="slug", how="inner")
+    ds = merge_offchain(ds, k)
     return ds
+
+
+def merge_offchain(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join off-chain flags / governance counts for this k. Blanks stay NaN."""
+    if not OFFCHAIN_BY_K.exists():
+        print(f"  warn: missing {OFFCHAIN_BY_K}; off-chain columns will be NaN")
+        for c in OFFCHAIN_FEATURES:
+            if c not in ds.columns:
+                ds[c] = np.nan
+        return ds
+
+    off = pd.read_csv(OFFCHAIN_BY_K)
+    off = off[off["k"] == k].copy()
+    off["log_n_proposals"] = np.log1p(pd.to_numeric(off["n_proposals"], errors="coerce"))
+    off["log_n_proposals_window"] = np.log1p(
+        pd.to_numeric(off["n_proposals_window"], errors="coerce")
+    )
+    for c in OFFCHAIN_FEATURES:
+        if c not in off.columns:
+            off[c] = np.nan
+    off = off[["slug", "k", *OFFCHAIN_FEATURES]]
+    drop = [c for c in OFFCHAIN_FEATURES if c in ds.columns]
+    if drop:
+        ds = ds.drop(columns=drop)
+    return ds.merge(off, on=["slug", "k"], how="left")
 
 
 def main() -> None:
@@ -370,10 +417,16 @@ def main() -> None:
         ds = build_dataset(k, panel=panel, life=life, cohort=cohort, cat_month=cat_month)
         savetable(ds, f"dataset_k{k}.csv")
         use = ds[ds["eligible_12m"] & ~ds["left_censored"]]
+        off_cov = {
+            c: float(use[c].notna().mean())
+            for c in OFFCHAIN_FEATURES
+            if c in use.columns
+        }
         print(
             f"    n={len(ds)} eligible={len(use)} "
             f"sustained_12_rate={use['y_sustained_12'].dropna().mean():.3f}"
         )
+        print(f"    off-chain non-null (eligible): {off_cov}")
     print("== features done ==")
 
 

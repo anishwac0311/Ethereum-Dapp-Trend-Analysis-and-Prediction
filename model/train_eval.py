@@ -43,6 +43,9 @@ from features import (
     CAT_COLS,
     FEATURE_COLS,
     LEVEL_FEATURES,
+    OFFCHAIN_GOV_FEATURES,
+    OFFCHAIN_STATIC_FEATURES,
+    ONCHAIN_FEATURES,
     build_dataset,
 )
 
@@ -607,10 +610,13 @@ def run_for_k(
 
 
 def run_ablations(ds: pd.DataFrame, k: int = 3) -> pd.DataFrame:
-    """Ablations: full vs no-level vs no-has_token."""
+    """Ablations: on-chain vs off-chain mixes, plus prior level/token cuts."""
     rows = []
     variants = {
         "full": list(FEATURE_COLS),
+        "on_chain_only": list(ONCHAIN_FEATURES),
+        "on_chain_plus_gov": list(ONCHAIN_FEATURES) + list(OFFCHAIN_GOV_FEATURES),
+        "on_chain_plus_static": list(ONCHAIN_FEATURES) + list(OFFCHAIN_STATIC_FEATURES),
         "no_levels": [c for c in FEATURE_COLS if c not in LEVEL_FEATURES],
         "no_has_token": [c for c in FEATURE_COLS if c != "has_token"],
         "levels_only": LEVEL_FEATURES + ["has_token", "launch_year"],
