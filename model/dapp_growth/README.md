@@ -50,4 +50,5 @@ About 1 minute.
 | `results/tables/fit_quality_by_group.csv` | Good vs poor curve fits: start, early/late gap, speed |
 | `results/tables/good_fit_parameters.csv` | Successful vs not, good fits only: month-0 wallets, L, t0, rise months, r at the same L |
 | `results/tables/` | Other summary tables |
-| `results/figures/` | Figures in REPORT.md, plus fit checks |
+| `results/tables/feature_test_k3.csv` | Candidate features tested in the team model (see FEATURES.md) |
+| `results/figures/` | Figures in REPORT.md and FEATURES.md, plus fit checks |

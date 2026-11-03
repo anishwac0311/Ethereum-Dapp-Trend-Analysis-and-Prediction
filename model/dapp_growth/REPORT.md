@@ -51,7 +51,7 @@
 
 - **Early size is the signal:** it backs the team model, where last-month wallets alone predict almost as well as all 27 features.
 - **Look beyond size:** off-chain data may carry what size does not.
-- **Add how DApps acquire users:** eight candidate model features; see [FEATURES.md](FEATURES.md).
+- **Add how DApps acquire users:** eight candidate model features, tested in the team model with no clear gain; see [FEATURES.md](FEATURES.md).
 - **Start the clock at real use:** e.g. the first month with 10 wallets, so test wallets do not start it.
 
 ## Limitations

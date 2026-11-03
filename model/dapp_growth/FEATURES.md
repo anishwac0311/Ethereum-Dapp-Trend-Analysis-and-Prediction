@@ -33,25 +33,14 @@ The market a DApp launches into, in its launch month (Q3).
 | `category_top1_share_at_launch` | Category leader's share | Markets with one leader |
 | `category_n_dapps_at_launch` | Active DApps in the category | Crowded markets |
 
-## First look (k = 3, one feature at a time, no model)
+## Test in the team model
 
-| Feature | Successful | Not | One-feature AUC |
-|---|---|---|---|
-| `log_cum_wallets_k` | 8.35 | 2.71 | 0.87 |
-| `cum_growth_last` | 0.69 | 0.18 | 0.75 |
-| `growth_decay` | −0.63 | −0.20 | 0.37 |
-| `months_to_first_user_k` | 0 | 0 | 0.46 |
-| `starts_empty` | 34% | 66% | 0.34 |
-| `category_hhi_at_launch` | 0.23 | 0.13 | 0.66 |
-| `category_top1_share_at_launch` | 0.38 | 0.28 | 0.64 |
-| `category_n_dapps_at_launch` | 28 | 68 | 0.32 |
+Same split and models as `model/train_eval.py` (train on launches up to 2022, score the 2023–24 holdout, k = 3), on the team's on-chain and off-chain feature groups. Run with `python script/test_features.py` (needs the team's off-chain model code); full results in `results/tables/feature_test_k3.csv`.
 
-AUC below 0.5 means lower values go with success. Full numbers: `results/tables/acquisition_features_k3.csv`.
+<p>
+  <img src="results/figures/feature_test_k3.png" alt="Holdout average precision with and without the candidate features" width="70%">
+</p>
 
-- **Cumulative wallets separate the groups most,** but overlap with the team's size features.
-- **`starts_empty` and `growth_decay` may add new signal.** Within 3 months, successful DApps slow more because they start with a bigger burst.
-- **Category features partly reflect launch year,** which the model already has: categories got more crowded over time.
-
-## Next
-
-Not in the model yet. Test them in `model/train_eval.py`, with and without the Acquisition group, and check whether the Context features still help once launch year is in.
+- **No gain:** none of the additions beat the calibrated on-chain model (0.60). The closest: in uncalibrated boosted trees, `starts_empty` and `growth_decay` lift 0.57 to 0.60, but only to the same level.
+- **Within noise:** the 95% intervals run from about 0.35 to 0.8, since the holdout has only about 30 successful DApps.
+- **Same as off-chain:** on their own, cumulative wallets separate the groups well, but they overlap with the team's size features; size already carries most of the signal, so keep these as an optional block, not the default model.
