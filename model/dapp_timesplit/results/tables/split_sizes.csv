@@ -1,0 +1,5 @@
+split,train_launches,test_launches,n_train,pos_train,n_test,pos_test,n_unused
+current,2020-01 to 2022-12,2023-01 to 2024-12,275,56,237,29,0
+leakage_fixed,2020-01 to 2021-12,2023-01 to 2024-12,208,45,237,29,67
+round_1,2020-01 to 2021-04,2022-05 to 2024-02,132,28,174,24,206
+round_2,2020-01 to 2023-02,2024-03 to 2024-12,295,60,106,12,111
