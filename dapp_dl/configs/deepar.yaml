@@ -1,0 +1,14 @@
+input_size: 12
+max_steps: 400
+learning_rate: 0.001
+batch_size: 32
+windows_batch_size: 512
+val_check_steps: 50
+early_stop_patience_steps: 4
+lstm_hidden_size: 64
+lstm_n_layers: 2
+lstm_dropout: 0.1
+trajectory_samples: 100
+distribution: StudentT        # on log1p(active_wallets)
+level: [80]
+scaler_type: standard

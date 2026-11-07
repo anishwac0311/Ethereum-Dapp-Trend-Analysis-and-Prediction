@@ -1,0 +1,15 @@
+input_size: 9
+max_steps: 600
+learning_rate: 0.0020656948283385742
+batch_size: 32
+windows_batch_size: 512
+val_check_steps: 50
+early_stop_patience_steps: 4
+lstm_hidden_size: 64
+lstm_n_layers: 1
+lstm_dropout: 0.2957054317593207
+trajectory_samples: 100
+distribution: StudentT
+level:
+- 80
+scaler_type: standard

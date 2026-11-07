@@ -1,0 +1,13 @@
+torch>=2.5
+neuralforecast>=3.3
+pycox>=0.3
+torchtuples
+lifelines>=0.30
+lightgbm>=4.7
+pandas>=3.0
+numpy
+scikit-learn
+pyarrow
+pyyaml
+scipy
+optuna

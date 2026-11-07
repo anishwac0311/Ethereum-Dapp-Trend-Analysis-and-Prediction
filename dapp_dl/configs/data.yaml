@@ -1,0 +1,20 @@
+raw_dir: data/raw
+processed_dir: data/processed
+results_dir: results
+
+forecast:
+  min_peak_wallets: 100     # drop dApps that never reached 100 monthly active wallets (mostly "never_adopted")
+  min_series_len: 24        # months; needs input window + horizon + some training windows
+  horizon: 6                # months ahead
+  n_windows: 2              # rolling-origin evaluation windows (non-overlapping, last 12 months)
+  seed: 1
+  ext_windows: 6            # extended evaluation (run_forecast_extended): number of rolling origins
+  ext_step: 3               # months between origins (targets of neighbouring windows overlap)
+
+survival:
+  min_peak_wallets: 100     # decline model only covers dApps that were ever adopted
+  decline_fraction: 0.5     # event = (smoothed) active wallets fall below this fraction of peak
+  smooth_window: 3          # trailing months averaged before locating the peak / threshold crossing
+  seeds: [0, 1, 2, 3, 4]    # repeated stratified train/val/test splits
+  test_frac: 0.25
+  val_frac: 0.15
