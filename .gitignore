@@ -53,3 +53,7 @@ model/artifacts/
 # Large local agent / editor artifacts
 .cursor/
 agent-transcripts/
+
+# local tool settings
+.claude/
+.impeccable/
