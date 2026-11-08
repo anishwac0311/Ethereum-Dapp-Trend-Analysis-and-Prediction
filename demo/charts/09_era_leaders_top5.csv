@@ -1,0 +1,99 @@
+era,category,n_active_dapps,category_avg_wallets,rank,slug,dapp,avg_wallets,share
+Before Terra,DEX,42,668726,1,uniswap-v2,Uniswap V2,344612,0.5153
+Before Terra,DEX,42,668726,2,uniswap-v3,Uniswap V3,138103,0.2065
+Before Terra,DEX,42,668726,3,sushiswap,SushiSwap,61542,0.092
+Before Terra,DEX,42,668726,4,hashflow,Hashflow,52870,0.0791
+Before Terra,DEX,42,668726,5,1inch-swap,1inch Swap,26712,0.0399
+Before Terra,DeFi,122,145029,1,homora-v2,Homora V2,24888,0.1716
+Before Terra,DeFi,122,145029,2,compound-v2,Compound V2,21050,0.1451
+Before Terra,DeFi,122,145029,3,synthetix,Synthetix,15876,0.1095
+Before Terra,DeFi,122,145029,4,primex-finance,Primex Finance,14435,0.0995
+Before Terra,DeFi,122,145029,5,sky-lending,Sky Lending,7639,0.0527
+Before Terra,Infrastructure,30,96349,1,hinkal,Hinkal,27337,0.2837
+Before Terra,Infrastructure,30,96349,2,ens,ENS,21076,0.2187
+Before Terra,Infrastructure,30,96349,3,arbitrum-bridge,Arbitrum Bridge,11347,0.1178
+Before Terra,Infrastructure,30,96349,4,meter-passport,Meter Passport,8378,0.087
+Before Terra,Infrastructure,30,96349,5,gravity-bridge,Gravity Bridge,6600,0.0685
+Before Terra,NFT,20,166472,1,opensea-v1,OpenSea Wyvern v1,84309,0.5064
+Before Terra,NFT,20,166472,2,opensea-v2,OpenSea Wyvern v2,57365,0.3446
+Before Terra,NFT,20,166472,3,foundation-nft,Foundation,5055,0.0304
+Before Terra,NFT,20,166472,4,art-blocks,Art Blocks,4217,0.0253
+Before Terra,NFT,20,166472,5,looksrare,LooksRare,3508,0.0211
+Before Terra,Gaming,10,52604,1,axie-infinity,Axie Infinity (Ethereum),40830,0.7762
+Before Terra,Gaming,10,52604,2,the-sandbox,The Sandbox,3832,0.0728
+Before Terra,Gaming,10,52604,3,parallel,Parallel,3016,0.0573
+Before Terra,Gaming,10,52604,4,cryptokitties,CryptoKitties,2153,0.0409
+Before Terra,Gaming,10,52604,5,decentraland,Decentraland,1465,0.0279
+Before Terra,Social,3,1945,1,gitcoin,Gitcoin,1143,0.5877
+Before Terra,Social,3,1945,2,poap,POAP,799,0.4111
+Before Terra,Social,3,1945,3,aelin,Aelin,2,0.0012
+Before Terra,Other,11,52275,1,polygon-bridge,Polygon Bridge,39997,0.7651
+Before Terra,Other,11,52275,2,olympus-dao,Olympus DAO,11005,0.2105
+Before Terra,Other,11,52275,3,uncx-network-v2,UNCX Network V2,574,0.011
+Before Terra,Other,11,52275,4,team-finance,Team Finance,417,0.008
+Before Terra,Other,11,52275,5,turtle-club,Turtle Club,206,0.0039
+Terra to Dencun,DEX,61,1035703,1,uniswap-v3,Uniswap V3,396843,0.3832
+Terra to Dencun,DEX,61,1035703,2,uniswap-v2,Uniswap V2,372241,0.3594
+Terra to Dencun,DEX,61,1035703,3,1inch-swap,1inch Swap,57886,0.0559
+Terra to Dencun,DEX,61,1035703,4,0x,0x Protocol,57433,0.0555
+Terra to Dencun,DEX,61,1035703,5,sushiswap,SushiSwap,50709,0.049
+Terra to Dencun,DeFi,234,127371,1,lido,Lido,28194,0.2214
+Terra to Dencun,DeFi,234,127371,2,homora-v2,Homora V2,9327,0.0732
+Terra to Dencun,DeFi,234,127371,3,aave-v2,Aave V2,7509,0.059
+Terra to Dencun,DeFi,234,127371,4,eigencloud,EigenCloud,6503,0.0511
+Terra to Dencun,DeFi,234,127371,5,abracadabra-spell,Abracadabra Spell,5965,0.0468
+Terra to Dencun,Infrastructure,41,487705,1,zksync-era-txbridge,zkSync Era txBridge,125520,0.2574
+Terra to Dencun,Infrastructure,41,487705,2,starknet-bridge,Starknet Bridge,68846,0.1412
+Terra to Dencun,Infrastructure,41,487705,3,ens,ENS,55032,0.1128
+Terra to Dencun,Infrastructure,41,487705,4,arbitrum-bridge,Arbitrum Bridge,40338,0.0827
+Terra to Dencun,Infrastructure,41,487705,5,base-bridge,Base Bridge,27678,0.0568
+Terra to Dencun,NFT,28,312357,1,opensea-seaport,OpenSea Seaport,155031,0.4963
+Terra to Dencun,NFT,28,312357,2,opensea-v2,OpenSea Wyvern v2,45213,0.1447
+Terra to Dencun,NFT,28,312357,3,blur,Blur,30364,0.0972
+Terra to Dencun,NFT,28,312357,4,blur-bids,Blur Bids,23894,0.0765
+Terra to Dencun,NFT,28,312357,5,x2y2,X2Y2,15306,0.049
+Terra to Dencun,Gaming,10,17051,1,otherside,Otherside,7761,0.4551
+Terra to Dencun,Gaming,10,17051,2,the-sandbox,The Sandbox,4640,0.2721
+Terra to Dencun,Gaming,10,17051,3,parallel,Parallel,2587,0.1517
+Terra to Dencun,Gaming,10,17051,4,decentraland,Decentraland,669,0.0392
+Terra to Dencun,Gaming,10,17051,5,cryptokitties,CryptoKitties,593,0.0348
+Terra to Dencun,Social,3,3231,1,gitcoin,Gitcoin,2993,0.9263
+Terra to Dencun,Social,3,3231,2,poap,POAP,237,0.0735
+Terra to Dencun,Social,3,3231,3,aelin,Aelin,1,0.0003
+Terra to Dencun,Other,25,29674,1,polygon-bridge,Polygon Bridge,18295,0.6166
+Terra to Dencun,Other,25,29674,2,olympus-dao,Olympus DAO,4102,0.1382
+Terra to Dencun,Other,25,29674,3,uncx-network-v2,UNCX Network V2,3656,0.1232
+Terra to Dencun,Other,25,29674,4,team-finance,Team Finance,1041,0.0351
+Terra to Dencun,Other,25,29674,5,turtle-club,Turtle Club,687,0.0232
+After Dencun,DEX,70,1559981,1,uniswap-v3,Uniswap V3,526189,0.3373
+After Dencun,DEX,70,1559981,2,uniswap-v2,Uniswap V2,507552,0.3254
+After Dencun,DEX,70,1559981,3,uniswap-v4,Uniswap V4,134167,0.086
+After Dencun,DEX,70,1559981,4,1inch-swap,1inch Swap,127547,0.0818
+After Dencun,DEX,70,1559981,5,0x,0x Protocol,58618,0.0376
+After Dencun,DeFi,312,352711,1,lido,Lido,47856,0.1357
+After Dencun,DeFi,312,352711,2,primex-finance,Primex Finance,39690,0.1125
+After Dencun,DeFi,312,352711,3,rumpel-labs,Rumpel Labs,29687,0.0842
+After Dencun,DeFi,312,352711,4,eigencloud,EigenCloud,28172,0.0799
+After Dencun,DeFi,312,352711,5,fluid-lending,Fluid Lending,24200,0.0686
+After Dencun,Infrastructure,55,359227,1,across,Across,67948,0.1891
+After Dencun,Infrastructure,55,359227,2,hinkal,Hinkal,65442,0.1822
+After Dencun,Infrastructure,55,359227,3,wavesbridge,WavesBridge,58272,0.1622
+After Dencun,Infrastructure,55,359227,4,base-bridge,Base Bridge,29386,0.0818
+After Dencun,Infrastructure,55,359227,5,ens,ENS,22030,0.0613
+After Dencun,NFT,26,99559,1,opensea-seaport,OpenSea Seaport,56631,0.5688
+After Dencun,NFT,26,99559,2,blur,Blur,14962,0.1503
+After Dencun,NFT,26,99559,3,blur-bids,Blur Bids,14472,0.1454
+After Dencun,NFT,26,99559,4,blur-lending,Blur Lending,2283,0.0229
+After Dencun,NFT,26,99559,5,opensea-v2,OpenSea Wyvern v2,2243,0.0225
+After Dencun,Gaming,10,2984,1,the-sandbox,The Sandbox,823,0.2758
+After Dencun,Gaming,10,2984,2,parallel,Parallel,607,0.2035
+After Dencun,Gaming,10,2984,3,otherside,Otherside,591,0.1982
+After Dencun,Gaming,10,2984,4,cryptokitties,CryptoKitties,387,0.1297
+After Dencun,Gaming,10,2984,5,decentraland,Decentraland,294,0.0984
+After Dencun,Social,2,86,1,poap,POAP,85,0.9878
+After Dencun,Social,2,86,2,gitcoin,Gitcoin,1,0.0122
+After Dencun,Other,68,53872,1,solv-basis-trading,Solv Basis Trading,7621,0.1415
+After Dencun,Other,68,53872,2,turtle-club,Turtle Club,6389,0.1186
+After Dencun,Other,68,53872,3,veda,Veda,6308,0.1171
+After Dencun,Other,68,53872,4,knightrade,Knightrade,4459,0.0828
+After Dencun,Other,68,53872,5,zyfai,ZyFAI,3757,0.0697
