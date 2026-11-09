@@ -70,6 +70,30 @@ OFFCHAIN_GOV_FEATURES = [
     "log_n_proposals_window",
 ]
 OFFCHAIN_FEATURES = OFFCHAIN_STATIC_FEATURES + OFFCHAIN_GOV_FEATURES
+# News sentiment (model/news_sentiment). All timed by window k: months 0..k-1 after
+# launch, or the months before launch. See news_sentiment/README.md.
+# Ethereum news environment during the window (same for DApps launched the same month)
+NEWS_MARKET_FEATURES = [
+    "news_eth_sent",
+    "news_eth_sent_wtd",
+    "news_eth_net_bull",
+    "news_eth_attention",
+    "news_hack_rate",
+    "news_reg_bear_rate",
+    "news_cat_attention",
+    "news_cat_sent",
+    "news_eth_sent_pre3m",
+]
+# ETH price momentum: kept apart from news so the two are not confused
+NEWS_PRICE_FEATURES = ["eth_ret_window", "eth_ret_pre3m", "eth_vol_window"]
+# Press coverage of this specific DApp (or its parent brand)
+NEWS_DAPP_FEATURES = [
+    "dapp_log_mentions_window",
+    "dapp_log_mentions_pre6m",
+    "dapp_news_sent_window",
+    "dapp_neg_event_window",
+]
+NEWS_FEATURES = NEWS_MARKET_FEATURES + NEWS_PRICE_FEATURES + NEWS_DAPP_FEATURES
 ONCHAIN_FEATURES = (
     LEVEL_FEATURES
     + SHAPE_FEATURES
@@ -77,7 +101,7 @@ ONCHAIN_FEATURES = (
     + CONCENTRATION_FEATURES
     + CONTEXT_FEATURES
 )
-FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES
+FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES + NEWS_FEATURES
 CAT_COLS = ["category_group"]
 
 OFFCHAIN_BY_K = (
@@ -85,6 +109,12 @@ OFFCHAIN_BY_K = (
     / "dapp_offchain"
     / "data"
     / "dapp_offchain_by_k.csv"
+)
+NEWS_BY_K = (
+    __import__("pathlib").Path(__file__).resolve().parent
+    / "news_sentiment"
+    / "data"
+    / "dapp_news_by_k.csv"
 )
 
 
@@ -364,7 +394,26 @@ def build_dataset(
     # Drop overlapping meta from labels that features already has
     ds = feats.merge(labs, on="slug", how="inner")
     ds = merge_offchain(ds, k)
+    ds = merge_news(ds, k)
     return ds
+
+
+def merge_news(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join news-sentiment and ETH-momentum features for this k. Blanks stay NaN."""
+    if not NEWS_BY_K.exists():
+        print(f"  warn: missing {NEWS_BY_K}; news columns will be NaN "
+              "(run model/news_sentiment/build_features.py)")
+        for c in NEWS_FEATURES:
+            ds[c] = np.nan
+        return ds
+    news = pd.read_csv(NEWS_BY_K)
+    news = news[news["k"] == k]
+    for c in NEWS_FEATURES:
+        if c not in news.columns:
+            news[c] = np.nan
+    news = news[["slug", "k", *NEWS_FEATURES]]
+    ds = ds.drop(columns=[c for c in NEWS_FEATURES if c in ds.columns])
+    return ds.merge(news, on=["slug", "k"], how="left")
 
 
 def merge_offchain(ds: pd.DataFrame, k: int) -> pd.DataFrame:
@@ -427,6 +476,9 @@ def main() -> None:
             f"sustained_12_rate={use['y_sustained_12'].dropna().mean():.3f}"
         )
         print(f"    off-chain non-null (eligible): {off_cov}")
+        news_cov = float(use[NEWS_FEATURES].notna().all(axis=1).mean()) if len(use) else 0.0
+        mentioned = float((use["dapp_log_mentions_window"] > 0).mean()) if len(use) else 0.0
+        print(f"    news: complete rows {news_cov:.2f}, DApps with press mentions in window {mentioned:.2f}")
     print("== features done ==")
 
 

@@ -4,6 +4,13 @@ Predict whether an Ethereum DApp will still have meaningful usage at month 12, u
 
 See **[MODEL_REPORT.md](MODEL_REPORT.md)** for literature, label definitions, metrics, and limitations.
 
+Off-chain inputs, merged on `slug` and `k` by `features.py`:
+
+- [dapp_offchain/](dapp_offchain/README.md): audit, open-source, verification and governance flags
+- [news_sentiment/](news_sentiment/README.md): Ethereum news sentiment, ETH price momentum and per-DApp press coverage, plus a live news dashboard (`news_sentiment/live_report.py`)
+
+The `no_news*` and `on_chain_plus_news` rows in `tables/ablations_k3.csv` show what the news features add.
+
 ## Quick start
 
 ```powershell
