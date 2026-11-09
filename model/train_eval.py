@@ -43,6 +43,11 @@ from features import (
     CAT_COLS,
     FEATURE_COLS,
     LEVEL_FEATURES,
+    NEWS_DAPP_FEATURES,
+    NEWS_FEATURES,
+    NEWS_MARKET_FEATURES,
+    NEWS_PRICE_FEATURES,
+    OFFCHAIN_FEATURES,
     OFFCHAIN_GOV_FEATURES,
     OFFCHAIN_STATIC_FEATURES,
     ONCHAIN_FEATURES,
@@ -476,11 +481,13 @@ def run_for_k(
             results.append(pd.DataFrame([m]))
             fitted["hgb_calibrated"] = cal
             plot_calibration(test[target].values, p_cal, tag)
-            # Persist for predict.py
-            joblib.dump(
-                {"model": cal, "feature_cols": feature_cols, "k": k, "target": target},
-                ARTIFACTS / f"hgb_calibrated_k{k}.joblib",
-            )
+            # Persist for predict.py. Only the primary target with the full feature
+            # set: other targets and ablations used to overwrite this file.
+            if target == PRIMARY_TARGET and not tag_suffix and feature_cols == list(FEATURE_COLS):
+                joblib.dump(
+                    {"model": cal, "feature_cols": feature_cols, "k": k, "target": target},
+                    ARTIFACTS / f"hgb_calibrated_k{k}.joblib",
+                )
         except Exception as e:
             print(f"  calibration failed: {e}")
 
@@ -617,6 +624,12 @@ def run_ablations(ds: pd.DataFrame, k: int = 3) -> pd.DataFrame:
         "on_chain_only": list(ONCHAIN_FEATURES),
         "on_chain_plus_gov": list(ONCHAIN_FEATURES) + list(OFFCHAIN_GOV_FEATURES),
         "on_chain_plus_static": list(ONCHAIN_FEATURES) + list(OFFCHAIN_STATIC_FEATURES),
+        # News-sentiment ablations: does news add anything beyond on-chain + off-chain flags?
+        "no_news": list(ONCHAIN_FEATURES) + list(OFFCHAIN_FEATURES),
+        "on_chain_plus_news": list(ONCHAIN_FEATURES) + list(NEWS_FEATURES),
+        "no_news_plus_market": list(ONCHAIN_FEATURES) + list(OFFCHAIN_FEATURES) + list(NEWS_MARKET_FEATURES),
+        "no_news_plus_price": list(ONCHAIN_FEATURES) + list(OFFCHAIN_FEATURES) + list(NEWS_PRICE_FEATURES),
+        "no_news_plus_dapp": list(ONCHAIN_FEATURES) + list(OFFCHAIN_FEATURES) + list(NEWS_DAPP_FEATURES),
         "no_levels": [c for c in FEATURE_COLS if c not in LEVEL_FEATURES],
         "no_has_token": [c for c in FEATURE_COLS if c != "has_token"],
         "levels_only": LEVEL_FEATURES + ["has_token", "launch_year"],
