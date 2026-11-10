@@ -1,7 +1,7 @@
-"""Build demo/data.js from the repo's own outputs.
+"""Build demo/site/data.js from the repo's own outputs.
 
 Every number the demo shows comes from this file. Run from the repo root:
-    python3 demo/build_data.py
+    python3 demo/script/build_data.py
 """
 import io
 import json
@@ -11,12 +11,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "dapp_data_v2"
 EDA = ROOT / "eda" / "tables"
 MODEL = ROOT / "model" / "tables"
 TS = ROOT / "model" / "dapp_timesplit" / "results" / "tables"
-OUT = Path(__file__).resolve().parent / "data.js"
+OUT = ROOT / "demo" / "site" / "data.js"
 OFF = ROOT / "model" / "dapp_offchain" / "data"
 TS_BRANCH = "time-split-analysis"  # the time-split tables live on this branch until PR #4 merges
 

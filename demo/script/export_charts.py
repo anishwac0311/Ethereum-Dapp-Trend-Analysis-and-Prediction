@@ -1,16 +1,16 @@
-"""Write the data behind every demo chart to demo/charts/*.csv, plus a README.md index.
+"""Write the data behind every demo chart to demo/results/tables/*.csv, plus demo/results/CHART_DATA.md as the guide.
 
-Reads demo/data.js (built by build_data.py), so every number here is the number the site draws.
-Run: python3 demo/export_charts.py
+Reads demo/site/data.js (built by build_data.py), so every number here is the number the site draws.
+Run: python3 demo/script/export_charts.py
 """
 import csv
 import json
 import shutil
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-OUT = HERE / "charts"
-D = json.loads((HERE / "data.js").read_text().split("=", 1)[1].strip().rstrip(";"))
+DEMO = Path(__file__).resolve().parents[1]
+OUT = DEMO / "results" / "tables"
+D = json.loads((DEMO / "site" / "data.js").read_text().split("=", 1)[1].strip().rstrip(";"))
 CATS = D["meta"]["categories"]
 ERAS = [("before", "Before Terra"), ("between", "Terra to Dencun"), ("after", "After Dencun")]
 INDEX = []
@@ -107,7 +107,8 @@ save("06_q5_feature_weights_by_era.csv", ["era", "group", "weight", "low", "high
 save("07_q6_around_10k.csv", ["metric", "group", "months_from_10k", "median", "n_dapps"],
      [[met, t, rel, med, n] for met, g in D["q6"].items() for t, v in g.items()
       for rel, med, n in zip(v["rel"], v["median"], v["n"])],
-     "Before and after crossing 10K cumulative wallets", "Q6 Take-off, Compare", "eda/tables/05_event_checkpoints.csv",
+     "Before and after crossing 10K cumulative wallets", "Q6 Take-off, Compare",
+     "eda/tables/05_event_checkpoints.csv; per-DApp lines in Compare from eda/tables/05_event_window.csv",
      "Month 0 = the month a DApp crosses 10K. Median across DApps of each group.")
 
 # Method
@@ -130,7 +131,8 @@ save("08_method_peak_histogram.csv", ["log10_peak_from", "log10_peak_to", "n_dap
 save("08_method_signals.csv", ["group", "signal", "feature", "kind", "success", "other"],
      [[x["group"], x["label"], x["feature"], x["kind"], x["success"], x["other"]] for x in mt["features"]],
      "33 early signals: success vs other", "Method",
-     "model/tables/dataset_k3.csv; model/dapp_offchain/data/dapp_offchain_by_k.csv (k = 3)",
+     "model/tables/dataset_k3.csv; model/dapp_offchain/data/dapp_offchain_by_k.csv (k = 3); signal groups from "
+     "model/dapp_timesplit/results/tables/coef_by_period.csv (branch time-split-analysis)",
      "First 3 months. Median for numbers, share for yes/no flags, mean for proposal counts.")
 
 # Era leaders
@@ -155,11 +157,22 @@ save("11_all_dapps_wallets_by_age.csv", ["slug", "name", "category", "first_mont
      "Age 0 = first month with a user.")
 
 esc = lambda s: str(s).replace("|", "\\|")
-lines = ["# Demo chart data", "",
-         "One CSV per chart table, with the numbers the demo site draws. Generated from `demo/data.js` by "
-         "`demo/export_charts.py`; rerun it after `build_data.py`. The DragonQuest example on the Method page uses "
-         "made-up numbers and has no CSV.", "",
-         "| file | chart | used on | source | how |", "|---|---|---|---|---|"]
-lines += [f"| [{n}]({n}) | {esc(c)} | {esc(u)} | {esc(s)} | {esc(h)} |" for n, c, u, s, h in INDEX]
-(OUT / "README.md").write_text("\n".join(lines) + "\n")
+lines = ["# Chart data", "",
+         "One CSV per chart on the demo site. They are copied from `site/data.js`, so they match the site exactly; "
+         "every number was also checked against the repo CSVs listed under source. Regenerate them after "
+         "`build_data.py` with `python3 demo/script/export_charts.py`.", "",
+         "- `model/tables/` is gitignored: run `model/run_all.py` before `build_data.py`.",
+         "- The time-split tables are read from branch `time-split-analysis` if they are not checked out.",
+         "- Not data: the DragonQuest example on Method (made up to explain the method) and the registry size of "
+         "1,816 DApps (from DeFiLlama, as reported in Presentation 2).", "",
+         "Files are numbered by where they appear: `01` Home, `02`–`07` the six questions, `08` Method, "
+         "`09`–`11` per-DApp data used across several pages."]
+SECTIONS = [("Home", ["01"]), ("Questions (Q1 – Q6)", ["02", "03", "04", "05", "06", "07"]),
+            ("Method", ["08"]), ("DApp-level data", ["09", "10", "11"])]
+for title, prefixes in SECTIONS:
+    rows = [r for r in INDEX if r[0][:2] in prefixes]
+    lines += ["", f"## {title}", "", "| file | chart | used on | source | how |", "|---|---|---|---|---|"]
+    lines += [f"| [{n}](tables/{n}) | {esc(c)} | {esc(u)} | {esc(s)} | {esc(h)} |" for n, c, u, s, h in rows]
+assert sum(len([r for r in INDEX if r[0][:2] in p]) for _, p in SECTIONS) == len(INDEX)
+(OUT.parent / "CHART_DATA.md").write_text("\n".join(lines) + "\n")
 print("wrote", len(INDEX), "CSVs to", OUT)
