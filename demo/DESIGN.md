@@ -2,7 +2,23 @@
 
 The rules the demo site actually follows. The look borrows Mastercard's warm cream canvas and colour roles, set in our own type so the pages read like a research paper. Everything here is the default `study` theme in `site/index.html`; the other themes in that file (`?theme=cream`, `ink`, …) are early experiments and are not used.
 
-## Colours
+**How this guide is laid out.** Sections 1–8 are the system: rules that hold on every page. Section 9 goes page by page and only says what is particular to that page. Where desktop and phones differ, a bullet says **Desktop** or **Phones**; anything unmarked holds on every screen. Motion, button states and touch feedback are in [MOTION.md](MOTION.md).
+
+1. [Colours](#1-colours)
+2. [Type](#2-type)
+3. [Layout and spacing](#3-layout-and-spacing)
+4. [Shapes, frames and cards](#4-shapes-frames-and-cards)
+5. [Buttons and links](#5-buttons-and-links)
+6. [Sheets, menus and pop-ups](#6-sheets-menus-and-pop-ups)
+7. [Charts and maps](#7-charts-and-maps)
+8. [Motion](#8-motion)
+9. [Pages](#9-pages)
+
+---
+
+## 1. Colours
+
+### Palette
 
 | Role | Hex | Used for |
 |------|-----|----------|
@@ -18,9 +34,9 @@ The rules the demo site actually follows. The look borrows Mastercard's warm cre
 | Light orange | `#F37338` | Decoration only: orbit arcs, first place on the leaderboard, key numbers inside dark panels. Too light for text on cream |
 | Link blue | `#3860BE` | Every text link (`#1d3570` on hover) and the highlighted bar in a bar chart |
 | Dark panel | `#141413` | A few "read this" panels, never on something clickable |
-| Whisper cream | `#EFEAE3` | The success-rule panel on Method |
+| Whisper cream | `#EFEAE3` | Product-row cards, the success-rule panel on Method |
 
-**Supporting neutrals.** A few warm greys sit between the hairlines and the text colours above. They are part of the palette on every screen; nothing else may be added.
+**Supporting neutrals.** A few warm greys sit between the hairlines and the text colours. They are part of the palette on every screen; nothing else may be added.
 
 | Hex | Used for |
 |------|----------|
@@ -34,152 +50,275 @@ The rules the demo site actually follows. The look borrows Mastercard's warm cre
 | `#6F6B64` | Axis numbers on scatter maps |
 | `#F3F0EE` | Text on ink buttons |
 
-Two tints are left on phones only: the game start picture (`#F4E6DC`) and the per-DApp chart panel in Compare's Learn more sheet (`#ECE9E3`, `#E6ECF8`, `#EEEDEB`). Desktop shows both in Whisper cream.
+**Lifecycle colours** are always shown with their name beside them, or with a key that names them: Sustained `#3860BE`, Gradual decline `#141413`, Flash `#F37338`, Never adopted `#D1CDC7`, Unclear `#696969`.
 
-**Lifecycle colours** are always shown with their name beside them: Sustained `#3860BE`, Gradual decline `#141413`, Flash `#F37338`, Never adopted `#D1CDC7`, Unclear `#696969`.
+**Tints.** Desktop uses no tints outside the tables above: the game start card's picture panel and the chart panel in Compare's Learn more sheet are Whisper cream. Phones keep two tints: the game start picture (`#F4E6DC`) and the per-DApp chart panel in Compare's Learn more sheet (`#ECE9E3`, `#E6ECF8`, `#EEEDEB`).
 
-## Type
+### Orange means you, now, or the key number
 
-| Role | Font | Size |
-|------|------|------|
-| Titles | Newsreader (serif), weight 400 | 52px on inner pages, 68px on Home and Questions |
-| Subtitle under every title | Plus Jakarta Sans | 17px, Ink 2, max 720px wide, 18px below the title |
-| Body | Plus Jakarta Sans | |
-| Labels, eyebrows, numbers in tables | JetBrains Mono | 11.5px, tracked +0.14em |
+- **One orange word per page title**, in italic (`<em class="o-word">`):
 
-## Shapes
+  | Page | Word |
+  |------|------|
+  | Home | *today* |
+  | Questions | *answers* |
+  | Compare | *side by side* |
+  | Method | *measured* |
+  | About | *project* |
+  | Today at the booth | *booth* |
+  | Summary card | *dug down* (the title follows the card: "DeFi, dug down") |
 
-- **Frames**: large frames (figures, Compare table, side panels) have a 28px radius; smaller cards (question cards, Method cards) have 20px. Both are Lifted with a 1px hairline.
-- **Pills** (999px) only for buttons, chips, tags, inputs and the nav.
-- **Round icon buttons** (☰ menu, ✕ close, ⇄ swap, ↻ replay, ⋯ details, and the game's quit ✕ at the right of the level row, its cross in orange) are a thin #DDD8CF outline on the page colour, with no fill.
-- **No hard shadows.** Clickable cards and pop-up menus get a soft halo, `0 24px 48px rgba(0,0,0,.08)`.
-- **Frames only where you click.** Charts, tables and info groups sit straight on the page with a hairline on top. Frames are kept for clickable cards and panels that hold game or map state.
-
-## Desktop (wider than 600px)
-
-- Card rows read like a product row: big cards in Whisper cream #EFEAE3 (no colours outside the table above), 28px corners, no border, a small mono eyebrow, a Newsreader name, a line or two of text, and a round › (42px, thin ink outline on a pale fill) in the bottom-right corner when the card opens something. Used for Compare's three DApp cards, Home's three layers and More ways in.
-- Compare shows its three DApp cards: eyebrow (category · launch), name, peak and shape, the verdict, the two-year curve at the bottom, Dig in, and › for Learn more. Adding (the dashed card) and removing (✕ on cards 2 and 3) happen on the cards. There is no table or chart under them: every number sits in the › side panel, in one column per DApp.
-- Every sheet (Compare's Learn more, Read more) slides in from the right as a 520px panel instead of up from the bottom.
-- Page heads use the width: the title on the left and its line on the right, bottom-aligned (Compare, Pick a DApp, Neighbours, Method, Today at the booth, as Questions already did). The game's start page puts the title and line on the left and the start card on the right.
-- Method's Success / Signals / Data tabs float at the bottom like the Q1–Q6 bar; the three tiles at the top are hidden.
-- Today at the booth puts Saved cards (a 460px tank) and Top scores today side by side. The board always draws its ten places; open ones show a grey dash (on phones too).
-- The title's last line and the line beside it end on the same line on every page head.
-- Compare's add card opens its search below its ✕: one pill input in Whisper cream with no border and no dark ring when it is focused (only the caret), and a flat list inside the card, not a floating box.
-- Compare has no wallets chart under the cards; the › side panel carries every number and the overlaid curves.
-- The game map is centred and at most 880px wide (about 485px tall), and narrower on short screens, so the whole map and its axes fit on one screen. On Neighbours the map fills the column beside the cards instead.
-- Charts work as on phones: each line's name sits on its line (the label column on the right is gone, so the plot is wider), with the same rules for moving a name clear of other lines and names.
-- Home's market strip works as on phones: a carousel of three wide slides (Wallets, Transactions, Gas), one at a time, each slide straight on the page, no card or fill, 64px apart so one slide's chart never runs into the next slide's number while swiping, with the number on the left (56px, the measure's name under it in the same serif at 26px, then the month and the change) and the chart on the right (200px tall); phones keep the number over the chart, unframed ("1.1M active wallets", 48px and 26px), the month and the change on one line under it, and its chart (220px tall). The two era breaks are named on the chart itself, "Terra" and "Dencun" in small mono at the top of their dashed lines (laid over the chart as page text, so the stretched chart never distorts them), like the Question charts; there is no era bar under it, since "What happened ›" lists the three eras and their dates; the peak alone is marked: a solid orange dot with a small orange mono "peak" (on its left when it sits next to an era name or the right edge); each slide keeps its own marker inside it, so nothing shows on the next slide; the dots under it are the only control (click a dot to jump to that measure; it follows when you scroll), no arrows; the big number is 88px; no toggle; "What happened ›" at the right under the dots. The "Market › Category › DApp" caption is hidden and the heading keeps its hairline.
-- Home's More ways in slides on desktop like the market strip: a fourth card, "The six questions" (opens the question list, which Home did not link to before), comes first, so the cards follow the top bar: The six questions, Compare, Neighbours, Game; about three and a quarter cards are in view so the fourth peeks in, the row snaps to a card, and dots under it (click to jump; they follow when you scroll) are the control. Phones swipe the same four cards in the same order, without dots. Only the arrow opens a More ways in page; the card itself is not a link and has no hover halo. On every screen the arrow is the same round button at the bottom right: an ink chevron in a faint circle (1px at 12% ink, no fill; 42px on desktop, 44px on phones), which turns orange (#CF4500, chevron in cream) on hover or tap. About's Method tile in the Data row works the same way: the tile is not a link, only its round arrow at the bottom right opens Method, orange on hover or tap. Compare's round › on each DApp card (Learn more) uses the same style on every screen; on phones it replaces the "Learn more" pill and sits on the right of the "Dig in" row (44px). On desktop the dashed "+ Add a DApp" card turns orange on hover: the plus, the words and the dashed edge. "Dig in" stays a plain ink pill with no hover effect. The ink start buttons ("Start the game →", "I'm new · start here →", "Developers · start here →") answer the same way: on hover or tap, orange (#CF4500) sweeps in from the left over 0.4s, and the text stays cream; with reduced motion it switches at once.
-- **One rule for every blue "… ›" link, on every screen:** it sits at the right end of the heading row of the thing it belongs to, above the content, never under it. Charts: "Read more ›" on the chart's title row (Questions, walks, the game map, the era tables, Q5 too, whose small-sample warning is inside the note); the Neighbours map has no title row, so its "Read more ›" sits at the map's top right, on the "Y · …" row. Sections: "What happened ›" on "The whole market" heading, "See all of today ›" and "Play the game ›" on Home's Booth labels, "Walk a DApp ›" and "Play the game ›" on the Booth page headings. Method's Signals and Data tabs have no section heading, so "Notes and limits ›" sits in a row of its own just above the cards, at the right. When a heading is too long for one line on phones, the heading wraps and the link stays at the right of its first line. A year range such as "2020 – 2025" never splits across lines. Home's Booth labels and their links are centred on one line with 14px above the content; on Neighbours the filters sit 18px above the map, and the map's "Read more ›" is centred on the "Y · …" label's line. The one exception is "See today at the booth ›" on the card page, under the title in its narrow left column.
-- Desktop uses no tints outside the table: the game start card's picture panel and the chart panel in Compare's Learn more sheet are Whisper cream #EFEAE3 (they were a warm orange tint and a per-DApp blue or grey tint).
-- Neighbours on desktop: under the title, a narrow left column (270px) holds Your DApp and the three closest as framed cards (Lifted, 1px #E6E1D9, 20px corners) that scroll up and down inside a box as tall as the filters plus the map, snapping to a card, with the next card peeking in below. Vertical dots sit between the column and the map (the current one grows tall; click to jump; they follow the scroll and keep their place when the page redraws). Each closest card: "Closest 1 of 3", the name with its lifecycle shown only as a colour dot (11px) at the right of the name (Your DApp's key above already names the colours), the date, its curve full width (64px tall), X and Y values, then the result on its own line. "Compare" is the outlined Ethereum mark (the card page's save mark, 13 × 21px in a 32px round target) at the top right, on the "Closest 1 of 3" row; it fills ink on hover and carries the label "Compare Sushi BentoBox with others". Phone cards work the same way: the lifecycle dot at the right of the name and the Ethereum mark (14 × 22px in a 36px target) at the top right. To the right, the filters ("Compare by": X, ⇄, Y; "Only show": category, launch date) are one compact unframed row, right-aligned (two rows on narrow screens), and the map fills the rest under them, so the "Y · Returning share" label has its own space. "How to read this chart ›" sits under the map. Phones keep map, filters, then the readout as a sideways swipe row, with no dots.
-- On phones every closest card keeps two lines for its name, so the date, lifecycle, curve and numbers sit at the same height in all three cards while swiping, and "Compare" is the outlined Ethereum mark at the top right, as on desktop; the lifecycle shows only as its colour dot beside the name.
-- The game works as on phones: no pick list beside the map (the map is up to 880px wide), the level's two measures fold into the map's "Read more ›", and when a level ends the done line ("2 of 3 lasted · +164 points…") carries Next level. The current level tab shows its clock beside its score.
-- Method works as on phones, laid out as grids instead of swipe rows: the three labels, the six signal groups, the five funnel steps (512 in orange) and the three data charts are Whisper cream cards with ⋯ for details; the long versions are hidden; rules and limits fold into "Notes and limits ›".
-- The card page is left / right: the title, the note and the two links on the left, the card on the right.
-- About's three data sources are Whisper cream cards (no small label, no date-range chip); Method's card has the round ›.
-- Walk pages work as on phones: one column, a larger progress strip as eyebrow (28px bars, a 15 × 24 Ethereum mark) (▾ opens Your path), the chart's title with "Read more ›", "Following Lido ▾" under it, and the footer as a grey back link and a bold "Next →". The bar under the header keeps only ← Home (the breadcrumb and step boxes are hidden).
-- Question pages (Q1–Q6) are one wide column: the six questions sit in a floating bar at the bottom like on phones, but with every name spelled out ("Q1 Categories … Q6 Take-off", the current one an ink pill); the right-hand "All six questions" column is gone. The eyebrow is the progress strip (▾ opens the list), and each chart has its small grey title with "Read more ›" on the right, which opens the note in the side panel. The era switch stays in the row under the header.
-
-## Phones (600px and narrower)
-
-- Charts are drawn on a 560-wide canvas instead of 980, and taller (about 560 × 450, so roughly 270px on screen), with 16px label text, and the plot takes the full width: each line's name sits just above the end of its line, right-aligned, instead of in a column to the right. If a line runs under that spot the name moves under its line or above all the lines; failing those it takes the nearest clear spot within reach of the line's end; only when none is clear does it keep a page-coloured outline so the crossing line passes behind it. Two names never overlap. The reference line's name ("1,000 wallets") gets the same outline. Labels stay about 10px on screen. Long axis captions split onto two lines at the "·", and crowded month ticks show every other label.
-- Compare is a swipe row of DApp cards: each shows its own two-year curve on a tinted panel in its column colour, the key facts, "Dig in" and "Learn more". Learn more opens a bottom sheet whose top chart overlays the DApps being compared (this one a thick line in its colour, the others thin lines in theirs, all as a share of each one's own peak; the cards in the row keep one line each), then every number for that DApp in columns, one per DApp (this one first, in bold; the columns are always thirds, so with two DApps the second sits where it would with three), under a header of their names and colour dashes that stays at the top while you scroll; each row's label sits above its values, and ▲ marks the leader. A floating bar at the bottom says "Walk Uniswap V3, step by step." with "Dig in". The side-by-side table and the bottom chart are desktop only. The ▲ and "170 widely used DApps" note sits at the bottom of the Learn more sheet instead of on the page. "+ Add a DApp" opens its search inside the card. Cards 2 and 3 carry a small round ✕ in their top-right corner (always visible, since phones have no hover) that removes that DApp, freeing the slot for another; the first card has none.
-- Side-by-side panels (Neighbours' readout and its three closest DApps) stack.
-- Small grey labels only name things nothing else names. Swipe slides carry no "1 of 3" counter (the dots already show it), and Home's "Market › Category › DApp" line is hidden on phones because the layer cards say the same.
-- Pages scroll top to bottom; a section of three parallel cards scrolls left to right instead: Home's three layers (numbered, so the order needs no arrows) and More ways in, and Neighbours' three closest. About's three data sources (DeFiLlama, AWS Public Blockchain Data, Method) swipe the same way, framed like the other swipe cards; they stay on About as the credit for the data, while Method shows how it was narrowed. They read like More ways in on Home: icon, name (26px, room for two lines) and one line of text, no small label, all at the same height in the three cards, and the date-range chip above them is dropped on phones (the hero already says it). The same goes for the three era cards in "Pick a moment in the market", which open on the era already chosen. Each card is about 84% wide so the next one peeks in, and swiping snaps to a card.
-- Question pages get a floating bar at the bottom to jump between Q1–Q6: the current question is a dark pill with its name spelled out, the others show just their number.
-- The pages are in the order a visitor uses them: Home, Questions, Compare, Neighbours, Game, Booth (Today at the booth, `#wall`), then the reading pages Method and About.
-- The page links move into a ☰ menu that slides in from the left; tapping a page, the backdrop, ✕ or Esc closes it.
-- Question pages read top to bottom: "← All · Q3 of 6", the question, the era switch, then the conclusion and chart. The back link sits in the eyebrow row (walks use "← Home"), so there is no extra bar under the header.
-- Every page's first line, eyebrow or title, starts 24px under the header, and the first thing after the title's subtitle (a section heading, the filters, the cards) starts 32px under it on every page, and the eyebrow row stays on one line (walks write "2 of 5" without "Step"). In that row the back button (a thin outline, no fill) sits left and the Describe / Predict tag at the right edge. On question pages the "Q2 of 6 Survival" label is replaced by the progress strip described below.
-- Home's At a glance is a section heading like The whole market (24px title, a hairline under it), then three tiles side by side (number on top, short line under it) instead of three stacked rows.
-- The summary card is set like a business card on every screen: "On-chain DApp research" and the Ethereum mark on top, the DApp's name in Newsreader with its category and era under it, or for a market walk the category it followed ("DeFi") with no line under it, since Moment already gives the era, the five steps as label and value (an Outcome of Success in rust, Not a success in ink), and the block hash at the foot. It drops the summary sentence, since the steps already say it. Each value says what it is a share of ("Lido, 22% of DeFi wallets", "Stickiness, 33% of the model's weight", "4% of first users at month 6"), in Your path too. Under the card, one row like a walk's footer: "See today's wall ›" in blue on the left, "Dig into Lido →" in bold ink on the right (market walks only). The page title follows the card's name ("DeFi, dug down").
-- The Wall page is called **Today at the booth** (☰ menu and top nav: Booth; address `#wall`), matching Home's section: the title "Today at the *booth*", the line "Every DApp card saved and every game played on this screen today.", then "Saved cards" (how to save, the full tank, the count and Clear today) and "Top scores today" (the top 10). Links to it read "See all of today ›" (Home) and "See today at the booth ›" (under a card).
-- Only one-DApp (Layer 3) cards go on the wall, and only when the visitor saves them. The Ethereum mark in the card's top-right corner is the save button: an ink outline with an orange "Tap to save" beside it that gives a small wiggle every four seconds until it is saved (no note under the card yet); once tapped it fills orange (you / now) with a small pop, the hint goes, and the note under the card reads "Saved. Your card is on today's wall."; tapping again removes it. The card's top label is "DApp research". Every market walk card offers a DApp to dig into: the leader you followed, else another top-5 leader, else the biggest widely used DApp in that category. The five DApps with no third-month numbers show "No month-3 data" for Lookalikes instead of a dash. Market walk cards keep a plain Ethereum mark; their note says "Only one-DApp cards go on the wall: dig into Lido to make one." The Wall's subtitle reads "Walk one DApp (Layer 3) to the end, then tap the Ethereum mark on your card to pin it here",. The count reads "4 cards saved today".
-- Home's "Today at the booth" (after the three layers, before More ways in) holds two panels, side by side on desktop and swiped on phones, each ending in a blue link: "Saved cards" (the tank, then "See the wall ›") and "Top scores today" (a podium for the day's best three, then "Play the game ›"). The podium puts first in the middle on the tallest block (light orange, as for first place on the game's board, with a cream numeral), second on the left and third on the right on lighter blocks, each with the name and "412 pts · 1:23" above it; an empty step shows a dash and "open". The Wall page adds today's top 10 under its tank. The game page no longer shows a leaderboard: its start page is the start card alone (720px wide on desktop), and after saving a name the end screen says "You are #2 of 5 today, on the podium on Home" (the rank in orange) with "See today's top scores ›" to the Wall; the board now keeps the best 50 of all time plus every game from today, so a new score is never dropped.
-- Today's cards: Home has a 220px tank ("Today's cards", with "See the wall ›"), and the Wall page (☰ menu, `#wall`) shows the same tank full height. The tank's background is a quiet blockchain motif: chains of small blocks joined by dotted links, with one ghost Ethereum diamond in the middle (no purple). Every card finished on that screen today drifts slowly as a small card (about 144 × 80) with only the name and its block hash,  all the same size (the card is a souvenir, not a chart, so its size carries no data), bouncing off the sides; tapping one opens the full card. Two example cards from real walks (Uniswap V3, a success; Beanstalk, not) are always in the tank so it is never empty, marked "Example walk" when opened, and dropped once a visitor makes a card for the same DApp. Our data has no contract addresses, so the 0x line is the walk's block hash. Cards are kept in that browser's storage only (no server), so at the booth each screen shows its own visitors. A tank shows at most the newest 4 cards on Home on phones and 6 on desktop, and 8 / 12 on the booth page; the browser keeps the last 40 cards. The drift pauses while the tank is off screen or the tab is hidden. Under the tank one line, on one baseline: the count on the left ("4 cards saved today", "No cards saved yet today", or "36 cards made today · newest 12 here" once the cap is reached; the two examples are not counted) and an underlined grey "Clear today" on the right, which empties it after a confirm. Cards start on an even grid (as many columns as fit) and drift from there. Under reduced motion the cards stay still.
-- The Booth page's two panels match: each heading has a blue link at its right ("Saved cards" · "Walk a DApp ›", which opens the DApp picker; "Top scores today" · "Play the game ›"). How to add a card lives in the page's subtitle, not over the tank, and there is no card count under the tank (it counted today only while the tank shows recent days); only a quiet grey "Clear today" link for staff, at the right, when today has cards.
-- "Take it with you" (desktop only; on a phone you are already there). On About it sits at the top right, beside the title (where the orbit drawing was), its top level with the title's, so the Data row keeps its three tiles (DeFiLlama, AWS, Method) aligned. On the Booth page it is a Lifted card with a hairline at the end of the page, holding a QR code (ink on the card's cream, 132px with a quiet margin) to https://ethereum-dapp-trends.vercel.app, a serif title and one line ("Scan to open this site on your phone and keep reading."); no written address, the code is enough. The code is a fixed SVG in the page, so it works offline. The Merge stays only in What happened, "for context only; it is not one of our era breaks".
-- The era cards in "Pick a moment in the market" are set like the Compare cards on phones: the dates and the market line on a tinted panel at the top, then the name, the one-line note, the change in market wallets ("first vs last 3 months", so the caption under the row is dropped), and the hottest category; the chosen card has an orange border instead of "✓ Selected".
-- Method's three tabs move into a floating bar at the bottom, like the Q1–Q6 bar: Success / Signals / Data, the current one a dark pill with its number ("85 of 512"). The tiles at the top are hidden on phones, so the content starts right under the title.
-- Method's "What we look at" is a paged row like "Three ways we sort apps": one group per slide ("7 signals", the group name, the gist in one line, a ⋯ button top right). The ⋯ opens that group's signals with their success-vs-others bars and the legend.
-- The "Why not ever reached 10K wallets?" note moves into the Success slide's Learn more on phones.
-- Method's data tab: the funnel (1,816 → 512) is a paged row, one step per slide ("Step 1") with a bar for its share of the registry, and the three charts (by category, by launch year, peak wallets) are another. The rules and limits notes on every tab fold into "Notes and limits ›".
-- Every Method card (labels, signals, funnel steps) keeps two lines for its explanation under the number, so the bars and notes below start at the same height across a row on every screen. The "By launch year" bars leave room above the tallest bar for its number. Line names sit at the end of their own line and never drift more than about 90px from it; when lines end close together, the coloured name (the DApp itself) takes the spot nearest its line before the grey reference names ("One-hit", "Kept growing"). Horizontal bar charts size their right margin from the longest value label, so a big number such as "+14400%" is never cut; on phones the map's x-axis numbers sit a little lower so the corner numbers ("0%", "1.0") never touch. On narrow desktop windows (601–1000px) labels keep two lines and explanations three (four below 800px), and a label never runs under its ⋯ button. In the success walkthrough, the verdict in a step title is orange: "DragonQuest: not a success", "The grey DApp: a success".
-- Method's "Three labels, only one is success" (formerly "Three ways we sort apps") is a paged row, Success first, then Lifecycle label and Shape,, one sort per slide with dots under it: the key number and one line, with a round ⋯ button in the slide's top-right corner that opens the full detail in a bottom sheet (✕, tap outside or Esc closes it). The slides are left-aligned like the market slides on Home.
-- On walk steps with a choice (Hot or fading, Leaders), the "Follow another …" box moves into the chart on phones: "Following Lido ▾" on its own line under the title row. Its list opens under it, inside the screen. Its keyboard focus ring is ink, like every other focus ring.
-- In the market walk, the leader you follow on "Who runs it?" (Following …) is the subject of every step after it. Who runs it?: the Conclusion names that leader, its share and its place in the top 5, then the first one and the top 5's share (the first one keeps the short form). What do the leaders have in common?: the followed leader is the first, blue row, above the category's top 5 (black) and its typical DApp (grey), and the line under the Conclusion gives its value on the model's strongest signal. Do their users stay?: when we have the leader's first-users curve (38 of the 98 top-5 places), the Conclusion is about it, set against the typical DApp launched in the leader's own launch era; otherwise the Conclusion is the era's typical DApp and the line under it says why the leader can't be followed (launched before our data starts, or fewer than 100 wallets in its first month).
-- Walks no longer show the place line (era › category › DApp) under the eyebrow on phones: it appeared only once choices were made, so it popped in mid-walk. The same choices are listed in Your path, opened from the progress strip.
-- On walks, Previous / Next shrink to one row in the same sans font: a plain grey back link on the left and "Next →" as plain bold ink text on the right, no pill or frame. Bold ink against grey is enough to show the way on; orange stays for "you / now".
-- The Neighbours and game map is drawn on a square 560 × 560 canvas on phones (980 × 540 on desktop), so it is about 80% taller and its labels readable.
-- Neighbours: the filters sit unframed, with plain small labels and light outlined buttons, so they read as the map's axis settings. Their dropdowns open under the row, full width, so they never run off the screen. They are two labelled rows of equal buttons ("Compare by" X ⇄ Y, "Only show" category and launch date). The map comes straight after them, then the readout, then Your DApp and the three closest together in one row of framed cards you swipe through (Your DApp first, each closest card labelled "Closest 1 of 3"; all four share the same padding, label rule and title position), each about 84% wide so the next one peeks in from the right. Three fixed columns would leave about 100px each, too narrow for names and numbers.
-- The era table under Q2 puts each percentage under its bar.
-- A game stops itself, unsaved and without a message, and returns to the game's start: after one minute with no tap, click or key during a level, or once it has run for ten minutes in all. The booth's ?kiosk timer (90 seconds back to Home) still applies everywhere.
-- Game page order, on every screen: the level's question, then "Your task", then the three level tiles, then the map. The map's caption ("NFT · Before Terra · 16 DApps") is its title, in ink, on one row with "Read more ›", which opens the two measures; there is no "How to read this chart" row under the map. When the last level ends, the finish card (points and time, "3 of 9 picks were a success.", the name box, then your place today, with a round ↻ in its top-right corner to play again) sits over the map like the "Your turn" card at the start, instead of in a side panel. The name box's focus ring is ink and follows the pill.
-- The game's finish card sits on the map like a lifted card, on every screen: Lifted with a hairline (#E6E1D9), 28px corners and the soft halo, no ink border; 380px wide on desktop. "Finished" and the replay ↻ (a 32px round button) share the top row, so nothing crowds the score; the name field is a Whisper cream pill with no dark focus ring, and its → button is ink.
-- Game: the map gets the first screen (it starts about 375px down on a 812px phone). The task is one plain line with no label or rules ("Pick three dark dots, reading active wallets and returning share together."), and the three levels are one row of slim pills ("L1 · 64 · 0:48", the current one outlined orange) that floats at the bottom of the screen like the Q1–Q6 bar. The quit ✕ sits at the right of the level's title, on the same line, on every screen; the game has no eyebrow row. Earlier: the three levels shrink to small tiles (level and score), the task stays but tighter, there is no pick list under the map on phones (the numbered dots on the map, tappable for name and result, and the done line above it say the same), and "How to read this chart" holds just the two measures, each as its axis, name, one plain line and what low and high look like ("← only a few users · lots of users →"), with no frames, "why it matters" or example. When a level is done, Next level appears only in the task bar, not again under the map. There is no separate time and score box while playing, on any screen: the current level tile carries the live clock and each tile its points; when a level ends, the task box turns into the result ("2 of 3 lasted · +164 points · 1:07 so far. Keep going!") with Next level right there. No score pop or landing dots on phones. The start card spans the map with a pill button and a friendlier line: "Your turn … Go with your gut. / Let's go →" (this copy is the same on desktop).
-- Touch screens drop the dark hover outline that used to stick on a card after a tap.
-- The Questions page drops "Pick a timeline" on every screen: every question page has the era switch right under its title, so the picker only repeated it.
-- Every chart on a phone has a short title in small grey caps, like "The same model in each era" on Q2: its accessible name ("Wallet change by category", "Share of the category's wallets"). Title and a blue "Read more ›" share the top row and stay on one line (names are kept to about 33 characters, longer ones end in "…"); a walk picker sits on its own line under that row.
-- Long notes under charts (How to read, Success, Source) fold into a short blue "Read more ›" at the right of the chart's top row, so it never sits on the chart; tapping it opens the full note in a bottom sheet, links inside still work. On the era table it sits at the right of the table's label line. The Neighbours and game maps, and any chart with a small-sample warning, keep a plain blue "How to read this chart ›" row instead, so the map stays clear and the warning stays visible. On a walk, the eyebrow's middle is a small progress strip instead of "1 of 5 Moment": done steps as short ink bars, the current step as a small solid orange Ethereum mark, the rest grey, then ▾. It is a button that opens "Your path", so the path needs no row of its own. Question pages use the same strip for the six questions (the ones you have opened in ink, this one orange), and it opens "All six questions". Question pages drop the "All six questions" list: the Q1–Q6 bar already lists them.
-- Home's market strip has no Wallets / Transactions / Gas toggle on phones (it read like a filter): each measure is its own slide, swiped with dots under them. Each slide has no small label (the dots show the position and the line under the number names the measure) and leads with one big number: the latest month of the measure that is on, against its peak ("1.1M active wallets in Dec 2025, −52% from the 2.3M peak"). It is grey, not orange: "today" and the latest-month dot already carry Home's orange. The line is taller (150px), the era bar sits under it, and a blue "What happened ›" at the right end of the dots row opens the era story.
-- Every Conclusion has one orange keyword, on every screen. Question pages: the category that grew most (Q1), the strongest signal (Q2), the top-10 share (Q3), the successful share with 10K wallets by month 6 (Q4), the share kept at month 6 (Q5), the growers' retention (Q6).
-- On a market walk, each step's Conclusion has one orange keyword: the era ("You are looking at Terra → Dencun"), the category ("Between Terra and Dencun, DeFi was the hottest"), the leader ("Lido holds 22%"), the signal ("stickiness") and the share kept ("10%").
-- On a DApp walk, each step's Conclusion has one orange keyword instead of the DApp's name: the shape ("kept growing"), the rank ("#14 of 122"), the three lookalikes, the signal ("size"). The last step's verdict is its keyword too, orange either way ("still a success" or "not a success"); the card and the charts keep rust for success.
-- Two kinds of tap target, never mixed up: Link blue text means "see more" (How to read this chart ›, Your path ›), the ink pill means "go on" (Next, Dig in, Let's go). On a walk step the blue links sit together and the ink Next comes last.
-- The Lookalikes chart on a DApp walk has no legend above it on phones: its four marks (this DApp, lookalike success, lookalike not a success, every other DApp) open first in How to read, so the chart starts right under its top row.
-- Pick a DApp ends with the two other ways in as short rows, a grey question over a blue link ("Not listed, or not live yet? / Place your own numbers ›", "Want to line a few up? / Compare DApps ›"), stacked on phones and side by side on desktop, instead of one long sentence.
-- The walk's place line (era › category › DApp) stays left-aligned with the title under it; only the eyebrow's progress strip is centred, between ← Home and the Describe tag.
-- The progress strip depends only on position, on walks and on Question pages alike: steps before this one are ink, this one is the orange Ethereum mark, the ones after it grey. Going back and forth never changes how it looks.
-- Small charts on phones say what x and y are: the top and bottom of the scale sit at the left edge in small grey mono, the time along the bottom. Compare's Learn more chart reads Peak / 0 and Launch / Year 1 / Year 2; each era card's market line reads its highest month ("1.7M") / 0 and its first and last month with "monthly wallets" between them, so the dates line above it is dropped on phones.
-- Tapping a dot or bar shows its tooltip (name, category and launch, the two numbers, whether it lasted); it is always kept fully on screen and sits above the floating bars.
-- Legends in a sheet list one item per line (a dot and its meaning); the map no longer says "Drag the crosshair, or click anywhere".
-- Slides use a ⋯ button for their details, and every other "see more" is a short blue text link, never a bare icon: an icon on its own would not say what it opens.
-- Every Learn more sheet reads the same way, left-aligned: a heading in Newsreader, a small grey mono line (dates, a count, "1 · Categories"), then the text in the body font, with a hairline between items. "What happened in each era" lists each era as name, dates on their own line, then what happened; notes like "Rules." become headings rather than a bold word inside the paragraph.
-- Method keeps one title, "How we measured it", but its lede follows the tab: Success ("What counts as a success, shown on one DApp, and how it differs from two other labels we use"), Signals ("The 33 early signals…"), Data ("How 1,816 listed DApps became the 512…").
-- The walkthrough has a real section heading, "The rule, step by step", the same size as the other section heads, with its ↻ button on that line.
-- The DragonQuest walkthrough has five steps: the three parts of the rule, then "DragonQuest: not a success" and "The grey DApp: a success". Once it ends only a round ↻ button stays in the figure's top-right corner to replay it; there is no separate verdict list.
-- The DragonQuest "How to read it" figure on Method is drawn on the same 560-wide canvas with larger text.
-- Crossing 600px while the page is open redraws it in the right mode.
-
-## Rules
-
-### One orange word per page title
-
-Each title sets one word in italic orange (`<em class="o-word">`):
-
-| Page | Word |
-|------|------|
-| Home | *today* |
-| Questions | *answers* |
-| Compare | *side by side* |
-| Method | *measured* |
-| About | *project* |
-| Today at the booth | *booth* |
-
-On Home it pairs with the orange latest-month dot in the market strip; both mean "now". Neighbours and Game already use orange for the visitor's own DApp and the level numbers, so their titles stay ink.
-
-The game level you are playing has an orange outline (an orange top line on desktop). The "Predict" tag (only Q2) is orange, outline and text, so the one question type that looks ahead stands out from Describe, which stays grey.
-
-Beyond the title word, a page may carry **one** key number in orange, the number the page builds to. Method's funnel ends on 512 (the DApps the study uses) in orange. The summary card's title ends on an orange *dug down*, so every page has exactly one orange cue in its title or eyebrow.
+  On Home it pairs with the orange latest-month dot in the market strip; both mean "now". Neighbours and Game already use orange for the visitor's own DApp and the level numbers, so their titles stay ink.
+- **One key number** a page builds to may be orange as well: Method's funnel ends on 512 (the DApps the study uses).
+- **One orange keyword in every Conclusion** (see Questions and Walks in section 9 for each one). In the success walkthrough on Method, the verdict in a step title is orange: "DragonQuest: not a success", "The grey DApp: a success".
+- **Where you are**: the current step in the progress strip (an orange Ethereum mark), the level being played (orange outline; an orange top line on desktop), the chosen era card (2px orange border), the "Predict" tag on Q2 (orange outline and text; Describe stays grey), the game's quit ✕ cross, your rank on the game's end screen.
+- **Hover and tap** on round arrows, the dashed add card and the ink start buttons (MOTION.md).
 
 ### Rust means success
 
-Rust is reserved for success, so nothing else uses it. Highlighted bars, its "Level done" label and every focus ring (search boxes, dropdowns) are not rust; they use ink and Link blue.
+Rust is reserved for success, so nothing else uses it: a card's Outcome of Success, success lines and dots on every chart. Highlighted bars, the "Level done" label and every focus ring are not rust; they use ink and Link blue.
 
-### Eyebrow mark
+### Blue means see more
 
-A small solid orange Ethereum mark (7 × 11px, the same shape as the current step in the progress strip) marks the small label above a title only when the label adds something the title does not say: the question number and tag (Q2 Survival), the step in a walk (Step 3 of 5), the game level is left to its level tiles, so the game's eyebrow keeps only the quit ✕. Pages whose title already says where you are have no eyebrow.
-
-### One way forward
-
-On every walk step the only forward action is the Next button at the bottom right (Finish on the last step). Choices inside a page never say "→". The era cards in "Pick a moment in the market" carry no "Choose" / "Selected" text: the chosen card has a 2px orange border (you / now), the others a hairline.
-
-### Motion
-
-Effects play once, on a change, and explain the data. Switching era morphs bars, dots and lines to their new values. Big numbers count up the first time they appear. Hovering a DApp on Neighbours draws orbit arcs to its three closest DApps. The retention chart draws itself once per era because the drop is the story. Nothing loops except the name river on Pick a DApp and the cards drifting on the Wall. The card's save mark wiggles briefly every four seconds until it is saved. All motion is skipped under `prefers-reduced-motion`.
+Link blue text means "see more" (Read more ›, Your path ›, What happened ›). Going on is ink (Next →, Dig in, Let's go). The two are never mixed up. See section 5.
 
 ### Ethereum, kept quiet
 
 A line-drawn Ethereum diamond sits before the site title and in the browser tab, and Home has one large ghost diamond at 9% opacity behind the hero. No ETH purples or gradients.
+
+---
+
+## 2. Type
+
+| Role | Font | Size |
+|------|------|------|
+| Titles | Newsreader (serif), weight 400 | 52px on inner pages (51.2px rendered), 68px on Home and Questions |
+| Subtitle under every title | Plus Jakarta Sans | 17px, Ink 2, max 720px wide, 18px below the title |
+| Body | Plus Jakarta Sans | |
+| Labels, eyebrows, numbers in tables | JetBrains Mono | 11.5px, tracked +0.14em |
+
+- **Tabular numbers.** Every number that sits in a column or changes in place (tables, chart readouts, tooltips, filter values, the game's X/Y) uses `font-variant-numeric: tabular-nums`, so digits line up and a changing value does not wiggle.
+- **Line length.** Body text and subtitles stop at about 60–75 characters a line (subtitles max 720px); wider text gets a narrower column, not a smaller font.
+- **Leading.** Titles are tight (about 1.05–1.1); body text is about 1.5.
+- **Widows.** A title or subtitle should not end with one short word alone on its last line; titles use `text-wrap: balance` and paragraphs `text-wrap: pretty`, so the browser evens out the lines; if a word is still left alone, reword it. A year range such as "2020 – 2025" never splits across lines.
+- **Tracking.** Only the mono labels are tracked (+0.14em). Serif titles and sans body keep the font's own spacing; kerning is left to the fonts.
+- **Small grey labels only name things nothing else names.** Swipe slides carry no "1 of 3" counter (the dots already show it), and Home's "Market › Category › DApp" caption is hidden because the layer cards say the same.
+- **Chart titles** are short, in small grey caps, and are also the chart's accessible name ("The same model in each era", "Wallet change by category", "Share of the category's wallets"). Names are kept to about 33 characters; longer ones end in "…".
+
+---
+
+## 3. Layout and spacing
+
+### Breakpoints
+
+- **Phones**: 600px and narrower. **Desktop**: wider than 600px. Side-by-side page heads start at 901px. Narrow desktop windows (601–1000px) give card labels two lines and explanations three (four below 800px).
+- Crossing 600px while the page is open redraws it in the right mode.
+- Touch screens drop the dark hover outline that would otherwise stick on a card after a tap.
+
+### Page order
+
+The pages are in the order a visitor uses them: Home, Questions, Compare, Neighbours, Game, Booth (Today at the booth, `#wall`), then the reading pages Method and About. **Phones**: the page links move into a ☰ menu that slides in from the left; tapping a page, the backdrop, ✕ or Esc closes it.
+
+### Page heads
+
+- Every page's first line, eyebrow or title, starts 24px under the header. The first thing after the subtitle (a section heading, the filters, the cards) starts 32px under it.
+- **Desktop, 901px and wider: one rule for side-by-side heads.** The title starts at the page's left edge; the explanation always sits in the same column (58.5% in, 37.5% wide); the explanation's last line sits on the same baseline as the title's last line, not just the same box bottom. This holds for Questions, Compare, Pick a DApp, Neighbours, Today at the booth and Method at 1024, 1280 and 1440px. All pages use the same width (1380px). Game and About stack their title and explanation, because their right-hand side holds the start card and the QR code.
+- **Eyebrow.** The small row above a title stays on one line (walks write "2 of 5" without "Step"). The back button (a thin outline, no fill) sits left and the Describe / Predict tag at the right edge. A small solid orange Ethereum mark (7 × 11px) marks the eyebrow only when it adds something the title does not say (the question number and tag, the step in a walk). Pages whose title already says where you are have no eyebrow; the game's eyebrow is left to its level tiles, so it keeps only the quit ✕.
+
+### Progress strip
+
+- On walks and Question pages the eyebrow's middle is a progress strip: steps before this one are short ink bars, this one is a small solid orange Ethereum mark, the ones after it grey, then ▾. It depends only on position, so going back and forth never changes how it looks.
+- It is a button: on walks it opens "Your path" (the choices made so far, so the path needs no row of its own); on Question pages it opens "All six questions".
+- Only the strip is centred, between ← Home and the Describe tag; everything else in the head is left-aligned.
+- **Desktop**: a larger strip (28px bars, a 15 × 24 Ethereum mark).
+
+### Scroll direction
+
+- Pages scroll top to bottom. A set of parallel cards scrolls left to right instead (Home's three layers, More ways in, About's data sources, the era cards, Neighbours' closest on phones, Method's rows on phones).
+- **Phones**: each swipe card is about 84% wide so the next one peeks in, and swiping snaps to a card. Cards in one row share the same height, padding, label rule and title position.
+- **Desktop**: rows that slide (the market strip, More ways in) show dots under them; click a dot to jump, and the dots follow when you scroll.
+- Side-by-side panels stack on phones.
+
+### Floating bars
+
+Question pages (Q1–Q6), Method's tabs and the game's levels float at the bottom of the screen as one row of pills, the current one a dark pill (or orange outline for the game). **Phones**: anything fixed to the bottom sits `12px + env(safe-area-inset-bottom)` above the edge, so the iPhone home bar never covers it.
+
+### No layout shift
+
+Cards in a row keep the same number of lines for each part (names two lines, explanations two lines), so everything below starts at the same height across the row and nothing jumps while swiping. Nothing pops in mid-page once choices are made. More in MOTION.md.
+
+---
+
+## 4. Shapes, frames and cards
+
+- **Radii.** Large frames (figures, side panels, the game's finish card) 28px; smaller cards (question cards, Method cards, Neighbours' closest cards) 20px.
+- **Pills** (999px) only for buttons, chips, tags, inputs and the nav.
+- **No hard shadows.** Clickable cards and pop-up menus get a soft halo, `0 24px 48px rgba(0,0,0,.08)`.
+- **Frames only where you click.** Charts, tables and info groups sit straight on the page with a hairline on top. Frames are kept for clickable cards and panels that hold game or map state.
+
+### Card families
+
+| Card | Look | Used for |
+|------|------|----------|
+| Product-row card | Whisper cream, 28px corners, no border; small mono eyebrow, Newsreader name, a line or two of text, and a round arrow at the bottom right when it opens something | Compare's DApp cards, Home's three layers, More ways in, About's data sources, Method's cards on desktop |
+| Framed card | Lifted, 1px `#E6E1D9`, 20px or 28px corners | Neighbours' closest cards, the game's finish card, swipe cards on phones |
+| Tinted-top card | A tinted panel at the top (a chart or dates), then the name and facts | Compare's DApp cards and the era cards, on phones |
+| Business card | See Summary card in section 9 | The summary card |
+
+---
+
+## 5. Buttons and links
+
+Button states, hover, press and touch-target sizes are in MOTION.md. The rules about what goes where:
+
+- **Two kinds of tap target.** Link blue text means "see more"; ink means "go on". On a walk step the blue links sit together and the ink Next comes last.
+- **Every blue "… ›" link sits at the right end of the heading row** of the thing it belongs to, above the content, never under it. Charts: "Read more ›" on the chart's title row. Sections: on the section heading ("What happened ›" on The whole market). Where there is no heading row (Method's Signals and Data tabs), "Notes and limits ›" sits in a row of its own just above the cards, at the right. When a heading wraps on phones, the link stays at the right of its first line. The one exception is "See today at the booth ›" on the card page, under the title in its narrow left column.
+- **Long notes fold.** How to read, Success and Source notes under a chart fold into "Read more ›"; it opens the note in a sheet, and links inside still work. On an era table it sits on the table's label line.
+- **Slides use a round ⋯ button** in their top-right corner for details. Every other "see more" is a short blue text link, never a bare icon: an icon on its own would not say what it opens.
+- **Only the arrow opens.** On More ways in cards and About's Method tile, only the round arrow at the bottom right is a link; the card is not.
+- **One way forward.** On every walk step the only forward action is Next at the bottom right (Finish on the last step). Choices inside a page never say "→". Previous / Next are one row in the sans font: a plain grey back link on the left, "Next →" in plain bold ink on the right, no pill or frame. Bold ink against grey is enough to show the way on; orange stays for "you / now".
+- **The Ethereum mark as a button**: the card's save mark (fills orange when saved) and Neighbours' Compare (fills ink on hover). Each carries an accessible label ("Compare Sushi BentoBox with others").
+- **Focus rings are ink** on every input, dropdown and picker, and follow the pill's shape.
+
+---
+
+## 6. Sheets, menus and pop-ups
+
+- **Sheets.** **Phones**: a bottom sheet rises from the bottom. **Desktop**: a 520px panel slides in from the right. ✕, a tap outside or Esc closes it, and it leaves the way it came (MOTION.md).
+- **Every sheet reads the same way**, left-aligned: a heading in Newsreader, a small grey mono line (dates, a count, "1 · Categories"), then the text in the body font, with a hairline between items. Notes like "Rules." become headings, not a bold word inside a paragraph. Legends list one item per line (a dot and its meaning). "What happened in each era" lists each era as its name, the dates on their own line, then what happened.
+- **Dropdowns** open under their row; on phones they are full width, so they never run off the screen.
+- **Tooltips.** Hovering or tapping a dot or bar shows its tooltip (name, category and launch, the two numbers, whether it lasted). It is always kept fully on screen and sits above the floating bars.
+- **Search** (Compare's add card) opens inside the card: one pill input in Whisper cream with no border and no dark ring when focused (only the caret), and a flat list inside the card, not a floating box.
+
+---
+
+## 7. Charts and maps
+
+### Canvas
+
+- **Desktop**: charts on a 980-wide canvas; maps 980 × 540.
+- **Phones**: charts on a 560-wide canvas, taller (about 560 × 450, roughly 270px on screen), with 16px label text so labels stay about 10px on screen; maps on a square 560 × 560, about 80% taller. The Method walkthrough figure uses the same 560-wide canvas.
+
+### Line names
+
+- Each line's name sits at the end of its own line, right-aligned, instead of in a label column, so the plot takes the full width.
+- If a line runs under that spot, the name moves under its line or above all the lines; failing those, it takes the nearest clear spot within about 90px of the line's end. Only when none is clear does it keep a page-coloured outline so the crossing line passes behind it. The reference line's name ("1,000 wallets") gets the same outline.
+- Two names never overlap. When lines end close together, the coloured name (the DApp itself) takes the spot nearest its line before the grey reference names ("One-hit", "Kept growing").
+
+### Room for labels
+
+- Horizontal bar charts size their right margin from the longest value label, so "+14400%" is never cut. Vertical bars leave room above the tallest bar for its number.
+- On phones, long axis captions split onto two lines at the "·", crowded month ticks show every other label, and the map's x-axis numbers sit a little lower so the corner numbers ("0%", "1.0") never touch.
+
+### Titles and axes
+
+- Every chart has a short grey title with "Read more ›" on the same row, on one line. A walk picker ("Following Lido ▾") sits on its own line under that row.
+- Small charts on phones say what x and y are: the top and bottom of the scale sit at the left edge in small grey mono, the time along the bottom (Compare's Learn more chart reads Peak / 0 and Launch / Year 1 / Year 2; each era card's line reads its highest month ("1.7M") / 0 and its first and last month with "monthly wallets" between them, so the dates line above it is dropped on phones).
+- Era breaks are named on the chart itself, in small mono at the top of their dashed lines ("Terra", "Dencun"). The Merge is mentioned only in What happened, "for context only; it is not one of our era breaks".
+
+### Maps (Neighbours and the game)
+
+The map has no title row of its own, so its "Read more ›" (which opens "How to read this chart") sits at the map's top right, on the "Y · …" row. The map no longer says "Drag the crosshair, or click anywhere".
+
+---
+
+## 8. Motion
+
+Effects play once, on a change, and explain the data. Nothing loops except the name river on Pick a DApp, the cards drifting on the booth tank and the save-mark wiggle. All motion is skipped under `prefers-reduced-motion`. Timing, easing, feedback, button states and touch targets are in [MOTION.md](MOTION.md).
+
+---
+
+## 9. Pages
+
+### Home
+
+- **The whole market** (market strip): a carousel of three slides (Wallets, Transactions, Gas), one at a time, each straight on the page with no card or fill. "What happened ›" on the section heading opens the three eras and their dates. There is no toggle and no era bar under the chart. The dots under it are the only control. The peak alone is marked: a solid orange dot with a small orange mono "peak" (on its left when it sits next to an era name or the right edge); each slide keeps its own marker inside it.
+  - **Desktop**: slides 64px apart, so one slide's chart never runs into the next slide's number; the number on the left (56px, the measure's name under it in the same serif at 26px, then the month and the change) and the chart on the right (200px tall).
+  - **Phones**: the number over the chart ("1.1M active wallets", 48px and 26px), the month and the change on one line under it, then the chart (220px tall).
+- **At a glance**: a section heading like The whole market (24px title, a hairline under it), then three tiles side by side (number on top, a short line under it).
+- **Read the ecosystem in three layers**: three product-row cards, numbered, so the order needs no arrows.
+- **Today at the booth** (after the three layers, before More ways in): two panels, side by side on desktop and swiped on phones. "Saved cards" (a 220px tank) with "See all of today ›", and "Top scores today" with "Play the game ›", each link on its label row; the labels and links sit on one line with 14px above the content. The scores panel is a podium for the day's best three: first in the middle on the tallest block (light orange, cream numeral), second on the left and third on the right on lighter blocks, each with the name and "412 pts · 1:23" above it; an empty step shows a dash and "open".
+- **More ways in**: four cards in the top bar's order: The six questions (opens the question list), Compare, Neighbours, Game. **Desktop**: about three and a quarter cards in view so the fourth peeks in, snapping, with dots. **Phones**: swiped, no dots.
+
+### Questions (Q1–Q6)
+
+- The Questions list has no "Pick a timeline": every question page has the era switch right under its title.
+- A question page reads: eyebrow (← All, the progress strip, the Describe / Predict tag), the question, the era switch, the Conclusion, then the chart. There is no extra bar under the header and no "All six questions" list (the floating Q1–Q6 bar lists them).
+- The floating bar: **Phones**: the current question a dark pill with its name, the others just their number. **Desktop**: every name spelled out ("Q1 Categories … Q6 Take-off"), the current one an ink pill; the page is one wide column.
+- The orange keyword in each Conclusion: the category that grew most (Q1), the strongest signal (Q2), the top-10 share (Q3), the successful share with 10K wallets by month 6 (Q4), the share kept at month 6 (Q5), the growers' retention (Q6).
+- Q2's era table puts each percentage under its bar. Q5's small-sample warning sits inside its note.
+
+### Walks (market walk and DApp walk)
+
+- One column on every screen: the progress strip as eyebrow, the chart's title with "Read more ›", the walk picker under it, and the footer (grey back link, bold "Next →"). The bar under the header keeps only ← Home.
+- The place line (era › category › DApp) is not shown under the eyebrow: it appeared only once choices were made, so it popped in mid-walk. The same choices are in Your path.
+- **Walk pickers** (Hot or fading, Leaders): "Following Lido ▾" on its own line under the chart's title row; its list opens under it, inside the screen.
+- **Market walk**: the leader you follow on "Who runs it?" is the subject of every step after it.
+  - *Who runs it?*: the Conclusion names that leader, its share and its place in the top 5, then the first one and the top 5's share (the first one keeps the short form).
+  - *What do the leaders have in common?*: the followed leader is the first, blue row, above the category's top 5 (black) and its typical DApp (grey); the line under the Conclusion gives its value on the model's strongest signal.
+  - *Do their users stay?*: when we have the leader's first-users curve (38 of the 98 top-5 places), the Conclusion is about it, set against the typical DApp launched in the leader's own launch era; otherwise the Conclusion is the era's typical DApp and the line under it says why the leader can't be followed (launched before our data starts, or fewer than 100 wallets in its first month).
+  - Orange keywords: the era ("You are looking at Terra → Dencun"), the category ("DeFi was the hottest"), the leader ("Lido holds 22%"), the signal ("stickiness"), the share kept ("10%").
+- **DApp walk**: orange keywords are the shape ("kept growing"), the rank ("#14 of 122"), the three lookalikes, the signal ("size"), and the last step's verdict ("still a success" or "not a success", orange either way; the card and the charts keep rust for success). The Lookalikes chart has no legend above it on phones: its four marks open first in How to read.
+
+### Summary card
+
+- Set like a business card on every screen: "On-chain DApp research" and the Ethereum mark on top, the DApp's name in Newsreader with its category and era under it (a market walk shows the category it followed, "DeFi", with no line under it, since Moment gives the era), the five steps as label and value, and the block hash at the foot. No summary sentence.
+- Each value says what it is a share of ("Lido, 22% of DeFi wallets", "Stickiness, 33% of the model's weight", "4% of first users at month 6"), in Your path too. Outcome: Success in rust, Not a success in ink. The five DApps with no third-month numbers show "No month-3 data" for Lookalikes.
+- **Saving.** Only one-DApp (Layer 3) cards can be saved. The Ethereum mark at the top right is the save button: an ink outline with an orange "Tap to save" beside it; once tapped it fills orange with a small pop, the hint goes, and the note under the card reads "Saved. Your card is on today's wall."; tapping again removes it. Market walk cards keep a plain mark, and their note says "Only one-DApp cards go on the wall: dig into Lido to make one."
+- Under the card, one row: "See today at the booth ›" in blue, and "Dig into Lido →" in bold ink (market walks only). Every market walk card offers a DApp to dig into: the leader you followed, else another top-5 leader, else the biggest widely used DApp in that category.
+- **Desktop**: left / right, the title, the note and the links on the left, the card on the right.
+
+### Compare
+
+- Three DApp cards: eyebrow (category · launch), name, peak and shape, the verdict, the two-year curve, Dig in, and a round › for Learn more. Adding (the dashed "+ Add a DApp" card, whose search opens inside it) and removing (a round ✕, always visible, on cards 2 and 3; the first card has none) happen on the cards. There is no table or chart under them.
+- **Learn more** opens a sheet whose top chart overlays the DApps being compared (this one a thick line in its colour, the others thin, all as a share of each one's own peak), then every number in columns, one per DApp (this one first, in bold; columns are always thirds, so with two DApps the second sits where it would with three), under a sticky header of names and colour dashes; each row's label sits above its values, and ▲ marks the leader. The ▲ and "170 widely used DApps" note sits at the bottom of the sheet.
+- **Desktop**: product-row cards; the round › on each card.
+- **Phones**: a swipe row of tinted-top cards, each with its own curve on a panel in its column colour; the round › (44px) on the right of the "Dig in" row; a floating bar at the bottom says "Walk Uniswap V3, step by step." with "Dig in".
+
+### Pick a DApp
+
+- The name river (the one endless loop on the site) with search and "Surprise me".
+- **Pick a moment in the market**: three era cards, set like Compare's phone cards: the dates and the market line on a tinted panel, then the name, a one-line note, the change in market wallets ("first vs last 3 months") and the hottest category. They open on the era already chosen. The chosen card has a 2px orange border; there is no "Choose" / "Selected" text.
+- It ends with the two other ways in as short rows, a grey question over a blue link ("Not listed, or not live yet? / Place your own numbers ›", "Want to line a few up? / Compare DApps ›"), stacked on phones and side by side on desktop.
+
+### Neighbours
+
+- **Filters**: unframed, plain small labels and light outlined buttons, so they read as the map's axis settings: "Compare by" (X, ⇄, Y) and "Only show" (category, launch date).
+- **Closest cards**: Your DApp first, then "Closest 1 of 3" … Each card: the label, the name with its lifecycle shown only as an 11px colour dot at the right of the name (Your DApp's key names the colours), the date, its curve full width (64px tall), X and Y values, then the result on its own line. Names keep two lines. "Compare" is the outlined Ethereum mark at the top right, on the label row (13 × 21px in a 32px target on desktop; 14 × 22px in a 44px target on phones).
+- Hovering a DApp draws orbit arcs to its three closest.
+- **Desktop**: a 270px left column of framed cards that scroll up and down inside a box as tall as the filters plus the map, snapping, with the next card peeking in below; vertical dots between the column and the map (the current one grows tall; they keep their place when the page redraws). The filters are one compact row, right-aligned above the map (two rows on narrow screens), and the map fills the rest under them, so the "Y · Returning share" label has its own space.
+- **Phones**: the filters as two labelled rows of equal buttons, the map straight after them, then the readout, then the four cards in one swipe row (about 84% wide; three fixed columns would leave about 100px each, too narrow for names and numbers). No dots.
+
+### Game
+
+- Page order: the level's question (with the quit ✕ at its right, on the same line), the task, the level pills, the map. The task is one plain line ("Pick three dark dots, reading active wallets and returning share together.").
+- The levels are one row of slim pills ("L1 · 64 · 0:48", the current one outlined orange) floating at the bottom; the current pill carries the live clock. There is no separate time and score box. When a level ends, the task line turns into the result ("2 of 3 lasted · +164 points · 1:07 so far. Keep going!") with Next level right there, and nowhere else.
+- The map's caption ("NFT · Before Terra · 16 DApps") is its title, in ink, with "Read more ›", which opens the two measures, each as its axis, name, one plain line and what low and high look like ("← only a few users · lots of users →"). There is no pick list: the numbered dots on the map are tappable for name and result.
+- **Start**: the start card spans the map with a pill button: "Your turn … Go with your gut. / Let's go →". The game has no leaderboard of its own.
+- **Finish**: the finish card sits over the map as a lifted card (Lifted, hairline, 28px corners, the soft halo, no ink border; 380px wide on desktop). "Finished" and a 32px round ↻ share the top row; then points and time, "3 of 9 picks were a success.", the name box (a Whisper cream pill, ink → button), then your place today: "You are #2 of 5 today, on the podium on Home" (the rank in orange) with "See today's top scores ›". The board keeps the best 50 of all time plus every game from today, so a new score is never dropped.
+- **Timeouts**: a game stops itself, unsaved and without a message, after one minute with no tap, click or key during a level, or after ten minutes in all. The booth's `?kiosk` timer (90 seconds back to Home) still applies everywhere.
+- **Desktop**: the map is centred, at most 880px wide (about 485px tall), narrower on short screens so the map and its axes fit on one screen; the start page is the start card alone (720px wide). **Phones**: the map gets the first screen (it starts about 375px down on an 812px phone); no score pop or landing dots.
+
+### Today at the booth (`#wall`)
+
+- Called **Today at the booth** (menu and top nav: Booth). Title "Today at the *booth*", subtitle "Cards and scores from this screen today. To add a card, walk a DApp to the end and tap its Ethereum mark."
+- Two panels, side by side on desktop: "Saved cards" with "Walk a DApp ›" (opens the DApp picker) and "Top scores today" (the top 10; open places show a grey dash) with "Play the game ›". No card count under the tank; only a quiet grey "Clear today" link for staff, at the right, when today has cards (it empties the tank after a confirm).
+- **The tank** (Home 220px, Booth 460px on desktop, full height on phones): a quiet blockchain motif behind it (chains of small blocks joined by dotted links, one ghost Ethereum diamond, no purple). Each saved card drifts slowly as a small card (about 144 × 80) with only the name and its block hash, all the same size (a souvenir, not a chart, so size carries no data), bouncing off the sides from an even starting grid; tapping one opens the full card. Our data has no contract addresses, so the 0x line is the walk's block hash.
+- Two example cards from real walks (Uniswap V3, a success; Beanstalk, not) are always there so the tank is never empty, marked "Example walk" when opened and dropped once a visitor makes a card for the same DApp.
+- Cards are kept in that browser's storage only (no server), so each booth screen shows its own visitors. A tank shows at most the newest 4 cards on Home on phones and 6 on desktop, 8 / 12 on the booth page; the browser keeps the last 40.
+
+### Method
+
+- One title, "How we measured it", with a lede that follows the tab: Success ("What counts as a success, shown on one DApp, and how it differs from two other labels we use"), Signals ("The 33 early signals…"), Data ("How 1,816 listed DApps became the 512…").
+- The Success / Signals / Data tabs float at the bottom like the Q1–Q6 bar, the current one a dark pill with its number ("85 of 512"); the tiles at the top are hidden.
+- **Success tab**: "Three labels, only one is success" (Success, then Lifecycle label and Shape), one per card with the key number and one line and a round ⋯ for the full detail. The walkthrough has a section heading, "The rule, step by step", with its ↻ on that line: five steps (the three parts of the rule, then "DragonQuest: not a success" and "The grey DApp: a success"); once it ends, only the ↻ stays in the figure's top-right corner. The "Why not ever reached 10K wallets?" note lives in the Success card's details.
+- **Signals tab**: "What we look at", one card per group ("7 signals", the group name, the gist in one line, ⋯ opening its signals with their success-vs-others bars and the legend).
+- **Data tab**: the funnel (1,816 → 512, five steps, 512 in orange), each step with a bar for its share of the registry; then three charts (by category, by launch year, peak wallets).
+- Every card keeps two lines for its explanation under the number; a label never runs under its ⋯ button. Rules and limits fold into "Notes and limits ›" on every tab.
+- The "By launch year" bars leave room above the tallest bar for its number.
+- **Desktop**: grids of Whisper cream cards. **Phones**: the same cards as paged rows, left-aligned, with dots.
+
+### About
+
+- The three data sources (DeFiLlama, AWS Public Blockchain Data, Method) as product-row cards: icon, name (26px, room for two lines), one line of text, no small label or date-range chip. They stay on About as the credit for the data, while Method shows how it was narrowed. Only Method's round arrow at the bottom right opens Method. **Phones**: swiped, framed like the other swipe cards.
+- **Take it with you** (desktop only; on a phone you are already there): at the top right beside the title, its top level with the title's. A QR code (ink on the card's cream, 132px with a quiet margin) to https://ethereum-dapp-trends.vercel.app, a serif title and one line ("Scan to open this site on your phone and keep reading."); no written address. The code is a fixed SVG in the page, so it works offline.
