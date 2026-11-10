@@ -57,3 +57,7 @@ agent-transcripts/
 # local tool settings
 .claude/
 .impeccable/
+
+# vercel
+.vercel/
+.env*.local
