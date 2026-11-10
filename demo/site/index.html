@@ -2308,6 +2308,81 @@ body.sheet-open{overflow:hidden}
 .q-bar button.on{background:#1A1A1A;color:#F5F3EE;padding:0 14px}
 .q-bar span{font-size:13px}
 .fold-ic{display:none}
+.m-cmpic{display:none}
+/* phones: every closest card keeps two lines for its name, so the rows under it line up across the swipe */
+@media (max-width:600px){
+  /* every closest card keeps two lines for its name, so the rows under it line up across the swipe */
+  .m-top .m-card .m-cname{display:block!important;min-height:60px!important}
+  .m-top .m-card::before{grid-row:1}
+  /* lifecycle: just its colour dot at the right of the name (Your DApp's key names the colours) */
+  .m-top .m-card>.m-cname{grid-column:1!important;grid-row:2!important}
+  .m-top .m-card>.m-clife{grid-column:2!important;grid-row:2!important;align-self:start!important;justify-self:end!important;margin-top:10px!important;font-size:0!important;line-height:0!important;gap:0!important}
+  .m-top .m-card>.m-clife i{display:block!important;width:11px!important;height:11px!important;margin:0!important;border-radius:50%}
+  /* Compare: the outlined Ethereum mark at the top right, on the "Closest 1 of 3" row */
+  .m-top .m-card>.m-cmp{grid-column:2!important;grid-row:1!important;justify-self:end!important;align-self:start!important;display:flex!important;align-items:center;justify-content:center;width:36px;height:36px!important;margin:-10px -10px 0 0!important;padding:0!important;border:0;border-radius:50%;background:none;position:relative;z-index:1}
+  .m-top .m-card>.m-cmp .m-cmpt{display:none}
+  .m-top .m-card>.m-cmp .m-cmpic{display:block;width:14px;height:22px;fill:none}
+  .m-top .m-card>.m-cmp:active .m-cmpic{fill:#1A1A1A}
+  .m-top .m-card>.m-cmp:active .m-cmpic path:last-child{stroke:#FBFAF7}
+}
+/* desktop Neighbours: Your DApp and the three closest stack in a column left of the map and scroll up and down (dots beside them); the filters sit over the map */
+.m-topdots{display:none!important}
+@media (min-width:601px){
+  main.dfold.dfold:has(>.m-top){display:grid!important;grid-template-columns:minmax(0,270px) 10px minmax(0,1fr) minmax(0,38%)!important;column-gap:20px!important;grid-template-rows:none!important}
+  main.dfold.dfold:has(>.m-top)>*{grid-row:auto!important;order:0!important}
+  main.dfold.dfold:has(>.m-top)>h1{grid-column:1 / 4!important;grid-row:1!important}
+  main.dfold.dfold:has(>.m-top)>.s-lede{grid-column:4!important;grid-row:1!important}
+  main.dfold.dfold:has(>.m-top)>.m-top{grid-column:1!important;grid-row:2 / 4!important;align-self:stretch!important;height:0;min-height:100%;display:flex!important;flex-direction:column!important;gap:14px!important;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:contain;margin:0!important;padding:0!important;counter-reset:near;box-sizing:border-box}
+  main.dfold.dfold:has(>.m-top)>.m-top::-webkit-scrollbar{display:none}
+  main.dfold.dfold:has(>.m-top)>.m-top>.m-three,main.dfold.dfold:has(>.m-top)>.m-top .m-cards{display:contents!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-near{display:none!important}
+  main.dfold.dfold:has(>.m-top)>.m-top>.m-sum,main.dfold.dfold:has(>.m-top)>.m-top .m-card{flex:none!important;width:auto!important;min-width:0;box-sizing:border-box;scroll-snap-align:start;margin:0!important;padding:18px 20px!important;border-radius:20px!important;background:#FBFAF7!important;border:1px solid #E6E1D9!important;box-shadow:none!important}
+  main.dfold.dfold:has(>.m-top)>.m-top>.m-sum h3{font-size:20px!important;line-height:1.22!important;margin:8px 0 12px!important}
+  main.dfold.dfold:has(>.m-top)>.m-top>.m-sum>.s-mono:first-child,main.dfold.dfold:has(>.m-top)>.m-top .m-card::before{font:500 11px 'JetBrains Mono',monospace!important;letter-spacing:.12em!important;text-transform:uppercase;color:#8E8A82!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card{counter-increment:near;display:grid!important;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:3px;align-content:start;height:auto!important;min-height:0!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card::before{content:"Closest " counter(near) " of 3";grid-column:1 / -1;grid-row:1;padding-bottom:8px;margin-bottom:9px;border-bottom:1px solid #E6E1D9}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>*{grid-column:1 / -1!important;grid-row:auto!important;margin:0!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cname{font-size:21px!important;line-height:1.25!important}
+  /* lifecycle: just its colour dot at the right of the name (Your DApp's key already names the colours) */
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cname{grid-column:1!important;grid-row:2!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-clife{grid-column:2!important;grid-row:2!important;align-self:start;justify-self:end;margin-top:8px!important;font-size:0!important;line-height:0!important;gap:0!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-clife i{display:block!important;width:11px!important;height:11px!important;margin:0!important;border-radius:50%}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-spark{width:100%!important;height:64px!important;margin:10px 0 6px!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card .m-xy{display:grid!important;grid-template-columns:auto 1fr;gap:1px 10px;height:auto!important;margin:2px 0 4px!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card .m-xy dt{margin:0}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card .m-xy dd{margin:0;text-align:right;font-weight:600;color:#1A1A1A}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-res{grid-column:1 / -1!important;font-size:13px!important;margin-top:6px!important;white-space:normal!important;height:auto!important}
+  /* Compare: the outlined Ethereum mark (the card page's save mark) at the top right, on the "Closest 1 of 3" row */
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp{grid-column:2!important;grid-row:1!important;justify-self:end!important;align-self:start!important;display:flex!important;align-items:center;justify-content:center;width:32px;height:32px;margin:-8px -8px 0 0!important;padding:0!important;border:0;border-radius:50%;background:none;cursor:pointer;position:relative;z-index:1;height:32px!important}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp .m-cmpt{display:none}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp .m-cmpic{display:block;width:13px;height:21px;fill:none;transition:fill .2s}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp:hover .m-cmpic,main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp:focus-visible .m-cmpic{fill:#1A1A1A}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp:hover .m-cmpic path:last-child,main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp:focus-visible .m-cmpic path:last-child{stroke:#FBFAF7}
+  main.dfold.dfold:has(>.m-top)>.m-top .m-card>.m-cmp:focus-visible{outline:2px solid #1A1A1A;outline-offset:1px}
+  main.dfold.dfold:has(>.m-top)>.m-topdots{grid-column:2!important;grid-row:2 / 4!important;align-self:center!important;display:flex!important;flex-direction:column;align-items:center;gap:10px;margin:0!important}
+  main.dfold.dfold:has(>.m-top)>.m-topdots button{display:block;width:9px;height:9px;padding:0;border:0;border-radius:5px;background:#D1CDC7;cursor:pointer;transition:height .25s,background .25s}
+  main.dfold.dfold:has(>.m-top)>.m-topdots button.on{height:30px;background:#1A1A1A}
+  /* filters: one compact unframed row, right-aligned over the map; the map starts under them */
+  main.dfold.dfold:has(>.m-top)>.m-ctrl{grid-column:3 / 5!important;grid-row:2!important;justify-self:end!important;display:flex!important;flex-wrap:wrap!important;justify-content:flex-end!important;align-items:center!important;gap:8px 16px!important;margin:0 0 4px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;width:auto!important;max-width:100%!important;position:relative;z-index:3}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl>.m-grp{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:5px!important;margin:0!important;padding:0!important;border:0!important;background:none!important;width:auto!important}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl .m-ctrl-h{margin:0 2px 0 0!important;font-size:10px!important;letter-spacing:.1em!important;white-space:nowrap}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl .fchip{padding:5px 10px!important;font-size:12.5px!important;min-height:0!important;height:auto!important;gap:6px!important}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl .m-swap{width:26px!important;height:26px!important;flex:none!important}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl .fpop{left:auto!important;right:0!important;max-width:min(560px, calc(100vw - 64px))!important}
+  main.dfold.dfold:has(>.m-top)>.m-wrap{grid-column:3 / 5!important;grid-row:3!important;margin-top:0!important;align-self:start!important}
+  main.dfold.dfold:has(>.m-top)>.m-wrap>.m-fig.m-fig.m-fig{max-width:100%!important}
+}
+/* desktop: the Neighbours and game map is centred and capped so the whole map fits on one screen */
+@media (min-width:601px){
+  .m-wrap>.m-fig.m-fig.m-fig{width:100%;max-width:min(880px, calc((100vh - 230px) * 1.8))!important;margin-left:auto!important;margin-right:auto!important}
+}
+/* game finish card: hairline frame, soft halo, replay in the eyebrow row, cream name field */
+.g-over.g-fin{border:1px solid #E6E1D9!important;border-radius:28px!important;box-shadow:0 24px 48px rgba(0,0,0,.08)!important;padding:24px 28px 26px!important;gap:6px!important}
+.g-finhead{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}
+.g-fin .g-finhead .g-replay{position:static!important;width:32px;height:32px;flex:none}
+.g-fin .g-finhead .g-replay svg{width:16px;height:16px}
+.g-fin .g-namebox input,.g-fin .g-namebox input:focus,.g-fin .g-namebox input:focus-visible{border:1px solid #EFEAE3!important;background:#EFEAE3!important;box-shadow:none!important;outline:none!important;border-radius:999px}
+@media (min-width:601px){ .g-over.g-fin{width:380px;max-width:calc(100% - 48px);box-sizing:border-box} }
 /* desktop: every blue "… ›" link sits at the right end of its row */
 @media (min-width:601px){
   .fold-more.fold-more{width:fit-content!important;max-width:100%;margin-left:auto!important;justify-content:flex-end!important;text-align:right!important;align-self:flex-end}
@@ -4181,7 +4256,7 @@ function vMap(mode){
   {
     const U=S.mp||(S.mp={u:.45,v:.4});
     dots=P.map(d=>{ const on=mapOn(d); return `<circle cx="${mX(d.u)}" cy="${mY(d.v)}" r="${on?4.8:3.5}" fill="${d.s?"#9C4A26":"#CFC9BF"}" stroke="${on&&mapFiltered()&&!d.s?"#6F6B64":"#FBFAF7"}" stroke-width="${on&&mapFiltered()?1.2:.8}" opacity="${on?1:.15}" data-tip="${dotTip(d)}"/>`; }).join("");
-    side=`<div class="m-side m-top" id="m-readout">${placeReadout(U)}</div>`;
+    side=`<div class="m-side m-top" id="m-readout">${placeReadout(U)}</div><div class="srt-dots m-topdots" aria-label="Your DApp and the three closest">${[0,1,2,3].map(i=>`<button class="${i?"":"on"}" data-act="mtdot" data-i="${i}" aria-label="${i?"Closest "+i+" of 3":"Your DApp"}"></button>`).join("")}</div>`;
   }
   const you = mode==="place" ? `<g id="m-you"></g>` : "";
   return `<main class="study s-wrap">
@@ -4207,7 +4282,7 @@ function placeReadout(U){
       ${spark(d)}
       <dl class="m-xy"><dt>X · ${A.label}</dt><dd>${A.fmt(d.vx)}</dd><dt>Y · ${B.label}</dt><dd>${B.fmt(d.vy)}</dd></dl>
       <p class="m-res ${d.s?"win":""}">${d.s?"Still a success a year later":"Not a success a year later"}</p>
-      ${big?`<button class="s-link m-cmp" data-cmpwith="${d.k}">Compare →</button>`:`<span class="s-link m-cmp" aria-hidden="true" style="visibility:hidden">Compare →</span>`}</article>`; };
+      ${big?`<button class="s-link m-cmp" data-cmpwith="${d.k}" title="Compare ${esc(d.n)} with others" aria-label="Compare ${esc(d.n)} with others"><span class="m-cmpt">Compare →</span><svg class="m-cmpic" viewBox="0 0 20 32" aria-hidden="true"><path d="M10 1 L19 16 L10 21.5 L1 16 Z M1 18.5 L10 31 L19 18.5 L10 24 Z" stroke="#1A1A1A" stroke-width="1.3" stroke-linejoin="round"/><path d="M10 1 V21.5 M1 16 L10 11.5 L19 16" fill="none" stroke="#1A1A1A" stroke-width="1.1" stroke-linejoin="round"/></svg></button>`:`<span class="s-link m-cmp" aria-hidden="true" style="visibility:hidden">Compare →</span>`}</article>`; };
   if(!N.length) return `<span class="s-mono">Your DApp</span><p>No DApps match these filters.</p>`;
   return `<div class="m-sum"><span class="s-mono">Your DApp</span><h3>${A.fmt(mValAt("x",U.u))} ${A.label.toLowerCase()} · ${B.fmt(mValAt("y",U.v))} ${B.label.toLowerCase()}</h3>
     <div class="m-score"><b>${pct(N.filter(x=>x.d.s).length/N.length)}</b><span>of the ${N.length} nearest${(S.mcat||"all")!=="all"?` ${S.mcat}`:""} DApps${(S.mera||"all")!=="all"?` launched ${PERIOD_IN[S.mera]}`:""} were a success a year later (${mapFiltered()?"this group":"all"}: ${pct(mapIn().filter(d=>d.s).length/Math.max(1,mapIn().length))})</span></div>
@@ -4352,11 +4427,11 @@ function vGame(){
 </div>`;
   let fin="";
   /* the finish card sits over the map, like "Your turn" at the start */
-  if(G.phase==="done"){ side=""; fin=`<span class="s-mono">Finished</span><h3>${gPts(G)} points in ${fmtTime(G.el)}</h3><p>${total} of ${MPICKS*GLEVELS.length} picks were a success.</p>
+  if(G.phase==="done"){ side=""; fin=`<div class="g-finhead"><span class="s-mono">Finished</span><button class="g-replay" data-act="gmenu" aria-label="Play again" title="Play again"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><h3>${gPts(G)} points in ${fmtTime(G.el)}</h3><p>${total} of ${MPICKS*GLEVELS.length} picks were a success.</p>
       ${G.id?"":`<label class="g-name"><span class="s-mono">Your name for the board</span><span class="g-namebox"><input id="g-name" maxlength="14" placeholder="e.g. Ana" autocomplete="off"><button class="g-namego" data-act="gsave" aria-label="Save my score">→</button></span></label>`}
       ${G.id?(()=>{ const today=lbSort(lbLoad().filter(r=>r.at===lbDay())), i=today.findIndex(r=>r.id===G.id);
         return `<p class="g-rankline">${i>=0?`You are <b class="o-you">#${i+1}</b> of ${today.length} today${i<3?", on the podium on Home":""}.`:"Saved."}</p><button class="fold-more g-seetop" data-go="wall"><span>See today's top scores</span><i>›</i></button>`; })():""}
-      <button class="g-replay" data-act="gmenu" aria-label="Play again" title="Play again"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`; }
+`; }
   /* while playing: no separate time/score box; the level tiles carry the clock and the points */
   if(G.phase!=="done") side=`<div class="m-side g-playside">
       <div class="g-act">${done?(over?`<button class="s-cardbtn" data-act="gend">See my score →</button>`:`<button class="s-cardbtn" data-act="gnext">Next level →</button>`):""}</div>
@@ -4674,12 +4749,13 @@ function render(){
       <button class="turn next" data-turn="1" aria-label="${last?"See your card":"Next page"}">›</button></div>`;
   }
   const study=S.theme==="study"||S.view==="qindex"||S.view==="qpage"; document.body.classList.toggle("is-study",study);
-  const snap=figSnap(), keepX=[...document.querySelectorAll(".c-cards,.c-table,.m-top,.w-dig,.h-more,.w-eras")].map(e=>[e.className.split(" ")[0],e.scrollLeft]);
+  const snap=figSnap(), keepX=[...document.querySelectorAll(".c-cards,.c-table,.m-top,.w-dig,.h-more,.w-eras")].map(e=>[e.className.split(" ")[0],e.scrollLeft,e.scrollTop]);
   $("#app").innerHTML=(study?studyHeader():header())+body+(study?studyFooter():footer());
-  keepX.forEach(([c,x])=>{ const e=document.querySelector("."+c); if(e) e.scrollLeft=x; });
+  keepX.forEach(([c,x,y])=>{ const e=document.querySelector("."+c); if(e){ e.scrollLeft=x; if(y) e.scrollTop=y; } });
   /* the era row opens on the era already chosen */
   const we=document.querySelector(".w-eras"), weOn=we&&we.querySelector(".w-era.on"); if(weOn&&!keepX.some(k=>k[0]==="w-eras")) we.scrollLeft=weOn.getBoundingClientRect().left-we.getBoundingClientRect().left+we.scrollLeft-16;
   mapInit(); figMorph(snap); countUp(); drawOnce(); gScorePop(); syncHash(); phoneFold(); tankStart();
+  { const mt=document.querySelector(".m-top"), k=keepX.find(x=>x[0]==="m-side"); if(mt){ if(k){ mt.scrollLeft=k[1]; mt.scrollTop=k[2]; } mt.dispatchEvent(new Event("scroll")); } }
   document.body.classList.toggle("sheet-open",!!document.querySelector(".c-sheet"));
   /* Compare: say "swipe" only when the table is actually wider than the screen */
   const csw=document.querySelector(".c-swipe"), ctb=document.querySelector(".c-table"); if(csw&&ctb) csw.hidden=ctb.scrollWidth<=ctb.clientWidth+1;
@@ -4768,6 +4844,7 @@ document.addEventListener("click",e=>{
   if(ds.jump!=null) return turnTo(+ds.jump);
   if(ds.go==="home"){ Object.assign(S,{scen:null,dapp:null,custom:null,era:null,q1m:null,q3m:null,query:"",pickTab:"pick",pickCat:"featured"}); return go("home"); }
   if(ds.wall!=null){ const c=wallCards()[+ds.wall]; if(c) openSheet(bizCard(c),"i-card"); return; }
+  if(ds.act==="mtdot"){ const w=document.querySelector(".m-top"), c=w&&[...w.querySelectorAll(".m-sum,.m-card")][+ds.i]; document.querySelectorAll(".m-topdots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(c){ const cs=getComputedStyle(w), v=cs.flexDirection==="column", cr=c.getBoundingClientRect(), wr=w.getBoundingClientRect(); const to=v?Math.max(0,Math.min(w.scrollTop+cr.top-wr.top-parseFloat(cs.paddingTop||0),w.scrollHeight-w.clientHeight)):Math.max(0,Math.min(w.scrollLeft+cr.left-wr.left-parseFloat(cs.paddingLeft||0),w.scrollWidth-w.clientWidth)); w.scrollTo(v?{top:to,behavior:CALM()?"auto":"smooth"}:{left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(v){ if(Math.abs(w.scrollTop-to)>4) w.scrollTop=to; } else if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="hmdot"){ const w=document.querySelector(".h-more"), c=w&&w.children[+ds.i]; document.querySelectorAll(".h-moredots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(c){ const to=Math.min(c.offsetLeft-w.offsetLeft,w.scrollWidth-w.clientWidth); w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="hdot"){ const w=document.querySelector(".h-swipe"); document.querySelectorAll(".h-dots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(w){ const to=(+ds.i)*w.clientWidth; w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="hsl"){ const w=document.querySelector(".h-swipe"); if(w){ const cw=w.clientWidth, n=w.children.length, i=Math.max(0,Math.min(n-1,Math.round(w.scrollLeft/cw)+(+ds.d))); const to=i*cw; w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
@@ -4904,6 +4981,8 @@ render();
 document.addEventListener("keydown",e=>{ if(e.key!=="Escape") return; document.body.classList.remove("menu-open"); if(document.querySelector(".i-sheet")){ document.querySelectorAll(".i-sheet").forEach(x=>x.remove()); document.body.classList.remove("sheet-open"); } if(S.csheet){ S.csheet=null; const y=window.scrollY; render(); window.scrollTo(0,y); } });
 document.addEventListener("scroll",e=>{ const s=e.target; if(!s.classList||!s.classList.contains("srt")) return; const i=Math.round(s.scrollLeft/s.clientWidth); const dots=s.nextElementSibling; if(dots) [...dots.children].forEach((d,k)=>d.classList.toggle("on",k===i)); },true);
 /* desktop More ways in: the dot follows the first card in view */
+document.addEventListener("scroll",e=>{ const w=e.target; if(!w.classList||!w.classList.contains("m-top")) return; const cs=getComputedStyle(w), v=cs.flexDirection==="column", kids=[...w.querySelectorAll(".m-sum,.m-card")], wr=w.getBoundingClientRect(), L=v?wr.top+parseFloat(cs.paddingTop||0):wr.left+parseFloat(cs.paddingLeft||0);
+  let i=kids.findIndex(c=>{ const r=c.getBoundingClientRect(); return (v?r.top:r.left)>=L-8; }); if((v?w.scrollTop:w.scrollLeft)>4&&(v?w.scrollTop>=w.scrollHeight-w.clientHeight-4:w.scrollLeft>=w.scrollWidth-w.clientWidth-4)) i=kids.length-1; document.querySelectorAll(".m-topdots button").forEach((b,k)=>b.classList.toggle("on",k===Math.max(0,i))); },true);
 document.addEventListener("scroll",e=>{ const w=e.target; if(!w.classList||!w.classList.contains("h-more")) return; const kids=[...w.children], x=w.scrollLeft;
   let i=kids.findIndex(c=>c.offsetLeft-w.offsetLeft>=x-8); if(x>=w.scrollWidth-w.clientWidth-4) i=kids.length-1; document.querySelectorAll(".h-moredots button").forEach((b,k)=>b.classList.toggle("on",k===Math.max(0,i))); },true);
 { let wasPhone=PHONE(); addEventListener("resize",()=>{ if(PHONE()!==wasPhone){ wasPhone=PHONE(); render(); } }); }
