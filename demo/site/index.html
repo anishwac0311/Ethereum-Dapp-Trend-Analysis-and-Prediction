@@ -2308,6 +2308,38 @@ body.sheet-open{overflow:hidden}
 .q-bar button.on{background:#1A1A1A;color:#F5F3EE;padding:0 14px}
 .q-bar span{font-size:13px}
 .fold-ic{display:none}
+/* Method walkthrough: the verdict in the step title is orange, as in the walks' Conclusions */
+.tour b .k{color:#CF4500;font-style:normal}
+/* Method cards with a ⋯ button: the label wraps before the button on narrow desktop windows */
+@media (min-width:601px){ .srt-s:has(>button)>.s-mono:first-child{display:block;padding-right:40px} }
+/* narrow desktop windows: labels keep two lines and explanations three, so the rows still line up */
+@media (min-width:601px) and (max-width:1000px){ .srt-s>.s-mono:first-child{display:block;min-height:calc(2 * 1.6em)} .srt-s.srt-s>p{min-height:calc(3 * 1.5em)} }
+@media (min-width:601px) and (max-width:800px){ .srt-s.srt-s>p{min-height:calc(4 * 1.5em)} }
+/* the ink start buttons (Start the game, I'm new / Developers · start here): orange sweeps in from the left on hover or tap */
+.g-startbtn,.w-lv .w-go{background-color:#1A1A1A!important;background-image:linear-gradient(90deg,#CF4500,#CF4500)!important;background-repeat:no-repeat!important;background-position:left center!important;background-size:0% 100%!important;transition:background-size .4s cubic-bezier(.2,.7,.2,1)!important}
+.g-startbtn:hover,.g-startbtn:focus-visible,.g-startbtn:active,.w-lv .w-go:hover,.w-lv .w-go:focus-visible,.w-lv .w-go:active{background-size:100% 100%!important}
+@media (prefers-reduced-motion:reduce){ .g-startbtn,.w-lv .w-go{transition:none!important} }
+/* More ways in: only the round arrow opens the page; the card itself is not a link */
+.h-way.h-way{cursor:default}
+.h-way.h-way:hover{box-shadow:none;border-color:#E6E1D9}
+/* the same round arrow on every screen: ink chevron in a hairline circle at the bottom right; it turns orange on hover or tap */
+.h-way .h-arrow{position:absolute;top:auto!important;bottom:24px!important;right:24px!important;display:flex!important;align-items:center;justify-content:center;width:42px!important;height:42px!important;padding:0!important;border:1px solid rgba(26,26,26,.12)!important;border-radius:50%!important;background:transparent!important;font-size:0!important;color:#1A1A1A;cursor:pointer;transition:background .2s,border-color .2s}
+.h-way .h-arrow::after{content:"";width:8px;height:8px;border-right:1.7px solid #1A1A1A;border-top:1.7px solid #1A1A1A;transform:translateX(-2px) rotate(45deg);transition:border-color .2s}
+.h-way .h-arrow:hover,.h-way .h-arrow:active{background:#CF4500!important;border-color:#CF4500!important}
+.h-way .h-arrow:hover::after,.h-way .h-arrow:active::after{border-color:#FBFAF7}
+.h-way .h-arrow:focus-visible{outline:2px solid #1A1A1A;outline-offset:2px}
+/* Compare cards: the round › (Learn more) matches it: lighter frame, no fill, orange on hover or tap */
+.c-card .c-moreic{border-color:rgba(26,26,26,.12)!important;background:transparent!important;transition:background .2s,border-color .2s}
+.c-card .c-moreic path{transition:stroke .2s}
+.c-card .c-moreic:hover,.c-card .c-moreic:active{background:#CF4500!important;border-color:#CF4500!important}
+.c-card .c-moreic:hover path,.c-card .c-moreic:active path{stroke:#FBFAF7}
+/* desktop: "+ Add a DApp" turns orange on hover (the plus, the words and the dashed edge) */
+@media (min-width:601px){ button.c-addcard{transition:border-color .2s,color .2s} button.c-addcard b{transition:color .2s} button.c-addcard:hover,button.c-addcard:focus-visible{border-color:#CF4500!important;color:#CF4500} button.c-addcard:hover b,button.c-addcard:focus-visible b{color:#CF4500} }
+/* phones: the same round › replaces the "Learn more" pill, on the right of the "Dig in" row */
+@media (max-width:600px){ .c-card{position:relative} .c-card .c-more{display:none!important} .c-card .c-moreic{display:flex!important;position:absolute;right:20px;bottom:14px;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(26,26,26,.12);border-radius:50%;cursor:pointer} .c-card .c-moreic svg{width:16px;height:16px} }
+@media (max-width:600px){ .h-way .h-arrow{width:44px!important;height:44px!important;bottom:20px!important;right:20px!important} .h-way p{padding-right:52px} }
+/* Method funnel: every step keeps two lines for its explanation, so the bars and notes start at the same height in all five cards */
+.srt-s>p{min-height:calc(2 * 1.5em)}
 .m-cmpic{display:none}
 /* phones: every closest card keeps two lines for its name, so the rows under it line up across the swipe */
 @media (max-width:600px){
@@ -2397,7 +2429,9 @@ body.sheet-open{overflow:hidden}
 }
 
 /* More ways in: a fourth card (The six questions) on desktop only; the row slides, about three cards in view with the next peeking, and dots under it */
-.h-way-q,.h-moredots{display:none!important}
+.h-moredots{display:none!important}
+/* The six questions is the first More ways in card on every screen; phones swipe all four */
+.h-way-q{display:flex!important}
 @media (min-width:601px){
   .h-way-q{display:flex!important}
   .h-more{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px!important;margin-bottom:0!important}
@@ -3413,10 +3447,10 @@ function vHome(){
     </div>
     <div class="s-sec"><h2>More ways in</h2></div>
     <div class="h-more">
-      <button class="h-way h-way-q" data-go="qindex"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 8h16M10 13h16M10 18h16M10 23h12"/></g><g fill="currentColor"><circle cx="5.5" cy="8" r="1.4"/><circle cx="5.5" cy="13" r="1.4"/><circle cx="5.5" cy="18" r="1.4"/><circle cx="5.5" cy="23" r="1.4"/></g></svg><b>The six questions</b><p>One question at a time, each answered for the era you pick.</p><span class="h-arrow">→</span></button>
-      <button class="h-way" data-go="compare"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="11" height="20" rx="2"/><rect x="18" y="6" width="11" height="20" rx="2"/><path d="M6 11.5h5M6 16h3M6 20.5h4.5M21 11.5h3M21 16h5M21 20.5h2.5"/></g></svg><b>Compare</b><p>Line up to three DApps side by side, question by question.</p><span class="h-arrow">→</span></button>
-      <button class="h-way" data-go="pick" data-tab="enter" data-start-diag="1"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 4v6M16 22v6M4 16h6M22 16h6"/><circle cx="16" cy="16" r="3.2"/></g><g fill="currentColor"><circle cx="8" cy="8" r="1.6"/><circle cx="25" cy="9" r="1.6"/><circle cx="9" cy="25" r="1.6"/><circle cx="24" cy="24" r="1.6"/></g></svg><b>Neighbours</b><p>Place your own numbers on the map and see which DApps looked like yours.</p><span class="h-arrow">→</span></button>
-      <button class="h-way" data-go="game"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="7" cy="22" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="17" cy="24" r="1.6"/><circle cx="26" cy="20" r="1.6"/><circle cx="8" cy="7" r="1.6"/></g><circle cx="22" cy="10" r="2.2" fill="#CF4500"/><circle cx="22" cy="10" r="5.5" fill="none" stroke="#CF4500" stroke-width="1.6"/></svg><b>Game</b><p>Two numbers per dot, three levels: can you spot the DApps that lasted?</p><span class="h-arrow">→</span></button>
+      <div class="h-way h-way-q"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 8h16M10 13h16M10 18h16M10 23h12"/></g><g fill="currentColor"><circle cx="5.5" cy="8" r="1.4"/><circle cx="5.5" cy="13" r="1.4"/><circle cx="5.5" cy="18" r="1.4"/><circle cx="5.5" cy="23" r="1.4"/></g></svg><b>The six questions</b><p>One question at a time, each answered for the era you pick.</p><button class="h-arrow" data-go="qindex" aria-label="Open The six questions">→</button></div>
+      <div class="h-way"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="11" height="20" rx="2"/><rect x="18" y="6" width="11" height="20" rx="2"/><path d="M6 11.5h5M6 16h3M6 20.5h4.5M21 11.5h3M21 16h5M21 20.5h2.5"/></g></svg><b>Compare</b><p>Line up to three DApps side by side, question by question.</p><button class="h-arrow" data-go="compare" aria-label="Open Compare">→</button></div>
+      <div class="h-way"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 4v6M16 22v6M4 16h6M22 16h6"/><circle cx="16" cy="16" r="3.2"/></g><g fill="currentColor"><circle cx="8" cy="8" r="1.6"/><circle cx="25" cy="9" r="1.6"/><circle cx="9" cy="25" r="1.6"/><circle cx="24" cy="24" r="1.6"/></g></svg><b>Neighbours</b><p>Place your own numbers on the map and see which DApps looked like yours.</p><button class="h-arrow" data-go="pick" data-tab="enter" data-start-diag="1" aria-label="Open Neighbours">→</button></div>
+      <div class="h-way"><svg class="h-ico" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="7" cy="22" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="17" cy="24" r="1.6"/><circle cx="26" cy="20" r="1.6"/><circle cx="8" cy="7" r="1.6"/></g><circle cx="22" cy="10" r="2.2" fill="#CF4500"/><circle cx="22" cy="10" r="5.5" fill="none" stroke="#CF4500" stroke-width="1.6"/></svg><b>Game</b><p>Two numbers per dot, three levels: can you spot the DApps that lasted?</p><button class="h-arrow" data-go="game" aria-label="Open Game">→</button></div>
     </div>
     <div class="srt-dots h-moredots" aria-label="More ways in">${[0,1,2,3].map(i=>`<button class="${i?"":"on"}" data-act="hmdot" data-i="${i}" aria-label="Card ${i+1}"></button>`).join("")}</div>
 </main>`;
@@ -3516,8 +3550,8 @@ function dragonFig(){
 const DQT=[["Twelve months after launch","We judge only months 10–12, the end of the first year. How a DApp started does not count."],
   ["At least 1,000 wallets","In those three months it must average at least 1,000 wallets a month."],
   ["A quarter of its early peak","And it must keep at least a quarter of its early peak. DragonQuest peaked at 5,000, so its bar is 1,250."],
-  ["DragonQuest: not a success","It averages about 200 wallets a month in months 10–12, below both bars. A strong start is not enough."],
-  ["The grey DApp: a success","It averages about 1,950 a month in months 10–12, above both bars, so it still counts a year later."]];
+  ["DragonQuest: <em class=\"k\">not a success</em>","It averages about 200 wallets a month in months 10–12, below both bars. A strong start is not enough."],
+  ["The grey DApp: <em class=\"k\">a success</em>","It averages about 1,950 a month in months 10–12, above both bars, so it still counts a year later."]];
 function dqTour(){ const n=S.dqt===undefined?1:S.dqt;
   /* once the walkthrough is closed, the verdict stays on the page */
   if(!n) return `<button class="dq-replay" data-dqt="1" aria-label="Walk me through it again" title="Walk me through it again"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 4 21 10 15 10"/><path d="M19.5 15a8 8 0 1 1-1.9-8.3L21 10"/></g></svg></button>`;
@@ -3539,7 +3573,7 @@ function vMethod(){
   const catBars=cats.map(([c,n])=>`<div class="hb"><span>${c}</span><i><b style="width:${n/cmax*100}%"></b></i><em>${n}</em></div>`).join("");
   const yrs=Object.entries(M.by_year), ymax=Math.max(...yrs.map(y=>y[1]));
   let ysvg=`<svg viewBox="0 0 320 170" role="img" aria-label="DApps by launch year">`;
-  yrs.forEach(([y,n],i)=>{ const h=n/ymax*120, x=10+i*51; ysvg+=`<rect x="${x}" y="${130-h}" width="38" height="${h}" rx="${S.theme==="study"?0:6}" fill="${C.q1}"/><text class="ax" x="${x+19}" y="${124-h}" text-anchor="middle">${n}</text><text class="ax" x="${x+19}" y="150" text-anchor="middle">${y}</text>`; });
+  yrs.forEach(([y,n],i)=>{ const h=n/ymax*104, x=10+i*51; /* 104 leaves room above the tallest bar for its number */ ysvg+=`<rect x="${x}" y="${130-h}" width="38" height="${h}" rx="${S.theme==="study"?0:6}" fill="${C.q1}"/><text class="ax" x="${x+19}" y="${124-h}" text-anchor="middle">${n}</text><text class="ax" x="${x+19}" y="150" text-anchor="middle">${y}</text>`; });
   ysvg+=`</svg>`;
   const hmax=Math.max(...M.peak_hist), bw=300/M.peak_hist.length;
   let hsvg=`<svg viewBox="0 0 320 170" role="img" aria-label="Distribution of peak monthly wallets">`;
@@ -3880,7 +3914,7 @@ const inEra=(lm,e)=>lm && lm>=e.from && lm<=e.to;
 
 /* horizontal bars, diverging around zero when any value is negative */
 function sBars(rows, fmt, opt={}){
-  const ph=PHONE(), W=ph?560:980, lw=ph?150:170, rw=ph?64:70, H=ph?440:380, cut=ph?14:20, RH=(H-30)/rows.length, neg=rows.some(r=>r.v<0);
+  const ph=PHONE(), W=ph?560:980, lw=ph?150:170, rw=Math.max(ph?64:70, Math.max(...rows.map(r=>String(fmt(r.v)).length))*(ph?10.2:8)+14) /* room for the longest value label */, H=ph?440:380, cut=ph?14:20, RH=(H-30)/rows.length, neg=rows.some(r=>r.v<0);
   const vmax=Math.max(...rows.map(r=>Math.abs(r.v)),1e-9), span=W-lw-rw;
   const x0=neg? lw+span*(Math.abs(Math.min(...rows.map(r=>r.v),0))/(Math.abs(Math.min(...rows.map(r=>r.v),0))+Math.max(...rows.map(r=>r.v),0)||1)) : lw;
   const sc=v=>v/vmax*(neg? Math.max(x0-lw, lw+span-x0) : span);
@@ -4217,7 +4251,7 @@ const mValAt=(axis,t)=>{ const {SX,SY}=mapScales(), Sc=axis==="x"?SX:SY; return 
 function mapAxes(){
   const {SX,SY}=mapScales(), MXm=MET[mAxisX()], MYm=MET[mAxisY()], nx=v=>(SX.f(v)-SX.lo)/(SX.hi-SX.lo), ny=v=>(SY.f(v)-SY.lo)/(SY.hi-SY.lo);
   let g="";
-  SX.ticks.forEach(t=>{ g+=`<line x1="${mX(nx(t))}" x2="${mX(nx(t))}" y1="${MM.t}" y2="${MAPH-MM.b}" stroke="#ECE8E1"/><text class="ax" x="${mX(nx(t))}" y="${MAPH-MM.b+20}" text-anchor="middle">${MXm.fmt(t)}</text>`; });
+  SX.ticks.forEach(t=>{ g+=`<line x1="${mX(nx(t))}" x2="${mX(nx(t))}" y1="${MM.t}" y2="${MAPH-MM.b}" stroke="#ECE8E1"/><text class="ax" x="${mX(nx(t))}" y="${MAPH-MM.b+(PHONE()?26:20)}" text-anchor="middle">${MXm.fmt(t)}</text>`; });
   SY.ticks.forEach(t=>{ g+=`<line x1="${MM.l}" x2="${MAPW-MM.r}" y1="${mY(ny(t))}" y2="${mY(ny(t))}" stroke="#ECE8E1"/><text class="ax" x="${MM.l-10}" y="${mY(ny(t))+4}" text-anchor="end">${MYm.fmt(t)}</text>`; });
   g+=`<text class="ax m-lo" x="${MM.l}" y="${MAPH-12}">← ${MXm.lo.toLowerCase()}</text><text class="ax" x="${MM.l+IW/2}" y="${MAPH-12}" text-anchor="middle" style="fill:#1A1A1A">X · ${MXm.label}${MXm.log?" (log scale)":""}</text><text class="ax m-hi" x="${MAPW-MM.r}" y="${MAPH-12}" text-anchor="end">${MXm.hi.toLowerCase()} →</text>`;
   g+=`<text class="ax" x="${MM.l}" y="${MM.t-18}" style="fill:#1A1A1A">Y · ${MYm.label}${MYm.log?" (log scale)":""}</text><text class="ax m-hi" x="${MM.l+8}" y="${MM.t+14}">${MYm.hi.toLowerCase()}</text><text class="ax m-lo" x="${MM.l+8}" y="${MAPH-MM.b-8}">${MYm.lo.toLowerCase()}</text>`;
