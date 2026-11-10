@@ -1,391 +1,178 @@
-# Design System Inspired by Mastercard
-
-## 1. Visual Theme & Atmosphere
-
-Mastercard's experience reads like a warm, editorial magazine built from soft stone and signal orange. The canvas is a muted putty-cream (`#F3F0EE`) — not white, not gray, but a color that feels like the paper of a premium annual report. On top of that canvas, everything that matters is shaped like a stadium, a pill, or a perfect circle. The dominant visual gesture is the **oversized radius**: heroes carry 40-point corners, cards go fully pill-shaped, service images are cropped into circular orbits, and buttons either complete the pill or fit snugly at 20 points. There are almost no sharp corners anywhere on the page.
-
-The second gesture is **orbit and trajectory**. Circular image masks don't sit still — they're connected by thin, hand-drawn-feeling orange arcs that span entire viewport widths, implying a constellation of services rather than a list. Each circle has a small attached "satellite" — a white micro-CTA holding an arrow icon — docked onto its perimeter like a moon. This is the most distinctive thing about Mastercard's current design language: the circles feel like they're in motion even though the page is still.
-
-Typography is rendered entirely in **MarkForMC**, Mastercard's proprietary geometric sans. Headlines are set at a medium weight (500) with tight negative letter-spacing (-2%), giving them confidence without shouting. Body copy runs at the same family in a slightly lighter weight (450) — a weight you rarely see on the web, chosen because it reads softer than regular 400 without feeling thin. The whole system — warm cream surfaces, pill shapes, circular portraits, traced-orange orbits, black CTAs — feels simultaneously institutional (a 60-year-old payments network) and editorial (a modern brand magazine), which is exactly the tension Mastercard wants to hold.
-
-**Key Characteristics:**
-- Warm cream canvas (`#F3F0EE`) replaces traditional white — every surface is tinted, never sterile
-- Extreme border-radius as design language: 40px, 99px, 1000px dominate; anything square is a cookie-banner third-party
-- Circular image portraits with attached white satellite-CTAs and traced-orange orbital paths
-- Ghost "watermark" headlines (cream-on-cream text at heading scale) layered behind circle portraits
-- Black primary CTAs with 20px radius in the body — the cookie-banner orange is kept to consent flows
-- Floating pill-shaped navigation that docks below the viewport top with rounded shoulders
-- Eyebrow labels with a tiny accent dot + uppercase bold tracking — used as the section-category signal
-- Dark warm-black footer (`#141413`) with four-column link layout and large conversational headline
-
-## 2. Color Palette & Roles
-
-### Primary
-- **Mastercard Red** (`#EB001B`): The left circle of the Mastercard mark — used only in the brand logo, never as a UI color.
-- **Mastercard Yellow** (`#F79E1B`): The right circle of the Mastercard mark — used only in the brand logo, never as a UI color.
-- **Ink Black** (`#141413`): The warm near-black used for primary CTAs, headline text on cream, and the footer surface. Slightly warm (the `13` blue value pulls toward the cream) so it never feels jet-black on the warm canvas.
-
-### Secondary & Accent
-- **Signal Orange** (`#CF4500`): The burnt/rust CTA orange used on consent actions and eyebrow dots. Deeper than the brand yellow, brighter than ink — it's the page's single aggressive color and must be used sparingly.
-- **Light Signal Orange** (`#F37338`): A lighter carroty orange used for carousel active indicators and decorative orbital arcs. Always acts as an attention cue, never as body color.
-- **Clay Brown** (`#9A3A0A`): The deep rust used for secondary link-style buttons (e.g., cookie details). Sits between ink and signal orange.
-
-### Surface & Background
-- **Canvas Cream** (`#F3F0EE`): The page canvas. Warm, putty-toned, the default body background. All editorial sections sit on this.
-- **Lifted Cream** (`#FCFBFA`): One step lighter than canvas — used for nested "raised" sections that want to feel like paper laid on paper.
-- **White** (`#FFFFFF`): Reserved for the floating navigation pill, modal cards, secondary button fills, and small satellite-CTA circles attached to image portraits.
-- **Soft Bone** (`#F4F4F4`): A cool-gray alternative surface used inside a handful of component subregions.
-
-### Neutrals & Text
-- **Ink Black** (`#141413`): Primary headline and body text color.
-- **Charcoal** (`#262627`): A slightly softer black used for some text alternates.
-- **Slate Gray** (`#696969`): Muted secondary text — eyebrow label alternative, disabled states, "Privacy Choices" bottom-row text.
-- **Granite** (`#555555`) and **Graphite** (`#565656`): Deeper gray for inline body accents and link alternates.
-- **Dust Taupe** (`#D1CDC7`): Very muted cream-gray used for disabled or "whisper" text (e.g., placeholder-like empty state labels). Low contrast on cream; use only for subdued content.
-
-### Semantic & Accent
-- **Link Blue** (`#3860BE`): A deep, slightly dusty blue used for inline links and informational callouts. Saturated enough to read as a link without being neon.
-- **Priceless Red + Yellow**: The full-color Mastercard logo mark is the only place the brand's red and yellow appear together; they lock the identity to the page without acting as a UI palette.
-
-### Gradient System
-Mastercard uses no programmatic gradients in the core UI. The visual impression of "gradient" comes from two places:
-- **Circular image portraits** where a warm-orange photo subject (a card, a sunflower, a beverage) fades to the cream canvas at its edge
-- **Deep card shadows** on elevated content (`rgba(0,0,0,0.08) 0px 24px 48px`) that create a soft halo beneath pill-shaped media
-
-## 3. Typography Rules
-
-### Font Family
-- **Primary**: `MarkForMC` — Mastercard's proprietary geometric sans. Every headline, body paragraph, button, nav link, and footer link on the page.
-- **Secondary**: `MarkOffcForMC` — an "Official" cut used in a minority of contexts (legal text, some forms).
-- **Fallback stack**: `SofiaSans, Arial, sans-serif` — Sofia Sans is a reasonable open-source stand-in; Arial is the final web-safe fallback.
-
-### Hierarchy
-
-| Role | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|--------|-------------|----------------|-------|
-| H1 (hero) | 64px | 500 | 64px | -1.28px (-2%) | Set to `1:1` line-height for very tight vertical rhythm on multi-line hero |
-| H2 (section) | 36px | 500 | 44px | -0.72px (-2%) | Used in ghost-watermark headline treatments and section titles |
-| H3 (card title) | 24px | 500 | 28.8px (1.2) | -0.48px (-2%) | Titles inside service/solution cards |
-| H4 (subhead) | 14px | 700 | 18.2px (1.3) | normal | Rarely used in marketing surfaces |
-| Eyebrow (H5) | 14px | 700 | 14px | 0.56px (+4%) | Uppercase, paired with a tiny accent dot (e.g., "• SERVICES") |
-| Body paragraph | 16px | 450 | 22.4px (1.4) | normal | The half-step 450 weight is MarkForMC's signature — softer than 500, firmer than 400 |
-| Nav link / Button label | 16px | 500 | 16px | -0.48px (-3%) | Tight, compact, no text-transform |
-| Footer link | 14px | 450 | ~20px | normal | Lighter weight on dark footer for airier density |
-| Footer column header | 12–14px | 700 | 14px | 0.56px (+4%) | Uppercase, muted gray, short tracking |
-
-### Principles
-- **Weight 450 is load-bearing**. Most brands use 400/500/700; Mastercard uses 450 for body copy, which creates an unusually soft reading tone. Replacing it with 400 flattens the identity.
-- **Tight negative tracking on headlines** (-2%) gives display text its editorial density — the words lock together rather than breathe.
-- **Uppercase tracking only on the eyebrow scale** (14px / 700 / +4% tracking). Don't use uppercase anywhere else; no shouty section titles.
-- **One-font system**. Resist the urge to add a second typeface for contrast. The contrast comes from scale, weight, and letter-spacing, not from a serif or display accent.
-- **Line-height ratio drops with size**. H1 is 1:1, H3 is 1.2, body is 1.4. Tight display, comfortable reading.
-
-### Note on Font Substitutes
-MarkForMC is proprietary and licensed. When rebuilding a matching aesthetic without access to the original:
-- **Sofia Sans** (Google Fonts) is the closest open-source match — it's already in Mastercard's declared fallback stack.
-- **Inter** at weights 450/500/700 works as a generic stand-in; expect slightly taller x-height and looser letter shapes.
-- **Neue Haas Grotesk** or **Geist** can approximate the geometric feel for commercial projects.
-- Whichever substitute is used, preserve the **-2% letter-spacing on headlines** and the **450 body weight** (use `font-weight: 450` with variable fonts, or substitute `font-weight: 400` and tighten the letter-spacing by ~-0.5% to compensate).
-
-## 4. Component Stylings
-
-### Buttons
-
-**Primary — Ink Pill**
-- Background: Ink Black (`#141413`)
-- Text: Canvas Cream (`#F3F0EE`) — not pure white
-- Border: 1.5px solid Ink Black (same as bg, creates crisp edge)
-- Radius: 20px
-- Padding: 6px 24px
-- Font: MarkForMC 16px / weight 500 / letter-spacing -0.32px
-- Default: as above; solid warm-black pill on cream canvas
-- Active / pressed: subtle inward-shrink or 2px offset (not a hover variant)
-- Use for: all marketing CTAs in the page body ("Learn more", "Explore", "Discover")
-
-**Secondary — Outlined Pill**
-- Background: White (`#FFFFFF`)
-- Text: Ink Black (`#141413`)
-- Border: 1.5px solid Ink Black
-- Radius: 20px
-- Padding: 6px 24px
-- Font: MarkForMC 16px / weight 450 / line-height 20.8px
-- Default: white-on-cream pill with crisp ink outline
-- Active / pressed: subtle compression
-- Use for: secondary actions paired with a primary, or standalone utility CTAs
-
-**Consent / Signal — Orange Pill**
-- Background: Signal Orange (`#CF4500`)
-- Text: White (`#FFFFFF`)
-- Border: 0
-- Radius: 24px
-- Padding: 1px 30px (very tight vertical, wide horizontal)
-- Font: MarkForMC 13px / weight 400 / letter-spacing 0.13px
-- Default: as above; bright rust pill with white text
-- Use for: cookie consent, privacy preference, and other legally-distinct confirmations. **Do not** use this orange for marketing CTAs — it reads as a compliance color.
-
-**Satellite — Circular Micro-CTA**
-- Background: White (`#FFFFFF`)
-- Icon: Ink Black arrow (`→`) at ~20px
-- Border: none
-- Radius: 50% (perfect circle)
-- Size: ~50–60px diameter
-- Shadow: none or very subtle (the portrait's shadow carries the elevation)
-- Default: docks onto the bottom-right edge of a circular portrait, protruding partway outside the portrait's circle
-- Use for: the primary entry point into service/solution cards; always paired with a circular portrait
-
-**Icon-Only Circle Button (carousel, play/pause)**
-- Background: transparent or white
-- Icon: 10–20px centered
-- Border: 1px solid Ink Black (when on cream) or none (when over media)
-- Radius: 50%
-- Size: 40px diameter minimum for carousel controls; 80px for hero video play
-- Use for: carousel pagination/play-pause, hero video play, search toggle
-
-### Cards & Containers
-
-**Hero Media Frame (Stadium)**
-- Background: Dark video or full-bleed imagery (typically black `#000000` or `#2B2B2B` behind video)
-- Radius: 40px all corners (creates a stadium shape on wide viewports)
-- Width: ~full viewport minus ~48px gutter on each side
-- Height: ~60–70% of viewport
-- Shadow: none (sits directly on canvas)
-- Corners: the extreme 40px radius on a media element is the most iconic Mastercard gesture — do not round less
-
-**Service / Solution Portrait Card**
-- Shape: Perfect circle (radius 50%) or ellipse (radius 999px / 1000px)
-- Diameter: 260–340px desktop; ~220px mobile
-- Image crop: square source, cropped to circle
-- Attached element: White satellite circular CTA (see above) docked bottom-right, ~40% outside the portrait
-- Eyebrow below: accent dot + uppercase label (e.g., "• SERVICES", "• SOLUTIONS")
-- Title below: H3 (24px / weight 500 / -2% tracking), 1–2 lines max
-- Decorative orbit: thin ~1px Light Signal Orange curved line spanning from this card outward to the next, implying connection
-
-**Pill Carousel Card**
-- Radius: 1000px (full pill) or 40px corners (rounded stadium)
-- Width: ~40–60% of viewport
-- Height: ~380–420px (portrait-pill orientation)
-- Content: full-bleed photography with small overlaid chip labels
-- Chip inside: White pill (~ 999px radius), Ink Black text, padding 8px 20px, used for category tags like "Story"
-- Large inline CTA inside: Ink Pill button, oversized (padding 16px 40px, radius 40px)
-
-**Ghost Watermark Text Block**
-- Font: MarkForMC 72–128px / weight 500 / tight -2% tracking
-- Color: Canvas Cream slightly darkened (`#E8E2DA` or similar — cream-on-cream)
-- Position: layered behind portrait circles, bleeding off the viewport edge
-- Purpose: sets section theme without competing with foreground copy
-
-### Inputs & Forms
-Minimal form surface on the marketing page. The search input in the nav header is:
-- Initial state: a 48px circular button with a magnifier icon
-- Expanded state: horizontal input field, border `1px solid` Ink Black at ~50% opacity, radius 999px, padding 12px 24px, white background
-
-**Country/language selector (footer)**
-- Background: Ink Black (same as footer)
-- Text: White
-- Border: 1px solid `rgba(255,255,255,0.4)`
-- Radius: 999px (full pill)
-- Icon: downward chevron on the right
-
-### Navigation
-
-**Floating Nav Pill (desktop)**
-- Container: white-to-translucent-white pill floating below the very top of the viewport with a ~24px top margin
-- Radius: 999px / 1000px (full pill)
-- Padding: ~16px 40px internal
-- Shadow: very soft (`rgba(0, 0, 0, 0.04) 0px 4px 24px 0px`) — just enough to lift it off the cream canvas
-- Content: Mastercard logo left, primary link group center ("For you", "For business", "For the world", "For innovators", "News and trends"), search icon right
-- Link spacing: ~48–56px gap between primary links
-- Link style: Ink Black, weight 500, 16px, no underline, no pill surround until active
-
-**Mobile Nav**
-- The same pill shape but collapsed to: logo + hamburger menu button + search icon only
-- Menu opens into a full-screen overlay with the primary links stacked vertically
-
-### Image Treatment
-
-- **Aspect ratios used**: 1:1 (all service portraits — cropped to circle), ~3:4 or ~4:5 (carousel pill cards), 16:9 or wider (hero video frame)
-- **Full-bleed vs padded**: Hero is viewport-wide with gutters; service portraits are always centered in their column with generous whitespace around; footer imagery is rare
-- **Masking**: Aggressive circular masking is the defining treatment — square source images are cropped to perfect circles of matching diameter. Never use rectangular service imagery.
-- **Lazy loading**: Standard `loading="lazy"` with a soft blur-up transition from a cream-tinted placeholder, preserving the warm palette during load
-
-### Decorative Orbital Lines
-
-A signature motif: thin (~1–1.5px) single-weight curved lines in Light Signal Orange (`#F37338`) tracing arcs between circular portraits. These lines:
-- Imply connection between service cards without literal arrows
-- Span widths from ~200px up to full-viewport arcs
-- Feel hand-drawn (subtle irregularity) rather than perfect CSS curves
-- Appear only in sections with circular portrait content — never on pill sections, never in the footer
-
-### Footer
-
-- Background: Ink Black (`#141413`)
-- Text: White
-- Padding: 48px horizontal 100px / bottom 148px (very tall bottom space)
-- Structure: large conversational H2 ("We're always here when you need us") left-aligned, then a 4-column link grid below
-- Column headers: uppercase, muted, weight 700, letter-spacing +4%
-- Link rows: white, weight 450, 14px; entries prefixed with a small icon (support bubble, card, map pin, question mark) for the "NEED HELP?" column
-- External link marker: a small upper-right arrow (`↗`) after link text
-- Bottom row (below a 1px white-at-opacity divider): copyright + privacy small-print + country-language pill dropdown + four social icons (LinkedIn, Facebook, X, YouTube)
-
-## 5. Layout Principles
-
-### Spacing System
-- **Base unit**: 8px (confirmed by dembrandt extraction and computed styles)
-- **Scale**: 8 / 16 / 24 / 32 / 48 / 64 / 96 / 128 (powers of 8)
-- **Section vertical padding**: ~96–128px between major sections on desktop; ~48–64px on mobile
-- **Card internal padding**: 32–40px on desktop, ~24px on mobile
-- **Nav top margin**: ~24px from viewport top (the pill floats, doesn't touch)
-
-### Grid & Container
-- **Max content width**: ~1200–1280px centered, with ~48–100px horizontal gutter
-- **Column pattern**: 12-column implied, but practical layouts use 2-up asymmetric (large headline left, supporting text right), 1-up full-bleed (hero, video), or staggered single-portrait placement (service cards sit in varying grid positions creating the "constellation" feel)
-- **Footer grid**: 4 equal columns on desktop, collapses to single column accordion on mobile
-
-### Whitespace Philosophy
-Mastercard treats whitespace as structure, not absence. A typical service section has:
-- A ghost headline occupying the top ~40% of the section (mostly empty cream)
-- A single circular portrait positioned ~60% down, asymmetric to left or right
-- ~300–500px of blank canvas between the portrait and the next section
-This deliberate emptiness tells the eye "slow down, read one thing at a time" — the opposite of dense dashboard UIs.
-
-### Border Radius Scale
-
-| Radius | Use |
-|--------|-----|
-| 3–6px | Tiny decorative elements, cookie banner micro-chips |
-| 20px | Primary and secondary body CTAs (the signature button radius) |
-| 24px | Consent/orange pill buttons, modal inner chips |
-| 40px | Hero media frames, large section container corners, H2 pill labels |
-| 50% | Circular portraits, icon-only buttons, satellite CTAs |
-| 99px / 999px / 1000px | Full pill shapes — navigation, carousel cards, footer country selector, primary inline chips |
-
-The scale is unusual: most systems use 4/8/12/16. Mastercard skips those and commits to **either small (≤6), medium-large (20–40), or full-pill (99+)**. The middle ground of 8–12 is absent, which is why the UI feels either "precise and utility" or "soft and editorial" with no in-between.
-
-## 6. Depth & Elevation
-
-| Level | Treatment | Use |
-|-------|-----------|-----|
-| 0 | No shadow | The default — 95% of surfaces sit directly on cream canvas |
-| 1 | `rgba(0, 0, 0, 0.04) 0px 4px 24px 0px` | Floating nav pill — barely-there lift |
-| 2 | `rgba(0, 0, 0, 0.08) 0px 24px 48px 0px` | Hero media frames, elevated cards — a soft large-radius halo rather than a hard drop |
-| 3 | `rgba(0, 0, 0, 0.25) 0px 70px 110px 0px` | Rare; dramatic elevation on a feature tile |
-
-### Shadow Philosophy
-Mastercard uses shadows as **atmospheric cushioning**, not directional light. The Level 2 shadow has a 48px spread and only 8% opacity — it barely exists as dark pixels but creates a "the card is breathing above the canvas" feel. There are almost no hard-edged, tight shadows anywhere in the system. Border lines are preferred over shadows for functional delineation (form inputs, footer divider).
-
-### Decorative Depth
-- **Orbital arcs** (Light Signal Orange, ~1px): trace connective paths across sections
-- **Ghost watermark headlines**: cream-on-cream text gives sections an almost-pressed-paper quality
-- **Circle-image fade**: warm-toned photography at the edge of circular portraits dissolves into the canvas, implying soft atmospheric depth
-
-## 7. Do's and Don'ts
-
-### Do
-- Use Canvas Cream (`#F3F0EE`) as the default body background — never pure white
-- Mask service/feature imagery as perfect circles, not rectangles or rounded rectangles
-- Attach a white satellite CTA to the bottom-right of each circular portrait
-- Set headlines in MarkForMC weight 500 with -2% letter-spacing
-- Use weight 450 (not 400) for body paragraphs
-- Keep primary CTAs as Ink Black pills (20px radius) with cream text
-- Use Signal Orange only on consent, legal, or compliance actions
-- Float the nav as a rounded white pill below the viewport top, not flush at y=0
-- Build page rhythm from three surface tones: canvas cream → lifted cream → ink footer
-- Use thin Light Signal Orange arcs between service cards to imply connection
-
-### Don't
-- Don't use pure white as a page background — it breaks the warm editorial tone
-- Don't round image frames at 8–16px — Mastercard either uses full-pill, 40px, or full-circle. In-between radii look generic
-- Don't use Signal Orange for marketing CTAs — it reads as cookie-consent orange and dilutes the legal color signal
-- Don't mix typefaces — no serif accent, no script, no secondary display font
-- Don't crowd the nav with more than six top-level links — the pill is meant to feel airy
-- Don't drop hard shadows — all elevation should use 48px+ spread and ≤10% opacity
-- Don't use uppercase for anything larger than the 14px eyebrow label
-- Don't omit the tiny accent dot before eyebrow labels — it's the identity
-- Don't place circular portraits on a grid — their magic comes from asymmetric placement
-
-## 8. Responsive Behavior
-
-### Breakpoints
-
-| Name | Width | Key Changes |
-|------|-------|-------------|
-| Mobile | ≤ 767px | Nav pill shows logo + menu + search only; primary links hide behind hamburger; service portraits stack single-column centered; hero headline drops from 64px to ~40px; footer columns collapse into a vertical accordion |
-| Tablet | 768–1023px | Nav pill shows 2–3 primary links truncated; service portraits arrange 2-up; hero headline ~48px |
-| Desktop | ≥ 1024px | Full nav with 5 primary links centered; service portraits asymmetrically placed with decorative orbital lines; hero headline 64px |
-| Wide | ≥ 1440px | Content max-width caps at ~1280px; gutters grow symmetrically; orbital lines extend further |
-
-### Touch Targets
-All interactive elements comfortably exceed 44×44px. The satellite CTA (circle + arrow) is ~50–60px. The nav pill buttons are ~48px tall. Mobile hamburger and search are 48×48px. No link or button drops below 40px in any breakpoint.
-
-### Collapsing Strategy
-- **Nav**: full pill → compact pill with hamburger. Pill shape is preserved across breakpoints — always rounded, always floating.
-- **Service grid**: asymmetric constellation → 2-up → 1-up stack. Orbital arcs are removed on mobile (they only work with asymmetric placement).
-- **Spacing**: section vertical padding compresses from 128px to 48px on mobile.
-- **Content**: two-column hero (headline left / supporting text right) becomes stacked (headline on top, supporting text below).
-- **Footer**: 4 columns → 1 column accordion with chevron toggles per section.
-
-### Image Behavior
-Circular portraits scale proportionally (maintaining the perfect circle at every size). Hero video frames maintain their 40px radius at every breakpoint, but the frame itself shrinks with the viewport. Lazy loading is standard with a cream-tinted blur-up placeholder, preserving the palette during load.
-
-## 9. Agent Prompt Guide
-
-### Quick Color Reference
-- Primary CTA: "Ink Black (`#141413`) — the warm near-black used for primary pill buttons and footer"
-- Background: "Canvas Cream (`#F3F0EE`) — warm putty body canvas, never pure white"
-- Lifted surface: "Lifted Cream (`#FCFBFA`) — one step lighter than canvas for nested sections"
-- Heading text: "Ink Black (`#141413`)"
-- Body text: "Ink Black (`#141413`) at weight 450"
-- Muted text: "Slate Gray (`#696969`)"
-- Signal / Consent: "Signal Orange (`#CF4500`) — reserve for cookie consent and legal actions"
-- Accent arc: "Light Signal Orange (`#F37338`) — orbital decorative lines only"
-- Border / Outline: "Ink Black at 1.5px for pill buttons; 1px at low opacity elsewhere"
-- Footer: "Ink Black (`#141413`) with White text"
-
-### Example Component Prompts
-- "Create a circular portrait card 300px in diameter, with a square photograph cropped to a perfect circle. Attach a 56px white satellite button with a dark arrow icon at the bottom-right, so it protrudes ~40% outside the portrait. Below the portrait, add an eyebrow label with a Light Signal Orange dot and uppercase 'SERVICES' text in MarkForMC weight 700 at 14px. Below the eyebrow, set a 24px / weight 500 title in Ink Black."
-- "Design a primary CTA button: Ink Black (`#141413`) background, Canvas Cream (`#F3F0EE`) text, 20px border-radius, 6px vertical and 24px horizontal padding, MarkForMC font at 16px weight 500 with -2% letter-spacing."
-- "Build a floating navigation pill: white background with `rgba(0, 0, 0, 0.04) 0px 4px 24px 0px` shadow, 999px border-radius, ~16px vertical and 40px horizontal internal padding. Position it 24px below the viewport top, centered, with the Mastercard logo at the left, five primary links centered with 48px gap, and a circular 48px search button at the right."
-- "Create a hero media frame: 40px border-radius on all corners, full viewport width minus 48px gutters, ~60% viewport height, dark background for video content. Place it directly on the cream canvas with no shadow."
-- "Design a footer: Ink Black (`#141413`) background, white text, 4-column link grid with uppercase muted column headers at 14px weight 700 +4% tracking. Include a large conversational H2 above the grid, a 1px white-at-30%-opacity horizontal divider below, and a bottom row with copyright, legal small-print links, a pill-shaped country selector, and four social icons."
-
-### Iteration Guide
-When refining existing screens generated with this design system:
-1. Focus on ONE component at a time — don't redesign multiple surfaces in parallel
-2. Reference specific color names AND hex codes from this document
-3. Use natural language ("warm putty cream", "stadium pill", "circular portrait with satellite CTA") alongside technical values
-4. Describe the desired "feel" (editorial, soft, institutional) alongside specific measurements
-5. When in doubt, reach for one of three radii: 20px (buttons), 40px (hero/stadium), or 999px (pill/nav)
-6. Default backgrounds to Canvas Cream (`#F3F0EE`), not white — this single change shifts the entire mood toward Mastercard
-
-### Known Gaps
-- The live page uses MarkForMC, a proprietary licensed typeface. Sofia Sans is the closest open-source substitute and is listed in Mastercard's own fallback stack.
-- Tablet breakpoint specifics (768–1023px) were inferred from desktop and mobile captures; intermediate layouts may vary per section.
-- The exact "whisper" cream tone used for ghost-watermark headlines behind circular portraits reads between `#E8E2DA` and `#D1CDC7` in captures; the precise value varies per section.
-- Third-party consent orange (`#CF4500`) is Mastercard's documented consent signal and should not be confused with any marketing CTA color.
-- The Mastercard logo mark (red `#EB001B` + yellow `#F79E1B`) is a brand asset, not a UI palette entry.
-
-## 10. How the demo site uses this (project notes)
-
-The demo site's default "study" theme takes this system's warm canvas and colour roles but keeps its own type and shapes:
-
-- **Canvas and surfaces**: paper `#F5F3EE` and lifted `#FBFAF7`, close to Canvas Cream and Lifted Cream.
-- **Type**: Newsreader (serif titles), Plus Jakarta Sans (body) and JetBrains Mono (labels). This departs from the one-font rule on purpose: the study pages read like a research paper.
-- **Shapes**: square panels with 1px borders; pills only for buttons, filter chips and the nav.
-- **Rust `#9C4A26`**: means "a success a year later" on every chart and card, and nothing else.
-- **Lifecycle**: taken from the palette above and always shown with its name beside it: Sustained Link Blue `#3860BE`, Gradual decline Ink Black `#141413`, Flash Light Signal Orange `#F37338`, Never adopted Dust Taupe `#D1CDC7`, Unclear Slate Gray `#696969`. Neighbouring segments pass the colour-blind and normal-vision separation checks; the greys are deliberately neutral, so they fail the categorical chroma check by design and rely on the labels.
-- **Links**: every text link (s-link, textlink) is Link Blue `#3860BE`, darker `#1d3570` on hover.
-- **Eyebrow diamond (only where it adds information)**: a 6px Signal Orange `#CF4500` diamond (a square turned 45°) marks the small label above a title only when that label tells you something the title does not: the question number and Describe/Predict tag (Q2 Survival), the step in a walk (Step 3 of 5 · Leaders), and the game level (Level 1 of 3). Pages whose title already says where you are (Home, Questions, Compare, Neighbours, Game, Method, About, Pick, Card) have no eyebrow; their titles start on the same line as the Home hero.
-- **Highlighted bars**: the chosen or most important bar in a bar chart is Link Blue, never rust.
-- **Boxes**: one card system. Large frames (figures, Compare table, side panels, At a glance, examples) are Lifted Cream with a 1px `#E6E1D9` hairline and 28px radius; smaller cards (question cards, Method cards, bridges) use 20px. Chips, tags and inputs are full pills. No hard shadows: clickable cards and pop-up menus get the soft level-2 halo `0 24px 48px rgba(0,0,0,.08)`.
-- **Dark Ink panels** (`#141413`, cream text) are used sparingly for very few things. The game leaderboard is a light taupe `#E3DED7` card (between Canvas Cream and Dust Taupe) with ink text; only first place gets a Light Signal Orange rank circle. Never on something clickable: a dark fill means "read this", not "press this". Clickable cards say so with a Link Blue "Open →", and the open one gets a 2px ink outline instead. Light Signal Orange `#F37338` highlights the key numbers inside them.
-- **One way forward per page**: on every scenario step the only forward action is the Next button at the bottom right (Next · step, or Finish · See your card on the last step). The card then offers the next layer (Layer 3 · dig into …). Choices inside the page (eras, categories, leaders) say "Choose…" / "✓ Selected", never "→". The side panel has no buttons, only the path and a plain Link Blue link; the card is reached through Finish.
-- **Motion**: effects play once, on a change, and explain the data; nothing loops except the name river on "Pick a DApp". Switching era morphs bars, dots and lines to their new values (0.55s); big numbers on Home and Method count up the first time they appear; on Neighbours, hovering a DApp (or dropping your crosshair) draws Light Signal Orange orbit arcs to its three closest DApps. The one line chart that draws itself is "Do their users stay?" (retention, once per era): the drop is the story. All of it is skipped under `prefers-reduced-motion`.
-
-- **Ethereum feel, kept quiet**: a line-drawn two-part diamond (octahedron) sits before the site title in the header, and Home has one large ghost diamond at 9% opacity behind the hero, in the spirit of the ghost-watermark rule above. No ETH logos, purples or gradients.
-- **Frames only where you click**: charts, tables, info groups, At a glance, the Compare table, the Method groups and funnel, and About's team and data sit straight on the canvas with a hairline (or a 2px ink rule for group heads) on top. Frames stay on clickable cards (question, era, Method tabs, More ways in, Method link), on side panels that hold game or map state, and on the dark/accent panels.
-- **Title line** (1440 wide): titles without an eyebrow start at y 176 (y 246 under a sub-bar); titles with an eyebrow start at y 184 (y 254 under a sub-bar). Inner pages are 52px Newsreader, Home and Questions 68px.
-- **Success rule on Method**: a light whisper-cream panel `#EFEAE3` with ink text; the two thresholds are rust (they define success) with a soft rust underline. Not black.
-- **Subtitle under every title**: each page title has one short subtitle (17px, `#5A5650`, max 720px wide) 18px below it. On Questions it sits to the right of the headline instead. Question and step pages use their Conclusion block in this place.
+# Design guide
+
+The rules the demo site actually follows. The look borrows Mastercard's warm cream canvas and colour roles, set in our own type so the pages read like a research paper. Everything here is the default `study` theme in `site/index.html`; the other themes in that file (`?theme=cream`, `ink`, …) are early experiments and are not used.
+
+## Colours
+
+| Role | Hex | Used for |
+|------|-----|----------|
+| Page | `#F5F3EE` | Page background, header, footer |
+| Lifted | `#FBFAF7` | Cards and frames that sit on the page |
+| Hairline | `#E6E1D9` / `#DDD8CF` | Card borders and rules |
+| Ink | `#1A1A1A` | Text, buttons, the main chart series |
+| Ink 2 | `#5A5650` | Subtitles and secondary text |
+| Muted | `#8E8A82` | Labels, axis text |
+| Grey series | `#A39E95` | The comparison series in a chart ("other", "one-hit") |
+| **Rust** | `#9C4A26` | **Success only**: "still active a year later", on every chart and card |
+| **Orange** | `#CF4500` | **"You / now / the key number"**: one orange cue per page |
+| Light orange | `#F37338` | Decoration only: orbit arcs, first place on the leaderboard, key numbers inside dark panels. Too light for text on cream |
+| Link blue | `#3860BE` | Every text link (`#1d3570` on hover) and the highlighted bar in a bar chart |
+| Dark panel | `#141413` | A few "read this" panels, never on something clickable |
+| Whisper cream | `#EFEAE3` | The success-rule panel on Method |
+
+**Supporting neutrals.** A few warm greys sit between the hairlines and the text colours above. They are part of the palette on every screen; nothing else may be added.
+
+| Hex | Used for |
+|------|----------|
+| `#E2DDD4` | Chart rules and bands, the hairline on top of figures |
+| `#EBE7E0` / `#EDE9E2` | Row dividers inside lists and tables (Compare search list, Method funnel) |
+| `#ECE7E0` / `#EFECE6` | Soft fills: small round buttons, hover on list rows, empty bar tracks |
+| `#E8E3DB` / `#E8E2DA` / `#EFEBE5` | Empty bar tracks and the faint area under small sparklines |
+| `#D9D4CA` / `#D6D1C7` | Chart polygons and histogram bars that sit behind the data |
+| `#CFC9BF` | Background dots on the maps, names not picked yet on Neighbours |
+| `#BDB7AC` | Outline of the small Describe / Predict tags, open places on the leaderboard |
+| `#6F6B64` | Axis numbers on scatter maps |
+| `#F3F0EE` | Text on ink buttons |
+
+Two tints are left on phones only: the game start picture (`#F4E6DC`) and the per-DApp chart panel in Compare's Learn more sheet (`#ECE9E3`, `#E6ECF8`, `#EEEDEB`). Desktop shows both in Whisper cream.
+
+**Lifecycle colours** are always shown with their name beside them: Sustained `#3860BE`, Gradual decline `#141413`, Flash `#F37338`, Never adopted `#D1CDC7`, Unclear `#696969`.
+
+## Type
+
+| Role | Font | Size |
+|------|------|------|
+| Titles | Newsreader (serif), weight 400 | 52px on inner pages, 68px on Home and Questions |
+| Subtitle under every title | Plus Jakarta Sans | 17px, Ink 2, max 720px wide, 18px below the title |
+| Body | Plus Jakarta Sans | |
+| Labels, eyebrows, numbers in tables | JetBrains Mono | 11.5px, tracked +0.14em |
+
+## Shapes
+
+- **Frames**: large frames (figures, Compare table, side panels) have a 28px radius; smaller cards (question cards, Method cards) have 20px. Both are Lifted with a 1px hairline.
+- **Pills** (999px) only for buttons, chips, tags, inputs and the nav.
+- **Round icon buttons** (☰ menu, ✕ close, ⇄ swap, ↻ replay, ⋯ details, and the game's quit ✕ at the right of the level row, its cross in orange) are a thin #DDD8CF outline on the page colour, with no fill.
+- **No hard shadows.** Clickable cards and pop-up menus get a soft halo, `0 24px 48px rgba(0,0,0,.08)`.
+- **Frames only where you click.** Charts, tables and info groups sit straight on the page with a hairline on top. Frames are kept for clickable cards and panels that hold game or map state.
+
+## Desktop (wider than 600px)
+
+- Card rows read like a product row: big cards in Whisper cream #EFEAE3 (no colours outside the table above), 28px corners, no border, a small mono eyebrow, a Newsreader name, a line or two of text, and a round › (42px, thin ink outline on a pale fill) in the bottom-right corner when the card opens something. Used for Compare's three DApp cards, Home's three layers and More ways in.
+- Compare shows its three DApp cards: eyebrow (category · launch), name, peak and shape, the verdict, the two-year curve at the bottom, Dig in, and › for Learn more. Adding (the dashed card) and removing (✕ on cards 2 and 3) happen on the cards. There is no table or chart under them: every number sits in the › side panel, in one column per DApp.
+- Every sheet (Compare's Learn more, Read more) slides in from the right as a 520px panel instead of up from the bottom.
+- Page heads use the width: the title on the left and its line on the right, bottom-aligned (Compare, Pick a DApp, Neighbours, Method, Today at the booth, as Questions already did). The game's start page puts the title and line on the left and the start card on the right.
+- Method's Success / Signals / Data tabs float at the bottom like the Q1–Q6 bar; the three tiles at the top are hidden.
+- Today at the booth puts Saved cards (a 460px tank) and Top scores today side by side. The board always draws its ten places; open ones show a grey dash (on phones too).
+- The title's last line and the line beside it end on the same line on every page head.
+- Compare's add card opens its search below its ✕: one pill input in Whisper cream with no border and no dark ring when it is focused (only the caret), and a flat list inside the card, not a floating box.
+- Compare has no wallets chart under the cards; the › side panel carries every number and the overlaid curves.
+- In the game, the map (up to 1000px) sits in the middle of the page.
+- Charts work as on phones: each line's name sits on its line (the label column on the right is gone, so the plot is wider), with the same rules for moving a name clear of other lines and names.
+- Home's market strip works as on phones: a carousel of three wide slides (Wallets, Transactions, Gas), one at a time, each with its big latest number (88px) and line, its chart (220px tall) and the HTML era bar; the dots under it are the only control (click a dot to jump to that measure; it follows when you scroll), no arrows; the big number is 88px; no toggle; "What happened ›" at the right under the dots. The "Market › Category › DApp" caption is hidden and the heading keeps its hairline.
+- Home's More ways in slides on desktop like the market strip: a fourth card, "The six questions" (opens the question list, which Home did not link to before), comes first, so the cards follow the top bar: The six questions, Compare, Neighbours, Game; about three and a quarter cards are in view so the fourth peeks in, the row snaps to a card, and dots under it (click to jump; they follow when you scroll) are the control. Phones keep their three swiped cards.
+- Every blue "… ›" link sits at the right end of its row on desktop (Read more, What happened, Notes and limits, How to read this chart, See all of today, Play the game, See today's top scores), like "See all ›" beside a heading. The one exception is "See today at the booth ›" on the card page, which stays under the title in its narrow left column. Phones keep their own placement.
+- Desktop uses no tints outside the table: the game start card's picture panel and the chart panel in Compare's Learn more sheet are Whisper cream #EFEAE3 (they were a warm orange tint and a per-DApp blue or grey tint).
+- Neighbours: the map right under the title, then the filters (its axis settings), then the readout with Your DApp and the three closest; the map's legend folds into "How to read this chart ›".
+- The game works as on phones: no pick list beside the map (the map is up to 1000px wide), the level's two measures fold into the map's "Read more ›", and when a level ends the done line ("2 of 3 lasted · +164 points…") carries Next level. The current level tab shows its clock beside its score.
+- Method works as on phones, laid out as grids instead of swipe rows: the three labels, the six signal groups, the five funnel steps (512 in orange) and the three data charts are Whisper cream cards with ⋯ for details; the long versions are hidden; rules and limits fold into "Notes and limits ›".
+- The card page is left / right: the title, the note and the two links on the left, the card on the right.
+- About's three data sources are Whisper cream cards (no small label, no date-range chip); Method's card has the round ›.
+- Walk pages work as on phones: one column, a larger progress strip as eyebrow (28px bars, a 15 × 24 Ethereum mark) (▾ opens Your path), the chart's title with "Read more ›", "Following Lido ▾" under it, and the footer as a grey back link and a bold "Next →". The bar under the header keeps only ← Home (the breadcrumb and step boxes are hidden).
+- Question pages (Q1–Q6) are one wide column: the six questions sit in a floating bar at the bottom like on phones, but with every name spelled out ("Q1 Categories … Q6 Take-off", the current one an ink pill); the right-hand "All six questions" column is gone. The eyebrow is the progress strip (▾ opens the list), and each chart has its small grey title with "Read more ›" on the right, which opens the note in the side panel. The era switch stays in the row under the header.
+
+## Phones (600px and narrower)
+
+- Charts are drawn on a 560-wide canvas instead of 980, and taller (about 560 × 450, so roughly 270px on screen), with 16px label text, and the plot takes the full width: each line's name sits just above the end of its line, right-aligned, instead of in a column to the right. If a line runs under that spot the name moves under its line or above all the lines; failing those it takes the nearest clear spot within reach of the line's end; only when none is clear does it keep a page-coloured outline so the crossing line passes behind it. Two names never overlap. The reference line's name ("1,000 wallets") gets the same outline. Labels stay about 10px on screen. Long axis captions split onto two lines at the "·", and crowded month ticks show every other label.
+- Compare is a swipe row of DApp cards: each shows its own two-year curve on a tinted panel in its column colour, the key facts, "Dig in" and "Learn more". Learn more opens a bottom sheet whose top chart overlays the DApps being compared (this one a thick line in its colour, the others thin lines in theirs, all as a share of each one's own peak; the cards in the row keep one line each), then every number for that DApp in columns, one per DApp (this one first, in bold; the columns are always thirds, so with two DApps the second sits where it would with three), under a header of their names and colour dashes that stays at the top while you scroll; each row's label sits above its values, and ▲ marks the leader. A floating bar at the bottom says "Walk Uniswap V3, step by step." with "Dig in". The side-by-side table and the bottom chart are desktop only. The ▲ and "170 widely used DApps" note sits at the bottom of the Learn more sheet instead of on the page. "+ Add a DApp" opens its search inside the card. Cards 2 and 3 carry a small round ✕ in their top-right corner (always visible, since phones have no hover) that removes that DApp, freeing the slot for another; the first card has none.
+- Side-by-side panels (Neighbours' readout and its three closest DApps) stack.
+- Small grey labels only name things nothing else names. Swipe slides carry no "1 of 3" counter (the dots already show it), and Home's "Market › Category › DApp" line is hidden on phones because the layer cards say the same.
+- Pages scroll top to bottom; a section of three parallel cards scrolls left to right instead: Home's three layers (numbered, so the order needs no arrows) and More ways in, and Neighbours' three closest. About's three data sources (DeFiLlama, AWS Public Blockchain Data, Method) swipe the same way, framed like the other swipe cards; they stay on About as the credit for the data, while Method shows how it was narrowed. They read like More ways in on Home: icon, name (26px, room for two lines) and one line of text, no small label, all at the same height in the three cards, and the date-range chip above them is dropped on phones (the hero already says it). The same goes for the three era cards in "Pick a moment in the market", which open on the era already chosen. Each card is about 84% wide so the next one peeks in, and swiping snaps to a card.
+- Question pages get a floating bar at the bottom to jump between Q1–Q6: the current question is a dark pill with its name spelled out, the others show just their number.
+- The pages are in the order a visitor uses them: Home, Questions, Compare, Neighbours, Game, Booth (Today at the booth, `#wall`), then the reading pages Method and About.
+- The page links move into a ☰ menu that slides in from the left; tapping a page, the backdrop, ✕ or Esc closes it.
+- Question pages read top to bottom: "← All · Q3 of 6", the question, the era switch, then the conclusion and chart. The back link sits in the eyebrow row (walks use "← Home"), so there is no extra bar under the header.
+- Every page's first line, eyebrow or title, starts 24px under the header, and the first thing after the title's subtitle (a section heading, the filters, the cards) starts 32px under it on every page, and the eyebrow row stays on one line (walks write "2 of 5" without "Step"). In that row the back button (a thin outline, no fill) sits left and the Describe / Predict tag at the right edge. On question pages the "Q2 of 6 Survival" label is replaced by the progress strip described below.
+- Home's At a glance is a section heading like The whole market (24px title, a hairline under it), then three tiles side by side (number on top, short line under it) instead of three stacked rows.
+- The summary card is set like a business card on every screen: "On-chain DApp research" and the Ethereum mark on top, the DApp's name in Newsreader with its category and era under it, or for a market walk the category it followed ("DeFi") with no line under it, since Moment already gives the era, the five steps as label and value (an Outcome of Success in rust, Not a success in ink), and the block hash at the foot. It drops the summary sentence, since the steps already say it. Each value says what it is a share of ("Lido, 22% of DeFi wallets", "Stickiness, 33% of the model's weight", "4% of first users at month 6"), in Your path too. Under the card, one row like a walk's footer: "See today's wall ›" in blue on the left, "Dig into Lido →" in bold ink on the right (market walks only). The page title follows the card's name ("DeFi, dug down").
+- The Wall page is called **Today at the booth** (☰ menu and top nav: Booth; address `#wall`), matching Home's section: the title "Today at the *booth*", the line "Every DApp card saved and every game played on this screen today.", then "Saved cards" (how to save, the full tank, the count and Clear today) and "Top scores today" (the top 10). Links to it read "See all of today ›" (Home) and "See today at the booth ›" (under a card).
+- Only one-DApp (Layer 3) cards go on the wall, and only when the visitor saves them. The Ethereum mark in the card's top-right corner is the save button: an ink outline with an orange "Tap to save" beside it that gives a small wiggle every four seconds until it is saved (no note under the card yet); once tapped it fills orange (you / now) with a small pop, the hint goes, and the note under the card reads "Saved. Your card is on today's wall."; tapping again removes it. The card's top label is "DApp research". Every market walk card offers a DApp to dig into: the leader you followed, else another top-5 leader, else the biggest widely used DApp in that category. The five DApps with no third-month numbers show "No month-3 data" for Lookalikes instead of a dash. Market walk cards keep a plain Ethereum mark; their note says "Only one-DApp cards go on the wall: dig into Lido to make one." The Wall's subtitle reads "Walk one DApp (Layer 3) to the end, then tap the Ethereum mark on your card to pin it here",. The count reads "4 cards saved today".
+- Home's "Today at the booth" (after the three layers, before More ways in) holds two panels, side by side on desktop and swiped on phones, each ending in a blue link: "Saved cards" (the tank, then "See the wall ›") and "Top scores today" (a podium for the day's best three, then "Play the game ›"). The podium puts first in the middle on the tallest block (light orange, as for first place on the game's board, with a cream numeral), second on the left and third on the right on lighter blocks, each with the name and "412 pts · 1:23" above it; an empty step shows a dash and "open". The Wall page adds today's top 10 under its tank. The game page no longer shows a leaderboard: its start page is the start card alone (720px wide on desktop), and after saving a name the end screen says "You are #2 of 5 today, on the podium on Home" (the rank in orange) with "See today's top scores ›" to the Wall; the board now keeps the best 50 of all time plus every game from today, so a new score is never dropped.
+- Today's cards: Home has a 220px tank ("Today's cards", with "See the wall ›"), and the Wall page (☰ menu, `#wall`) shows the same tank full height. The tank's background is a quiet blockchain motif: chains of small blocks joined by dotted links, with one ghost Ethereum diamond in the middle (no purple). Every card finished on that screen today drifts slowly as a small card (about 144 × 80) with only the name and its block hash,  all the same size (the card is a souvenir, not a chart, so its size carries no data), bouncing off the sides; tapping one opens the full card. Two example cards from real walks (Uniswap V3, a success; Beanstalk, not) are always in the tank so it is never empty, marked "Example walk" when opened, and dropped once a visitor makes a card for the same DApp. Our data has no contract addresses, so the 0x line is the walk's block hash. Cards are kept in that browser's storage only (no server), so at the booth each screen shows its own visitors. A tank shows at most the newest 4 cards on Home on phones and 6 on desktop, and 8 / 12 on the booth page; the browser keeps the last 40 cards. The drift pauses while the tank is off screen or the tab is hidden. Under the tank one line, on one baseline: the count on the left ("4 cards saved today", "No cards saved yet today", or "36 cards made today · newest 12 here" once the cap is reached; the two examples are not counted) and an underlined grey "Clear today" on the right, which empties it after a confirm. Cards start on an even grid (as many columns as fit) and drift from there. Under reduced motion the cards stay still.
+- The era cards in "Pick a moment in the market" are set like the Compare cards on phones: the dates and the market line on a tinted panel at the top, then the name, the one-line note, the change in market wallets ("first vs last 3 months", so the caption under the row is dropped), and the hottest category; the chosen card has an orange border instead of "✓ Selected".
+- Method's three tabs move into a floating bar at the bottom, like the Q1–Q6 bar: Success / Signals / Data, the current one a dark pill with its number ("85 of 512"). The tiles at the top are hidden on phones, so the content starts right under the title.
+- Method's "What we look at" is a paged row like "Three ways we sort apps": one group per slide ("7 signals", the group name, the gist in one line, a ⋯ button top right). The ⋯ opens that group's signals with their success-vs-others bars and the legend.
+- The "Why not ever reached 10K wallets?" note moves into the Success slide's Learn more on phones.
+- Method's data tab: the funnel (1,816 → 512) is a paged row, one step per slide ("Step 1") with a bar for its share of the registry, and the three charts (by category, by launch year, peak wallets) are another. The rules and limits notes on every tab fold into "Notes and limits ›".
+- Method's "Three labels, only one is success" (formerly "Three ways we sort apps") is a paged row, Success first, then Lifecycle label and Shape,, one sort per slide with dots under it: the key number and one line, with a round ⋯ button in the slide's top-right corner that opens the full detail in a bottom sheet (✕, tap outside or Esc closes it). The slides are left-aligned like the market slides on Home.
+- On walk steps with a choice (Hot or fading, Leaders), the "Follow another …" box moves into the chart on phones: "Following Lido ▾" on its own line under the title row. Its list opens under it, inside the screen. Its keyboard focus ring is ink, like every other focus ring.
+- Walks no longer show the place line (era › category › DApp) under the eyebrow on phones: it appeared only once choices were made, so it popped in mid-walk. The same choices are listed in Your path, opened from the progress strip.
+- On walks, Previous / Next shrink to one row in the same sans font: a plain grey back link on the left and "Next →" as plain bold ink text on the right, no pill or frame. Bold ink against grey is enough to show the way on; orange stays for "you / now".
+- The Neighbours and game map is drawn on a square 560 × 560 canvas on phones (980 × 540 on desktop), so it is about 80% taller and its labels readable.
+- Neighbours: the filters sit unframed, with plain small labels and light outlined buttons, so they read as the map's axis settings. Their dropdowns open under the row, full width, so they never run off the screen. They are two labelled rows of equal buttons ("Compare by" X ⇄ Y, "Only show" category and launch date). The map comes straight after them, then the readout, then Your DApp and the three closest together in one row of framed cards you swipe through (Your DApp first, each closest card labelled "Closest 1 of 3"; all four share the same padding, label rule and title position), each about 84% wide so the next one peeks in from the right. Three fixed columns would leave about 100px each, too narrow for names and numbers.
+- The era table under Q2 puts each percentage under its bar.
+- A game stops itself, unsaved and without a message, and returns to the game's start: after one minute with no tap, click or key during a level, or once it has run for ten minutes in all. The booth's ?kiosk timer (90 seconds back to Home) still applies everywhere.
+- Game page order, on every screen: the level's question, then "Your task", then the three level tiles, then the map. The map's caption ("NFT · Before Terra · 16 DApps") is its title, in ink, on one row with "Read more ›", which opens the two measures; there is no "How to read this chart" row under the map. When the last level ends, the finish card (points and time, "3 of 9 picks were a success.", the name box, then your place today, with a round ↻ in its top-right corner to play again) sits over the map like the "Your turn" card at the start, instead of in a side panel. The name box's focus ring is ink and follows the pill.
+- Game: the map gets the first screen (it starts about 375px down on a 812px phone). The task is one plain line with no label or rules ("Pick three dark dots, reading active wallets and returning share together."), and the three levels are one row of slim pills ("L1 · 64 · 0:48", the current one outlined orange) that floats at the bottom of the screen like the Q1–Q6 bar. The quit ✕ sits at the right of the level's title, on the same line, on every screen; the game has no eyebrow row. Earlier: the three levels shrink to small tiles (level and score), the task stays but tighter, there is no pick list under the map on phones (the numbered dots on the map, tappable for name and result, and the done line above it say the same), and "How to read this chart" holds just the two measures, each as its axis, name, one plain line and what low and high look like ("← only a few users · lots of users →"), with no frames, "why it matters" or example. When a level is done, Next level appears only in the task bar, not again under the map. There is no separate time and score box while playing, on any screen: the current level tile carries the live clock and each tile its points; when a level ends, the task box turns into the result ("2 of 3 lasted · +164 points · 1:07 so far. Keep going!") with Next level right there. No score pop or landing dots on phones. The start card spans the map with a pill button and a friendlier line: "Your turn … Go with your gut. / Let's go →" (this copy is the same on desktop).
+- Touch screens drop the dark hover outline that used to stick on a card after a tap.
+- The Questions page drops "Pick a timeline" on every screen: every question page has the era switch right under its title, so the picker only repeated it.
+- Every chart on a phone has a short title in small grey caps, like "The same model in each era" on Q2: its accessible name ("Wallet change by category", "Share of the category's wallets"). Title and a blue "Read more ›" share the top row and stay on one line (names are kept to about 33 characters, longer ones end in "…"); a walk picker sits on its own line under that row.
+- Long notes under charts (How to read, Success, Source) fold into a short blue "Read more ›" at the right of the chart's top row, so it never sits on the chart; tapping it opens the full note in a bottom sheet, links inside still work. On the era table it sits at the right of the table's label line. The Neighbours and game maps, and any chart with a small-sample warning, keep a plain blue "How to read this chart ›" row instead, so the map stays clear and the warning stays visible. On a walk, the eyebrow's middle is a small progress strip instead of "1 of 5 Moment": done steps as short ink bars, the current step as a small solid orange Ethereum mark, the rest grey, then ▾. It is a button that opens "Your path", so the path needs no row of its own. Question pages use the same strip for the six questions (the ones you have opened in ink, this one orange), and it opens "All six questions". Question pages drop the "All six questions" list: the Q1–Q6 bar already lists them.
+- Home's market strip has no Wallets / Transactions / Gas toggle on phones (it read like a filter): each measure is its own slide, swiped with dots under them. Each slide has no small label (the dots show the position and the line under the number names the measure) and leads with one big number: the latest month of the measure that is on, against its peak ("1.1M active wallets in Dec 2025, −52% from the 2.3M peak"). It is grey, not orange: "today" and the latest-month dot already carry Home's orange. The line is taller (150px), the era bar sits under it, and a blue "What happened ›" at the right end of the dots row opens the era story.
+- Every Conclusion has one orange keyword, on every screen. Question pages: the category that grew most (Q1), the strongest signal (Q2), the top-10 share (Q3), the successful share with 10K wallets by month 6 (Q4), the share kept at month 6 (Q5), the growers' retention (Q6).
+- On a market walk, each step's Conclusion has one orange keyword: the era ("You are looking at Terra → Dencun"), the category ("Between Terra and Dencun, DeFi was the hottest"), the leader ("Lido holds 22%"), the signal ("stickiness") and the share kept ("10%").
+- On a DApp walk, each step's Conclusion has one orange keyword instead of the DApp's name: the shape ("kept growing"), the rank ("#14 of 122"), the three lookalikes, the signal ("size"). The last step's verdict is its keyword too, orange either way ("still a success" or "not a success"); the card and the charts keep rust for success.
+- Two kinds of tap target, never mixed up: Link blue text means "see more" (How to read this chart ›, Your path ›), the ink pill means "go on" (Next, Dig in, Let's go). On a walk step the blue links sit together and the ink Next comes last.
+- The Lookalikes chart on a DApp walk has no legend above it on phones: its four marks (this DApp, lookalike success, lookalike not a success, every other DApp) open first in How to read, so the chart starts right under its top row.
+- Pick a DApp ends with the two other ways in as short rows, a grey question over a blue link ("Not listed, or not live yet? / Place your own numbers ›", "Want to line a few up? / Compare DApps ›"), stacked on phones and side by side on desktop, instead of one long sentence.
+- The walk's place line (era › category › DApp) stays left-aligned with the title under it; only the eyebrow's progress strip is centred, between ← Home and the Describe tag.
+- Small charts on phones say what x and y are: the top and bottom of the scale sit at the left edge in small grey mono, the time along the bottom. Compare's Learn more chart reads Peak / 0 and Launch / Year 1 / Year 2; each era card's market line reads its highest month ("1.7M") / 0 and its first and last month with "monthly wallets" between them, so the dates line above it is dropped on phones.
+- Tapping a dot or bar shows its tooltip (name, category and launch, the two numbers, whether it lasted); it is always kept fully on screen and sits above the floating bars.
+- Legends in a sheet list one item per line (a dot and its meaning); the map no longer says "Drag the crosshair, or click anywhere".
+- Slides use a ⋯ button for their details, and every other "see more" is a short blue text link, never a bare icon: an icon on its own would not say what it opens.
+- Every Learn more sheet reads the same way, left-aligned: a heading in Newsreader, a small grey mono line (dates, a count, "1 · Categories"), then the text in the body font, with a hairline between items. "What happened in each era" lists each era as name, dates on their own line, then what happened; notes like "Rules." become headings rather than a bold word inside the paragraph.
+- Method keeps one title, "How we measured it", but its lede follows the tab: Success ("What counts as a success, shown on one DApp, and how it differs from two other labels we use"), Signals ("The 33 early signals…"), Data ("How 1,816 listed DApps became the 512…").
+- The walkthrough has a real section heading, "The rule, step by step", the same size as the other section heads, with its ↻ button on that line.
+- The DragonQuest walkthrough has five steps: the three parts of the rule, then "DragonQuest: not a success" and "The grey DApp: a success". Once it ends only a round ↻ button stays in the figure's top-right corner to replay it; there is no separate verdict list.
+- The DragonQuest "How to read it" figure on Method is drawn on the same 560-wide canvas with larger text.
+- Crossing 600px while the page is open redraws it in the right mode.
+
+## Rules
 
 ### One orange word per page title
-Page titles set one word in italic Signal Orange (#CF4500, class `.o-word`): Home "today", Questions "answers", Compare "side by side", Method "measured", About "project". It is the page's one orange cue. On Home it pairs with the orange latest-month dot in the market strip; both mean "now". Neighbours and the game already carry orange on the visitor's own DApp and the level numbers, so their titles stay ink. Use #CF4500 rather than #F37338 for text; #F37338 is too light on the cream background. The "Predict" question tag is ink, not rust: rust stays for success.
+
+Each title sets one word in italic orange (`<em class="o-word">`):
+
+| Page | Word |
+|------|------|
+| Home | *today* |
+| Questions | *answers* |
+| Compare | *side by side* |
+| Method | *measured* |
+| About | *project* |
+| Today at the booth | *booth* |
+
+On Home it pairs with the orange latest-month dot in the market strip; both mean "now". Neighbours and Game already use orange for the visitor's own DApp and the level numbers, so their titles stay ink.
+
+The game level you are playing has an orange outline (an orange top line on desktop). The "Predict" tag (only Q2) is orange, outline and text, so the one question type that looks ahead stands out from Describe, which stays grey.
+
+Beyond the title word, a page may carry **one** key number in orange, the number the page builds to. Method's funnel ends on 512 (the DApps the study uses) in orange. The summary card's title ends on an orange *dug down*, so every page has exactly one orange cue in its title or eyebrow.
+
+### Rust means success
+
+Rust is reserved for success, so nothing else uses it. Highlighted bars, its "Level done" label and every focus ring (search boxes, dropdowns) are not rust; they use ink and Link blue.
+
+### Eyebrow mark
+
+A small solid orange Ethereum mark (7 × 11px, the same shape as the current step in the progress strip) marks the small label above a title only when the label adds something the title does not say: the question number and tag (Q2 Survival), the step in a walk (Step 3 of 5), the game level is left to its level tiles, so the game's eyebrow keeps only the quit ✕. Pages whose title already says where you are have no eyebrow.
+
+### One way forward
+
+On every walk step the only forward action is the Next button at the bottom right (Finish on the last step). Choices inside a page never say "→". The era cards in "Pick a moment in the market" carry no "Choose" / "Selected" text: the chosen card has a 2px orange border (you / now), the others a hairline.
+
+### Motion
+
+Effects play once, on a change, and explain the data. Switching era morphs bars, dots and lines to their new values. Big numbers count up the first time they appear. Hovering a DApp on Neighbours draws orbit arcs to its three closest DApps. The retention chart draws itself once per era because the drop is the story. Nothing loops except the name river on Pick a DApp and the cards drifting on the Wall. The card's save mark wiggles briefly every four seconds until it is saved. All motion is skipped under `prefers-reduced-motion`.
+
+### Ethereum, kept quiet
+
+A line-drawn Ethereum diamond sits before the site title and in the browser tab, and Home has one large ghost diamond at 9% opacity behind the hero. No ETH purples or gradients.
