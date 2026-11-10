@@ -2071,7 +2071,7 @@ main.study>.s-qtitle:first-child{margin-top:0}
   .h-slide .h-mkt,.h-slide svg{min-width:0;max-width:100%}
   .h-slide>.s-mono{font-size:10.5px;letter-spacing:.1em;color:#8E8A82}
   .h-slide .h-kpi{margin-top:10px}
-  .h-swipe+.srt-dots{margin:14px 0 6px}
+  .h-swipe+.srt-dots,.h-erasbar+.srt-dots{margin:14px 0 6px}
   .h-mkt svg{height:150px!important}
   /* the Describe / Predict tag sits at the right edge, so switching questions never moves it */
   main .s-crumb .s-kind{margin-left:auto!important}
@@ -2308,6 +2308,70 @@ body.sheet-open{overflow:hidden}
 .q-bar button.on{background:#1A1A1A;color:#F5F3EE;padding:0 14px}
 .q-bar span{font-size:13px}
 .fold-ic{display:none}
+/* desktop: each market slide puts the number on the left (56px) and the chart on the right, straight on the page */
+@media (min-width:601px){
+  .h-swipe.h-swipe{gap:64px!important}
+  .h-swipe.h-swipe>.h-slide.h-slide{display:grid!important;grid-template-columns:minmax(0,280px) minmax(0,1fr);column-gap:40px;align-items:center!important;padding:8px 0 4px!important;background:none!important;border-radius:0!important;box-sizing:border-box}
+  .h-swipe .h-kpi.h-kpi{margin:0!important;align-self:center}
+  .h-swipe .h-kpi .h-kline{flex-direction:column;align-items:flex-start;gap:6px}
+  .h-swipe .h-kpi.h-kpi b{font-size:56px!important;line-height:1}
+  .h-swipe .h-kpi .h-kunit.h-kunit{font-size:26px}
+  .h-swipe .h-kpi.h-kpi>em{font-size:14.5px!important;line-height:1.5;margin-top:14px}
+  .h-swipe .h-mkt{margin:0!important}
+  .h-swipe .h-mkt svg{height:200px!important}
+}
+/* market chart: the peak, a solid orange dot with "peak"; each slide clips its own markers */
+.h-slide{overflow:hidden}
+.h-mkt .h-peak{position:absolute;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#CF4500;box-shadow:0 0 0 3px #F5F3EE;pointer-events:none}
+.h-mkt .h-peaklab{position:absolute;transform:translate(11px,-50%);font:500 11px "JetBrains Mono",monospace;letter-spacing:.04em;color:#CF4500;white-space:nowrap;pointer-events:none;text-shadow:0 0 3px #F5F3EE,0 0 3px #F5F3EE}
+.h-mkt .h-peaklab.left{transform:translate(calc(-100% - 11px),-50%)}
+/* About: "Take it with you" sits at the top right, beside the title, where the orbit drawing was */
+@media (min-width:601px){ .ab-hero:has(>.qr-take){grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)!important} .ab-hero>.qr-take{margin:44px 0 0;align-self:start;justify-self:end;max-width:440px;gap:22px;padding:22px 24px} .ab-hero>.qr-take .qr-box{width:116px;height:116px;padding:10px} .ab-hero>.qr-take .s-mono{white-space:nowrap;font-size:11px;letter-spacing:0} }
+/* About · Method works like More ways in: only the round arrow opens it, at the bottom right; faint circle, orange on hover or tap */
+.ab-srcs .ab-src2.ab-go{cursor:default}
+.ab-srcs .ab-src2.ab-go:hover b{text-decoration:none!important}
+.ab-srcs .ab-src2.ab-go{padding-bottom:64px!important}
+.ab-srcs .ab-src2.ab-go .ab-arrow{position:absolute!important;top:auto!important;bottom:0!important;right:0!important;left:auto!important;display:flex!important;align-items:center;justify-content:center;width:42px!important;height:42px!important;padding:0!important;border:1px solid rgba(26,26,26,.12)!important;border-radius:50%!important;background:transparent!important;font-size:0!important;cursor:pointer;transition:background .2s,border-color .2s}
+.ab-srcs .ab-src2.ab-go .ab-arrow::after{content:"";width:8px;height:8px;border-right:1.7px solid #1A1A1A;border-top:1.7px solid #1A1A1A;transform:translateX(-2px) rotate(45deg);transition:border-color .2s}
+.ab-srcs .ab-src2.ab-go .ab-arrow:hover,.ab-srcs .ab-src2.ab-go .ab-arrow:active{background:#CF4500!important;border-color:#CF4500!important}
+.ab-srcs .ab-src2.ab-go .ab-arrow:hover::after,.ab-srcs .ab-src2.ab-go .ab-arrow:active::after{border-color:#FBFAF7}
+.ab-srcs .ab-src2.ab-go .ab-arrow:focus-visible{outline:2px solid #1A1A1A;outline-offset:2px}
+@media (max-width:600px){ [data-theme] .ab-srcs .ab-src2.ab-go .ab-arrow.ab-arrow{width:44px!important;height:44px!important;top:auto!important;bottom:20px!important;right:20px!important} [data-theme] .ab-srcs .ab-src2.ab-go.ab-go{padding-bottom:84px!important} [data-theme] .ab-srcs .ab-src2.ab-go p{padding-right:0} }
+.qr-take{display:none}
+@media (min-width:601px){
+  .qr-take{display:flex;align-items:center;gap:28px;margin:48px 0 8px;padding:24px 28px;border:1px solid #E6E1D9;border-radius:20px;background:#FBFAF7;max-width:620px}
+  .qr-box{flex:none;width:132px;height:132px;padding:14px;box-sizing:border-box;background:transparent;border-radius:10px}
+  .qr-box .qr-svg{display:block;width:100%;height:100%}
+  .qr-txt h2{margin:0 0 6px;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px;color:#1A1A1A}
+  .qr-txt p{margin:0 0 10px;font-size:15px;line-height:1.5;color:#5A5650}
+  .qr-txt .s-mono{font-size:12px;letter-spacing:.04em;color:#8E8A82;text-transform:none}
+}
+.h-kline{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px}
+.h-kunit{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px;line-height:1.1;color:#1A1A1A}
+.h-kpi>em{margin-top:8px}
+@media (min-width:601px){ .h-swipe .h-kunit{font-size:38px} }
+/* market chart: the two era breaks named at the top of their dashed lines, like the Question charts */
+.h-mkt{position:relative}
+.h-mkt .h-cutlab{position:absolute;top:0;transform:translateX(6px);font:500 11px "JetBrains Mono",monospace;letter-spacing:.04em;color:#5A5650;white-space:nowrap;pointer-events:none}
+.nowrap{white-space:nowrap}
+/* every blue "… ›" sits at the right end of the heading row it belongs to */
+.s-sec>.h-more2.fold-ic{display:inline-flex!important;margin:0 0 0 auto!important;position:static!important;align-self:center}
+.s-sec.s-sec:has(>.h-more2){flex-direction:row!important;flex-wrap:nowrap!important;align-items:baseline!important}
+.s-sec:has(>.h-more2)>h2{width:auto!important;flex:1 1 auto;min-width:0}
+.s-sec>.h-more2.fold-ic{flex:none;align-self:baseline!important}
+.tb-hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
+.tb-hrow .tb-h{margin:0!important;padding:0!important}
+.tb-hrow .tb-play{margin:0 0 0 auto!important;width:auto!important;padding:0!important;line-height:1.2}
+.m-fig{position:relative}
+.m-fig>.fold-ic{display:inline-flex!important;position:absolute;top:21px;right:0;margin:0!important;z-index:2}
+@media (max-width:600px){ .m-fig>.fold-ic{top:6px} }
+.s-sec.has-note{display:flex;align-items:baseline;gap:12px}
+.s-sec.has-note>.fold-more{margin:0 0 0 auto!important;width:auto!important;flex:none}
+.m-notesrow{justify-content:flex-end;margin:0 0 12px!important;padding:0!important;border:0!important}
+.m-notesrow>.fold-more{display:inline-flex!important}
+/* Booth: no count under the tank (it showed today only while the tank shows recent days); only the staff "Clear today" link, quiet, at the right */
+.wall .tk-foot-x{display:flex;justify-content:flex-end;margin-top:10px}
+.wall .tk-foot-x .tk-clear{font-size:13px;color:#8E8A82}
 /* Method walkthrough: the verdict in the step title is orange, as in the walks' Conclusions */
 .tour b .k{color:#CF4500;font-style:normal}
 /* Method cards with a ⋯ button: the label wraps before the button on narrow desktop windows */
@@ -2395,7 +2459,7 @@ body.sheet-open{overflow:hidden}
   main.dfold.dfold:has(>.m-top)>.m-topdots button{display:block;width:9px;height:9px;padding:0;border:0;border-radius:5px;background:#D1CDC7;cursor:pointer;transition:height .25s,background .25s}
   main.dfold.dfold:has(>.m-top)>.m-topdots button.on{height:30px;background:#1A1A1A}
   /* filters: one compact unframed row, right-aligned over the map; the map starts under them */
-  main.dfold.dfold:has(>.m-top)>.m-ctrl{grid-column:3 / 5!important;grid-row:2!important;justify-self:end!important;display:flex!important;flex-wrap:wrap!important;justify-content:flex-end!important;align-items:center!important;gap:8px 16px!important;margin:0 0 4px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;width:auto!important;max-width:100%!important;position:relative;z-index:3}
+  main.dfold.dfold:has(>.m-top)>.m-ctrl{grid-column:3 / 5!important;grid-row:2!important;justify-self:end!important;display:flex!important;flex-wrap:wrap!important;justify-content:flex-end!important;align-items:center!important;gap:8px 16px!important;margin:0 0 18px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;width:auto!important;max-width:100%!important;position:relative;z-index:3}
   main.dfold.dfold:has(>.m-top)>.m-ctrl>.m-grp{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:5px!important;margin:0!important;padding:0!important;border:0!important;background:none!important;width:auto!important}
   main.dfold.dfold:has(>.m-top)>.m-ctrl .m-ctrl-h{margin:0 2px 0 0!important;font-size:10px!important;letter-spacing:.1em!important;white-space:nowrap}
   main.dfold.dfold:has(>.m-top)>.m-ctrl .fchip{padding:5px 10px!important;font-size:12.5px!important;min-height:0!important;height:auto!important;gap:6px!important}
@@ -2559,7 +2623,7 @@ body.sheet-open{overflow:hidden}
   .h-swipe{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:20px 0 0!important;padding:0!important;gap:0}
   .h-swipe::-webkit-scrollbar{display:none}
   .h-swipe>.h-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;padding:0!important;border:0!important;background:none!important;align-items:stretch!important;text-align:left!important}
-  .h-swipe+.srt-dots{display:flex!important;justify-content:center;margin:16px 0 4px}
+  .h-swipe+.srt-dots,.h-erasbar+.srt-dots{display:flex!important;justify-content:center;margin:16px 0 4px}
   .h-swipe .h-kpi{display:flex!important;margin-top:4px}
   .h-swipe .h-era,.h-swipe .h-yr,.h-swipe .h-mlab,.h-swipe .h-merge{display:none!important}
   .h-swipe .h-eras{display:flex!important}
@@ -3075,11 +3139,14 @@ function chart(o){
     /* try above its own line, then under it, then above every line; keep the first spot that touches no line and no other name */
     const yIn=(pts,x0,x1)=>{ const out=[]; for(let i=1;i<pts.length;i++){ const [ax,ay]=pts[i-1],[bx,by]=pts[i]; for(let t=0;t<=1;t+=.1){ const x=ax+(bx-ax)*t; if(x>=x0&&x<=x1) out.push(ay+(by-ay)*t); } } if(pts.length===1&&pts[0][0]>=x0) out.push(pts[0][1]); return out; };
     const placed=[];
-    labels.sort((a,b)=>a.pts[a.pts.length-1][1]-b.pts[b.pts.length-1][1]).forEach(l=>{
+    /* coloured names (the DApp itself) pick their spot before the grey reference lines, so they sit nearest their own line */
+    const greyL=l=>String(l.color).toUpperCase()===String(SC.grey).toUpperCase()||String(l.color).toUpperCase()===String(C.q2).toUpperCase();
+    labels.sort((a,b)=>(greyL(a)-greyL(b))||(a.pts[a.pts.length-1][1]-b.pts[b.pts.length-1][1])).forEach(l=>{
       const w=l.text.length*CW+6, x0=l.x-w, own=yIn(l.pts,x0,l.x), all=labels.flatMap(o=>yIn(o.pts,x0,l.x));
       const top=Math.min(...own), bot=Math.max(...own);
       const free=y=>y>=16&&y<=m.t+ih-4&&all.every(v=>v<y-17||v>y+6)&&placed.every(p=>Math.abs(p-y)>=LG);
-      let y=[top-10,bot+24,Math.min(...all)-10,Math.min(...all)-32,Math.max(...all)+24].find(free), halo=false;
+      /* a name never drifts more than about 90 units from the end of its own line */
+      let y=[top-10,bot+24,Math.min(...all)-10,Math.min(...all)-32,Math.max(...all)+24].filter(v=>Math.abs(v-(top-10))<=90).find(free), halo=false;
       /* no clean spot: sit above its own line with a page-coloured outline so a crossing line passes behind the name */
       if(y==null){ const want=top-10, ys=[]; for(let v=16; v<=m.t+ih-4; v+=2) ys.push(v);
         const near=(a,b)=>Math.abs(a-want)-Math.abs(b-want);
@@ -3434,7 +3501,7 @@ function vHome(){
       <div class="s-wcard"><div class="s-wcard-h"><span>At a glance</span></div>
         ${facts.map(f=>`<div class="s-fact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join("")}
 </div></section>
-    <div class="s-sec"><h2>The whole market, ${D.meta.panel_start.slice(0,4)} – ${D.meta.panel_end.slice(0,4)}</h2><span class="h-tog" role="tablist" aria-label="Measure">${Object.entries(HM).map(([k,[l]])=>`<button class="${(HM[S.hm]?S.hm:"wallets")===k?"on":""}" data-hm="${k}" aria-pressed="${(HM[S.hm]?S.hm:"wallets")===k}">${l}</button>`).join("")}</span></div>
+    <div class="s-sec"><h2>The whole market, <span class="nowrap">${D.meta.panel_start.slice(0,4)} – ${D.meta.panel_end.slice(0,4)}</span></h2><span class="h-tog" role="tablist" aria-label="Measure">${Object.entries(HM).map(([k,[l]])=>`<button class="${(HM[S.hm]?S.hm:"wallets")===k?"on":""}" data-hm="${k}" aria-pressed="${(HM[S.hm]?S.hm:"wallets")===k}">${l}</button>`).join("")}</span>${marketStory()}</div>
     ${marketSwipe()}
     <div class="s-sec"><h2>Read the ecosystem in three layers</h2><span class="s-mono">Market › Category › DApp</span></div>
     <div class="w-dig">
@@ -3442,8 +3509,8 @@ function vHome(){
     </div>
     <div class="s-sec"><h2>Today at the booth</h2></div>
     <div class="tb">
-      <div class="tb-p"><span class="s-mono tb-h">Saved cards</span>${wallTank("tank")}<button class="fold-more tb-play" data-go="wall"><span>See all of today</span><i>›</i></button></div>
-      <div class="tb-p"><span class="s-mono tb-h">Top scores today</span>${podium()}<button class="fold-more tb-play" data-go="game"><span>Play the game</span><i>›</i></button></div>
+      <div class="tb-p"><div class="tb-hrow"><span class="s-mono tb-h">Saved cards</span><button class="fold-more tb-play" data-go="wall"><span>See all of today</span><i>›</i></button></div>${wallTank("tank")}</div>
+      <div class="tb-p"><div class="tb-hrow"><span class="s-mono tb-h">Top scores today</span><button class="fold-more tb-play" data-go="game"><span>Play the game</span><i>›</i></button></div>${podium()}</div>
     </div>
     <div class="s-sec"><h2>More ways in</h2></div>
     <div class="h-more">
@@ -3473,12 +3540,14 @@ function vHomeOld(){
 const HM={wallets:["Wallets","active wallets"],tx:["Transactions","transactions"],gas:["Gas","gas used"]};
 /* phones: one slide per measure (its own big number, line and era bar), swiped with dots under them, instead of a toggle */
 function marketSwipe(){ const ks=Object.keys(HM);
-  return `<div class="srt h-swipe" aria-label="The whole market">${ks.map((k,i)=>`<div class="srt-s h-slide" aria-label="${HM[k][0]}">${marketStrip(k,true)}</div>`).join("")}</div>
-    <div class="srt-dots h-dots" role="tablist" aria-label="Measures">${ks.map((k,i)=>`<button class="${i?"":"on"}" data-act="hdot" data-i="${i}" role="tab" aria-label="${HM[k][0]}"></button>`).join("")}</div>${marketStory()}`; }
+  /* the era breaks are named on the chart itself ("Terra", "Dencun"); the eras and their dates are in "What happened ›" */
+  const slides=ks.map(k=>marketStrip(k,true));
+  return `<div class="srt h-swipe" aria-label="The whole market">${slides.map((h,i)=>`<div class="srt-s h-slide" aria-label="${HM[ks[i]][0]}">${h}</div>`).join("")}</div>
+    <div class="srt-dots h-dots" role="tablist" aria-label="Measures">${ks.map((k,i)=>`<button class="${i?"":"on"}" data-act="hdot" data-i="${i}" role="tab" aria-label="${HM[k][0]}"></button>`).join("")}</div>`; }
 function marketStory(){
   /* each era as name, then its dates on their own line, then what happened */
   const era=s=>{ const m=String(s).match(/^(.*?) \((.*?)\): (.*)$/); return m?`<div class="i-item"><b class="i-name">${m[1]}</b><span class="s-mono">${m[2]}</span><p>${m[3].charAt(0).toUpperCase()+m[3].slice(1)}</p></div>`:`<p>${s}</p>`; };
-  return `<button class="fold-ic h-more2" data-act="fold" data-title="What happened in each era" aria-label="What happened in each era"><span>What happened</span><i>›</i></button><div class="h-erainfo" hidden>${era(ERA_NOTE.before)}${era(ERA_NOTE.between)}${era(ERA_NOTE.after)}<div class="i-item i-aside"><b class="i-name">The Merge</b><span class="s-mono">Sep 2022</span><p>Ethereum moved to proof of stake. The dotted line on the wider chart marks it for context; it is not one of our breaks.</p></div></div>`; }
+  return `<button class="fold-ic h-more2" data-act="fold" data-title="What happened in each era" aria-label="What happened in each era"><span>What happened</span><i>›</i></button><div class="h-erainfo" hidden>${era(ERA_NOTE.before)}${era(ERA_NOTE.between)}${era(ERA_NOTE.after)}<div class="i-item i-aside"><b class="i-name">The Merge</b><span class="s-mono">Sep 2022</span><p>Ethereum moved to proof of stake. Shown for context only; it is not one of our era breaks.</p></div></div>`; }
 function marketStrip(k0,slide){
   const k=k0||(HM[S.hm]?S.hm:"wallets"), M=D.mkt.months, tot=D.mkt[k].map(v=>v||0), W=1200, H=150, T=22, B=24, mx=Math.max(...tot,1);
   const x=i=>i/(M.length-1)*W, y=v=>T+(1-v/mx)*(H-T-B), line=tot.map((v,i)=>`${i?"L":"M"}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
@@ -3489,7 +3558,8 @@ function marketStrip(k0,slide){
 ${fmtN(tot[i])} ${HM[k][1]}"/>`).join("");
   /* phones: the latest month as one big number, set against the peak, for whichever measure is on */
   const big=n=>n>=1e12?(n/1e12).toFixed(1)+"T":fmtN(n), last=tot[tot.length-1], pi=tot.indexOf(mx), atPeak=pi===tot.length-1;
-  const kpi=`<div class="h-kpi"><b>${big(last)}</b><span>${HM[k][1]} in ${monthLabel(M[M.length-1])}</span><em>${atPeak?"the highest month yet":`${sgn(last/mx-1)} from the ${big(mx)} peak in ${monthLabel(M[pi])}`}</em></div>`;
+  /* the measure is named in the same serif beside the big number ("11M transactions"); the month and the change sit on one line under it */
+  const kpi=`<div class="h-kpi"><div class="h-kline"><b>${big(last)}</b><strong class="h-kunit">${HM[k][1]}</strong></div><em>${monthLabel(M[M.length-1])} · ${atPeak?"the highest month yet":`${sgn(last/mx-1)} from the ${big(mx)} peak in ${monthLabel(M[pi])}`}</em></div>`;
   const story=slide?"":marketStory();
   return `${kpi}<figure class="h-mkt"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Monthly ${HM[k][1]} across all DApps, ${monthLabel(M[0])} to ${monthLabel(M[M.length-1])}">
     <path d="${line} L${W} ${H-B} L0 ${H-B}Z" fill="#ECE7E0"/>
@@ -3497,10 +3567,10 @@ ${fmtN(tot[i])} ${HM[k][1]}"/>`).join("");
     ${tx!=null?`<line x1="${tx}" x2="${tx}" y1="18" y2="${H-B}" class="h-cut" vector-effect="non-scaling-stroke"/>`:""}${dx!=null?`<line x1="${dx}" x2="${dx}" y1="18" y2="${H-B}" class="h-cut" vector-effect="non-scaling-stroke"/>`:""}
     <path d="${line}" fill="none" stroke="#141413" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
     ${tx!=null&&dx!=null?era(0,tx,"Before Terra")+era(tx,dx,"Terra → Dencun")+era(dx,W,"After Dencun"):""}${years}${hov}</svg>
-    ${tx!=null&&dx!=null?(()=>{ const ti=M.indexOf(D.meta.terra), di=M.indexOf(D.meta.dencun), sh=m=>monthLabel(m).replace(/ 20(\d\d)$/," ’$1");
-      const seg=[["Before Terra",0,tx,`${sh(M[0])} – ${sh(M[ti-1])}`],["Terra → Dencun",tx,dx,`${sh(M[ti])} – ${sh(M[di-1])}`],["After Dencun",dx,W,`${sh(M[di])} – ${sh(M[M.length-1])}`]];
-      /* phones: the era names can't sit inside the stretched chart, so a bar under it names each stretch between the dashed lines */
-      return `<figcaption class="h-eras">${seg.map(([n,a,b,r])=>`<span style="width:${((b-a)/W*100).toFixed(2)}%"><b>${n}</b><i>${r}</i></span>`).join("")}</figcaption>`; })():""}</figure>${story}`;
+    ${(()=>{ /* the peak only: a solid orange dot with "peak" beside it (on its left near an era name or the right edge); kept inside the chart so it never shows on the next slide */
+      const px=x(pi)/W*100, side=(px>85||[tx,dx].some(c=>c!=null&&x(pi)>=c&&x(pi)-c<W*.1))?" left":"", pos=`left:clamp(7px,${px.toFixed(2)}%,calc(100% - 7px));top:${(y(tot[pi])/H*100).toFixed(2)}%`;
+      return `<span class="h-peak" style="${pos}" title="Peak: ${big(mx)} in ${monthLabel(M[pi])}"></span><span class="h-peaklab${side}" style="${pos}">peak</span>`; })()}
+    ${tx!=null&&dx!=null?`<span class="h-cutlab" style="left:${(tx/W*100).toFixed(2)}%">Terra</span><span class="h-cutlab" style="left:${(dx/W*100).toFixed(2)}%">Dencun</span>`:""}</figure>${story}`;
 }
 const successRate = () => D.q4.n.success/(D.q4.n.success+D.q4.n.other);
 const GROUPS = [
@@ -3657,14 +3727,16 @@ function vMethod(){
 }
 /* roles: fill in the second value when they are settled */
 const TEAM=[["Anishwar Chakraborty",""],["Austin Lee",""],["William Chen",""],["Ting-Yu Kao",""],["Ved Mistry",""],["Victor Wu",""]];
+/* "Take it with you": a QR code to the live site, for visitors at the booth screen (desktop only; on a phone you are already there) */
+const SITE_URL="https://ethereum-dapp-trends.vercel.app";
+const QR_SVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="qr-svg" role="img" aria-label="QR code for ethereum-dapp-trends.vercel.app"><path stroke="#1a1a1a" d="M0 0.5h7m2 0h2m2 0h2m2 0h1m4 0h7m-29 1h1m5 0h1m1 0h2m1 0h2m7 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h3m1 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h3m1 0h1m4 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m2 0h1m4 0h2m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m1 0h1m1 0h1m3 0h1m1 0h1m-19 1h1m5 0h1m1 0h3m2 0h2m2 0h1m2 0h3m2 0h3m-28 1h3m2 0h1m2 0h1m1 0h2m3 0h1m2 0h2m1 0h1m1 0h2m1 0h2m-27 1h3m1 0h2m1 0h5m2 0h2m4 0h1m1 0h2m-24 1h3m4 0h2m2 0h1m3 0h1m5 0h4m-26 1h1m3 0h13m2 0h1m2 0h2m4 0h1m-28 1h3m5 0h2m4 0h6m1 0h3m2 0h2m-29 1h2m3 0h2m2 0h3m3 0h3m2 0h1m3 0h3m-24 1h1m3 0h1m2 0h2m2 0h3m1 0h1m1 0h3m3 0h1m1 0h1m-28 1h3m2 0h3m1 0h1m4 0h1m1 0h1m7 0h2m-27 1h1m1 0h4m1 0h1m1 0h1m3 0h1m1 0h2m1 0h7m1 0h3m-29 1h2m1 0h1m1 0h4m2 0h2m2 0h3m1 0h2m1 0h4m2 0h1m-29 1h1m2 0h3m2 0h6m1 0h1m2 0h1m1 0h2m1 0h2m-25 1h1m1 0h2m1 0h2m4 0h1m2 0h4m2 0h5m1 0h3m-21 1h1m1 0h1m1 0h1m1 0h2m4 0h1m3 0h2m-26 1h7m8 0h6m1 0h1m1 0h3m-27 1h1m5 0h1m3 0h1m3 0h1m1 0h1m2 0h2m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h5m1 0h8m2 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m4 0h6m1 0h1m1 0h1m1 0h2m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h3m1 0h1m1 0h1m1 0h9m-28 1h1m5 0h1m2 0h2m1 0h4m2 0h1m2 0h1m1 0h4m1 0h1m-29 1h7m1 0h1m4 0h1m1 0h3m5 0h2m1 0h1"/></svg>`;
+const qrBlock=()=>`<section class="qr-take"><div class="qr-box">${QR_SVG}</div><div class="qr-txt"><h2>Take it with you</h2><p>Scan to open this site on your phone and keep reading.</p></div></section>`;
 function vAbout(){
   const ini=n=>n.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
-  const orbit=`<svg class="ab-orbit" viewBox="0 0 420 260" aria-hidden="true"><path d="M20 210 C 120 20, 330 0, 400 120" fill="none" stroke="#F37338" stroke-width="1.4"/><path d="M60 250 C 170 90, 360 80, 410 200" fill="none" stroke="#F37338" stroke-width="1" opacity=".5"/>
-    <circle cx="400" cy="120" r="7" fill="#141413"/><circle cx="210" cy="62" r="5" fill="#D1CDC7"/><circle cx="110" cy="128" r="4" fill="#D1CDC7"/><circle cx="300" cy="118" r="4" fill="#D1CDC7"/></svg>`;
   return `<main class="study s-wrap ab">
     
     <section class="ab-hero"><div><h1 class="s-qtitle">About this <em class="o-word">project</em></h1>
-      <p class="ab-lede s-lede">Thousands of DApps launch on Ethereum, and most fade within a year. We followed ${D.meta.n_dapps} of them month by month to see how categories rise and fall, who leads them, and whether a DApp's first three months on chain already show if it will last.</p></div>${orbit}</section>
+      <p class="ab-lede s-lede">Thousands of DApps launch on Ethereum, and most fade within a year. We followed ${D.meta.n_dapps} of them month by month to see how categories rise and fall, who leads them, and whether a DApp's first three months on chain already show if it will last.</p></div>${qrBlock()}</section>
     <div class="s-sec"><h2>University</h2></div>
     <div class="ab-advisor"><b>University of California, Irvine</b></div>
     <div class="s-sec"><h2>Course</h2></div>
@@ -3677,7 +3749,7 @@ function vAbout(){
     <div class="ab-srcs">
       <div class="ab-src2">${ICO.list}<span class="s-mono">Which DApps exist</span><b>DeFiLlama</b><p>The DApp list, with each one's category and launch date.</p></div>
       <div class="ab-src2">${ICO.chain}<span class="s-mono">What they did on chain</span><b>AWS Public Blockchain Data</b><p>Every month of wallets, transactions, gas and fees for each DApp's own contracts.</p></div>
-      <button class="ab-src2 ab-go" data-go="method">${ICO.signals}<span class="s-mono">How we turned it into answers</span><b>Method</b><p>What counts as success, which signals we read, and how the data was narrowed.</p><span class="ab-arrow">→</span></button>
+      <div class="ab-src2 ab-go">${ICO.signals}<span class="s-mono">How we turned it into answers</span><b>Method</b><p>What counts as success, which signals we read, and how the data was narrowed.</p><button class="ab-arrow" data-go="method" aria-label="Open Method"></button></div>
     </div>
 </main>`;
 }
@@ -3827,13 +3899,12 @@ function vCard(){
 /* the wall: today's cards drift slowly around a tank and bounce off its sides; tap one to read it */
 function vWall(){ const W=wallToday();
   return `<main class="study s-wrap wall"><section class="s-hero s-hero2"><h1>Today at the <em class="o-word">booth</em></h1>
-    <p>Every DApp card saved and every game played on this screen today.</p></section>
-    <div class="wb"><div class="wb-p"><div class="s-sec"><h2>Saved cards</h2></div>
-    <p class="tk-hint">Walk one DApp (Layer 3) to the end, then tap the Ethereum mark on your card. Tap a card here to read it.</p>
+    <p>Every DApp card saved and every game played on this screen today. To add a card, walk one DApp to the end and tap the Ethereum mark; tap a card here to read it.</p></section>
+    <div class="wb"><div class="wb-p"><div class="s-sec"><h2>Saved cards</h2><button class="fold-more tk-link" data-start="s1"><span>Walk a DApp</span><i>›</i></button></div>
     ${wallTank("tank")}
-    <div class="tk-foot"><span class="s-mono">${W.length?`${W.length} card${W.length===1?"":"s"} saved today`:"No cards saved yet today"}${wallCards().length>wallMax()?` · newest ${wallMax()} here`:""}</span>${W.length?`<button class="tk-clear" data-act="wallclear">Clear today</button>`:""}</div>
+    ${W.length?`<div class="tk-foot tk-foot-x"><button class="tk-clear" data-act="wallclear">Clear today</button></div>`:""}
     </div><div class="wb-p"><div class="s-sec"><h2>Top scores today</h2><button class="fold-more tk-link" data-go="game"><span>Play the game</span><i>›</i></button></div>
-    ${topToday(10,true)}</div></div></main>`; }
+    ${topToday(10,true)}</div></div>${qrBlock()}</main>`; }
 let tankRAF=0;
 function tankStart(){ cancelAnimationFrame(tankRAF); const tank=document.getElementById("tank"); if(!tank) return;
   const els=[...tank.querySelectorAll(".tk-card")]; if(!els.length) return;
@@ -4575,7 +4646,10 @@ function pW2(){
   const fig=sBars(L.top.map(t=>({label:t[1].length>18?t[1].slice(0,17)+"…":t[1],v:t[3],hi:t[0]===S.leader,tip:`${t[1]}\n${pct(t[3],1)} of ${S.cat} wallets\n${fmtN(t[2])} monthly wallets on average`})),v=>pct(v),{aria:"Share of the category's wallets"});
   const chips=`<div class="w-pickrow w-pickup"><p><span class="s-mono">Next steps follow</span> <b>${esc(lead[1])}</b>${S.leader===L.top[0][0]?", the leader.":"."}</p>
     <details class="w-more"><summary>Follow another leader</summary><div class="w-menu">${L.top.map(t=>`<button class="${t[0]===S.leader?"on":""}" data-leader="${t[0]}"><span>${esc(t[1])}</span><em>${pct(t[3])}</em></button>`).join("")}</div></details></div>`;
-  return {head:`${K(esc(L.top[0][1]))} holds ${pct(L.top[0][3])} of ${S.cat}'s wallets ${PERIOD_IN[e]}; the top 5 hold ${pct(t5)}.`,
+  /* the conclusion is about the leader you follow; the first one keeps the short form */
+  const rank=L.top.findIndex(t=>t[0]===S.leader)+1, ORD=["","first","second","third","fourth","fifth"];
+  return {head:rank<=1?`${K(esc(L.top[0][1]))} holds ${pct(L.top[0][3])} of ${S.cat}'s wallets ${PERIOD_IN[e]}; the top 5 hold ${pct(t5)}.`
+      :`${K(esc(lead[1]))} holds ${pct(lead[3])} of ${S.cat}'s wallets ${PERIOD_IN[e]}, ${ORD[rank]} of the top 5; ${esc(L.top[0][1])} leads with ${pct(L.top[0][3])}, and the top 5 hold ${pct(t5)}.`,
     fig, pick:chips, how:"Each bar is one DApp's share of the category's monthly active wallets, averaged over the era.",
     src:`Leaders · n = ${L.n} ${S.cat} DApps active in the era.`, careful:t5>.8?`The top 5 hold most of ${S.cat}: a newcomer competes with a few giants.`:`${S.cat} is spread out: beyond the top 5 there is still ${pct(1-t5)} to win.`,
     brief:`${esc(L.top[0][1])} leads ${S.cat} with ${pct(L.top[0][3])}; the top 5 hold ${pct(t5)}.`, say:`${esc(lead[1])} led it with ${pct(lead[3])} of its wallets`, path:["Leader",`${esc(lead[1])}, ${pct(lead[3])} of ${S.cat} wallets`]};
@@ -4583,24 +4657,34 @@ function pW2(){
 function watchOf(e){ const Wt=D.q5.weights[e], top=Object.keys(Wt).sort((a,b)=>Wt[b][0]-Wt[a][0])[0]; return {top, w:Wt[top][0]}; }
 function pW3(){
   const e=wEra(), L=leadOf(e,S.cat), ld=L?L.top.map(t=>t[0]):[], LM=featMed(ld), TM=featMed(catSlugs(S.cat)), w=watchOf(e);
+  /* the leader you followed is the first, blue row; the top 5 and the typical DApp of the category stay as the yardsticks */
+  const fl=L?(L.top.find(t=>t[0]===S.leader)||L.top[0]):null, FM=fl?featMed([fl[0]]):null;
   const fk=(FEATS.find(f=>f[3]===w.top)||FEATS[0]);
-  const fig=compareFig([{name:`${S.cat} top 5`,col:"#1A1A1A",v:LM},{name:`Typical ${S.cat}`,col:"#A39E95",v:TM}]);
-  const lv=LM[fk[0]], tv=TM[fk[0]];
+  const fig=compareFig([...(fl?[{name:fl[1],col:"#3860BE",v:FM}]:[]),{name:`${S.cat} top 5`,col:"#1A1A1A",v:LM},{name:`Typical ${S.cat}`,col:"#A39E95",v:TM}]);
+  const lv=LM[fk[0]], tv=TM[fk[0]], fv=FM?FM[fk[0]]:null;
   return {head:`The model's strongest signal ${PERIOD_IN[e]} is ${K(w.top.toLowerCase())} (${pct(w.w)} of its weight).`,
-    read:lv!=null&&tv!=null?`In their third month, ${S.cat}'s top 5 had ${fk[2](lv)} (${fk[1].toLowerCase()}), against ${fk[2](tv)} for a typical ${S.cat} DApp.`:`Not enough early data on ${S.cat}'s leaders.`,
-    fig, define:true, how:`Median of each group in its third month. Black: ${S.cat}'s top 5. Grey: every ${S.cat} DApp we can measure. Each row is scaled to its own largest value.`,
+    read:fl&&fv!=null&&lv!=null&&tv!=null?`In its third month, ${esc(fl[1])} had ${fk[2](fv)} (${fk[1].toLowerCase()}), against ${fk[2](lv)} for ${S.cat}'s top 5 and ${fk[2](tv)} for a typical ${S.cat} DApp.`:lv!=null&&tv!=null?`In their third month, ${S.cat}'s top 5 had ${fk[2](lv)} (${fk[1].toLowerCase()}), against ${fk[2](tv)} for a typical ${S.cat} DApp.`:`Not enough early data on ${S.cat}'s leaders.`,
+    fig, define:true, how:`Each group in its third month (medians for the groups). Blue: ${fl?esc(fl[1]):"the leader you followed"}. Black: ${S.cat}'s top 5. Grey: every ${S.cat} DApp we can measure. Each row is scaled to its own largest value.`,
     src:`Model weights · n = ${LM.n} leaders and ${TM.n} ${S.cat} DApps with early data.`,
     careful:lv!=null&&tv!=null&&lv<tv?`Here the leaders were below typical on ${fk[1].toLowerCase()}: in ${S.cat}, being early and big mattered more than what the model weighs most across all DApps.`:"Leaders that launched before 2020 have no early months in our data, so they drop out of the black bars.",
     brief:`Watch ${w.top.toLowerCase()}: ${fk[1].toLowerCase()} ${lv!=null?fk[2](lv):"–"} for leaders vs ${tv!=null?fk[2](tv):"–"} typical.`, say:lv!=null&&tv!=null?`its leaders differed most on ${fk[1].toLowerCase()} (${fk[2](lv)} vs ${fk[2](tv)} typical)`:`its leaders differed most on ${fk[1].toLowerCase()}`, path:["Watch",`${w.top}, ${pct(w.w)} of the model's weight`]};
 }
 function pW4(){
-  const e=wEra(), Pd=D.q5.periods[e], ld=D.dapps[S.leader], extra=[];
-  if(ld&&ld.ret) extra.push({pts:ld.ret.map((v,i)=>[i,v]),color:"#3860BE",w:2.5,label:`${ld.name.length>14?ld.name.slice(0,13)+"…":ld.name} · ${pct(ld.ret[6])}`,tip:ld.name,dot:true});
+  const e=wEra(), Pd=D.q5.periods[e], ld=D.dapps[S.leader];
+  /* the leader you followed is set against the typical DApp launched in its own era (its first users came then) */
+  if(ld&&ld.ret){ const le=D.q5.periods[ld.period]?ld.period:e, Pl=D.q5.periods[le], up=ld.ret[6]>=Pl.median[6];
+    const extra=[{pts:ld.ret.map((v,i)=>[i,v]),color:"#3860BE",w:2.5,label:`${ld.name.length>14?ld.name.slice(0,13)+"…":ld.name} · ${pct(ld.ret[6])}`,tip:ld.name,dot:true}];
+    return {head:`Six months on, ${K(esc(ld.name))} kept ${pct(ld.ret[6])} of its first users; the typical DApp launched ${PERIOD_IN[le]} kept ${pct(Pl.median[6])}.`,
+      read:`${up?"Above":"Below"} the typical DApp${le!==e?`. It launched ${PERIOD_IN[le]}, so it is set against DApps launched then, not ${PERIOD_IN[e]}`:""}.`,
+      fig:`<div class="draw-once">${retFig(le,extra)}</div>`, how:`Black: the typical DApp launched ${PERIOD_IN[le]}, with the middle half shaded. Blue: ${esc(ld.name)}.`,
+      src:`Retention · n = ${Pl.n} DApps with 100+ wallets in their first month.`, careful:`Most of the drop happens in the first month: only ${pct(Pl.median[1])} are left after one month.`,
+      brief:`${esc(ld.name)} kept ${pct(ld.ret[6])} after six months (typical ${pct(Pl.median[6])}).`, say:`${esc(ld.name)} kept ${pct(ld.ret[6])} of its first users after six months (typical ${pct(Pl.median[6])})`, path:["Retention",`${pct(ld.ret[6])} of first users at month 6`]}; }
+  const nm=ld?esc(ld.name):"the leader you followed";
   return {head:`Six months on, DApps launched ${PERIOD_IN[e]} keep about ${K(pct(Pd.median[6]))} of their first users.`,
-    read:ld&&ld.ret?`${esc(ld.name)} kept ${pct(ld.ret[6])}: ${ld.ret[6]>=Pd.median[6]?"above":"below"} the typical DApp.`:`We have no launch-cohort retention for the leader you followed, so only the typical curve is shown.`,
-    fig:`<div class="draw-once">${retFig(e,extra)}</div>`, how:"Black: the typical DApp launched in this era, with the middle half shaded. Blue: the leader you followed, if we have its launch cohort.",
+    read:`We cannot follow the first users of ${nm}${ld&&ld.launch?(ld.launch<=D.meta.panel_start?": it launched before our data starts":`: it had fewer than ${D.q5.min_cohort} wallets in its first month`):""}, so only the typical curve is shown.`,
+    fig:`<div class="draw-once">${retFig(e,[])}</div>`, how:"Black: the typical DApp launched in this era, with the middle half shaded.",
     src:`Retention · n = ${Pd.n} DApps with 100+ wallets in their first month.`, careful:`Most of the drop happens in the first month: only ${pct(Pd.median[1])} are left after one month.`,
-    brief:`Typical retention after six months: ${pct(Pd.median[6])}${ld&&ld.ret?`; ${esc(ld.name)} ${pct(ld.ret[6])}`:""}.`, say:ld&&ld.ret?`${esc(ld.name)} kept ${pct(ld.ret[6])} of its first users after six months (typical ${pct(Pd.median[6])})`:`the typical DApp kept ${pct(Pd.median[6])} of its first users after six months`, path:["Retention",`${pct(ld&&ld.ret?ld.ret[6]:Pd.median[6])} of first users at month 6`]};
+    brief:`Typical retention after six months: ${pct(Pd.median[6])}.`, say:`the typical DApp kept ${pct(Pd.median[6])} of its first users after six months`, path:["Retention",`${pct(Pd.median[6])} of first users at month 6`]};
 }
 
 Object.assign(PAGES,{w0:pW0,w1:pW1,w2:pW2,w3:pW3,w4:pW4});
@@ -4724,6 +4808,8 @@ function movePicker(){
     pick.classList.add("folded"); }
 }
 function titleCharts(){
+  /* charts with their own label (the era tables): the label and "Read more ›" share one row */
+  document.querySelectorAll("main .s-erafig").forEach(fig=>{ const ic=fig.querySelector(":scope>.fold-ic"), lab=fig.querySelector(":scope>.s-figlab"); if(!ic||!lab||fig.querySelector(":scope>.fig-top")) return; const row=document.createElement("div"); row.className="fig-top"; lab.before(row); row.append(lab,ic); });
   document.querySelectorAll("main figure.s-fig:not(.m-fig)").forEach(fig=>{ if(fig.querySelector(".s-figlab,.fig-title")) return;
     const sv=fig.querySelector("svg[aria-label]"); if(!sv) return;
     const t=document.createElement("span"); t.className="s-mono fig-title"; t.textContent=sv.getAttribute("aria-label");
@@ -4733,9 +4819,10 @@ function phoneFold(){ const DESK=!PHONE(); if(DESK&&!["qpage","book","pick","gam
   const fold=(el,title)=>{ if(el.classList.contains("folded")) return;
     const warn=/Small sample/.test(el.textContent)?`<em>Small sample</em>`:"";
     const b=document.createElement("button"); b._src=el; b.className="fold-more"; b.dataset.act="fold"; b.dataset.title=title; b.innerHTML=`<span>${title}${warn}</span><i>›</i>`; el.before(b); el.classList.add("folded");
-    /* a chart's own note: a short "How to read ›" on its own line above the chart, at the right (maps and small-sample warnings keep the row below) */
-    const fig=el.closest("figure.s-fig:not(.m-fig),.s-erafig");
-    if(fig&&!warn&&/^How to read/.test(title)){ b.className="fold-ic"; b.setAttribute("aria-label",title); b.innerHTML=`<span>Read more</span><i>›</i>`; fig.classList.add("has-ic"); fig.prepend(b); } };
+    /* a chart's own note: a short "Read more ›" on its own line above the chart, at the right */
+    const fig=el.closest("figure.s-fig,.s-erafig");
+    /* every chart, maps and small-sample notes included: "Read more ›" at the top right (the warning is inside the note) */
+    if(fig&&/^How to read/.test(title)&&!fig.querySelector(".g-cap")){ b.className="fold-ic"; b.setAttribute("aria-label",title); b.innerHTML=`<span>Read more</span><i>›</i>`; fig.classList.add("has-ic"); fig.prepend(b); } };
   /* game: the two measures (X and Y) open first inside "How to read this chart", instead of a row of their own */
   const tl=document.querySelector("main .t-learn"), gnote=document.querySelector("main .m-wrap[class*='g-'] .s-note");
   if(tl&&gnote&&!gnote.dataset.merged){ gnote.dataset.merged="1"; gnote.innerHTML=S.gm?`<div class="g-terms">${termMini(S.gm.ax[0],"X")}${termMini(S.gm.ax[1],"Y")}</div>`:""; tl.classList.add("folded"); }
@@ -4747,15 +4834,18 @@ function phoneFold(){ const DESK=!PHONE(); if(DESK&&!["qpage","book","pick","gam
     const onQ=S.view==="qpage", title=onQ?"All six questions":"Your path";
     const b=document.createElement("button"); b._src=n; b.className="s-crumbbtn"; b.dataset.act="fold"; b.dataset.title=title;
     /* a small progress strip instead of "1 of 5 Moment": done steps ink, this step an orange flag, the rest grey.
-       On question pages the six questions: the ones already opened ink, this one orange. */
+       On question pages the six questions, the same way: the ones before this one ink. */
     const P=onQ?SQ.map(x=>x.q):pages(), cur=onQ?P.indexOf(S.sq):S.idx, seen=S.qseen||[];
-    const st=i=>i===cur?"now":(onQ?seen.includes(P[i]):i<cur)?"done":"";
+    /* by position only, so the strip looks the same however you got here: before this one ink, this one the orange mark, after it grey */
+    const st=i=>i===cur?"now":i<cur?"done":"";
     b.setAttribute("aria-label",`${onQ?"Question":"Step"} ${cur+1} of ${P.length}: ${QNAME[P[cur]]||""}. ${title}`);
     const ETH_NOW=`<svg viewBox="0 0 20 32" aria-hidden="true"><path d="M10 1 L19 16 L10 21.5 L1 16 Z M1 18.5 L10 31 L19 18.5 L10 24 Z" fill="#CF4500"/></svg>`;
     b.innerHTML=`<span class="pg-strip" aria-hidden="true">${P.map((_,i)=>st(i)==="now"?`<span class="pg-seg now">${ETH_NOW}</span>`:`<span class="pg-seg ${st(i)}"></span>`).join("")}</span><span class="pg-more" aria-hidden="true">▾</span>`;
     lab.classList.add("pg-lab"); lab.replaceChildren(b); });
   document.querySelectorAll("main .t-learn:not(.folded)").forEach(n=>fold(n,(n.querySelector("h2")||{}).textContent||"The two measures"));
   document.querySelectorAll(".sheet .m-rules").forEach(n=>fold(n,"Notes and limits"));
+  /* Method: "Notes and limits ›" moves up to a row of its own above the tab's cards, at the right (the tab has no section heading) */
+  document.querySelectorAll(".sheet .m-rules.folded").forEach(n=>{ const b=n.previousElementSibling; if(!b||!b.classList.contains("fold-more")||b.dataset.moved) return; const sh=n.closest(".sheet"), lede=sh&&sh.querySelector(":scope>.s-lede"), first=lede&&lede.nextElementSibling; if(!first) return; b.dataset.moved="1"; b._src=n; const row=document.createElement("div"); row.className="s-sec has-note m-notesrow"; first.before(row); row.append(b); });
   /* game map: its caption ("NFT · Before Terra · 16 DApps") and a "Read more ›" share the top row, like the other charts */
   const gfig=document.querySelector("main .m-fig .g-cap")?.closest(".m-fig");
   if(gfig&&!gfig.querySelector(".fig-top")){ const cap=gfig.querySelector(".g-cap"), row=document.createElement("div"); row.className="fig-top g-captop";
@@ -4880,7 +4970,7 @@ document.addEventListener("click",e=>{
   if(ds.wall!=null){ const c=wallCards()[+ds.wall]; if(c) openSheet(bizCard(c),"i-card"); return; }
   if(ds.act==="mtdot"){ const w=document.querySelector(".m-top"), c=w&&[...w.querySelectorAll(".m-sum,.m-card")][+ds.i]; document.querySelectorAll(".m-topdots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(c){ const cs=getComputedStyle(w), v=cs.flexDirection==="column", cr=c.getBoundingClientRect(), wr=w.getBoundingClientRect(); const to=v?Math.max(0,Math.min(w.scrollTop+cr.top-wr.top-parseFloat(cs.paddingTop||0),w.scrollHeight-w.clientHeight)):Math.max(0,Math.min(w.scrollLeft+cr.left-wr.left-parseFloat(cs.paddingLeft||0),w.scrollWidth-w.clientWidth)); w.scrollTo(v?{top:to,behavior:CALM()?"auto":"smooth"}:{left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(v){ if(Math.abs(w.scrollTop-to)>4) w.scrollTop=to; } else if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="hmdot"){ const w=document.querySelector(".h-more"), c=w&&w.children[+ds.i]; document.querySelectorAll(".h-moredots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(c){ const to=Math.min(c.offsetLeft-w.offsetLeft,w.scrollWidth-w.clientWidth); w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
-  if(ds.act==="hdot"){ const w=document.querySelector(".h-swipe"); document.querySelectorAll(".h-dots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(w){ const to=(+ds.i)*w.clientWidth; w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
+  if(ds.act==="hdot"){ const w=document.querySelector(".h-swipe"); document.querySelectorAll(".h-dots button").forEach((b,k)=>b.classList.toggle("on",k===+ds.i)); if(w){ const c=w.children[+ds.i], to=c?c.offsetLeft-w.children[0].offsetLeft:(+ds.i)*w.clientWidth; w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="hsl"){ const w=document.querySelector(".h-swipe"); if(w){ const cw=w.clientWidth, n=w.children.length, i=Math.max(0,Math.min(n-1,Math.round(w.scrollLeft/cw)+(+ds.d))); const to=i*cw; w.scrollTo({left:to,behavior:CALM()?"auto":"smooth"}); setTimeout(()=>{ if(Math.abs(w.scrollLeft-to)>4) w.scrollLeft=to; },600); } return; }
   if(ds.act==="cardsave"){ const c=cardData(); if(wallHas(c.h)){ S.justSaved=null; try{ localStorage.setItem(WALL_KEY,JSON.stringify(wallLoad().filter(x=>x.h!==c.h))); }catch(e){} } else { wallSave(); S.justSaved=c.h; } render(); S.justSaved=null; return; }
   if(ds.act==="wallclear"){ if(confirm("Clear today's saved cards from this screen? This cannot be undone.")){ try{ const d=new Date().toDateString(); localStorage.setItem(WALL_KEY,JSON.stringify(wallLoad().filter(c=>new Date(c.t).toDateString()!==d))); }catch(e){} render(); } return; }
@@ -5013,7 +5103,7 @@ document.fonts && document.fonts.ready.then(()=>{ if(S.view!=="home") render(); 
 fromHash();
 render();
 document.addEventListener("keydown",e=>{ if(e.key!=="Escape") return; document.body.classList.remove("menu-open"); if(document.querySelector(".i-sheet")){ document.querySelectorAll(".i-sheet").forEach(x=>x.remove()); document.body.classList.remove("sheet-open"); } if(S.csheet){ S.csheet=null; const y=window.scrollY; render(); window.scrollTo(0,y); } });
-document.addEventListener("scroll",e=>{ const s=e.target; if(!s.classList||!s.classList.contains("srt")) return; const i=Math.round(s.scrollLeft/s.clientWidth); const dots=s.nextElementSibling; if(dots) [...dots.children].forEach((d,k)=>d.classList.toggle("on",k===i)); },true);
+document.addEventListener("scroll",e=>{ const s=e.target; if(!s.classList||!s.classList.contains("srt")) return; const kids=[...s.children], o0=kids[0]?kids[0].offsetLeft:0; let i=0, best=1e9; kids.forEach((c,k)=>{ const d=Math.abs(c.offsetLeft-o0-s.scrollLeft); if(d<best){ best=d; i=k; } }); let dots=s.nextElementSibling; if(dots&&dots.classList.contains("h-erasbar")) dots=dots.nextElementSibling; /* the market carousel has its era bar between it and its dots */ if(dots) [...dots.children].forEach((d,k)=>d.classList.toggle("on",k===i)); },true);
 /* desktop More ways in: the dot follows the first card in view */
 document.addEventListener("scroll",e=>{ const w=e.target; if(!w.classList||!w.classList.contains("m-top")) return; const cs=getComputedStyle(w), v=cs.flexDirection==="column", kids=[...w.querySelectorAll(".m-sum,.m-card")], wr=w.getBoundingClientRect(), L=v?wr.top+parseFloat(cs.paddingTop||0):wr.left+parseFloat(cs.paddingLeft||0);
   let i=kids.findIndex(c=>{ const r=c.getBoundingClientRect(); return (v?r.top:r.left)>=L-8; }); if((v?w.scrollTop:w.scrollLeft)>4&&(v?w.scrollTop>=w.scrollHeight-w.clientHeight-4:w.scrollLeft>=w.scrollWidth-w.clientWidth-4)) i=kids.length-1; document.querySelectorAll(".m-topdots button").forEach((b,k)=>b.classList.toggle("on",k===Math.max(0,i))); },true);
