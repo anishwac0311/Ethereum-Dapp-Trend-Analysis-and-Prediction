@@ -497,7 +497,7 @@ html[data-theme=cream] body{background:transparent}
 .fchip::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
 .fl:hover .fchip,.fl:focus-within .fchip{background:var(--ink);color:var(--desk);box-shadow:none}
 .fl:hover .fchip::after,.fl:focus-within .fchip::after{transform:translateY(1px) rotate(225deg)}
-.fpop{position:absolute;right:0;top:calc(100% + 10px);z-index:30;display:flex;align-items:center;gap:14px;white-space:nowrap;padding:14px 20px;border-radius:20px;background:#fff;box-shadow:0 24px 48px rgba(0,0,0,.12),0 0 0 1px var(--rule);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility 0s .18s}
+.fpop{position:absolute;right:0;top:calc(100% + 10px);z-index:30;display:flex;align-items:center;gap:14px;white-space:nowrap;padding:14px 20px;border-radius:20px;background:#fff;box-shadow:0 24px 48px rgba(0,0,0,.12),0 0 0 1px var(--rule);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .15s,transform .15s,visibility 0s .15s}
 .fpop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .fl:hover .fpop,.fl:focus-within .fpop{opacity:1;visibility:visible;transform:none;transition:opacity .18s,transform .18s}
 .flbl{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
@@ -2308,6 +2308,32 @@ body.sheet-open{overflow:hidden}
 .q-bar button.on{background:#1A1A1A;color:#F5F3EE;padding:0 14px}
 .q-bar span{font-size:13px}
 .fold-ic{display:none}
+/* titles balance their lines and paragraphs avoid a lone last word (widows) */
+h1,h2,h3,.s-qtitle{text-wrap:balance}
+p,.s-lede{text-wrap:pretty}
+/* phones: the card's save mark gets a 44px tap target; the mark itself keeps its size */
+@media (max-width:600px){ .bc-save.bc-save{width:44px;height:44px} .bc-savewrap.bc-savewrap{margin:-10px -10px -10px 0} }
+/* sheets leave the way they came, a little faster than they arrived (220ms vs 280ms) */
+.c-sheet.out{pointer-events:none}
+.c-sheet.out .c-sbody{animation:cDown .22s cubic-bezier(.4,0,1,1) forwards!important}
+.c-sheet.out .c-sscrim{animation:scrimOut .22s linear forwards}
+@keyframes cDown{to{transform:translateY(100%)}}
+@keyframes cRight{to{transform:translateX(100%)}}
+@keyframes scrimOut{to{opacity:0}}
+@media (min-width:601px){ .c-sheet.out .c-sbody.c-sbody{animation:cRight .22s cubic-bezier(.4,0,1,1) forwards!important} }
+@media (prefers-reduced-motion:reduce){ .c-sheet.out .c-sbody,.c-sheet.out .c-sscrim{animation:none!important} }
+/* desktop: Method uses the same page width as every other page, so its title and columns line up with them */
+@media (min-width:601px){ [data-theme=study] .sheet.sheet{max-width:1380px!important} }
+/* desktop page heads, one rule: the explanation sits in the same column on every page (58.5% in, 37.5% wide) and its last line shares the title's baseline */
+@media (min-width:901px){
+  main:not(:has(>.m-top)):not(:has(>.g-start))>.s-qtitle:has(+.s-lede),main:not(:has(>.m-top)):not(:has(>.g-start))>.s-qtitle+.s-lede,.sheet>h1:has(+.s-lede),.sheet>h1+.s-lede{vertical-align:baseline!important}
+  .s-hero2.s-hero2>h1,.s-hero2.s-hero2>p{align-self:last baseline!important}
+  main.dfold.dfold.dfold:has(>.m-top){grid-template-columns:minmax(0,270px) 10px minmax(0,1fr) 40.7%!important}
+  main.dfold.dfold:has(>.m-top)>h1,main.dfold.dfold:has(>.m-top)>.s-lede{align-self:last baseline!important}
+  main.dfold.dfold.dfold:has(>.m-top)>.s-lede{width:93.3%!important;justify-self:start}
+}
+/* desktop: the Booth head matches the other inner pages (51.2px title, the same explanation column) */
+@media (min-width:901px){ .s-hero2.s-hero2{grid-template-columns:56% 37.5%!important;column-gap:calc(3% + 4px)!important} .s-hero2.s-hero2>h1{grid-column:1!important} .s-hero2.s-hero2>p{grid-column:2!important;max-width:none!important} .wall .s-hero2>h1{font-size:51.2px!important;line-height:1.08!important;margin-top:44px!important} }
 /* desktop: each market slide puts the number on the left (56px) and the chart on the right, straight on the page */
 @media (min-width:601px){
   .h-swipe.h-swipe{gap:64px!important}
@@ -2415,7 +2441,7 @@ body.sheet-open{overflow:hidden}
   .m-top .m-card>.m-clife{grid-column:2!important;grid-row:2!important;align-self:start!important;justify-self:end!important;margin-top:10px!important;font-size:0!important;line-height:0!important;gap:0!important}
   .m-top .m-card>.m-clife i{display:block!important;width:11px!important;height:11px!important;margin:0!important;border-radius:50%}
   /* Compare: the outlined Ethereum mark at the top right, on the "Closest 1 of 3" row */
-  .m-top .m-card>.m-cmp{grid-column:2!important;grid-row:1!important;justify-self:end!important;align-self:start!important;display:flex!important;align-items:center;justify-content:center;width:36px;height:36px!important;margin:-10px -10px 0 0!important;padding:0!important;border:0;border-radius:50%;background:none;position:relative;z-index:1}
+  .m-top .m-card>.m-cmp{grid-column:2!important;grid-row:1!important;justify-self:end!important;align-self:start!important;display:flex!important;align-items:center;justify-content:center;width:44px;height:44px!important;margin:-14px -14px 0 0!important;padding:0!important;border:0;border-radius:50%;background:none;position:relative;z-index:1}
   .m-top .m-card>.m-cmp .m-cmpt{display:none}
   .m-top .m-card>.m-cmp .m-cmpic{display:block;width:14px;height:22px;fill:none}
   .m-top .m-card>.m-cmp:active .m-cmpic{fill:#1A1A1A}
@@ -3899,12 +3925,12 @@ function vCard(){
 /* the wall: today's cards drift slowly around a tank and bounce off its sides; tap one to read it */
 function vWall(){ const W=wallToday();
   return `<main class="study s-wrap wall"><section class="s-hero s-hero2"><h1>Today at the <em class="o-word">booth</em></h1>
-    <p>Every DApp card saved and every game played on this screen today. To add a card, walk one DApp to the end and tap the Ethereum mark; tap a card here to read it.</p></section>
+    <p>Cards and scores from this screen today. To add a card, walk a DApp to the end and tap its Ethereum mark.</p></section>
     <div class="wb"><div class="wb-p"><div class="s-sec"><h2>Saved cards</h2><button class="fold-more tk-link" data-start="s1"><span>Walk a DApp</span><i>›</i></button></div>
     ${wallTank("tank")}
     ${W.length?`<div class="tk-foot tk-foot-x"><button class="tk-clear" data-act="wallclear">Clear today</button></div>`:""}
     </div><div class="wb-p"><div class="s-sec"><h2>Top scores today</h2><button class="fold-more tk-link" data-go="game"><span>Play the game</span><i>›</i></button></div>
-    ${topToday(10,true)}</div></div>${qrBlock()}</main>`; }
+    ${topToday(10,true)}</div></div></main>`; }
 let tankRAF=0;
 function tankStart(){ cancelAnimationFrame(tankRAF); const tank=document.getElementById("tank"); if(!tank) return;
   const els=[...tank.querySelectorAll(".tk-card")]; if(!els.length) return;
@@ -4793,6 +4819,12 @@ Object.assign(PAGES,{v1:pV1,v2:pV2,v3:pV3,v4:pV4,v5:pV5});
 
 /* ---------- render, page turns ---------- */
 /* a bottom sheet for any content: Learn more on the sorts, and the notes and lists folded away on phones */
+/* close sheets with their exit animation, then run done (at once under reduced motion) */
+function sheetOut(els,done){ els=[...els].filter(e=>!e.classList.contains("out")); if(!els.length||matchMedia("(prefers-reduced-motion: reduce)").matches){ done(); return; }
+  let fin=false; const end=()=>{ if(fin) return; fin=true; done(); };
+  els.forEach(e=>{ e.classList.add("out"); const b=e.querySelector(".c-sbody"); if(b) b.addEventListener("animationend",end,{once:true}); }); setTimeout(end,320); }
+function closeISheets(){ const els=document.querySelectorAll(".i-sheet"); sheetOut(els,()=>{ els.forEach(e=>e.remove()); if(!document.querySelector(".c-sheet:not(.out)")) document.body.classList.remove("sheet-open"); }); }
+function closeCSheet(){ sheetOut(document.querySelectorAll(".c-sheet:not(.i-sheet)"),()=>{ if(!S.csheet) return; S.csheet=null; const y=window.scrollY; render(); window.scrollTo(0,y); }); }
 function openSheet(html,extra=""){ const el=document.createElement("div"); el.className="c-sheet i-sheet "+extra; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true");
   el.innerHTML=`<button class="c-sscrim" data-act="isheet-x" aria-label="Close" tabindex="-1"></button><div class="c-sbody"><div class="c-shead"><span></span><button class="c-sx" data-act="isheet-x" aria-label="Close">✕</button></div><div class="i-body">${html}</div></div>`;
   document.body.appendChild(el); document.body.classList.add("sheet-open"); }
@@ -4963,7 +4995,7 @@ document.addEventListener("click",e=>{
   if(ds.act==="menu"){ document.body.classList.toggle("menu-open"); return; }
   if(ds.act==="isheet"){ const d=t.parentElement.querySelector(".srt-d"); if(d) openSheet(d.innerHTML); return; }
   if(ds.act==="fold"){ const src=t._src||t.nextElementSibling; if(src) openSheet(`<h3>${t.dataset.title}</h3>`+src.innerHTML,"i-fold"); return; }
-  if(ds.act==="isheet-x"){ document.querySelectorAll(".i-sheet").forEach(e=>e.remove()); document.body.classList.remove("sheet-open"); return; }
+  if(ds.act==="isheet-x"){ closeISheets(); return; }
   if(ds.turn) return turn(+ds.turn);
   if(ds.jump!=null) return turnTo(+ds.jump);
   if(ds.go==="home"){ Object.assign(S,{scen:null,dapp:null,custom:null,era:null,q1m:null,q3m:null,query:"",pickTab:"pick",pickCat:"featured"}); return go("home"); }
@@ -4992,7 +5024,7 @@ document.addEventListener("click",e=>{
   if(ds.cmpadd){ S.cmp=[...(S.cmp||[]),ds.cmpadd].slice(0,3); S.cquery=""; S.cadd=null; const y=window.scrollY; render(); window.scrollTo(0,y); return; }
   if(ds.cmprm){ S.cmp=(S.cmp||[]).filter(x=>x!==ds.cmprm); const y=window.scrollY; render(); window.scrollTo(0,y); return; }
   if(ds.act==="clearn"){ S.csheet=ds.k; const y=window.scrollY; render(); window.scrollTo(0,y); return; }
-  if(ds.act==="csheet-x"){ S.csheet=null; const y=window.scrollY; render(); window.scrollTo(0,y); return; }
+  if(ds.act==="csheet-x"){ closeCSheet(); return; }
   if(ds.walk){ S.csheet=null; S.scen="s1"; S.dapp=ds.walk; S.custom=null; S.era=D.dapps[ds.walk].period; return openBook(); }
   if(ds.cmpwith){ S.cmp=[ds.cmpwith]; S.cquery=""; return go("compare"); }
   if(ds.sera){ S.sera=ds.sera; const y=window.scrollY; render(); window.scrollTo(0,y); return; }
@@ -5102,7 +5134,7 @@ document.getElementById("orbits-host").innerHTML=orbits();
 document.fonts && document.fonts.ready.then(()=>{ if(S.view!=="home") render(); });
 fromHash();
 render();
-document.addEventListener("keydown",e=>{ if(e.key!=="Escape") return; document.body.classList.remove("menu-open"); if(document.querySelector(".i-sheet")){ document.querySelectorAll(".i-sheet").forEach(x=>x.remove()); document.body.classList.remove("sheet-open"); } if(S.csheet){ S.csheet=null; const y=window.scrollY; render(); window.scrollTo(0,y); } });
+document.addEventListener("keydown",e=>{ if(e.key!=="Escape") return; document.body.classList.remove("menu-open"); if(document.querySelector(".i-sheet")){ closeISheets(); } if(S.csheet){ closeCSheet(); } });
 document.addEventListener("scroll",e=>{ const s=e.target; if(!s.classList||!s.classList.contains("srt")) return; const kids=[...s.children], o0=kids[0]?kids[0].offsetLeft:0; let i=0, best=1e9; kids.forEach((c,k)=>{ const d=Math.abs(c.offsetLeft-o0-s.scrollLeft); if(d<best){ best=d; i=k; } }); let dots=s.nextElementSibling; if(dots&&dots.classList.contains("h-erasbar")) dots=dots.nextElementSibling; /* the market carousel has its era bar between it and its dots */ if(dots) [...dots.children].forEach((d,k)=>d.classList.toggle("on",k===i)); },true);
 /* desktop More ways in: the dot follows the first card in view */
 document.addEventListener("scroll",e=>{ const w=e.target; if(!w.classList||!w.classList.contains("m-top")) return; const cs=getComputedStyle(w), v=cs.flexDirection==="column", kids=[...w.querySelectorAll(".m-sum,.m-card")], wr=w.getBoundingClientRect(), L=v?wr.top+parseFloat(cs.paddingTop||0):wr.left+parseFloat(cs.paddingLeft||0);
