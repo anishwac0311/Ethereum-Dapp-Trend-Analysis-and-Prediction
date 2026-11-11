@@ -2,7 +2,7 @@
 
 **Purpose.** How things move on the demo site: when something animates, how long it takes, which curve it uses and when it must not move at all. Nothing else lives here; how things look is in [DESIGN.md](DESIGN.md).
 
-**How to read it.** Each rule is one line, then an example, then how the site applies it. Values are what `site/index.html` uses today.
+**How to read it.** Each rule is one line, then an example, then how the site applies it. Values are what `site/css/site.css` and `site/js/` use today.
 
 ---
 
@@ -22,7 +22,7 @@
 
 **M4. Enter from the trigger, leave the way you came.**
 - Example: a sheet rises from the bottom on phones and slides in from the right on desktop, then goes back the same way.
-- Here: the filter pop-up drops 6px into place under its filter; a closing sheet ignores taps and its backdrop fades.
+- Here: the filter pop-up drops 6px into place under its filter; the phone ☰ menu slides in from the right, where its button is; a closing sheet ignores taps and its backdrop fades.
 
 **M5. Groups arrive one after another, only the first time.** Items are staggered 30ms apart.
 - Example: More ways in cards each rise 8px and fade in over 320ms when Home opens.
@@ -33,7 +33,7 @@
 - Here: `cubic-bezier(.2,1.6,.4,1)` only for a game point and the card's Ethereum mark when saved.
 
 **M7. Feedback is short and confirms the action.**
-- Example: "Surprise me" shrinks to 98% while pressed.
+- Example: every pill button (Start, Dig in, Next, Surprise me) shrinks to 97% while pressed.
 - Here: saving a card pops the mark from 60%; until it is saved, the mark wiggles once every 4 seconds.
 
 **M8. Never move under the user's hand; any animation can be interrupted.**
