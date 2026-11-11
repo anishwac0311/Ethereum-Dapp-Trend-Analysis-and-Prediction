@@ -28,19 +28,19 @@ Exported from the local site on 2026-11-11. Orange keywords are in **bold**; a �
 
 #### Before Terra
 
-*What separates apps that keep growing from those that fade?*
+*What separates apps that last from those that fade?*
 
 > For DApps launched before Terra, **size** best separated the ones that kept growing from the ones that faded (33% of the model's weight).
 
 #### Terra → Dencun
 
-*What separates apps that keep growing from those that fade?*
+*What separates apps that last from those that fade?*
 
 > For DApps launched between Terra and Dencun, **stickiness** best separated the ones that kept growing from the ones that faded (33% of the model's weight). Size carried 19%.
 
 #### After Dencun
 
-*What separates apps that keep growing from those that fade?*
+*What separates apps that last from those that fade?*
 
 > For DApps launched after Dencun, **stickiness** best separated the ones that kept growing from the ones that faded (32% of the model's weight). Size carried 19%.
 
@@ -108,19 +108,19 @@ Exported from the local site on 2026-11-11. Orange keywords are in **bold**; a �
 
 #### Before Terra
 
-*What happens to volume, wallets, gas and retention before an app takes off?*
+*What happens before an app takes off?*
 
 > Six months after crossing 10K wallets, DApps launched before Terra that kept growing hold **53%** of users month to month; one-hit DApps hold 42%.
 
 #### Terra → Dencun
 
-*What happens to volume, wallets, gas and retention before an app takes off?*
+*What happens before an app takes off?*
 
 > Six months after crossing 10K wallets, DApps launched between Terra and Dencun that kept growing hold **53%** of users month to month; one-hit DApps hold 54%.
 
 #### After Dencun
 
-*What happens to volume, wallets, gas and retention before an app takes off?*
+*What happens before an app takes off?*
 
 > Six months after crossing 10K wallets, DApps launched after Dencun that kept growing hold **36%** of users month to month; one-hit DApps hold 55%.
 
@@ -2710,9 +2710,9 @@ DEX · launched 2021-05 · Before Terra · success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: Uniswap V3 had 275K (active wallets), successful DApps 1.3K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of Uniswap V3 against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, Uniswap V3 had 5% in its third month, against 15% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2754,9 +2754,9 @@ DeFi · launched 2021-08 · Before Terra · not a success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: Beanstalk had 655 (active wallets), successful DApps 1.4K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of Beanstalk against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, Beanstalk had 31% in its third month, against 14% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2798,9 +2798,9 @@ DEX · launched 2020-05 · Before Terra · success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: Uniswap V2 had 81K (active wallets), successful DApps 1.3K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of Uniswap V2 against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, Uniswap V2 had 5% in its third month, against 15% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2842,9 +2842,9 @@ DeFi · launched 2020-12 · Before Terra · not a success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: Rumpel Labs had 4.0K (active wallets), successful DApps 1.4K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of Rumpel Labs against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, Rumpel Labs had 28% in its third month, against 14% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2886,9 +2886,9 @@ Infrastructure · launched 2023-02 · Terra → Dencun · success
 
 *What should it watch?*
 
-> Between Terra and Dencun, the model leaned most on **stickiness**: zkSync Era txBridge had 9% (returning share), successful DApps 26%.
+> Between Terra and Dencun, **stickiness** carried the most weight (33%), led by wallets that return; context came next (21%), led by new version of an existing app.
 >
-> <sub>Third-month signals of zkSync Era txBridge against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #1 of 27 signals, zkSync Era txBridge had 10% in its third month, against 12% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2930,9 +2930,9 @@ Infrastructure · launched 2023-11 · Terra → Dencun · not a success
 
 *What should it watch?*
 
-> Between Terra and Dencun, the model leaned most on **stickiness**: Blast Bridge had 13% (returning share), successful DApps 25%.
+> Between Terra and Dencun, **stickiness** carried the most weight (33%), led by wallets that return; context came next (21%), led by new version of an existing app.
 >
-> <sub>Third-month signals of Blast Bridge against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #1 of 27 signals, Blast Bridge had 1% in its third month, against 12% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -2974,9 +2974,9 @@ DeFi · launched 2024-09 · After Dencun · success
 
 *What should it watch?*
 
-> After Dencun, the model leaned most on **stickiness**: Dolomite had 14% (returning share), successful DApps 18%.
+> After Dencun, **stickiness** carried the most weight (32%), led by transactions per wallet; context came next (30%), led by share of its category.
 >
-> <sub>Third-month signals of Dolomite against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On transactions per wallet, the model's #3 of 27 signals, Dolomite had 1.3 in its third month, against 2.5 for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -3018,9 +3018,9 @@ Other · launched 2024-06 · After Dencun · not a success
 
 *What should it watch?*
 
-> After Dencun, the model leaned most on **stickiness**: Solv Basis Trading had 1% (returning share), successful DApps 17%.
+> After Dencun, **stickiness** carried the most weight (32%), led by transactions per wallet; context came next (30%), led by share of its category.
 >
-> <sub>Third-month signals of Solv Basis Trading against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On transactions per wallet, the model's #3 of 27 signals, Solv Basis Trading had 1.7 in its third month, against 2.4 for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -3062,9 +3062,9 @@ Gaming · launched 2022-04 · Before Terra · not a success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: Otherside had 9.3K (active wallets), successful DApps 1.4K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of Otherside against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, Otherside had 3% in its third month, against 14% for DApps that lasted.</sub>
 
 #### Step 5
 
@@ -3106,9 +3106,9 @@ NFT · launched 2020-12 · Before Terra · success
 
 *What should it watch?*
 
-> Before Terra, the model leaned most on **size**: OpenSea Wyvern v2 had 3.1K (active wallets), successful DApps 1.3K.
+> Before Terra, **size** carried the most weight (33%), led by monthly transactions; context came next (21%), led by share of all DApp wallets.
 >
-> <sub>Third-month signals of OpenSea Wyvern v2 against DApps launched in the same era that did and did not last a year.</sub>
+> <sub>On activity from the top 10 wallets, the model's #3 of 27 signals, OpenSea Wyvern v2 had 7% in its third month, against 15% for DApps that lasted.</sub>
 
 #### Step 5
 
