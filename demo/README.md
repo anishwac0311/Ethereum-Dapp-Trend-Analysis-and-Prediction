@@ -42,7 +42,7 @@ After editing, reload with Cmd+Shift+R so the browser drops cached scripts.
 | `site/data.js` | Every number the site shows (generated) |
 | `site/js/signals.js` | Each era's model signals, ranked by weight (generated) |
 | `site/js/core.js` | Shared state and helpers |
-| `site/js/copy.js` | Every Conclusion sentence and a few labels: edit wording here |
+| `site/js/copy.js` | Every sentence: Conclusions, and each walk step's name, notes and trail lines. Edit wording here |
 | `site/js/charts.js` | Chart drawing |
 | `site/js/slides.js` | The walk page frame: head, Conclusion, figure, notes |
 | `site/js/views.js` | Home, Pick a DApp, Method, About, the card and the booth |

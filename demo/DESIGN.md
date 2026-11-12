@@ -26,7 +26,7 @@
 | Light orange | `#F37338` | Decoration only (orbit arcs, first place); never text on cream |
 | Link blue | `#3860BE` | Text links (`#1d3570` on hover), the highlighted bar |
 
-Supporting greys (rules, tracks, fills, map dots): `#E2DDD4` `#EBE7E0` `#EDE9E2` `#ECE7E0` `#EFECE6` `#E8E3DB` `#E8E2DA` `#EFEBE5` `#D9D4CA` `#D6D1C7` `#CFC9BF` `#BDB7AC` `#F3F0EE`. Lifecycle colours, always named beside them: Sustained `#3860BE`, Gradual decline `#1A1A1A`, Flash `#F37338`, Never adopted `#D1CDC7`, Unclear `#696969`. Phones keep two tints (game start picture `#F4E6DC`; Compare's chart panels `#ECE9E3` `#E6ECF8` `#EEEDEB`); desktop uses Whisper cream instead.
+Supporting greys (rules, tracks, fills, map dots): `#E2DDD4` `#EBE7E0` `#EDE9E2` `#ECE7E0` `#EFECE6` `#E8E3DB` `#E8E2DA` `#EFEBE5` `#D9D4CA` `#D6D1C7` `#CFC9BF` `#BDB7AC` `#F3F0EE`. Lifecycle colours, always named beside them: Sustained `#3860BE`, Gradual decline `#1A1A1A`, Flash `#F37338`, Never adopted `#D1CDC7`, Unclear `#696969`. Phones keep one set of tints (Compare's chart panels `#ECE9E3` `#E6ECF8` `#EEEDEB`); desktop uses Whisper cream instead.
 
 ### Rules
 
@@ -80,6 +80,10 @@ Supporting greys (rules, tracks, fills, map dots): `#E2DDD4` `#EBE7E0` `#EDE9E2`
 - Example: no "1 of 3" on a slide when the dots already show it.
 - Here: chart titles are short grey caps (about 33 characters) that also serve as the chart's accessible name.
 
+**T5. Mono only where it earns it: labels, codes and numbers that line up.** Never for sentences.
+- Example: a block hash and a table's numbers are mono; the line explaining them is not.
+- Here: eyebrows, axis labels, table figures, the card's block hash.
+
 ---
 
 ## 3. Layout
@@ -109,9 +113,17 @@ Supporting greys (rules, tracks, fills, map dots): `#E2DDD4` `#EBE7E0` `#EDE9E2`
 - Example: "Q2 · Survival" with the Predict tag; Compare has no eyebrow.
 - Here: on walks and questions the eyebrow holds the progress strip (done steps ink, this step an orange Ethereum mark, the rest grey); on walks it opens Your path; on question pages it only shows where you are.
 
-**L7. Every section has the same rhythm.** Section title, a hairline 16px under it, the content 24px under the hairline (16px on phones), and the next section title 64px after the content. A "… ›" link on the title row must not make that row taller.
+**L7. Every section has the same rhythm.** Section title, a hairline 16px under it, the content 24px under the hairline (16px on phones), and the next section title 64px after the content. A "… ›" link on the title row must not make that row taller. Space does the grouping: things that belong together sit closer than things that do not; lines and frames come after (K1).
 - Example: Home's four sections, About's and Method's section heads all measure 16 / 24 / 64 (16 / 16 / 64 on phones).
 - Here: gaps are measured from the first and last thing you can see (text, a chart, a filled card), not from empty padding.
+
+**L8. One main thing per screen, and it is the biggest.** Size follows importance; the one action that moves on is the one that stands out.
+- Example: on a question page the Conclusion is the largest text after the title, and the chart is the largest object.
+- Here: one ink pill or one bold "→" per screen (W5); Home leads with the market chart.
+
+**L9. Align by eye, not by box.** Optical centre beats the bounding box when they disagree.
+- Example: a triangle in a circle sits slightly right of the box's centre so it looks centred.
+- Here: Home's peak dot sits on the line's highest point, not in the middle of its label.
 
 Page order: Home, Questions, Compare, Neighbours, Game, Booth, then Method and About. On phones the links move into a ☰ menu.
 
@@ -124,7 +136,8 @@ Page order: Home, Questions, Compare, Neighbours, Game, Booth, then Method and A
 - Here: framed: Compare and More ways in cards (Whisper cream, 28px, no border); Neighbours' cards and the game's finish card (Lifted, hairline, 20px). Unframed: Home's three layers, every Method slide (Success labels, Signals groups, funnel, data charts; a hairline on top), About's sources. Kept framed on purpose: Method's success-rule panel and About's QR card.
 
 **K2. Shapes.** 28px for large frames, 20px for small cards, pills (999px) only for buttons, chips, tags, inputs and the nav. No hard shadows: a soft halo `0 24px 48px rgba(0,0,0,.08)`.
-- Example: the game's finish card is 28px with the halo, no ink border.
+Nested corners: inner radius = outer radius − the padding between them (never more than the outer).
+- Example: the game's finish card is 28px with the halo, no ink border; a 28px card with 20px padding holds 8px inner corners.
 - Here: round icon buttons (☰ ✕ ⇄ ↻) are a thin `#DDD8CF` outline, no fill: 32px, or 42px for arrows and ☰.
 
 **K3. What looks clickable is clickable, and only that.** When a card holds a link, only its round arrow opens it.
@@ -167,6 +180,10 @@ Every pill shrinks to 97% while pressed (M7).
 - Example: in the game's task, "active wallets" opens that measure's card in a sheet.
 - Here: also the signal names in "What should it watch?", the two measures in Neighbours' readout and the six group names on Method's Signals tab. Never in a Conclusion, a title or a button; the definitions come from `MET` and `D.method.features`.
 
+**K10. One icon family.** Line-drawn, one stroke weight, one size per place; no mixing of filled and outline, emoji or stock sets.
+- Example: ☰ ✕ ⇄ ↻ share the same thin round button (K2).
+- Here: the drawn icons (`ICO` in views.js) share one 32px grid and a 1.6 stroke; the Ethereum mark is the only brand mark.
+
 ---
 
 ## 5. Charts
@@ -182,6 +199,8 @@ Every pill shrinks to 97% while pressed (M7).
 **H3. Every chart says what it shows.** A short grey title with "Read more ›" on one row; small charts name their axes.
 - Example: Compare's sheet chart reads Peak / 0 and Launch / Year 1 / Year 2.
 - Here: era breaks are named on the chart ("Terra", "Dencun"); the Merge appears only in What happened.
+
+**H4. Real charts and real numbers only.** No stock illustration, mock screenshot or placeholder; every number comes from [results/CHART_DATA.md](results/CHART_DATA.md).
 
 ---
 
@@ -217,7 +236,7 @@ All site copy is English.
 - Example: on the card page "Walk another DApp →" is ink and bold (it goes on); "See it ›" is blue (it steps aside to the booth).
 - Here: blue never carries "→", ink never carries "›"; at most one bold "→" per screen. Sentence case everywhere ("Today at the booth", not "Today At The Booth").
 
-**W6. Plain, specific words.** Say what the data shows; no marketing words.
+**W6. Plain, specific words, headlines included.** Say what the data shows; no marketing words; a title names its subject, not a generic section.
 - Example: "Six months on, Lido kept 48% of its first users", not "unlock powerful insights".
 - Here: every value says what it is a share of ("22% of DeFi wallets").
 
