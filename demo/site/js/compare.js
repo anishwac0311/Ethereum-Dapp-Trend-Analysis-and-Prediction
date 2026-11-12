@@ -34,7 +34,7 @@ function vCompare(){
     ["Peak monthly wallets",f=>fmtN(f.peak),"peak","hi"],
     ["Shape",f=>f.shape==="grower"?"Kept growing":"One-hit"],
     ["Months to 10K wallets",f=>f.to10k==null?"Not within a year":f.to10k===0?"First month":`Month ${f.to10k}`,"to10k","lo"],
-    ["First users kept at month 6",f=>f.ret6==null?"<small>Under 100 first-month users</small>":pct(f.ret6),"ret6","hi"],
+    ["First users kept at month 6",f=>f.ret6==null?"Too few users":pct(f.ret6),"ret6","hi"],
     ["Success a year later",f=>f.success==null?"Too recent":f.success?`<span class="c-yes">Yes</span>`:"No"]];
   const lead=(key,dir)=>{ const v=F.map(f=>f[key]).filter(x=>x!=null); if(F.length<2||v.length<2) return null; return dir==="hi"?Math.max(...v):Math.min(...v); };
   const SF=slots.map(k=>k?cmpFacts(k):null);

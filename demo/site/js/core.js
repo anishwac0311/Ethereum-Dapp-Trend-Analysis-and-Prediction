@@ -1,6 +1,5 @@
 const D = window.DEMO;
 const CATS = D.meta.categories;
-const THEMES = ["study"];
 const PERIOD = {before:"Before Terra", between:"Terra → Dencun", after:"After Dencun"};
 const PERIOD_IN = {before:"before Terra", between:"between Terra and Dencun", after:"after Dencun"};
 const QNAME = {q1:"Categories", q2:"Survival", q3:"Concentration", q4:"Speed", q5:"Retention", q6:"Take-off"};
@@ -10,14 +9,13 @@ const BOOKS = {
   s2:{pages:["q1","q3","q2","q5","q4"], time:"The market's time", title:"The market"},
 };
 let C = {};
-function setTheme(t){
-  if(!THEMES.includes(t)) t="study";
-  document.documentElement.dataset.theme=t;
+function setTheme(){
+  document.documentElement.dataset.theme="study";
   const cs=getComputedStyle(document.documentElement), v=n=>cs.getPropertyValue(n).trim();
   C={ref:v("--ref")||v("--ink"), event:v("--event")||v("--loud"), band:v("--band")||v("--q1-soft"), ink:v("--ink"), ink2:v("--ink-2"), q1:v("--q1"), q1s:v("--q1-soft"), q2:v("--q2"), loud:v("--loud"), muted:v("--muted"), rule:v("--rule"), paper:v("--paper")};
 }
 
-const S = {view:"home", scen:null, idx:0, read:[], dapp:null, custom:null, cat:"DeFi", era:null, theme:"study",
+const S = {view:"home", scen:null, idx:0, read:[], dapp:null, custom:null, cat:"DeFi", era:null,
            q1m:null, q3m:null, q3k:10, q4m:6, q6metric:"retention_prev_month", pickTab:"pick", query:"", from:"home"};
 
 const $ = s => document.querySelector(s);

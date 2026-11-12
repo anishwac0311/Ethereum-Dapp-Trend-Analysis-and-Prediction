@@ -1,13 +1,4 @@
 /* ---------- header: one title, one call to action ---------- */
-function header(){
-  const bar=(l,c,r)=>`<header class="top"><div class="bar">${l}${c}${r}</div>${S.view==="book"?`<nav class="steps" aria-label="Pages">${pages().map((p,i)=>`<button class="${i===S.idx?"cur":S.read.includes(p)?"done":""}" data-jump="${i}" title="${PNAME[p]}" aria-label="Page ${i+1} of ${pages().length}: ${PNAME[p]}"></button>`).join("")}</nav>`:""}</header>`;
-  if(S.view==="home") return bar(`<span class="brand">On-chain DApp research</span>`,`<span></span>`,`<span class="navgroup"><button class="navlink" data-go="qindex">The six questions</button><button class="navlink" data-go="about">About us</button></span>`);
-  if(S.view==="about"||S.view==="method") return bar(`<button class="navlink" data-act="aboutback">← Back</button>`,`<span></span>`,`<span></span>`);
-  if(S.view==="pick") return bar(`<button class="navlink" data-go="home">← Home</button>`,`<span class="lbl">Choose your DApp</span>`,`<span></span>`);
-  if(S.view==="card") return bar(`<button class="navlink" data-act="reopen">← Back</button>`,`<span class="lbl">Your card</span>`,`<button class="navlink" data-go="home">Start over</button>`);
-  const n=new Set(S.read.map(qOf)).size;
-  return bar(`<button class="navlink" data-go="home">← Home</button>`,`<span class="lbl">${BOOKS[S.scen].time}</span>`,`<button class="pill" data-go="card">Get my card · ${n}</button>`);
-}
 
 /* ---------- a slide: the answer on the left, the evidence on the right ---------- */
 const KIND = {q1:"Describe",q2:"Predict",q3:"Describe",q4:"Describe",q5:"Describe",q6:"Describe"};
@@ -55,9 +46,8 @@ function figNotes(p,q){
 }
 function slide(p){
   const q=qOf(pages()[S.idx]), f=(p.filters||[]).filter(Boolean);
-  if(S.theme==="study"){
-    const P=pages(), prev=S.idx>0?P[S.idx-1]:null, next=S.idx<P.length-1?P[S.idx+1]:null;
-    return `<main class="study sslide s-wrap s-withtrail"><div class="s-col1"><div class="s-crumb"><button class="s-back-m" data-go="home" aria-label="Back to Home">← Home</button><span class="s-mono">${STEP[q]?`<span class="s-stepw">Step </span>${S.idx+1} of ${P.length}`:q.toUpperCase()} <em>${QNAME[q]}</em></span>${kindTag(q)}</div>${(()=>{ const L=walkLayers().layers.filter(l=>l[1]!=="–"); return L.length?`<p class="w-ctx s-mono">${L.map(l=>l[1]).join(" <i>›</i> ")}</p>`:""; })()}
+  const P=pages(), prev=S.idx>0?P[S.idx-1]:null, next=S.idx<P.length-1?P[S.idx+1]:null;
+  return `<main class="study sslide s-wrap s-withtrail"><div class="s-col1"><div class="s-crumb"><button class="s-back-m" data-go="home" aria-label="Back to Home">← Home</button><span class="s-mono">${STEP[q]?`<span class="s-stepw">Step </span>${S.idx+1} of ${P.length}`:q.toUpperCase()} <em>${QNAME[q]}</em></span>${kindTag(q)}</div>${(()=>{ const L=walkLayers().layers.filter(l=>l[1]!=="–"); return L.length?`<p class="w-ctx s-mono">${L.map(l=>l[1]).join(" <i>›</i> ")}</p>`:""; })()}
       <h1 class="s-qtitle">${p.ask||ASK[q]}</h1>
       <div class="s-crow"><blockquote class="s-concl${S.scen==="s1"||S.scen==="s2"?" you-k":""}"><span class="s-mono">Conclusion</span><p>${p.head}</p>${(p.read||p.caption)?`<p class="s-sub2">${p.read||p.caption}</p>`:""}</blockquote>${f.length?`<div class="filters">${f.join("")}</div>`:""}</div>${p.pick||""}
       ${p.bare?p.fig:`<figure class="s-fig">${p.fig}${p.under||""}${figNotes(p,q)}</figure>`}
@@ -65,10 +55,5 @@ function slide(p){
       <nav class="s-pn">${prev?`<button data-turn="-1"><span class="s-mono">Previous</span><span>← ${STEP[prev]?`${P.indexOf(prev)+1} ·`:prev.slice(0,2).toUpperCase()} ${PNAME[prev]}</span></button>`:"<span></span>"}
         ${next?`<button data-turn="1"><span class="s-mono">Next</span><span>${STEP[next]?`${P.indexOf(next)+1} ·`:next.slice(0,2).toUpperCase()} ${PNAME[next]} →</span></button>`
           :`<button data-turn="1"><span class="s-mono">Finish</span><span>See your card →</span></button>`}</nav></div>${trail()}</main>`;
-  }
-  return `<div class="slide"><header class="slide-head"><div class="ask">${ASK[q]}</div><h2>${p.head}</h2>
-      <div class="caprow"><p class="caption">${p.read||p.caption||""}</p>${f.length?`<div class="filters">${f.join("")}</div>`:""}</div></header>
-    <section class="picture"><div class="fig">${p.fig}</div>${p.under||""}</section>
-    <div class="notes one">${p.careful?`<div class="careful"><span class="lbl">Worth noticing</span><p>${p.careful}</p></div>`:""}</div></div>`;
 }
 

@@ -6,19 +6,12 @@ const PAGES={};
      Market (s2): a moment → who is hot → who runs that category → what the leaders share → do users stay
      My DApp (s1): its category → its rivals → the gap to the leaders → do its users stay
    ===================================================================== */
-const STEP={
-  w0:{short:"Moment", ask:"Pick a moment in the market.", kind:"Describe"},
-  w1:{short:"Hot or fading", ask:"Who's hot, and who's fading?", kind:"Describe"},
-  w2:{short:"Leaders", ask:"Who runs it?", kind:"Describe"},
-  w3:{short:"What they share", ask:"What do the leaders share?", kind:"Predict"},
-  w4:{short:"Retention", ask:"Do their users stay?", kind:"Describe"},
-  v1:{short:"Category", ask:"Is its category hot or fading?", kind:"Describe"},
-  v2:{short:"Rivals", ask:"Who are its rivals?", kind:"Describe"},
-  v3:{short:"The gap", ask:"How does it compare with the leaders?", kind:"Predict"},
-  v4:{short:"Retention", ask:"Will its users stay?", kind:"Describe"}};
-Object.entries(STEP).forEach(([k,v])=>{ ASK[k]=v.ask; QNAME[k]=v.short; PNAME[k]=v.short; KIND[k]=v.kind; });
-BOOKS.s1.pages=["v1","v2","v3","v4"]; BOOKS.s2.pages=["w0","w1","w2","w3","w4"];
-BOOKS.s1.time="Your DApp, dug down"; BOOKS.s2.time="The market, dug down";
+/* each step's short name and question live in copy.js ("w0.short", "w0.ask" …); kind is Describe or Predict */
+const STEP={w0:{kind:"Describe"}, w1:{kind:"Describe"}, w2:{kind:"Describe"}, w3:{kind:"Predict"}, w4:{kind:"Describe"},
+  v1:{kind:"Describe"}, v2:{kind:"Describe"}, v3:{kind:"Describe"}, v4:{kind:"Predict"}, v5:{kind:"Describe"}};
+Object.entries(STEP).forEach(([k,v])=>{ v.short=T(k+".short"); v.ask=T(k+".ask"); ASK[k]=v.ask; QNAME[k]=v.short; PNAME[k]=v.short; KIND[k]=v.kind; });
+BOOKS.s1.pages=["v1","v2","v3","v4","v5"]; BOOKS.s2.pages=["w0","w1","w2","w3","w4"];
+BOOKS.s1.time=T("s1.time"); BOOKS.s2.time=T("s2.time");
 
 const ERAWIN={before:["2020-01","2022-04"],between:["2022-05","2024-02"],after:["2024-03","2025-12"]};
 function eraCats(e){
@@ -53,46 +46,46 @@ function pW0(){
     const ys=[]; for(let i=a;i<=b;i++) ys.push(tot(i)); const mx=Math.max(...ys,1), W=240, H=64, px=i=>i/(ys.length-1)*W, py=v=>H-4-v/mx*(H-10);
     const line=ys.map((v,i)=>`${i?"L":"M"}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(" ");
     const spark=`<svg class="w-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><path d="${line} L${W} ${H} L0 ${H}Z" fill="${on?"#E8E2DA":"#EFEBE5"}"/><path d="${line}" fill="none" stroke="${on?"#1A1A1A":"#A39E95"}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`;
-    return `<button class="w-era ${on?"on":""}" data-pera="${x.k}" aria-pressed="${on}" aria-label="${on?"Selected":"Choose"}: ${x.name}"><div class="w-art"><span class="s-mono">${x.span}</span><div class="ax-wrap w-chart"><span class="ax-y ax-top">${fmtN(mx)}</span><span class="ax-y ax-bot">0</span>${spark}</div><div class="ax-x w-axx"><span>${monthLabel(M[a])}</span><span>monthly wallets</span><span>${monthLabel(M[b])}</span></div></div><b>${x.name}</b><p>${x.note}</p>
-      <div class="w-big"><strong>${chg(ch)}</strong><span>market wallets, first vs last 3 months</span></div>
-      <div class="w-hot"><span class="s-mono">Hottest</span><span>${r[0]?r[0].c:"–"}</span></div></button>`; }).join("");
+    return `<button class="w-era ${on?"on":""}" data-pera="${x.k}" aria-pressed="${on}" aria-label="${on?"Selected":"Choose"}: ${x.name}"><div class="w-art"><span class="s-mono">${x.span}</span><div class="ax-wrap w-chart"><span class="ax-y ax-top">${fmtN(mx)}</span><span class="ax-y ax-bot">0</span>${spark}</div><div class="ax-x w-axx"><span>${monthLabel(M[a])}</span><span>${T("w0.card.axis")}</span><span>${monthLabel(M[b])}</span></div></div><b>${x.name}</b><p>${x.note}</p>
+      <div class="w-big"><strong>${chg(ch)}</strong><span>${T("w0.card.change")}</span></div>
+      <div class="w-hot"><span class="s-mono">${T("w0.card.hottest")}</span><span>${r[0]?r[0].c:"–"}</span></div></button>`; }).join("");
   return {head:T("w0.head",{era:PERIOD[e]}), read:T("w0.read"),
-    fig:`<div class="w-eras w-eras2">${cards}</div><p class="w-cap">Market wallets: the first three months of each era against its last three.</p>`, bare:true,
-    brief:`${PERIOD[e]}: ${SERAS.find(x=>x.k===e).note}.`, say:PERIOD_IN[e][0].toUpperCase()+PERIOD_IN[e].slice(1), path:["Moment",PERIOD[e]]};
+    fig:`<div class="w-eras w-eras2">${cards}</div><p class="w-cap">${T("w0.cap")}</p>`, bare:true,
+    brief:T("w0.brief",{era:PERIOD[e], note:SERAS.find(x=>x.k===e).note}), say:PERIOD_IN[e][0].toUpperCase()+PERIOD_IN[e].slice(1), path:[T("w0.path.label"),PERIOD[e]]};
 }
 function pW1(){
   const e=wEra(), rows=eraCats(e); if(!S.catPicked && rows[0]) S.cat=rows[0].c;
   const top=rows[0], bot=rows[rows.length-1], me_=rows.find(r=>r.c===S.cat)||top;
   const fig=sBars(rows.map(r=>({label:r.c,v:r.v,hi:r.c===S.cat,tip:`${r.c}, ${PERIOD[e]}\n${chg(r.v)} across the era\n${fmtN(r.w0)} → ${fmtN(r.w1)} monthly wallets`})),v=>chg(v),{aria:"Change by category"});
-  const chips=`<div class="w-pickrow w-pickup"><p><span class="s-mono">Next steps follow</span> <b>${S.cat}</b>${S.cat===top.c?", the hottest this era.":"."}</p>
-    <details class="w-more"${S.wopen==="cat"?" open":""}><summary>Follow another category</summary><div class="w-menu">${rows.map(r=>`<button class="${r.c===S.cat?"on":""}" data-follow="${r.c}"><span>${r.c}</span><em>${chg(r.v)}</em></button>`).join("")}</div></details></div>`;
+  const chips=`<div class="w-pickrow w-pickup"><p><span class="s-mono">${T("w.follow")}</span> <b>${S.cat}</b>${S.cat===top.c?T("w1.follow.top"):"."}</p>
+    <details class="w-more"${S.wopen==="cat"?" open":""}><summary>${T("w1.follow.more")}</summary><div class="w-menu">${rows.map(r=>`<button class="${r.c===S.cat?"on":""}" data-follow="${r.c}"><span>${r.c}</span><em>${chg(r.v)}</em></button>`).join("")}</div></details></div>`;
   /* the conclusion is about the category you follow; the hottest one keeps the short form */
   const Era=PERIOD_IN[e].charAt(0).toUpperCase()+PERIOD_IN[e].slice(1), crank=rows.indexOf(me_)+1, moved=v=>v>=0?T("w1.moved.grew",{x:chg(v).replace(/^\+/,"")}):T("w1.moved.shrank",{x:pct(-v)});
   return {head:me_===top?T("w1.head.top",{Era, top:top.c, topChg:chg(top.v), bot:bot.c, botMove:T(bot.v<0?"w.fadedMost":"w.grewLeast"), botChg:chg(bot.v)})
       :T("w1.head.follow",{Era, cat:S.cat, moved:moved(me_.v), rank:crank, n:rows.length, top:top.c, topChg:chg(top.v)}),
     /* the line under it says what the bars are, and where the category you follow sits */
     read:me_===top?T("w1.read.top",{n:rows.length, era:PERIOD_IN[e], top:top.c}):T("w1.read.follow",{n:rows.length, era:PERIOD_IN[e], top:top.c, cat:S.cat, ord:["","first","second","third","fourth","fifth","sixth","seventh"][crank]||"#"+crank}),
-    fig, pick:chips, how:"Change in monthly active wallets, first three months of the era against the last three.",
-    src:`Category activity · n = ${rows.length} categories, monthly active wallets.`, careful:rows.length<CATS.length?`${CATS.length-rows.length} small categories are hidden: too few wallets at the start to measure change.`:"",
-    brief:`${S.cat} ${me_.v>=0?"grew":"shrank"} ${chg(me_.v)} ${PERIOD_IN[e]}.`, say:`${S.cat} ${me_.v>=0?`grew ${chg(me_.v).replace(/^\+/,"")}`:`shrank ${pct(-me_.v)}`}`, path:["Hot or fading",`${S.cat}, wallets ${chg(me_.v)} in the era`]};
+    fig, pick:chips, how:T("w1.how"),
+    src:T("w1.src",{n:rows.length}), careful:rows.length<CATS.length?T("w1.careful",{n:CATS.length-rows.length}):"",
+    brief:T("w1.brief",{cat:S.cat, move:T(me_.v>=0?"w.grew":"w.shrank"), chg:chg(me_.v), era:PERIOD_IN[e]}), say:T("w1.say",{cat:S.cat, moved:moved(me_.v)}), path:[T("w1.path.label"),T("w1.path",{cat:S.cat, chg:chg(me_.v)})]};
 }
 function pW2(){
   const e=wEra(), L=leadOf(e,S.cat);
-  if(!L) return {head:T("w2.none",{cat:S.cat, era:PERIOD_IN[e]}), fig:"", brief:"No leaders.", path:["Leaders","–"]};
+  if(!L) return {head:T("w2.none",{cat:S.cat, era:PERIOD_IN[e]}), fig:"", brief:T("w2.brief.none"), path:[T("w2.path.label.none"),"–"]};
   if(!L.top.some(t=>t[0]===S.leader)) S.leader=L.top[0][0];
   const t5=L.top.reduce((s,t)=>s+t[3],0), lead=L.top.find(t=>t[0]===S.leader);
   const fig=sBars(L.top.map(t=>({label:t[1].length>18?t[1].slice(0,17)+"…":t[1],v:t[3],hi:t[0]===S.leader,tip:`${t[1]}\n${pct(t[3],1)} of ${S.cat} wallets\n${fmtN(t[2])} monthly wallets on average`})),v=>pct(v),{aria:"Share of the category's wallets"});
-  const chips=`<div class="w-pickrow w-pickup"><p><span class="s-mono">Next steps follow</span> <b>${esc(lead[1])}</b>${S.leader===L.top[0][0]?", the leader.":"."}</p>
-    <details class="w-more"><summary>Follow another leader</summary><div class="w-menu">${L.top.map(t=>`<button class="${t[0]===S.leader?"on":""}" data-leader="${t[0]}"><span>${esc(t[1])}</span><em>${pct(t[3])}</em></button>`).join("")}</div></details></div>`;
+  const chips=`<div class="w-pickrow w-pickup"><p><span class="s-mono">${T("w.follow")}</span> <b>${esc(lead[1])}</b>${S.leader===L.top[0][0]?T("w2.follow.top"):"."}</p>
+    <details class="w-more"><summary>${T("w2.follow.more")}</summary><div class="w-menu">${L.top.map(t=>`<button class="${t[0]===S.leader?"on":""}" data-leader="${t[0]}"><span>${esc(t[1])}</span><em>${pct(t[3])}</em></button>`).join("")}</div></details></div>`;
   /* the conclusion is about the leader you follow; the first one keeps the short form */
   const rank=L.top.findIndex(t=>t[0]===S.leader)+1, ORD=["","first","second","third","fourth","fifth"];
   return {head:rank<=1?T("w2.head.first",{first:esc(L.top[0][1]), firstShare:pct(L.top[0][3]), cat:S.cat, era:PERIOD_IN[e], top5:pct(t5)})
       :T("w2.head.follow",{lead:esc(lead[1]), leadShare:pct(lead[3]), cat:S.cat, era:PERIOD_IN[e], ord:ORD[rank], first:esc(L.top[0][1]), firstShare:pct(L.top[0][3]), top5:pct(t5)}),
     /* the line under it says what the chart shows, so "the top 5" is not a mystery */
     read:rank<=1?T("w2.read.first",{cat:S.cat, era:PERIOD_IN[e], first:esc(L.top[0][1])}):T("w2.read.follow",{cat:S.cat, era:PERIOD_IN[e], first:esc(L.top[0][1]), lead:esc(lead[1]), ord:ORD[rank]}),
-    fig, pick:chips, how:"Each bar is one DApp's share of the category's monthly active wallets, averaged over the era.",
-    src:`Leaders · n = ${L.n} ${S.cat} DApps active in the era.`, careful:t5>.8?`The top 5 hold most of ${S.cat}: a newcomer competes with a few giants.`:`${S.cat} is spread out: beyond the top 5 there is still ${pct(1-t5)} to win.`,
-    brief:`${esc(L.top[0][1])} leads ${S.cat} with ${pct(L.top[0][3])}; the top 5 hold ${pct(t5)}.`, say:`${esc(lead[1])} led it with ${pct(lead[3])} of its wallets`, path:["Leader",`${esc(lead[1])}, ${pct(lead[3])} of ${S.cat} wallets`]};
+    fig, pick:chips, how:T("w2.how"),
+    src:T("w2.src",{n:L.n, cat:S.cat}), careful:t5>.8?T("w2.careful.few",{cat:S.cat}):T("w2.careful.spread",{cat:S.cat, rest:pct(1-t5)}),
+    brief:T("w2.brief",{first:esc(L.top[0][1]), cat:S.cat, firstShare:pct(L.top[0][3]), top5:pct(t5)}), say:T("w2.say",{lead:esc(lead[1]), share:pct(lead[3])}), path:[T("w2.path.label"),T("w2.path",{lead:esc(lead[1]), share:pct(lead[3]), cat:S.cat})]};
 }
 function watchOf(e){ const Wt=D.q5.weights[e], top=Object.keys(Wt).sort((a,b)=>Wt[b][0]-Wt[a][0])[0]; return {top, w:Wt[top][0]}; }
 function pW3(){
@@ -127,13 +120,13 @@ function pW3(){
     if(!nm||!tf||!df) return T("w3.read.none",{cat:S.cat});
     const verb=T(tf[2](FM[tf[0]])===tf[2](LM[tf[0]])?"w3.verb.matches":FM[tf[0]]>LM[tf[0]]?"w3.verb.above":"w3.verb.below");
     return T("w3.read",{lead:nm, verb, cat:S.cat, group:t0(tf), mine:plain(tf,FM[tf[0]]), theirs:tf[2](LM[tf[0]]), group2:df[3].toLowerCase(), mine2:plain(df,FM[df[0]]), theirs2:df[2](LM[df[0]])}); })();
-  return {ask:nm?T("w3.ask",{lead:nm}):undefined,
+  return {ask:nm?T("w3.ask.lead",{lead:nm}):undefined,
     head:model,
     read:leaderLine,
-    fig, define:true, how:`Each line is one group of the model's 33 early signals: its share of the model's weight in each era, all of the group's signals added up. The grey band marks the era you picked; the darker line is the group the model leans on most in it. The Conclusion compares the leader you follow with the median of the category's other four leaders, in their third month.`,
-    src:`Model weights · n = ${LM.n} other leaders and ${TM.n} ${S.cat} DApps with early data.`,
-    careful:lv!=null&&tv!=null&&lv<tv?`Here the leaders were below typical on ${fk[1].toLowerCase()}: in ${S.cat}, being early and big mattered more than what the model weighs most across all DApps.`:"Leaders that launched before 2020 have no early months in our data, so they drop out of the black bars.",
-    brief:`Watch ${w.top.toLowerCase()}: ${fk[1].toLowerCase()} ${lv!=null?fk[2](lv):"–"} for leaders vs ${tv!=null?fk[2](tv):"–"} typical.`, say:lv!=null&&tv!=null?`its leaders differed most on ${fk[1].toLowerCase()} (${fk[2](lv)} vs ${fk[2](tv)} typical)`:`its leaders differed most on ${fk[1].toLowerCase()}`, path:["Watch",`${w.top}, ${pct(w.w)} of the model's weight`]};
+    fig, define:true, how:T("w3.how"),
+    src:T("w3.src",{n:LM.n, m:TM.n, cat:S.cat}),
+    careful:lv!=null&&tv!=null&&lv<tv?T("w3.careful.below",{feat:fk[1].toLowerCase(), cat:S.cat}):T("w3.careful.early"),
+    brief:T("w3.brief",{group:w.top.toLowerCase(), feat:fk[1].toLowerCase(), lv:lv!=null?fk[2](lv):"–", tv:tv!=null?fk[2](tv):"–"}), say:lv!=null&&tv!=null?T("w3.say",{feat:fk[1].toLowerCase(), lv:fk[2](lv), tv:fk[2](tv)}):T("w3.say.short",{feat:fk[1].toLowerCase()}), path:[T("w3.path.label"),T("w3.path",{group:w.top, share:pct(w.w)})]};
 }
 function pW4(){
   const e=wEra(), Pd=D.q5.periods[e], ld=D.dapps[S.leader];
@@ -142,28 +135,20 @@ function pW4(){
     const extra=[{pts:ld.ret.map((v,i)=>[i,v]),color:"#3860BE",w:2.5,label:`${ld.name.length>14?ld.name.slice(0,13)+"…":ld.name} · ${pct(ld.ret[6])}`,tip:ld.name,dot:true}];
     return {head:T("w4.head",{lead:esc(ld.name), kept:pct(ld.ret[6]), launchEra:PERIOD_IN[le], typical:pct(Pl.median[6])}),
       read:T("w4.read",{side:T(up?"w4.side.above":"w4.side.below"), otherEra:le!==e?T("w4.otherEra",{launchEra:PERIOD_IN[le], era:PERIOD_IN[e]}):""}),
-      fig:`<div class="draw-once">${retFig(le,extra)}</div>`, how:`Black: the typical DApp launched ${PERIOD_IN[le]}, with the middle half shaded. Blue: ${esc(ld.name)}.`,
-      src:`Retention · n = ${Pl.n} DApps with 100+ wallets in their first month.`, careful:`Most of the drop happens in the first month: only ${pct(Pl.median[1])} are left after one month.`,
-      brief:`${esc(ld.name)} kept ${pct(ld.ret[6])} after six months (typical ${pct(Pl.median[6])}).`, say:`${esc(ld.name)} kept ${pct(ld.ret[6])} of its first users after six months (typical ${pct(Pl.median[6])})`, path:["Retention",`${pct(ld.ret[6])} of first users at month 6`]}; }
-  const nm=ld?esc(ld.name):"the leader you followed";
+      fig:`<div class="draw-once">${retFig(le,extra)}</div>`, how:T("w4.how",{era:PERIOD_IN[le], lead:esc(ld.name)}),
+      src:T("w4.src",{n:Pl.n}), careful:T("w4.careful",{m1:pct(Pl.median[1])}),
+      brief:T("w4.brief",{lead:esc(ld.name), kept:pct(ld.ret[6]), typical:pct(Pl.median[6])}), say:T("w4.say",{lead:esc(ld.name), kept:pct(ld.ret[6]), typical:pct(Pl.median[6])}), path:[T("w4.path.label"),T("w4.path",{kept:pct(ld.ret[6])})]}; }
+  const nm=ld?esc(ld.name):T("w4.lead.none");
   return {head:T("w4.head.typical",{era:PERIOD_IN[e], month6:pct(Pd.median[6])}),
     read:T("w4.read.cannot",{lead:nm, why:ld&&ld.launch?(ld.launch<=D.meta.panel_start?T("w4.why.early"):T("w4.why.small",{min:D.q5.min_cohort})):""}),
-    fig:`<div class="draw-once">${retFig(e,[])}</div>`, how:"Black: the typical DApp launched in this era, with the middle half shaded.",
-    src:`Retention · n = ${Pd.n} DApps with 100+ wallets in their first month.`, careful:`Most of the drop happens in the first month: only ${pct(Pd.median[1])} are left after one month.`,
-    brief:`Typical retention after six months: ${pct(Pd.median[6])}.`, say:`the typical DApp kept ${pct(Pd.median[6])} of its first users after six months`, path:["Retention",`${pct(Pd.median[6])} of first users at month 6`]};
+    fig:`<div class="draw-once">${retFig(e,[])}</div>`, how:T("w4.how.typical"),
+    src:T("w4.src",{n:Pd.n}), careful:T("w4.careful",{m1:pct(Pd.median[1])}),
+    brief:T("w4.brief.typical",{typical:pct(Pd.median[6])}), say:T("w4.say.typical",{typical:pct(Pd.median[6])}), path:[T("w4.path.label"),T("w4.path",{kept:pct(Pd.median[6])})]};
 }
 
 Object.assign(PAGES,{w0:pW0,w1:pW1,w2:pW2,w3:pW3,w4:pW4});
 /* ---------- the my-DApp walk: one DApp looking outward ----------
    shape → where it stands → who it looked like early on → what to watch → did it make it */
-Object.assign(STEP,{
-  v1:{short:"Shape", ask:"What shape is it?", kind:"Describe"},
-  v2:{short:"Standing", ask:"Where does it stand in its category?", kind:"Describe"},
-  v3:{short:"Lookalikes", ask:"Who did it look like early on?", kind:"Describe"},
-  v4:{short:"Watch", ask:"What should it watch?", kind:"Predict"},
-  v5:{short:"Outcome", ask:"Did it make it?", kind:"Describe"}});
-Object.entries(STEP).forEach(([k,v])=>{ ASK[k]=v.ask; QNAME[k]=v.short; PNAME[k]=v.short; KIND[k]=v.kind; });
-BOOKS.s1.pages=["v1","v2","v3","v4","v5"];
 const YOU="#3860BE";
 const shortName=(n,k=16)=>n.length>k?n.slice(0,k-1)+"…":n;
 
@@ -176,20 +161,20 @@ function pV1(){
   return {head:T(d.group==="grower"?"v1.head.grower":"v1.head.flash",{name:esc(d.name), shape}),
     read:nm?T("v1.read",{peakMonth:pk, held:pct(last), grower:pct(q2.median.grower[23]), flash:pct(q2.median.flash[23])}):"",
     fig:chart({tipx:t=>t===0?"Launch month":`Month ${t}`,w:980,h:380,r:150,x:[0,23],y:[0,1],xticks:[0,3,6,9,12,15,18,21,23],fx:t=>t===0?"launch":`M${t}`,yticks:[0,.25,.5,.75,1],fy:t=>pct(t),xlabel:"months after launch · share of its own peak",series,aria:"Its shape vs the typical shapes"}),
-    how:`Every widely used DApp falls into one of two shapes. Black: the median DApp that kept growing. Grey dashed: the median one-hit DApp. Blue: ${esc(d.name)}.`,
-    src:`Shape · n = ${q2.n} widely used DApps (${q2.counts.grower} kept growing, ${q2.counts.flash} one-hit).`,
-    brief:`${esc(d.name)} ${shape}.`, say:`${esc(d.name)} ${d.group==="grower"?"kept growing":"was a one-hit"}`, path:["Shape",d.group==="grower"?"Kept growing":"One-hit"]};
+    how:T("v1.how",{name:esc(d.name)}),
+    src:T("v1.src",{n:q2.n, grower:q2.counts.grower, flash:q2.counts.flash}),
+    brief:T("v1.brief",{name:esc(d.name), shape}), say:T("v1.say",{name:esc(d.name), shape}), path:[T("v1.path.label"),T(d.group==="grower"?"v1.path.grower":"v1.path.flash")]};
 }
 function pV2(){
   const d=me(), e=era(), L=leadOf(e,d.cat), mine=L&&L.all[d.slug];
-  if(!L) return {head:T("v2.none",{cat:d.cat, era:PERIOD_IN[e]}), fig:"", brief:"–", path:["Standing","–"]};
+  if(!L) return {head:T("v2.none",{cat:d.cat, era:PERIOD_IN[e]}), fig:"", brief:"–", path:[T("v2.path.label"),"–"]};
   const rows=L.top.map(t=>({label:shortName(t[1],18),v:t[3],hi:t[0]===d.slug,tip:`${t[1]}\n${pct(t[3],1)} of ${d.cat} wallets`}));
   if(mine&&mine[2]>5) rows.push({label:`#${mine[2]} ${shortName(d.name,14)}`,v:mine[1],hi:true,tip:`${d.name}\nrank ${mine[2]} of ${L.n}\n${pct(mine[1],1)} of ${d.cat} wallets`});
   const rs=eraCats(e), r=rs.find(x=>x.c===d.cat);
   return {head:mine?T("v2.head",{name:esc(d.name), rank:T("v2.rank",{rank:mine[2], n:L.n}), cat:d.cat, era:PERIOD_IN[e], share:pct(mine[1],1)}):T("v2.head.idle",{name:esc(d.name), era:PERIOD_IN[e]}),
     read:T("v2.read",{first:esc(L.top[0][1]), firstShare:pct(L.top[0][3]), top5:pct(L.top.reduce((s,t)=>s+t[3],0)), catNote:r?T("v2.catNote",{cat:d.cat, catMove:T(r.v>=0?"w.grew":"w.shrank"), catChg:chg(r.v)}):""}),
-    fig:sBars(rows,v=>pct(v,1),{aria:"Share of the category's wallets"}), how:"Share of the category's monthly active wallets, averaged over the era it launched in. Highlighted: this DApp.",
-    src:`Standing · average monthly wallets of every ${d.cat} DApp active in the era.`, brief:mine?`#${mine[2]} of ${L.n} in ${d.cat}, ${pct(mine[1],1)} of its wallets.`:"–", say:mine?`ranked #${mine[2]} of ${L.n} in ${d.cat}`:"", path:["Standing",mine?`#${mine[2]} of ${L.n} in ${d.cat}`:"–"]};
+    fig:sBars(rows,v=>pct(v,1),{aria:"Share of the category's wallets"}), how:T("v2.how"),
+    src:T("v2.src",{cat:d.cat}), brief:mine?T("v2.brief",{rank:mine[2], n:L.n, cat:d.cat, share:pct(mine[1],1)}):"–", say:mine?T("v2.say",{rank:mine[2], n:L.n, cat:d.cat}):"", path:[T("v2.path.label"),mine?T("v2.path",{rank:mine[2], n:L.n, cat:d.cat}):"–"]};
 }
 /* lookalikes: nearest DApps in its third month, on wallets (log) and returning share */
 function lookalikes(slug,k=20){
@@ -219,14 +204,14 @@ function lookKey(name){ const dot=(bg,extra="")=>`<i class="m-key" style="backgr
   return `<span class="m-legend"><span>${dot(YOU)}${esc(name||"This DApp")}</span><span>${dot("#9C4A26","border:1px solid #1A1A1A")}Lookalike · success</span><span>${dot("#CFC9BF","border:1px solid #1A1A1A")}Lookalike · not a success</span><span>${dot("#CFC9BF","opacity:.6")}Every other DApp</span></span>`; }
 function pV3(){
   const d=me(), LA=lookalikes(d.slug);
-  if(!LA) return {head:T("v3.none",{name:esc(d.name)}), fig:"", brief:"No third-month data.", path:["Lookalikes","No month-3 data"]};
+  if(!LA) return {head:T("v3.none",{name:esc(d.name)}), fig:"", brief:T("v3.brief.none"), path:[T("v3.path.label"),T("v3.path.none")]};
   const win=LA.near.filter(x=>D.snap[x.s].s).length, base=LA.all.filter(x=>D.snap[x.s].s).length/LA.all.length;
   const top3=LA.near.slice(0,3).map(x=>D.snap[x.s].n);
   return {head:T("v3.head",{name:esc(d.name), three:top3.map(esc).join(", ").replace(/, ([^,]*)$/," and $1")}),
     read:T("v3.read",{win, winShare:pct(win/20), base:pct(base)}),
-    fig:lookFig(LA,d.name), how:`${PHONE()?lookKey(d.name)+"<br>":""}Each dot is one DApp in its third month. The ringed dots are its closest lookalikes on these two numbers; rust means still a success a year later, grey means not. Faint dots are every other DApp.`,
-    src:`Lookalikes · n = ${LA.all.length} DApps launched 2020–2024 with a known outcome.`, careful:"Looking alike early is not ending alike: the lookalikes went different ways.",
-    brief:`Looked like ${top3.map(esc).join(", ")}; ${win} of 20 lookalikes lasted.`, say:`${win} of its 20 lookalikes succeeded`, path:["Lookalikes",`${win} of 20 succeeded`]};
+    fig:lookFig(LA,d.name), how:`${PHONE()?lookKey(d.name)+"<br>":""}${T("v3.how")}`,
+    src:T("v3.src",{n:LA.all.length}), careful:T("v3.careful"),
+    brief:T("v3.brief",{three:top3.map(esc).join(", "), win}), say:T("v3.say",{win}), path:[T("v3.path.label"),T("v3.path",{win})]};
 }
 /* one signal of the era's model, for its sheet: what it measures (the plain line where the site has one, else its group), and the typical values from Method's Signals tab */
 const SIG_MET={log_mean_wallets:"wallets",log_mean_tx:"tx",log_mean_gas:"gas",log_mean_fees:"fee",early_returning_share:"returning",early_tx_per_wallet:"txpw",early_whale_share:"whale",avg_n_protocols_in_tx:"apps"};
@@ -255,7 +240,7 @@ function pV4(){
   const fig=`<table class="ft sig-t" aria-label="${T("v4.table.aria",{era:PERIOD_IN[e]})}"><thead><tr><th>#</th><th>${T("v4.th.signal")}</th><th class="s">${T("v4.th.group")}</th><th>${T("v4.th.share")}</th><th class="sig-cum">${T("v4.th.cum")}</th></tr></thead><tbody>${top5.map(x=>`<tr><td>${x.rank}</td><td class="s"><button class="term" data-act="sigterm" data-f="${x.feature}" aria-label="What ${label(x.feature)} means">${label(x.feature).charAt(0).toUpperCase()+label(x.feature).slice(1)}</button></td><td class="s">${x.group}</td><td>${pct(x.share,1)}</td><td class="sig-cum">${pct(x.cum,1)}</td></tr>`).join("")}</tbody></table>`;
   return {head, read, fig, define:true,
     how:T("v4.how",{era:PERIOD_IN[e], n:SIG.length, cum:pct(top5[4].cum)}),
-    src:`Model weights · the ${PERIOD_IN[e]} model, fitted on DApps launched in that era; ${SIG.length} on-chain signals.`,
+    src:T("v4.src",{era:PERIOD_IN[e], n:SIG.length}),
     brief:hit?T("v4.brief",lineV):T("v4.brief.none",{group:g1.toLowerCase()}),
     say:hit?T("v4.say",lineV):"", path:[T("v4.path.label"), hit?T("v4.path",{...lineV, Signal:cap(lineV.signal)}):g1]};
 }
@@ -269,9 +254,9 @@ function pV5(){
   const pass1=a!=null&&a>=1000, pass2=a!=null&&a>=q;
   return {head:T("v5.head",{name:esc(d.name), verdict:T(d.success?"v5.verdict.yes":"v5.verdict.no")}),
     read:a!=null?T("v5.read",{avg:fmtN(a), pass1:T(pass1?"w.above":"w.below"), pass2:T(pass2?"w.above":"w.below"), quarter:fmtN(q), life:L.name.toLowerCase()}):T("v5.read.short",{life:L.name.toLowerCase()}),
-    fig, how:"Blue: its monthly active wallets in the first two years. Shaded: months 10–12, the months we judge. Dashed line: 1,000 wallets.",
-    src:`Outcome · ${esc(d.name)}'s own monthly on-chain activity.`, careful:d.ret?`It kept ${pct(d.ret[6])} of its first users after six months; the typical DApp launched ${PERIOD_IN[era()]} kept ${pct(D.q5.periods[era()].median[6])}.`:"",
-    brief:`${d.success?"A success":"Not a success"} a year later; ${L.name.toLowerCase()} over its whole history.`, say:`a year later it was ${d.success?"a success":"not a success"}`, path:["Outcome",d.success?"Success":"Not a success"]};
+    fig, how:T("v5.how"),
+    src:T("v5.src",{name:esc(d.name)}), careful:d.ret?T("v5.careful",{kept:pct(d.ret[6]), era:PERIOD_IN[era()], typical:pct(D.q5.periods[era()].median[6])}):"",
+    brief:T(d.success?"v5.brief.yes":"v5.brief.no",{life:L.name.toLowerCase()}), say:T(d.success?"v5.say.yes":"v5.say.no"), path:[T("v5.path.label"),T(d.success?"v5.path.yes":"v5.path.no")]};
 }
 Object.assign(PAGES,{v1:pV1,v2:pV2,v3:pV3,v4:pV4,v5:pV5});
 

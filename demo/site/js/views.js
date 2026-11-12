@@ -1,6 +1,5 @@
 /* ---------- other views ---------- */
 function vHome(){
-  if(S.theme!=="study") return vHomeOld();
   const door=(s,title,desc)=>{ const qs=[...new Set(BOOKS[s].pages.map(qOf))];
     return `<button class="s-card" data-start="${s}" aria-label="Open: ${title}"><span class="s-mono">Scenario ${s==="s1"?"1 · Developers and DApp teams":"2 · Newcomers and the curious"}</span><span class="s-arrow">↗</span>
       <h3>${title}</h3><p>${desc}</p></button>`; };
@@ -31,20 +30,6 @@ function vHome(){
     </div>
     <div class="srt-dots h-moredots" aria-label="More ways in">${[0,1,2,3].map(i=>`<button class="${i?"":"on"}" data-act="hmdot" data-i="${i}" aria-label="Card ${i+1}"></button>`).join("")}</div>
 </main>`;
-}
-function vHomeOld(){
-  const door=(s,title,desc)=>`<button class="door" data-start="${s}" aria-label="Open: ${title}"><span class="lbl">${s==="s1"?"Developers · DApp teams":"Newcomers · The curious"}</span><h2>${title}</h2><p>${desc}</p>
-    <span class="foot"><span class="tiny">${new Set(BOOKS[s].pages.map(qOf)).size} questions · stop whenever you like</span></span><span class="sat" aria-hidden="true">→</span></button>`;
-  return `<section class="sheet home"><span class="ghost-word" aria-hidden="true">Ethereum</span>
-    <div class="hero"><h1>What do you want to know today?</h1>
-      <p class="lede">Pick a door. We answer one question at a time, using what ${D.meta.n_dapps} Ethereum DApps did in their first months on chain.</p></div>
-    <div class="doors">${door("s1","Can you analyse my DApp?","Pick a DApp and dig down: is its category hot, who are its rivals, how far is it from the leaders, and do its users stay?")}${door("s2","I'm new. Explain this market.","Pick a moment, find what was hot, see who ran it, what the leaders had in common, and whether users stayed.")}</div>
-    <div class="glance">
-      <div><b>${D.meta.n_dapps}</b><span>Ethereum DApps, ${D.meta.panel_start.slice(0,4)}–${D.meta.panel_end.slice(0,4)}</span></div>
-      <div><b>3 months</b><span>of on-chain activity is all we look at</span></div>
-      <div><b>1 in ${Math.round(1/successRate())}</b><span>DApps still count as a success a year later</span></div>
-      <span class="glance-links"><button class="more linkbtn" data-go="qindex">The six questions →</button><button class="more linkbtn" data-go="method">Method →</button></span>
-    </div></section>`;
 }
 /* Home: total monthly active wallets across every DApp, with the Terra and Dencun breaks marked */
 const HM={wallets:["Wallets","active wallets"],tx:["Transactions","transactions"],gas:["Gas","gas used"]};
@@ -153,11 +138,11 @@ function vMethod(){
   const catBars=cats.map(([c,n])=>`<div class="hb"><span>${c}</span><i><b style="width:${n/cmax*100}%"></b></i><em>${n}</em></div>`).join("");
   const yrs=Object.entries(M.by_year), ymax=Math.max(...yrs.map(y=>y[1]));
   let ysvg=`<svg viewBox="0 0 320 170" role="img" aria-label="DApps by launch year">`;
-  yrs.forEach(([y,n],i)=>{ const h=n/ymax*104, x=10+i*51; /* 104 leaves room above the tallest bar for its number */ ysvg+=`<rect x="${x}" y="${130-h}" width="38" height="${h}" rx="${S.theme==="study"?0:6}" fill="${C.q1}"/><text class="ax" x="${x+19}" y="${124-h}" text-anchor="middle">${n}</text><text class="ax" x="${x+19}" y="150" text-anchor="middle">${y}</text>`; });
+  yrs.forEach(([y,n],i)=>{ const h=n/ymax*104, x=10+i*51; /* 104 leaves room above the tallest bar for its number */ ysvg+=`<rect x="${x}" y="${130-h}" width="38" height="${h}" rx="0" fill="${C.q1}"/><text class="ax" x="${x+19}" y="${124-h}" text-anchor="middle">${n}</text><text class="ax" x="${x+19}" y="150" text-anchor="middle">${y}</text>`; });
   ysvg+=`</svg>`;
   const hmax=Math.max(...M.peak_hist), bw=300/M.peak_hist.length;
   let hsvg=`<svg viewBox="0 0 320 170" role="img" aria-label="Distribution of peak monthly wallets">`;
-  M.peak_hist.forEach((n,i)=>{ const h=n/hmax*120; hsvg+=`<rect x="${10+i*bw}" y="${130-h}" width="${bw-3}" height="${h}" rx="${S.theme==="study"?0:3}" fill="${M.peak_edges[i]>=3?C.q1:"#D6D1C7"}"/>`; });
+  M.peak_hist.forEach((n,i)=>{ const h=n/hmax*120; hsvg+=`<rect x="${10+i*bw}" y="${130-h}" width="${bw-3}" height="${h}" rx="0" fill="${M.peak_edges[i]>=3?C.q1:"#D6D1C7"}"/>`; });
   [0,2,4,6].forEach(e=>{ const x=10+e/0.5*bw; hsvg+=`<text class="ax" x="${x}" y="150" text-anchor="middle">${fmtN(10**e)}</text>`; });
   hsvg+=`</svg>`;
   const big=M.peak_hist.reduce((a,n,i)=>a+(M.peak_edges[i]>=3?n:0),0);
@@ -397,18 +382,6 @@ function tankStart(){ cancelAnimationFrame(tankRAF); const tank=document.getElem
     if(!CALM()) tankRAF=requestAnimationFrame(step); };
   step(); }
 
-function footer(){
-  const y0=D.meta.panel_start.slice(0,4), y1=D.meta.panel_end.slice(0,4);
-  return `<footer class="site-foot"><div class="fwrap">
-    <h2 class="fhead">Six questions, ${D.meta.n_dapps} DApps, one answer at a time.</h2>
-    <div class="fcols">
-      <div><span class="fh">The data</span><p>Ethereum mainnet, ${y0}–${y1}<br>${D.meta.n_dapps} DApps with on-chain activity</p></div>
-      <div><span class="fh">The questions</span><p>${["q1","q2","q3","q4","q5","q6"].map(q=>QNAME[q]).join("<br>")}</p></div>
-      <div><span class="fh">Please note</span><p>Historical on-chain data.<br><span class="legal">Not investment advice.</span></p></div>
-      <div><span class="fh">The team</span><p><button class="flink" data-go="qindex">The six questions ↗</button><br><button class="flink" data-go="about">About us ↗</button><br><button class="flink" data-go="method">Method ↗</button></p></div>
-    </div>
-    <div class="fbottom"><span>Capstone · 2026</span><span>On-chain DApp research</span></div></div></footer>`;
-}
 /* decorative orbit lines behind everything (cream theme only): thin light-orange arcs, as in the reference */
 function orbits(){
   return `<svg class="orbits" viewBox="0 0 1000 1000" preserveAspectRatio="xMaxYMin slice" aria-hidden="true" focusable="false">

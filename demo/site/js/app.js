@@ -84,17 +84,14 @@ function render(){
   if(S.view==="home") body=vHome(); else if(S.view==="about") body=vAbout(); else if(S.view==="method") body=vMethod(); else if(S.view==="pick") body=vPick(); else if(S.view==="qindex") body=vQIndex(); else if(S.view==="qpage") body=vQPage(); else if(S.view==="compare") body=vCompare(); else if(S.view==="game") body=vGame(); else if(S.view==="card"){ body=vCard(); } else if(S.view==="wall") body=vWall();
   else {
     const p=pages()[S.idx]; if(!S.read.includes(p)) S.read.push(p);
-    const last=S.idx===pages().length-1;
     S.notes=S.notes||{}; S.path=S.path||{};
     S.says={}; pages().slice(0,S.idx).forEach(k=>{ const r=PAGES[k](); if(r.brief) S.notes[k]=r.brief; if(r.path) S.path[k]=r.path; if(r.say) S.says[k]=r.say; });
     const pg=PAGES[p](); if(pg.brief) S.notes[p]=pg.brief; if(pg.path) S.path[p]=pg.path; if(pg.say) S.says[p]=pg.say;
-    body=S.theme==="study"? slide(pg) : `<div class="stage">${slide(pg)}
-      ${S.idx>0?`<button class="turn prev" data-turn="-1" aria-label="Previous page">‹</button>`:""}
-      <button class="turn next" data-turn="1" aria-label="${last?"See your card":"Next page"}">›</button></div>`;
+    body=slide(pg);
   }
-  const study=S.theme==="study"||S.view==="qindex"||S.view==="qpage"; document.body.classList.toggle("is-study",study);
+  document.body.classList.add("is-study");
   const snap=figSnap(), keepX=[...document.querySelectorAll(".c-cards,.c-table,.m-top,.w-dig,.h-more,.w-eras")].map(e=>[e.className.split(" ")[0],e.scrollLeft,e.scrollTop]);
-  $("#app").innerHTML=(study?studyHeader():header())+body+(study?studyFooter():footer());
+  $("#app").innerHTML=studyHeader()+body+studyFooter();
   keepX.forEach(([c,x,y])=>{ const e=document.querySelector("."+c); if(e){ e.scrollLeft=x; if(y) e.scrollTop=y; } });
   /* the era row opens on the era already chosen */
   const we=document.querySelector(".w-eras"), weOn=we&&we.querySelector(".w-era.on"); if(weOn&&!keepX.some(k=>k[0]==="w-eras")) we.scrollLeft=weOn.getBoundingClientRect().left-we.getBoundingClientRect().left+we.scrollLeft-16;
@@ -287,8 +284,7 @@ document.addEventListener("input",e=>{
   document.addEventListener("click",e=>{ const el=e.target.closest&&e.target.closest("[data-tip]"); if(el){ show(el,e.clientX,e.clientY); clearTimeout(tip._t); tip._t=setTimeout(()=>tip.classList.remove("on"),2500); } });
   window.addEventListener("scroll",()=>tip.classList.remove("on"),{passive:true});
 })();
-S.theme = "study";
-setTheme(S.theme);
+setTheme();
 document.getElementById("orbits-host").innerHTML=orbits();
 document.fonts && document.fonts.ready.then(()=>{ if(S.view!=="home") render(); });
 fromHash();
