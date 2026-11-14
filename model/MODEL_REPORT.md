@@ -1,6 +1,6 @@
 # Predicting sustained DApp success from early months
 
-**Data:** `dapp_data_v2/` (panel 2020-01 → 2025-12), `dapp_data_v2/dapp_v2.duckdb` (wallet-level), DeFiLlama Ethereum TVL history  
+**Data:** `dapp_data_v2/` (panel 2020-01 → 2025-12), `dapp_data_v2/dapp_v2.duckdb` (wallet-level), DeFiLlama Ethereum TVL history, AWS public Ethereum token transfers  
 **Code:** `model/labels.py`, `features.py`, `wallet_features.py`, `dapp_tvl/fetch_tvl.py`, `panel_forecast.py`, `robust_eval.py`, `final_model.py` (+ v1: `baselines.py`, `train_eval.py`, `predict.py`)  
 **Reproduce:** `.\.venv\Scripts\python model\run_all.py`  
 **Optional deps:** `pip install xgboost shap` (XGBoost / SHAP are used when installed)
@@ -97,6 +97,38 @@ At prediction time each DApp has only 1, 3 or 6 monthly points, which is too few
 |---|---|---|
 | `dapp_v2.duckdb`: 130M wallet-month rows plus daily first-seen dates (`wallet_features.py`) | weekly acquisition momentum and slope, top-day spike share; experienced-user share; single-tx share; tx Gini; month-0→k-1 user retention; multi-month share; prior use of top-decile DApps; multi-homing | Months 0..k-1 only; heavy wallets excluded |
 | DeFiLlama daily Ethereum TVL (`dapp_tvl/fetch_tvl.py`) | log mean/last TVL, TVL slope, last/max, TVL per wallet, category TVL share, TVL before launch | Dates before launch + k months. Covers 48% of DApps at k=3 and 61% at k=6; NFT, gaming and social apps have none |
+| AWS public Ethereum ERC-20 transfers (`token_incentives/build_token_features.py`) | token live / pre-launch; distinct recipients and their growth; airdrop share (first receipt from a fan-out sender, DEX contracts excluded); reward share (transfers sent by the DApp's own contracts); reward ramp; share of the DApp's users who received its token | From launch − 3 months to launch + k. 307 DApps have their own token (WETH, USDC, USDT and DAI excluded). Among eligible DApps, 34% have token activity in the window at k=3 and 37% at k=6 |
+
+### Token-incentive features: a negative result
+
+The open question at month 3 was whether usage is being bought with token incentives that later end. We scanned 24M transfers of the DApps' own tokens.
+
+**Signal exists.** We measured Spearman ρ with the month-10–12 outcome after removing what the current wallet count already explains, at k=3 with n≈177:
+
+| Feature | ρ |
+|---|---|
+| Share of users who received the token | −0.25 |
+| Share of transfers sent by own contracts (rewards) | −0.21 |
+| Distinct recipients | +0.22 |
+
+Heavily incentivised usage decays, as expected.
+
+**The model doesn't improve.** Pooled out-of-fold grid-mean PR-AUC:
+
+| k | soft HGB + wallet | + token | + TVL | + TVL + token |
+|---|---|---|---|---|
+| 3 | 0.580 | 0.564 | 0.574 | 0.564 |
+| 6 | 0.664 | 0.668 | 0.675 | 0.683 |
+
+All differences are well inside the noise, and the k=3 change is slightly negative.
+
+There are two reasons:
+- Only about a third of DApps have a token that is active in the window.
+- With 63 positives, the trees can't learn a subgroup-specific effect.
+
+The final model therefore keeps `FEATURE_COLS_PLUS_WALLET_TVL`. The token features stay in the dataset (`FEATURE_COLS_PLUS_WALLET_TOKEN`, `..._TVL_TOKEN`) for future use, for example as an explicit adjustment term in the forecaster once more labelled launches accumulate.
+
+Data note: AWS `token_transfers` stores from/to as 32-byte padded values. They are cut to 20-byte addresses before joining to the local DB.
 
 ### Flexible success labels (`labels.py`)
 
@@ -300,9 +332,10 @@ Writes:
 ```
 model/
   labels.py          # post-window labels, survival, flexible grid / soft / tier labels
-  features.py        # early features + dataset merge (off-chain, news, wallet, TVL)
+  features.py        # early features + dataset merge (off-chain, news, wallet, TVL, token)
   wallet_features.py # wallet-level window features from dapp_v2.duckdb
   dapp_tvl/          # DeFiLlama Ethereum TVL history -> window-timed TVL features
+  token_incentives/  # own-token transfers (AWS public data) -> incentive / airdrop features
   panel_forecast.py  # pooled AR / quantile forecaster + leakage check
   robust_eval.py     # pooled OOF, threshold grid, paired bootstrap comparison
   final_model.py     # final blend, calibration, confidence bands, 2025 scoring

@@ -13,6 +13,7 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 SCRIPTS = [
     "labels.py",
     "wallet_features.py",   # cached after the first run; --refresh to rebuild
+    "token_incentives/build_token_features.py",  # cached; first scan of S3 takes ~4h
     "features.py",
     "train_eval.py",
     "panel_forecast.py",    # forecaster sanity report + leakage check

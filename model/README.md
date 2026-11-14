@@ -23,6 +23,7 @@ Off-chain inputs, merged on `slug` and `k` by `features.py`:
 - [news_sentiment/](news_sentiment/README.md): Ethereum news sentiment, ETH price momentum and per-DApp press coverage, plus a live news dashboard (`news_sentiment/live_report.py`)
 - `wallet_features.py`: wallet-level window features (acquisition shape, user quality, stickiness, cross-DApp overlap) from the local `dapp_data_v2/dapp_v2.duckdb`; cached in `wallet_features/data/`
 - `dapp_tvl/fetch_tvl.py`: daily Ethereum TVL from DeFiLlama, cut at launch + k months; cached in `dapp_tvl/data/`
+- `token_incentives/build_token_features.py`: transfers of each DApp's own token from the AWS public Ethereum dataset (airdrop share, own-contract reward share, token recipients among users). The first scan takes about 4 hours and is resumable; the output is cached in `token_incentives/data/`. These features carry signal but did not improve the pooled scores, so the final model does not use them (see the report).
 
 The `no_news*` and `on_chain_plus_news` rows in `tables/ablations_k3.csv` show what the news features add.
 
@@ -49,6 +50,7 @@ Current model, step by step (after `labels.py`):
 ```powershell
 .\.venv\Scripts\python model\wallet_features.py      # ~4 min, reads the 10 GB DuckDB; cached
 .\.venv\Scripts\python model\dapp_tvl\fetch_tvl.py   # DeFiLlama TVL; cached
+.\.venv\Scripts\python model\token_incentives\build_token_features.py  # ~4 h first scan; cached
 .\.venv\Scripts\python model\features.py
 .\.venv\Scripts\python model\robust_eval.py --k 3    # model comparison across the threshold grid
 .\.venv\Scripts\python model\final_model.py --k 3 6  # final blend, bands, 2025 scoring

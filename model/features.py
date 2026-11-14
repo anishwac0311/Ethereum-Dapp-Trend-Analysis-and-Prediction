@@ -35,6 +35,19 @@ TVL_FEATURES = [
     "tvl_before_launch",
 ]
 
+TOKEN_BY_K = Path(__file__).resolve().parent / "token_incentives" / "data" / "dapp_token_by_k.csv"
+# Own-token incentive / airdrop activity (token_incentives/build_token_features.py)
+TOKEN_FEATURES = [
+    "token_live",
+    "token_pre_launch",
+    "log_token_recipients",
+    "token_recipient_growth",
+    "airdrop_share",
+    "reward_share",
+    "reward_ramp",
+    "user_token_share",
+]
+
 # Numeric feature columns (excluding categoricals / meta)
 LEVEL_FEATURES = [
     "log_mean_wallets",
@@ -122,6 +135,8 @@ FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES + NEWS_FEATURES
 # headline model / predict.py stay comparable; used via ablations in robust_eval.
 FEATURE_COLS_PLUS_WALLET = FEATURE_COLS + WALLET_FEATURES
 FEATURE_COLS_PLUS_WALLET_TVL = FEATURE_COLS_PLUS_WALLET + TVL_FEATURES
+FEATURE_COLS_PLUS_WALLET_TOKEN = FEATURE_COLS_PLUS_WALLET + TOKEN_FEATURES
+FEATURE_COLS_PLUS_WALLET_TVL_TOKEN = FEATURE_COLS_PLUS_WALLET_TVL + TOKEN_FEATURES
 CAT_COLS = ["category_group"]
 
 OFFCHAIN_BY_K = (
@@ -421,6 +436,24 @@ def build_dataset(
     ds = merge_news(ds, k)
     ds = merge_wallet(ds, k)
     ds = merge_tvl(ds, k)
+    ds = merge_token(ds, k)
+    return ds
+
+
+def merge_token(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join own-token incentive features. DApps without a token get token_live=0."""
+    ds = ds.drop(columns=[c for c in TOKEN_FEATURES if c in ds.columns])
+    if not TOKEN_BY_K.exists():
+        print(f"  warn: missing {TOKEN_BY_K}; token columns will be NaN "
+              "(run model/token_incentives/build_token_features.py)")
+        for c in TOKEN_FEATURES:
+            ds[c] = np.nan
+        return ds
+    t = pd.read_csv(TOKEN_BY_K)
+    t = t[t["k"] == k][["slug", "k", *TOKEN_FEATURES]]
+    ds = ds.merge(t, on=["slug", "k"], how="left")
+    ds["token_live"] = ds["token_live"].fillna(0)
+    ds["token_pre_launch"] = ds["token_pre_launch"].fillna(0)
     return ds
 
 

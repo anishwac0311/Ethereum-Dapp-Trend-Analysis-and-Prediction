@@ -33,8 +33,9 @@ from sklearn.metrics import (
 
 from baselines import precision_at_frac
 from common import MODEL, annotate_lifecycle, load_lifecycle, load_panel, load_static, savefig, savetable, setup_style
-from features import (FEATURE_COLS, FEATURE_COLS_PLUS_WALLET, FEATURE_COLS_PLUS_WALLET_TVL,
-                      TVL_FEATURES, WALLET_FEATURES, build_dataset)
+from features import (FEATURE_COLS, FEATURE_COLS_PLUS_WALLET, FEATURE_COLS_PLUS_WALLET_TOKEN,
+                      FEATURE_COLS_PLUS_WALLET_TVL, FEATURE_COLS_PLUS_WALLET_TVL_TOKEN,
+                      TOKEN_FEATURES, TVL_FEATURES, WALLET_FEATURES, build_dataset)
 from labels import GRID_ABS, GRID_REL, TIERS, soft_label, success_tier, sustained_at
 import panel_forecast as pf
 
@@ -65,7 +66,7 @@ def load_dataset(k: int) -> pd.DataFrame:
     ds["parent_protocol"] = ds["parent_protocol"].fillna(ds["slug"])
     parent_year = ds.groupby("parent_protocol")["launch_year"].min()
     ds["parent_year"] = ds["parent_protocol"].map(parent_year)
-    for c in WALLET_FEATURES + TVL_FEATURES:
+    for c in WALLET_FEATURES + TVL_FEATURES + TOKEN_FEATURES:
         if c not in ds.columns:
             ds[c] = np.nan
     return ds.reset_index(drop=True)
@@ -243,6 +244,10 @@ def run(k: int = 3, n_boot: int = N_BOOT) -> pd.DataFrame:
         classifiers["hgb_soft_wallet"] = (fit_soft, list(FEATURE_COLS_PLUS_WALLET), False)
         if ds["has_tvl"].fillna(0).mean() > 0.2:
             classifiers["hgb_soft_wallet_tvl"] = (fit_soft, list(FEATURE_COLS_PLUS_WALLET_TVL), False)
+        if ds["log_token_recipients"].notna().mean() > 0.1:
+            classifiers["hgb_soft_wallet_token"] = (fit_soft, list(FEATURE_COLS_PLUS_WALLET_TOKEN), False)
+            classifiers["hgb_soft_wallet_tvl_token"] = (
+                fit_soft, list(FEATURE_COLS_PLUS_WALLET_TVL_TOKEN), False)
     classifiers["hgb_stacked"] = (fit_hard, stack_cols, True)
     classifiers["hgb_soft_stacked"] = (fit_soft, stack_cols, True)
     if has_wallet:
