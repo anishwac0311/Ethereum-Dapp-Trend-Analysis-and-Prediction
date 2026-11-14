@@ -1,0 +1,34 @@
+group,signal,feature,kind,success,other
+Size,Average monthly wallets,log_mean_wallets,log,1973,6.333333
+Size,Peak monthly wallets,log_max_wallets,log,2990,9
+Size,Last-month wallets,log_last_wallets,log,1870,5
+Size,Monthly transactions,log_mean_tx,log,5777.666667,23
+Size,Monthly gas used,log_mean_gas,log,1128229642.999998,12505425.333333
+Size,Monthly fees (ETH),log_mean_fees,logf,45.075001,0.353687
+Size,"Average wallets, no heavy users",log_mean_wallets_ex_heavy,log,1891.333333,6.333333
+Movement,Growth slope (log wallets / month),wallet_growth_slope,num,0.878929,0
+Movement,Last month vs peak,last_to_max_ratio,pct,1,0.566667
+Movement,Month-to-month swings,wallet_mom_volatility,num,0.678071,0.374202
+Movement,Months since the peak,months_since_inwindow_peak,num,0,2
+Stickiness,Month-to-month retention,early_retention,pct,0.387978,0.321023
+Stickiness,First users back next month,cohort_m1_retention,pct,0.333355,0.386057
+Stickiness,Wallets that are new,early_new_wallet_share,pct,0.857596,0.794212
+Stickiness,Wallets that return,early_returning_share,pct,0.142404,0.158163
+Stickiness,Transactions per wallet,early_tx_per_wallet,num,2.831579,2.304348
+Stickiness,Gas per transaction,early_gas_per_tx,big,205769.361111,282578.837957
+Stickiness,Apps used in one transaction,avg_n_protocols_in_tx,num,1.301107,1
+Concentration,Activity from the top 10 wallets,early_whale_share,pct,0.288967,0.932237
+Concentration,Heavy wallets,early_heavy_wallet_share,pct,0.000926,0
+Context,Share of all DApp wallets,early_eco_share,pct,0.001594,3e-06
+Context,Share of its category,early_cat_share,pct,0.011825,3.7e-05
+Context,Market growth at launch,launch_eco_growth_3m,spct,0.510099,0.2492
+Context,Category growth at launch,launch_cat_growth_3m,spct,0.106123,0.064209
+Context,New version of an existing app,is_new_version_of_existing_protocol,yes,0.188235,0.103044
+Context,Has a token,has_token,yes,0.658824,0.674473
+Context,Launch year,launch_year,year,2021,2022
+Off-chain,Audited,is_audited,yes,0.6835,0.7197
+Off-chain,Open source,is_open_source,yes,1,0.9808
+Off-chain,Contract verified,is_verified,yes,1,0.9724
+Off-chain,Has governance,has_governance,yes,0.2651,0.2
+Off-chain,"Governance proposals, all time",n_proposals,avg,40.9036,29.2857
+Off-chain,Governance proposals by month k,n_proposals_window,avg,7.6747,2.0071

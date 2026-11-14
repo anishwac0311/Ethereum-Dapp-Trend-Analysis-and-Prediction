@@ -1,0 +1,22 @@
+era,n_dapps,month_since_launch,median,p25,p75
+Before Terra,99,0,1,1,1
+Before Terra,99,1,0.373,0.198,0.506
+Before Terra,99,2,0.191,0.102,0.322
+Before Terra,99,3,0.144,0.067,0.242
+Before Terra,99,4,0.134,0.048,0.237
+Before Terra,99,5,0.103,0.035,0.202
+Before Terra,99,6,0.096,0.042,0.167
+Terra to Dencun,39,0,1,1,1
+Terra to Dencun,39,1,0.284,0.201,0.415
+Terra to Dencun,39,2,0.182,0.088,0.348
+Terra to Dencun,39,3,0.15,0.1,0.251
+Terra to Dencun,39,4,0.124,0.077,0.216
+Terra to Dencun,39,5,0.089,0.054,0.186
+Terra to Dencun,39,6,0.098,0.056,0.184
+After Dencun,23,0,1,1,1
+After Dencun,23,1,0.248,0.197,0.395
+After Dencun,23,2,0.174,0.106,0.223
+After Dencun,23,3,0.117,0.082,0.157
+After Dencun,23,4,0.115,0.067,0.165
+After Dencun,23,5,0.103,0.036,0.127
+After Dencun,23,6,0.078,0.019,0.116

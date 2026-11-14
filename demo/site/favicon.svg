@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -8 336 432">
+  <style>
+    path { fill: #1A1A1A; }
+    @media (prefers-color-scheme: dark) { path { fill: #F2EFE9; } }
+  </style>
+  <path d="M128 0 L0 212 L128 154 Z" fill-opacity=".6"/>
+  <path d="M128 0 L256 212 L128 154 Z" fill-opacity=".9"/>
+  <path d="M0 212 L128 154 L128 288 Z" fill-opacity=".45"/>
+  <path d="M256 212 L128 154 L128 288 Z" fill-opacity=".75"/>
+  <path d="M0 236 L128 312 L128 416 Z" fill-opacity=".6"/>
+  <path d="M256 236 L128 312 L128 416 Z" fill-opacity=".9"/>
+</svg>
