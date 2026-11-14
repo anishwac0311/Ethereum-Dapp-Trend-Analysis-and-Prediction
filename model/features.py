@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
@@ -18,6 +19,21 @@ from common import (
     setup_style,
 )
 from labels import build_labels
+from wallet_features import OUT as WALLET_BY_K
+from wallet_features import WALLET_FEATURES
+
+TVL_BY_K = Path(__file__).resolve().parent / "dapp_tvl" / "data" / "dapp_tvl_by_k.csv"
+# Ethereum TVL during the window (dapp_tvl/fetch_tvl.py), cut at launch + k months
+TVL_FEATURES = [
+    "has_tvl",
+    "log_mean_tvl",
+    "log_last_tvl",
+    "tvl_growth_slope",
+    "tvl_last_to_max",
+    "log_tvl_per_wallet",
+    "tvl_cat_share",
+    "tvl_before_launch",
+]
 
 # Numeric feature columns (excluding categoricals / meta)
 LEVEL_FEATURES = [
@@ -102,6 +118,10 @@ ONCHAIN_FEATURES = (
     + CONTEXT_FEATURES
 )
 FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES + NEWS_FEATURES
+# Wallet-level features (wallet_features.py). Kept out of FEATURE_COLS so the
+# headline model / predict.py stay comparable; used via ablations in robust_eval.
+FEATURE_COLS_PLUS_WALLET = FEATURE_COLS + WALLET_FEATURES
+FEATURE_COLS_PLUS_WALLET_TVL = FEATURE_COLS_PLUS_WALLET + TVL_FEATURES
 CAT_COLS = ["category_group"]
 
 OFFCHAIN_BY_K = (
@@ -379,6 +399,10 @@ def build_dataset(
         "y_sustained_24",
         "y_eco_topq_12",
         "y_cond_sustained_12",
+        "y_log_wallets_12",
+        "y_rel_12",
+        "y_soft_12",
+        "y_tier_12",
         "mean_wallets_10_12",
         "mean_wallets_22_24",
         "mean_eco_share_10_12",
@@ -395,7 +419,38 @@ def build_dataset(
     ds = feats.merge(labs, on="slug", how="inner")
     ds = merge_offchain(ds, k)
     ds = merge_news(ds, k)
+    ds = merge_wallet(ds, k)
+    ds = merge_tvl(ds, k)
     return ds
+
+
+def merge_tvl(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join window-timed Ethereum TVL features for this k."""
+    ds = ds.drop(columns=[c for c in TVL_FEATURES if c in ds.columns])
+    if not TVL_BY_K.exists():
+        print(f"  warn: missing {TVL_BY_K}; TVL columns will be NaN (run model/dapp_tvl/fetch_tvl.py)")
+        for c in TVL_FEATURES:
+            ds[c] = np.nan
+        return ds
+    t = pd.read_csv(TVL_BY_K)
+    t = t[t["k"] == k][["slug", "k", *TVL_FEATURES]]
+    ds = ds.merge(t, on=["slug", "k"], how="left")
+    ds["has_tvl"] = ds["has_tvl"].fillna(0)
+    return ds
+
+
+def merge_wallet(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join wallet-level features for this k. Blanks stay NaN."""
+    ds = ds.drop(columns=[c for c in WALLET_FEATURES if c in ds.columns])
+    if not WALLET_BY_K.exists():
+        print(f"  warn: missing {WALLET_BY_K}; wallet columns will be NaN "
+              "(run model/wallet_features.py)")
+        for c in WALLET_FEATURES:
+            ds[c] = np.nan
+        return ds
+    w = pd.read_csv(WALLET_BY_K)
+    w = w[w["k"] == k][["slug", "k", *WALLET_FEATURES]]
+    return ds.merge(w, on=["slug", "k"], how="left")
 
 
 def merge_news(ds: pd.DataFrame, k: int) -> pd.DataFrame:
@@ -478,6 +533,8 @@ def main() -> None:
         print(f"    off-chain non-null (eligible): {off_cov}")
         news_cov = float(use[NEWS_FEATURES].notna().all(axis=1).mean()) if len(use) else 0.0
         mentioned = float((use["dapp_log_mentions_window"] > 0).mean()) if len(use) else 0.0
+        wcov = float(use[WALLET_FEATURES].notna().any(axis=1).mean()) if len(use) else 0.0
+        print(f"    wallet features: rows with any value {wcov:.2f}")
         print(f"    news: complete rows {news_cov:.2f}, DApps with press mentions in window {mentioned:.2f}")
     print("== features done ==")
 

@@ -12,8 +12,12 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 SCRIPTS = [
     "labels.py",
+    "wallet_features.py",   # cached after the first run; --refresh to rebuild
     "features.py",
     "train_eval.py",
+    "panel_forecast.py",    # forecaster sanity report + leakage check
+    "robust_eval.py",       # pooled OOF, threshold grid, paired bootstrap
+    "final_model.py",       # final blend + confidence bands (k=3, k=6)
     "predict.py",
 ]
 
@@ -28,7 +32,11 @@ def main() -> None:
         print(f"Running {name}")
         print("=" * 60)
         t1 = time.time()
-        runpy.run_path(str(path), run_name="__main__")
+        argv, sys.argv = sys.argv, [str(path)]  # each script uses its own defaults
+        try:
+            runpy.run_path(str(path), run_name="__main__")
+        finally:
+            sys.argv = argv
         print(f"Finished {name} in {time.time() - t1:.1f}s")
     print(f"\nAll model scripts done in {time.time() - t0:.1f}s")
     print("See model/MODEL_REPORT.md for the narrative summary.")
