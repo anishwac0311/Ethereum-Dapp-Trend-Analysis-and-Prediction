@@ -1,0 +1,3 @@
+group,n_dapps,reached_5k,censored,reached_by_m3,reached_by_m6,reached_by_m12,reached_by_m24
+Not successful,401,71,330,0.065,0.085,0.105,0.155
+Successful,85,85,0,0.576,0.824,0.965,1.0
