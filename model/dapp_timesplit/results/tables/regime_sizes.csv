@@ -1,0 +1,5 @@
+sample,regime,median_growth,n_dapps,n_successful,n_launch_months,n_shrinking,launched_2020,launched_2021,launched_2022,launched_2023,launched_2024
+All launches,Faster growth,0.26303159962955114,228,48,27,0,62,100,0,37,29
+All launches,Slower growth,0.26303159962955114,248,33,30,104,0,10,67,75,96
+2023-24 launches,Faster growth,0.26303159962955114,66,9,7,0,0,0,0,37,29
+2023-24 launches,Slower growth,0.26303159962955114,171,20,17,68,0,0,0,75,96
