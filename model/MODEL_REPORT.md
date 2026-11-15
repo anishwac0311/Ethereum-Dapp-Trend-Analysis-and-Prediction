@@ -1,13 +1,79 @@
 # Predicting sustained DApp success from early months
 
 **Data:** `dapp_data_v2/` (panel 2020-01 → 2025-12), `dapp_data_v2/dapp_v2.duckdb` (wallet-level), DeFiLlama Ethereum TVL history, AWS public Ethereum token transfers  
-**Code:** `model/labels.py`, `features.py`, `wallet_features.py`, `dapp_tvl/fetch_tvl.py`, `panel_forecast.py`, `robust_eval.py`, `final_model.py` (+ v1: `baselines.py`, `train_eval.py`, `predict.py`)  
+**Code:** `model/labels.py`, `features.py`, `wallet_features.py`, `user_history_features.py`, `dapp_tvl/fetch_tvl.py`, `token_incentives/`, `panel_forecast.py`, `robust_eval.py`, `iterations.py`, `final_model.py` (+ v1: `baselines.py`, `train_eval.py`, `predict.py`)  
 **Reproduce:** `.\.venv\Scripts\python model\run_all.py`  
 **Optional deps:** `pip install xgboost shap` (XGBoost / SHAP are used when installed)
 
 ---
 
-## Final model (current recommendation)
+## Modelling journey and the v3 model (current recommendation)
+
+Every step below is scored the same way: pooled out-of-fold predictions on expanding launch-year folds (validate 2021, 2022, 2023, 2024; 396 DApps), grid-mean PR-AUC over 15 success definitions (250–5,000 wallets × 15–40% of the window peak), and a paired cluster bootstrap against the v2 blend. `iterations.py` runs all candidates; `final_model.py` builds v3 from them.
+
+### Grid-mean PR-AUC at each step
+
+| Step | Month 3 | Month 6 |
+|---|---|---|
+| v1 boosted trees (the 0.65 was a single lucky holdout split) | 0.547 | 0.695 |
+| + soft labels | 0.572 | 0.703 |
+| + wallet-level features | 0.580 | 0.664 |
+| pooled panel AR forecaster | **0.629** | 0.664 |
+| v2 blend (soft HGB + TVL, panel AR) | 0.608 | 0.689 |
+| best model with TVL / token / user-history data | 0.580 | 0.692 |
+| **v3 nested ensemble** | 0.597 | **0.717** |
+
+### What each iteration tried (`iterations.py`)
+
+1. **Better pooled forecasters.** Ridge on all 22 origin features, a GARCH-style heteroscedastic σ(x), boosted mean, origin ages weighted near k−1, and longer lags (months k−6…k−1 plus window mean and min). At month 3 none beat the plain linear AR. At month 6 the boosted forecaster leads: 0.738, and 0.727 with lags.
+2. **Predict a number.** Direct ridge or boosted regression of log wallets at months 10–12 on DApp features, with a Gaussian residual. This is worse than pooled forecasting at both checkpoints (0.52–0.68).
+3. **Classifier variety.** Random forest, extra trees, shallow and monotone-constrained soft-label HGB, a compact 13-feature HGB, and a spline GAM. At month 3 all fall between 0.53 and 0.59. At month 6, extra trees reach 0.690.
+4. **New features** (`user_history_features.py`):
+   - **brand:** earlier versions of the same parent, the parent's wallets before launch, whether an earlier version was proven
+   - **time-aware base rates:** shrunk success rate of same-category launches whose month-12 outcome was already observable
+   - **economic value:** ETH and fees per wallet
+   - **users' pre-launch history:** share of fresh wallets, months active before launch, loyalty, share who had used a proven app
+   - **panel AR + feature correction:** a second model learns only the residual of the AR forecast
+
+   Signals exist: an earlier proven version raises the success rate from 16% to 40%, and ETH per wallet has ρ +0.12 after size. But no model improves at month 3, and the user-history variants only add about +0.02 at month 6.
+5. **Ensembles.** Rank average, logit mean, and a stacked logistic model, each over the top 4 models with at least one forecaster and one classifier. Choosing members on all folds flatters the score (month 6: 0.756, ΔAP +0.068 with CI +0.020 to +0.127). The **nested** version re-chooses members for each validation year using only the other years, and that is the number we report.
+
+### v3 results (`final_model.py`, honest nested ensemble)
+
+| k | ROC-AUC | PR-AUC @1k/25% | Grid-mean PR-AUC | Brier | Accuracy @0.5 | Balanced acc. |
+|---|---|---|---|---|---|---|
+| 3 | 0.868 | 0.628 | 0.597 | 0.093 | 87.9% | 0.79 |
+| 6 | **0.931** | **0.729** | **0.717** | 0.069 | **90.9%** | 0.83 |
+
+Against the v2 blend:
+- **Month 6:** +0.031 grid PR-AUC (95% CI −0.018 to +0.079).
+- **Month 3:** −0.010 (CI −0.067 to +0.040), so the two are level.
+
+Production members are re-chosen on all folds:
+- **k=3:** panel AR, ridge forecaster with lags, Szabo–Huberman, ridge forecaster
+- **k=6:** boosted forecaster, boosted forecaster with lags, v1 HGB, boosted forecaster with local weights
+
+**Confidence bands.** Thresholds are chosen on 2021–23 and frozen, then tested on 2024: 100 apps, 9 successes.
+
+| k | Coverage | Confident accuracy | "Likely fail" correct | "Likely success" correct | Successes caught |
+|---|---|---|---|---|---|
+| 3 | 71% | 91.5% | 98.4% | 44% | 4 / 9 |
+| 6 | 93% | **94.6%** | 98.8% | 67% | **8 / 9** |
+
+At month 6, v2 caught 5 of 9 successes, and its success calls were right 56% of the time.
+
+**Two-stage policy** (`tables/final_two_stage.csv`): act on confident month-3 calls and re-score the uncertain apps at month 6. On 2024 this decides 71% of apps at month 3 and covers 95% of apps in total. It is 91.6% accurate on its confident calls, 92.0% accurate when every app is forced to a call, and catches 8 of 9 successes. On 2024, saying "fail" to every app already scores 91% because only 9 apps succeeded, so success recall and precision are the numbers to watch, not accuracy.
+
+### Is 90% accuracy reachable?
+
+- **At month 6:** yes. Accuracy is 90.9% at the 0.5 threshold, and 94.6% on the 93% of apps with a confident call.
+- **At month 3:** only on the confident subset (91.5% on 71% of apps).
+
+The ceiling test below shows why. Even a model that could see months 3–5 would reach only about 91% with one feature. The remaining month-3 error comes from events after month 3, not from the choice of model.
+
+---
+
+## v2 model (superseded by v3)
 
 **`final_model.py`** blends two components and calibrates the result.
 
@@ -319,11 +385,12 @@ Writes:
 
 ## Recommended production recipe (current)
 
-1. **Month 3, early read:** run `final_model.py`, which writes `artifacts/final_k3.joblib`. Act on **likely_fail** calls, which are 96% correct on the unseen 2024 fold. Treat everything else as open.
-2. **Month 6, confirmation:** `final_k6.joblib` gives AUC 0.92 and 94.5% accuracy on the 91% of DApps it calls confidently. Use this checkpoint for success calls.
-3. **Evaluate any change** with `robust_eval.py`, using grid-mean PR-AUC and the paired bootstrap, not the single holdout.
-4. Use Cox survival probability as a secondary "fade risk" score.
-5. **TVL rule.** Never use today's TVL snapshot or full-history lifecycle features. TVL is allowed only as the window-timed series from `dapp_tvl/`.
+1. **Run order:** `iterations.py --k 3 6`, then `final_model.py --k 3 6`. This writes `artifacts/final_k{3,6}.joblib` (members, calibrator, band thresholds) and scores 2025 launches.
+2. **Month 3, early read:** act on **likely_fail** calls, which were 98% correct on the unseen 2024 fold. Treat everything else as open.
+3. **Month 6, confirmation:** the k=6 ensemble has AUC 0.93 and is 94.6% accurate on the 93% of DApps it calls confidently, catching 8 of 9 successes in 2024. Use this checkpoint for success calls. The two-stage policy combines the two checkpoints.
+4. **Evaluate any change** with `iterations.py` (or `robust_eval.py`), using grid-mean PR-AUC and the paired bootstrap, not the single holdout.
+5. Use Cox survival probability as a secondary "fade risk" score.
+6. **TVL rule.** Never use today's TVL snapshot or full-history lifecycle features. TVL is allowed only as the window-timed series from `dapp_tvl/`.
 
 ---
 
@@ -337,8 +404,11 @@ model/
   dapp_tvl/          # DeFiLlama Ethereum TVL history -> window-timed TVL features
   token_incentives/  # own-token transfers (AWS public data) -> incentive / airdrop features
   panel_forecast.py  # pooled AR / quantile forecaster + leakage check
+  user_history_features.py # brand, time-aware base rates, users' pre-launch history
+  iterations.py      # every modelling iteration on one protocol + nested ensemble
+  deck_charts.py     # charts for the presentation (figures/deck/)
   robust_eval.py     # pooled OOF, threshold grid, paired bootstrap comparison
-  final_model.py     # final blend, calibration, confidence bands, 2025 scoring
+  final_model.py     # v3 ensemble, calibration, bands, two-stage policy, 2025 scoring
   baselines.py       # persistence / Szabo-Huberman / category prior
   train_eval.py      # v1: CV, holdout, ablations, Cox, importance
   predict.py         # v1: score young DApps with calibrated HGB

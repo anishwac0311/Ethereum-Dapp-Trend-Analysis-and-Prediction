@@ -14,11 +14,14 @@ SCRIPTS = [
     "labels.py",
     "wallet_features.py",   # cached after the first run; --refresh to rebuild
     "token_incentives/build_token_features.py",  # cached; first scan of S3 takes ~4h
+    "user_history_features.py",  # brand, base rates, users' pre-launch history; cached
     "features.py",
     "train_eval.py",
     "panel_forecast.py",    # forecaster sanity report + leakage check
     "robust_eval.py",       # pooled OOF, threshold grid, paired bootstrap
-    "final_model.py",       # final blend + confidence bands (k=3, k=6)
+    "iterations.py",        # all modelling iterations + nested ensemble (k=3, k=6)
+    "final_model.py",       # v3 ensemble, calibration, bands, two-stage policy
+    "deck_charts.py",       # charts for the presentation (figures/deck/)
     "predict.py",
 ]
 
