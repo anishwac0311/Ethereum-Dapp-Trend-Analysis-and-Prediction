@@ -10,6 +10,7 @@ import pandas as pd
 from config import DATA, K, TARGET, record  # first: puts the team model on the import path
 import plots
 import coef_by_period
+import coef_by_regime
 import size_effect
 from evaluate import evaluate
 from features import build_dataset
@@ -63,6 +64,11 @@ def main() -> None:
     print("\nCoefficient weight by feature group and period:")
     groups = coef_by_period.run(df)
     print(groups.pivot_table(index="group", columns="period", values="weight", sort=False).round(3).to_string())
+
+    print("\nCoefficient weight by feature group and market growth at launch:")
+    groups = coef_by_regime.run(df)
+    print(groups.pivot_table(index="group", columns=["sample", "regime"], values="weight", sort=False)
+          .round(3).to_string())
     plots.run()
 
 
