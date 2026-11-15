@@ -27,6 +27,50 @@ DEATH_FRAC = 0.20
 DEATH_STREAK = 3
 ECO_SHARE_TOP_Q = 0.75  # top quartile of mean eco-share at months 10-12
 
+# Flexible success: a grid of cutoffs instead of one hard 1k line
+GRID_ABS = (250, 500, 1_000, 2_500, 5_000)
+GRID_REL = (0.15, 0.25, 0.40)
+# Soft label: logistic ramp on log wallets around SOFT_CENTER, linear ramp on ratio
+SOFT_CENTER = 1_000
+SOFT_SCALE = 0.5          # in ln-units: ~0.12 at 370 wallets, ~0.88 at 2,700
+SOFT_REL_LO, SOFT_REL_HI = 0.15, 0.40
+TIERS = ((0, "dead"), (250, "niche"), (1_000, "sustained"), (5_000, "breakout"))
+
+
+def sustained_at(df: pd.DataFrame, abs_wallets: float, rel: float,
+                 m_col: str = "mean_wallets_10_12",
+                 max_col: str = "window_max_wallets") -> pd.Series:
+    """Grid version of y_sustained_12 for any (absolute, relative) cutoff."""
+    m = df[m_col].astype(float)
+    mx = df[max_col].astype(float)
+    y = ((m >= abs_wallets) & (m >= rel * mx)).astype(float)
+    return y.where(m.notna() & mx.notna())
+
+
+def soft_label(df: pd.DataFrame, m_col: str = "mean_wallets_10_12",
+               max_col: str = "window_max_wallets") -> pd.Series:
+    """Success in [0, 1] that ramps across the band instead of flipping at 1k / 25%."""
+    m = df[m_col].astype(float)
+    mx = df[max_col].astype(float)
+    z = (np.log(m.clip(lower=1)) - np.log(SOFT_CENTER)) / SOFT_SCALE
+    a = 1.0 / (1.0 + np.exp(-z))
+    ratio = m / mx.where(mx > 0)
+    r = ((ratio - SOFT_REL_LO) / (SOFT_REL_HI - SOFT_REL_LO)).clip(0, 1)
+    r = r.fillna(0.0)  # no early activity (window max 0): no relative persistence
+    return (a * r).where(m.notna() & mx.notna())
+
+
+def success_tier(df: pd.DataFrame, rel: float = 0.25, m_col: str = "mean_wallets_10_12",
+                 max_col: str = "window_max_wallets") -> pd.Series:
+    """Ordinal tier 0..3 (dead/niche/sustained/breakout); relative rule demotes to 0."""
+    m = df[m_col].astype(float)
+    mx = df[max_col].astype(float)
+    tier = pd.Series(0.0, index=df.index)
+    for i, (cut, _) in enumerate(TIERS):
+        tier[m >= cut] = float(i)
+    tier[(m < rel * mx)] = 0.0
+    return tier.where(m.notna() & mx.notna())
+
 
 def _window_slice(g: pd.DataFrame, lo: int, hi: int) -> pd.DataFrame:
     """Rows with months_since_launch in [lo, hi] inclusive."""
@@ -182,6 +226,13 @@ def build_labels(
             "y_abs_12": y_abs_12,
             "y_sustained_24": y_sustained_24,
             "y_cond_sustained_12": y_cond_sustained_12,
+            # continuous outcomes (no threshold)
+            "y_log_wallets_12": float(np.log1p(mean_10_12)) if np.isfinite(mean_10_12) else np.nan,
+            "y_rel_12": (
+                float(mean_10_12 / win_max)
+                if np.isfinite(mean_10_12) and np.isfinite(win_max) and win_max > 0
+                else np.nan
+            ),
             "survival_duration": dur,
             "survival_event": event,
         })
@@ -202,6 +253,8 @@ def build_labels(
         out["y_eco_topq_12"] = np.nan
         out["eco_share_q75"] = np.nan
 
+    out["y_soft_12"] = soft_label(out)
+    out["y_tier_12"] = success_tier(out)
     return out
 
 

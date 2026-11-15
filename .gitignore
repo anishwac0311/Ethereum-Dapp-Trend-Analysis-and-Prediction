@@ -61,3 +61,6 @@ agent-transcripts/
 # vercel
 .vercel/
 .env*.local
+
+# Office lock files
+~$*
