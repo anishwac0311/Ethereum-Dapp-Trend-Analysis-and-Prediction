@@ -1,0 +1,33 @@
+scope,period,n_dapps,hhi,gini,type
+DEX,2020 pre-boom,9,0.58,0.69,few lead + long tail
+DEX,2021 boom,24,0.39,0.87,few lead + long tail
+DEX,2022-23 downturn,34,0.28,0.88,few lead + long tail
+DEX,2024-25 recovery,39,0.25,0.89,few lead + long tail
+DeFi,2020 pre-boom,23,0.22,0.73,competitive top + long tail
+DeFi,2021 boom,76,0.09,0.79,competitive top + long tail
+DeFi,2022-23 downturn,126,0.08,0.84,competitive top + long tail
+DeFi,2024-25 recovery,199,0.09,0.92,competitive top + long tail
+Gaming,2020 pre-boom,6,0.33,0.45,few DApps with one big lead
+Gaming,2021 boom,8,0.58,0.71,few lead + long tail
+Gaming,2022-23 downturn,10,0.33,0.67,few lead + long tail
+Gaming,2024-25 recovery,10,0.21,0.56,evenly spread
+Infrastructure,2020 pre-boom,11,0.37,0.71,few lead + long tail
+Infrastructure,2021 boom,19,0.28,0.76,few lead + long tail
+Infrastructure,2022-23 downturn,31,0.2,0.81,competitive top + long tail
+Infrastructure,2024-25 recovery,47,0.15,0.82,competitive top + long tail
+NFT,2020 pre-boom,4,0.73,0.58,few DApps with one big lead
+NFT,2021 boom,12,0.42,0.76,few lead + long tail
+NFT,2022-23 downturn,22,0.39,0.84,few lead + long tail
+NFT,2024-25 recovery,23,0.38,0.85,few lead + long tail
+Other,2020 pre-boom,2,0.68,0.32,few DApps with one big lead
+Other,2021 boom,5,0.71,0.7,few lead + long tail
+Other,2022-23 downturn,14,0.47,0.8,few lead + long tail
+Other,2024-25 recovery,39,0.16,0.77,competitive top + long tail
+Social,2020 pre-boom,2,0.76,0.09,few DApps with one big lead
+Social,2021 boom,2,0.69,0.29,few DApps with one big lead
+Social,2022-23 downturn,2,0.73,0.37,few DApps with one big lead
+Social,2024-25 recovery,1,0.97,0.11,few DApps with one big lead
+ecosystem,2020 pre-boom,55,0.18,0.79,competitive top + long tail
+ecosystem,2021 boom,146,0.17,0.91,competitive top + long tail
+ecosystem,2022-23 downturn,239,0.11,0.93,competitive top + long tail
+ecosystem,2024-25 recovery,358,0.11,0.94,competitive top + long tail
