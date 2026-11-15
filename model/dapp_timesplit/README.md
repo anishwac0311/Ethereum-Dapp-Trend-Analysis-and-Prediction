@@ -1,20 +1,32 @@
-# Time-split checks
+# Time-split and market checks
 
-Four checks on the team model (`model/`), each splitting DApps by launch time; its dataset, features (27 on-chain), models and metrics are unchanged. k = 3, target `y_sustained_12`, main score holdout average precision (AP).
+Does what makes a DApp succeed change with the market it launches into, and does the team model (`model/`) still predict well across time? The team's dataset, features (27 on-chain), models and metrics are used unchanged. k = 3, target `y_sustained_12`.
+
+| Read | For |
+|------|-----|
+| **[PRESENTATION.md](PRESENTATION.md)** | The three slides, in order |
+| **[REPORT.md](REPORT.md)** | The findings: which feature groups matter most in each launch period, by market growth, and by market growth within 2023–24 (coefficients only, no train/test) |
+| **[FEATURE_WEIGHTS.md](FEATURE_WEIGHTS.md)** | Feature weights per launch period in detail (REPORT section 1) |
+| **[MODEL_CHECKS.md](MODEL_CHECKS.md)** | The training part: the leakage fix, train-and-test rounds at Terra and Dencun, and the size effect per period (main score holdout average precision, AP) |
+
+**Findings (REPORT.md)**
+
+1. **Rules by period.** The team's L2 logistic regression on the 27 standardised features, fitted on each launch period (split at the Terra/UST collapse, 2022-05, and the Dencun upgrade, 2024-03), with 1,000 resamples.
+2. **Rules by market growth.** The same fit with DApps split at the median of `launch_eco_growth_3m`, active wallets in the launch month vs 3 months earlier (left out of the fit).
+3. **Within the same years.** The market-growth split repeated on 2023–24 launches alone, the only years with both halves.
+
+**Model checks (MODEL_CHECKS.md)**
 
 1. **Leakage fix.** The team trains on 2020–22 launches and tests on 2023–24. A DApp's answer uses months 10–12 (counted from 0), so it is known 12 months after launch, and 2022 launches train on answers from 2023. The fix trains only on DApps whose answer is known before the test starts.
-2. **Event rounds.** Stand at a market event, train on what was known then, and test on what launched next: the Terra/UST collapse (2022-05) and the Dencun upgrade (2024-03).
+2. **Event rounds.** Stand at a market event, train on what was known then, and test on what launched next.
 3. **Size effect.** How strongly early size predicts success among the DApps launched in each period (size-only logistic regression, fitted per period).
-4. **Feature weights.** Which features drive success in each period: the team's L2 logistic regression on all 27 standardised features, fitted per period, with 1,000 resamples.
-
-See **[REPORT.md](REPORT.md)** for the findings and **[FEATURE_WEIGHTS.md](FEATURE_WEIGHTS.md)** for the feature weights in detail.
 
 ```bash
 cd model/dapp_timesplit
 python script/main.py
 ```
 
-## Splits
+## Splits (model checks)
 
 Embargo rule for training DApps: launch month + 12 months < test start. Test DApps are not embargoed.
 
@@ -40,7 +52,11 @@ Embargo rule for training DApps: launch month + 12 months < test start. Test DAp
 | `results/tables/size_ranks_by_period.csv` | Rank and coefficient of each size feature in each period |
 | `results/tables/coef_ranked_after_dencun.csv` | Features ranked by absolute coefficient after Dencun, with share and cumulative share of all weight |
 | `results/tables/coef_groups_by_period.csv` | Each feature group's share of absolute coefficients per period, with 95% interval |
-| `results/figures/` | Figures in REPORT.md and FEATURE_WEIGHTS.md |
+| `results/tables/market_growth_by_month.csv` | Market growth at each launch month (active wallets vs 3 months earlier), DApps and successful DApps launched, and whether it is above the median |
+| `results/tables/regime_sizes.csv` | Faster and slower market growth, on all launches and on 2023–24 alone: median, DApps, successful DApps, launch months, shrinking-market DApps and launches per year |
+| `results/tables/coef_by_regime.csv` | Standardised coefficient per feature for faster and slower market growth (all launches and 2023–24), with 95% interval and share of resamples above 0 |
+| `results/tables/coef_groups_by_regime.csv` | Each feature group's share of absolute coefficients for faster and slower market growth (all launches and 2023–24), with 95% interval |
+| `results/figures/` | Figures in PRESENTATION.md, REPORT.md, FEATURE_WEIGHTS.md and MODEL_CHECKS.md |
 
 ## Code
 
@@ -49,5 +65,6 @@ Embargo rule for training DApps: launch month + 12 months < test start. Test DAp
 - `script/evaluate.py`: fits the team's models on one split and scores its test set
 - `script/size_effect.py`: size-only logistic regression per launch period
 - `script/coef_by_period.py`: standardised coefficients per launch period, with resampling
+- `script/coef_by_regime.py`: the same coefficients for faster and slower market growth at launch, on all launches and on 2023–24 alone
 - `script/plots.py`: figures, drawn from the saved tables
 - `script/config.py`: paths, events and settings

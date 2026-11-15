@@ -1,36 +1,39 @@
 # What drives success in each period
 
-Detail for section 4 of [REPORT.md](REPORT.md).
+**In short:** at Terra, stickiness replaces size as the largest group; at Dencun, context gains and fees become the largest single feature.
 
-**In short:** same definition of success, different rules behind it; after Terra, stickiness replaces size.
+Three launch periods, split at Terra (2022-05) and Dencun (2024-03), each fitted on its own. Weight = a group's share of all absolute standardised coefficients.
 
 ## 1. Which group carries the weight
 
-**Size falls from 1st to 3rd of five groups after Terra, and stickiness rises from 4th to 1st** (weight = each group's share of all absolute coefficients; features standardised, so coefficients compare directly).
+**At Terra, size falls from 1st to 3rd of five groups and stickiness rises from 4th to 1st; at Dencun, both stay put and context gains.**
 
 <p>
   <img src="results/figures/coef_groups.png" alt="Weight of each feature group per period" width="49%">
-  <img src="results/figures/coef_groups_trend.png" alt="Weight of each feature group across the periods" width="49%">
+  <img src="results/figures/coef_groups_by_event.png" alt="Weight of each feature group before and after Terra, and before and after Dencun" width="49%">
 </p>
 
-- **After Terra:** size falls from 33% to 19%, and stickiness rises from 17% to 33%.
-- **After Dencun:** context rises from 21% to 30%, about even with stickiness (32%), and concentration almost vanishes (13% to 3%).
+- **Left:** size is the largest group before Terra, stickiness after it.
+  - **How to read:** each group's weight in each period, with 95% intervals over 1,000 resamples.
+- **Right:** Terra moves weight from size to stickiness; Dencun moves it to context.
+  - **Terra:** size 33% → 19%, stickiness 17% → 33%.
+  - **Dencun:** size and stickiness barely move (19%, 33% → 32%); context 21% → 30%, concentration 13% → 3%.
 
 ## 2. What happens to size
 
-**Transactions drop from 2nd to 22nd, while fees stay in the top 8 and become 1st after Dencun** (rank among all features, 1 = largest).
+**Transactions drop from 2nd to 18th at Terra and to 22nd at Dencun, while fees become 1st at Dencun** (rank among all features, 1 = largest).
 
 <p>
   <img src="results/figures/size_ranks.png" alt="Rank of each size feature across the periods" width="70%">
 </p>
 
-- **Wallet counts fall too:** from 8th–15th before Terra to 16th–26th after Dencun.
-- **Fees also flip sign:** from −0.61 before Terra to +1.32 after Dencun.
-- **Caution:** the four wallet counts are nearly the same, so the model splits their weight and each looks small; fees also rise with size, so part of fees' weight may really be size.
+- **Wallet counts:** 8th–15th, then 20th–25th after Terra and 16th–26th after Dencun.
+- **Fees:** −0.61, then +0.60 after Terra and +1.32 after Dencun.
+- **Caution:** the four wallet counts are nearly the same, so the model splits their weight; fees rise with size, so part of their weight may be size.
 
 ## 3. The largest coefficients after Dencun
 
-**Fees, the category's share and transactions per wallet carry 35% of all weight after Dencun** (ranked by absolute coefficient, either sign; share of all 26 features, category left out).
+**Fees, the category's share and transactions per wallet carry 35% of all weight** (ranked by absolute coefficient; 26 features, category left out).
 
 | Rank | Feature | Group | Coefficient | Share | Cumulative |
 |---|---|---|---|---|---|
@@ -43,17 +46,27 @@ Detail for section 4 of [REPORT.md](REPORT.md).
 | 7 | `early_returning_share` | Stickiness | −0.55 | 5.2% | 59.3% |
 | 8 | `months_since_inwindow_peak` | Movement | +0.47 | 4.5% | 63.8% |
 
-**How the weight is spread**
+- **The top 8 carry 64%;** the other 18 features share about a third.
+- **Few clear signals:** only 2 features have a clear direction and 6 more a hint.
 
-- **The top 8 carry 64%:** the other 18 features share about a third.
-- **Few clear signals:** of 26 features after Dencun, only 2 have a clear direction and 6 more a hint.
+## 4. Category share across the periods
 
-**What the users show**
+**A large category share goes with success before Terra and with failure after it.**
 
-- **New users keep arriving:** the share of new wallets is positive in every period (94–98% of resamples).
-- **Returning wallets go with failure after Terra** (−0.91, then −0.55): few new users and only old ones left.
-- **After Dencun, use per wallet counts:** transactions per wallet jump from about 0 to +1.15.
+<p>
+  <img src="results/figures/cat_share_by_period.png" alt="Coefficient of early_cat_share in each period" width="49%">
+</p>
 
-## 4. Summary
+- **Coefficient:** +0.77 before Terra (95% of resamples above 0), −0.27 from Terra to Dencun (32%), −1.24 after Dencun (8%).
 
-Before Terra, success goes with many early wallets and transactions. After Terra, size counts for less and what matters is new users that keep arriving. After Dencun, new users still matter, and heavier use per wallet and higher fees join them. These changes coincide with the events; they do not show that the events caused them.
+## 5. What the users show
+
+**New users go with success in every period; returning users go with failure from Terra on.**
+
+- **New-wallet share:** positive in every period (94–98% of resamples).
+- **Returning-wallet share:** −0.91 from Terra to Dencun and −0.55 after Dencun.
+- **Transactions per wallet:** about 0 until Dencun, then +1.15.
+
+## 6. Summary
+
+Before Terra, success goes with many early wallets and transactions. At Terra, size counts for less and new users that keep arriving matter more. At Dencun, size stays low, and heavier use per wallet and higher fees join new users. These changes coincide with the events; they do not show that the events caused them.
