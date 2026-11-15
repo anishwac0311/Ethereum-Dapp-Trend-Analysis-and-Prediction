@@ -54,5 +54,13 @@ model/artifacts/
 .cursor/
 agent-transcripts/
 
+# local tool settings
+.claude/
+.impeccable/
+
+# vercel
+.vercel/
+.env*.local
+
 # Office lock files
 ~$*

@@ -1,0 +1,16 @@
+era,group,weight,low,high
+Before Terra,Concentration,0.104,0.029,0.159
+Before Terra,Context,0.209,0.123,0.34
+Before Terra,Movement,0.184,0.082,0.301
+Before Terra,Size,0.332,0.189,0.442
+Before Terra,Stickiness,0.171,0.099,0.314
+Terra to Dencun,Concentration,0.13,0.033,0.192
+Terra to Dencun,Context,0.214,0.137,0.366
+Terra to Dencun,Movement,0.137,0.065,0.284
+Terra to Dencun,Size,0.187,0.106,0.338
+Terra to Dencun,Stickiness,0.332,0.13,0.406
+After Dencun,Concentration,0.032,0.011,0.114
+After Dencun,Context,0.297,0.186,0.39
+After Dencun,Movement,0.154,0.09,0.308
+After Dencun,Size,0.193,0.078,0.314
+After Dencun,Stickiness,0.324,0.164,0.38
