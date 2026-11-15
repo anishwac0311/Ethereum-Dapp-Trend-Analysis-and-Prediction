@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
@@ -18,6 +19,34 @@ from common import (
     setup_style,
 )
 from labels import build_labels
+from wallet_features import OUT as WALLET_BY_K
+from wallet_features import WALLET_FEATURES
+
+TVL_BY_K = Path(__file__).resolve().parent / "dapp_tvl" / "data" / "dapp_tvl_by_k.csv"
+# Ethereum TVL during the window (dapp_tvl/fetch_tvl.py), cut at launch + k months
+TVL_FEATURES = [
+    "has_tvl",
+    "log_mean_tvl",
+    "log_last_tvl",
+    "tvl_growth_slope",
+    "tvl_last_to_max",
+    "log_tvl_per_wallet",
+    "tvl_cat_share",
+    "tvl_before_launch",
+]
+
+TOKEN_BY_K = Path(__file__).resolve().parent / "token_incentives" / "data" / "dapp_token_by_k.csv"
+# Own-token incentive / airdrop activity (token_incentives/build_token_features.py)
+TOKEN_FEATURES = [
+    "token_live",
+    "token_pre_launch",
+    "log_token_recipients",
+    "token_recipient_growth",
+    "airdrop_share",
+    "reward_share",
+    "reward_ramp",
+    "user_token_share",
+]
 
 # Numeric feature columns (excluding categoricals / meta)
 LEVEL_FEATURES = [
@@ -57,14 +86,71 @@ CONTEXT_FEATURES = [
     "has_token",
     "launch_year",
 ]
-FEATURE_COLS = (
+# Snapshot-as-of-today flags (not as-of launch) — keep separate for ablations
+OFFCHAIN_STATIC_FEATURES = [
+    "is_audited",
+    "is_open_source",
+    "is_verified",
+]
+# Timed by observation window k (leakage-safe)
+OFFCHAIN_GOV_FEATURES = [
+    "has_governance",
+    "log_n_proposals",
+    "log_n_proposals_window",
+]
+OFFCHAIN_FEATURES = OFFCHAIN_STATIC_FEATURES + OFFCHAIN_GOV_FEATURES
+# News sentiment (model/news_sentiment). All timed by window k: months 0..k-1 after
+# launch, or the months before launch. See news_sentiment/README.md.
+# Ethereum news environment during the window (same for DApps launched the same month)
+NEWS_MARKET_FEATURES = [
+    "news_eth_sent",
+    "news_eth_sent_wtd",
+    "news_eth_net_bull",
+    "news_eth_attention",
+    "news_hack_rate",
+    "news_reg_bear_rate",
+    "news_cat_attention",
+    "news_cat_sent",
+    "news_eth_sent_pre3m",
+]
+# ETH price momentum: kept apart from news so the two are not confused
+NEWS_PRICE_FEATURES = ["eth_ret_window", "eth_ret_pre3m", "eth_vol_window"]
+# Press coverage of this specific DApp (or its parent brand)
+NEWS_DAPP_FEATURES = [
+    "dapp_log_mentions_window",
+    "dapp_log_mentions_pre6m",
+    "dapp_news_sent_window",
+    "dapp_neg_event_window",
+]
+NEWS_FEATURES = NEWS_MARKET_FEATURES + NEWS_PRICE_FEATURES + NEWS_DAPP_FEATURES
+ONCHAIN_FEATURES = (
     LEVEL_FEATURES
     + SHAPE_FEATURES
     + QUALITY_FEATURES
     + CONCENTRATION_FEATURES
     + CONTEXT_FEATURES
 )
+FEATURE_COLS = ONCHAIN_FEATURES + OFFCHAIN_FEATURES + NEWS_FEATURES
+# Wallet-level features (wallet_features.py). Kept out of FEATURE_COLS so the
+# headline model / predict.py stay comparable; used via ablations in robust_eval.
+FEATURE_COLS_PLUS_WALLET = FEATURE_COLS + WALLET_FEATURES
+FEATURE_COLS_PLUS_WALLET_TVL = FEATURE_COLS_PLUS_WALLET + TVL_FEATURES
+FEATURE_COLS_PLUS_WALLET_TOKEN = FEATURE_COLS_PLUS_WALLET + TOKEN_FEATURES
+FEATURE_COLS_PLUS_WALLET_TVL_TOKEN = FEATURE_COLS_PLUS_WALLET_TVL + TOKEN_FEATURES
 CAT_COLS = ["category_group"]
+
+OFFCHAIN_BY_K = (
+    __import__("pathlib").Path(__file__).resolve().parent
+    / "dapp_offchain"
+    / "data"
+    / "dapp_offchain_by_k.csv"
+)
+NEWS_BY_K = (
+    __import__("pathlib").Path(__file__).resolve().parent
+    / "news_sentiment"
+    / "data"
+    / "dapp_news_by_k.csv"
+)
 
 
 def _cohort_m1_in_window(
@@ -328,6 +414,10 @@ def build_dataset(
         "y_sustained_24",
         "y_eco_topq_12",
         "y_cond_sustained_12",
+        "y_log_wallets_12",
+        "y_rel_12",
+        "y_soft_12",
+        "y_tier_12",
         "mean_wallets_10_12",
         "mean_wallets_22_24",
         "mean_eco_share_10_12",
@@ -342,7 +432,101 @@ def build_dataset(
     labs = labs[[c for c in label_cols if c in labs.columns]]
     # Drop overlapping meta from labels that features already has
     ds = feats.merge(labs, on="slug", how="inner")
+    ds = merge_offchain(ds, k)
+    ds = merge_news(ds, k)
+    ds = merge_wallet(ds, k)
+    ds = merge_tvl(ds, k)
+    ds = merge_token(ds, k)
     return ds
+
+
+def merge_token(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join own-token incentive features. DApps without a token get token_live=0."""
+    ds = ds.drop(columns=[c for c in TOKEN_FEATURES if c in ds.columns])
+    if not TOKEN_BY_K.exists():
+        print(f"  warn: missing {TOKEN_BY_K}; token columns will be NaN "
+              "(run model/token_incentives/build_token_features.py)")
+        for c in TOKEN_FEATURES:
+            ds[c] = np.nan
+        return ds
+    t = pd.read_csv(TOKEN_BY_K)
+    t = t[t["k"] == k][["slug", "k", *TOKEN_FEATURES]]
+    ds = ds.merge(t, on=["slug", "k"], how="left")
+    ds["token_live"] = ds["token_live"].fillna(0)
+    ds["token_pre_launch"] = ds["token_pre_launch"].fillna(0)
+    return ds
+
+
+def merge_tvl(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join window-timed Ethereum TVL features for this k."""
+    ds = ds.drop(columns=[c for c in TVL_FEATURES if c in ds.columns])
+    if not TVL_BY_K.exists():
+        print(f"  warn: missing {TVL_BY_K}; TVL columns will be NaN (run model/dapp_tvl/fetch_tvl.py)")
+        for c in TVL_FEATURES:
+            ds[c] = np.nan
+        return ds
+    t = pd.read_csv(TVL_BY_K)
+    t = t[t["k"] == k][["slug", "k", *TVL_FEATURES]]
+    ds = ds.merge(t, on=["slug", "k"], how="left")
+    ds["has_tvl"] = ds["has_tvl"].fillna(0)
+    return ds
+
+
+def merge_wallet(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join wallet-level features for this k. Blanks stay NaN."""
+    ds = ds.drop(columns=[c for c in WALLET_FEATURES if c in ds.columns])
+    if not WALLET_BY_K.exists():
+        print(f"  warn: missing {WALLET_BY_K}; wallet columns will be NaN "
+              "(run model/wallet_features.py)")
+        for c in WALLET_FEATURES:
+            ds[c] = np.nan
+        return ds
+    w = pd.read_csv(WALLET_BY_K)
+    w = w[w["k"] == k][["slug", "k", *WALLET_FEATURES]]
+    return ds.merge(w, on=["slug", "k"], how="left")
+
+
+def merge_news(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join news-sentiment and ETH-momentum features for this k. Blanks stay NaN."""
+    if not NEWS_BY_K.exists():
+        print(f"  warn: missing {NEWS_BY_K}; news columns will be NaN "
+              "(run model/news_sentiment/build_features.py)")
+        for c in NEWS_FEATURES:
+            ds[c] = np.nan
+        return ds
+    news = pd.read_csv(NEWS_BY_K)
+    news = news[news["k"] == k]
+    for c in NEWS_FEATURES:
+        if c not in news.columns:
+            news[c] = np.nan
+    news = news[["slug", "k", *NEWS_FEATURES]]
+    ds = ds.drop(columns=[c for c in NEWS_FEATURES if c in ds.columns])
+    return ds.merge(news, on=["slug", "k"], how="left")
+
+
+def merge_offchain(ds: pd.DataFrame, k: int) -> pd.DataFrame:
+    """Left-join off-chain flags / governance counts for this k. Blanks stay NaN."""
+    if not OFFCHAIN_BY_K.exists():
+        print(f"  warn: missing {OFFCHAIN_BY_K}; off-chain columns will be NaN")
+        for c in OFFCHAIN_FEATURES:
+            if c not in ds.columns:
+                ds[c] = np.nan
+        return ds
+
+    off = pd.read_csv(OFFCHAIN_BY_K)
+    off = off[off["k"] == k].copy()
+    off["log_n_proposals"] = np.log1p(pd.to_numeric(off["n_proposals"], errors="coerce"))
+    off["log_n_proposals_window"] = np.log1p(
+        pd.to_numeric(off["n_proposals_window"], errors="coerce")
+    )
+    for c in OFFCHAIN_FEATURES:
+        if c not in off.columns:
+            off[c] = np.nan
+    off = off[["slug", "k", *OFFCHAIN_FEATURES]]
+    drop = [c for c in OFFCHAIN_FEATURES if c in ds.columns]
+    if drop:
+        ds = ds.drop(columns=drop)
+    return ds.merge(off, on=["slug", "k"], how="left")
 
 
 def main() -> None:
@@ -370,10 +554,21 @@ def main() -> None:
         ds = build_dataset(k, panel=panel, life=life, cohort=cohort, cat_month=cat_month)
         savetable(ds, f"dataset_k{k}.csv")
         use = ds[ds["eligible_12m"] & ~ds["left_censored"]]
+        off_cov = {
+            c: float(use[c].notna().mean())
+            for c in OFFCHAIN_FEATURES
+            if c in use.columns
+        }
         print(
             f"    n={len(ds)} eligible={len(use)} "
             f"sustained_12_rate={use['y_sustained_12'].dropna().mean():.3f}"
         )
+        print(f"    off-chain non-null (eligible): {off_cov}")
+        news_cov = float(use[NEWS_FEATURES].notna().all(axis=1).mean()) if len(use) else 0.0
+        mentioned = float((use["dapp_log_mentions_window"] > 0).mean()) if len(use) else 0.0
+        wcov = float(use[WALLET_FEATURES].notna().any(axis=1).mean()) if len(use) else 0.0
+        print(f"    wallet features: rows with any value {wcov:.2f}")
+        print(f"    news: complete rows {news_cov:.2f}, DApps with press mentions in window {mentioned:.2f}")
     print("== features done ==")
 
 

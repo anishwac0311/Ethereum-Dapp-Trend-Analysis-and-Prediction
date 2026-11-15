@@ -1,0 +1,9 @@
+data/*
+!data/dapp_news_by_k.csv
+!data/news_monthly.csv
+!data/eth_monthly.csv
+!data/eth_weekly.csv
+!data/dapp_mentions.csv
+!data/live_archive.csv
+reports/
+*.log
