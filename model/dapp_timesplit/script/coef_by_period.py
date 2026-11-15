@@ -24,38 +24,45 @@ GROUPS = {**{f: "Size" for f in LEVEL_FEATURES}, **{f: "Movement" for f in SHAPE
           **{f: "Context" for f in CONTEXT_FEATURES}}
 
 
-def coefficients(d: pd.DataFrame) -> pd.Series:
+def coefficients(d: pd.DataFrame, features: list[str] = FEATURE_COLS) -> pd.Series:
     """Standardised coefficient per numeric feature (category dummies dropped)."""
-    cols = feature_matrix_cols(FEATURE_COLS)
-    pipe = make_logreg(FEATURE_COLS).fit(d[cols], d[TARGET])
+    cols = feature_matrix_cols(features)
+    pipe = make_logreg(features).fit(d[cols], d[TARGET])
     names = [n.split("__", 1)[1] for n in pipe.named_steps["pre"].get_feature_names_out()]
     coef = pd.Series(pipe.named_steps["clf"].coef_[0], index=names)
     return coef[[n for n in names if n in GROUPS]]
+
+
+def fit_with_resamples(d: pd.DataFrame, label: str, name: str, rng: np.random.Generator,
+                       features: list[str] = FEATURE_COLS) -> tuple[list[dict], list[dict]]:
+    """Coefficients and group weights for one set of DApps, with 95% intervals over N_BOOT resamples.
+    `label` names the column the set goes in (period, regime)."""
+    point = coefficients(d, features)
+    boots = []
+    for _ in range(N_BOOT):
+        sample = d.iloc[rng.integers(0, len(d), len(d))]
+        if sample[TARGET].nunique() == 2:
+            boots.append(coefficients(sample, features))
+    boots = pd.DataFrame(boots)
+    feature_rows = [{label: name, "feature": f, "group": GROUPS[f], "coef": c,
+                     "coef_lo": boots[f].quantile(.025), "coef_hi": boots[f].quantile(.975),
+                     "share_positive": (boots[f] > 0).mean()} for f, c in point.items()]
+    # A group's weight: its share of all absolute coefficients
+    share = lambda c: c.abs().groupby(GROUPS).sum() / c.abs().sum()
+    boot_share = boots.apply(share, axis=1)
+    group_rows = [{label: name, "group": g, "weight": w,
+                   "weight_lo": boot_share[g].quantile(.025), "weight_hi": boot_share[g].quantile(.975)}
+                  for g, w in share(point).items()]
+    return feature_rows, group_rows
 
 
 def run(df: pd.DataFrame) -> pd.DataFrame:
     rng = np.random.default_rng(SEED)
     feature_rows, group_rows = [], []
     for period, mask in periods(df).items():
-        name = period.split(" (")[0]
-        d = df[mask].reset_index(drop=True)
-        point = coefficients(d)
-        boots = []
-        for _ in range(N_BOOT):
-            sample = d.iloc[rng.integers(0, len(d), len(d))]
-            if sample[TARGET].nunique() == 2:
-                boots.append(coefficients(sample))
-        boots = pd.DataFrame(boots)
-        for f, c in point.items():
-            feature_rows.append({"period": name, "feature": f, "group": GROUPS[f], "coef": c,
-                                 "coef_lo": boots[f].quantile(.025), "coef_hi": boots[f].quantile(.975),
-                                 "share_positive": (boots[f] > 0).mean()})
-        # A group's weight: its share of all absolute coefficients
-        share = lambda c: c.abs().groupby(GROUPS).sum() / c.abs().sum()
-        boot_share = boots.apply(share, axis=1)
-        for g, w in share(point).items():
-            group_rows.append({"period": name, "group": g, "weight": w,
-                               "weight_lo": boot_share[g].quantile(.025), "weight_hi": boot_share[g].quantile(.975)})
+        f_rows, g_rows = fit_with_resamples(df[mask].reset_index(drop=True), "period", period.split(" (")[0], rng)
+        feature_rows += f_rows
+        group_rows += g_rows
     features = record(pd.DataFrame(feature_rows), "coef_by_period")
 
     # Rank of each size feature in each period (1 = largest absolute coefficient among features that vary)
