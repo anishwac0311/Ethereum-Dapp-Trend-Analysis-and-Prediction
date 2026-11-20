@@ -56,3 +56,6 @@ agent-transcripts/
 
 # Office lock files
 ~$*
+
+# Vercel project link (holds project and team IDs)
+.vercel/

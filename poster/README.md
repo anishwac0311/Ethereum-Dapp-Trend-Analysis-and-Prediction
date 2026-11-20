@@ -23,8 +23,8 @@ Every path below is on this branch.
 | Q4 months to 1,000 wallets: 1 vs. 2 | 6 | `eda/tables/04_median_time_to_threshold.csv` | To do |
 | Q5 retention: 17% → 3% | 7 | `dapp_data_v2/cohort_retention.csv` | Done: `q5_retention_curve.png` |
 | Q6 retention near 10K wallets: 46–50% vs. 28–44% | 8 | `eda/tables/05_event_checkpoints.csv` | To do |
-| Press before launch: 45% vs. 12% | 9 | `model/news_sentiment/data/dapp_news_by_k.csv`, `model/dapp_offchain/data/dapp_offchain_by_k.csv` | To do |
-| Market shift: size weight 27% → 19% | 10 | `model/dapp_timesplit/results/tables/coef_groups_by_regime.csv` | To do |
+| Press before launch: 45% vs. 12% (74 of 537 apps, v2 rule) | 9 | `model/news_sentiment/data/dapp_news_by_k.csv` + labels from `model/labels.py` | Done: `press_before_launch.png` |
+| Size and stickiness weight by period and market: 33% → 19%, 27% → 19% | 10 | `model/dapp_timesplit/results/tables/coef_groups_by_period.csv`, `coef_groups_by_regime.csv` | Done: `size_stickiness_weights.png` |
 | Final model scoreboard, 98% / 94.6%, 0.71–0.77 | table | `model/README.md`, `model/MODEL_REPORT.md`, `model/final_model.py`, `model/deck_charts.py` | Numbers on poster |
 | Dashboard QR | — | `ethereum-dapp-trends.vercel.app` | Done |
 

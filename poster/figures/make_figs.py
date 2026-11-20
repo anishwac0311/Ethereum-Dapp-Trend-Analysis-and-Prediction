@@ -1,4 +1,4 @@
-"""Simple poster figures for Q2, Q3 and Q5.
+"""Poster figures: Q2, Q3, Q5, press before launch, and feature weights.
 
 Run from the repo root:  python3 poster/figures/make_figs.py
 Writes 300-dpi PNGs next to this script, sized for the poster's
@@ -32,6 +32,7 @@ plt.rcParams.update({
     "axes.spines.right": False,
     "axes.grid": True,
     "axes.grid.axis": "y",
+    "axes.axisbelow": True,
     "grid.color": GRID,
     "grid.linewidth": 0.8,
     "savefig.dpi": 300,
@@ -118,10 +119,91 @@ def q5():
     return rate
 
 
+def bar_labels(ax, bars, fmt="{:.0%}"):
+    for b in bars:
+        v = b.get_width()
+        ax.text(v + 0.008, b.get_y() + b.get_height() / 2, fmt.format(v),
+                va="center", ha="left", fontsize=12, fontweight="bold", color=TEXT)
+
+
+# ---------- Off-chain: success rate with vs. without press before launch ----------
+def press():
+    import sys
+    sys.path.insert(0, str(ROOT / "model"))
+    from labels import build_labels  # team label code; v2 rule y_sustained_12
+
+    lab = build_labels(k=3)[["slug", "y_sustained_12"]]
+    news = pd.read_csv(ROOT / "model/news_sentiment/data/dapp_news_by_k.csv")
+    d = news[news.k == 3].merge(lab, on="slug").dropna(subset=["y_sustained_12"])
+    has = d["dapp_log_mentions_pre6m"] > 0
+    rows = [
+        (f"No press before launch\n({(~has).sum()} apps)", d.loc[~has, "y_sustained_12"].mean(), GREY),
+        (f"Press before launch\n({has.sum()} apps)", d.loc[has, "y_sustained_12"].mean(), BLUE),
+    ]
+
+    fig, ax = plt.subplots(figsize=(5.2, 2.2))
+    bars = ax.barh([r[0] for r in rows], [r[1] for r in rows],
+                   color=[r[2] for r in rows], height=0.55)
+    bar_labels(ax, bars)
+    ax.set_xlim(0, 0.55)
+    ax.set_xlabel("Share of apps that last (v2 rule)")
+    ax.grid(axis="y", visible=False)
+    ax.grid(axis="x", color=GRID, linewidth=0.8)
+    ax.tick_params(axis="y", length=0)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
+    fig.savefig(OUT / "press_before_launch.png")
+    plt.close(fig)
+    return len(d), int(has.sum()), rows[1][1], rows[0][1]
+
+
+# ---------- Market shift: size and stickiness weight by period and by market ----------
+def weights():
+    t = ROOT / "model/dapp_timesplit/results/tables"
+    per = pd.read_csv(t / "coef_groups_by_period.csv")
+    reg = pd.read_csv(t / "coef_groups_by_regime.csv")
+    reg = reg[reg["sample"] == "All launches"]
+
+    cols = [("Before\nTerra", per, "period", "Before Terra"),
+            ("Terra to\nDencun", per, "period", "Terra to Dencun"),
+            ("After\nDencun", per, "period", "After Dencun"),
+            ("Faster\nmarket", reg, "regime", "Faster growth"),
+            ("Slower\nmarket", reg, "regime", "Slower growth")]
+    x = [0, 1, 2, 3.6, 4.6]   # gap between the two panels
+    w = 0.36
+    size_v, stick_v = [], []
+    for _, df, key, val in cols:
+        g = df[df[key] == val].set_index("group")["weight"]
+        size_v.append(g["Size"])
+        stick_v.append(g["Stickiness"])
+
+    fig, ax = plt.subplots(figsize=(6.4, 2.8))
+    b1 = ax.bar([i - w / 2 for i in x], size_v, w, color=BLUE, label="Size")
+    b2 = ax.bar([i + w / 2 for i in x], stick_v, w, color=GREY, label="Stickiness")
+    for bars, color in ((b1, BLUE), (b2, MUTED)):
+        for b in bars:
+            ax.text(b.get_x() + b.get_width() / 2, b.get_height() + 0.008,
+                    f"{b.get_height():.0%}", ha="center", va="bottom", fontsize=10, color=color)
+    ax.set_xticks(x)
+    ax.set_xticklabels([c[0] for c in cols])
+    ax.tick_params(axis="x", length=0)
+    ax.axvline(2.8, color=GRID, lw=1.2)
+    ax.text(1, 0.47, "By launch period", ha="center", fontsize=11, color=MUTED)
+    ax.text(4.1, 0.47, "By market growth at launch", ha="center", fontsize=11, color=MUTED)
+    ax.set_ylim(0, 0.5)
+    ax.set_ylabel("Share of\nmodel weight")
+    pct(ax)
+    ax.legend(frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=11)
+    fig.savefig(OUT / "size_stickiness_weights.png")
+    plt.close(fig)
+    return dict(zip([c[0].replace("\n", " ") for c in cols], zip(size_v, stick_v)))
+
+
 if __name__ == "__main__":
     med = q2()
     top = q3()
     rate = q5()
+    print("Press:", press())
+    print("Weights (size, stickiness):", {k: (round(a, 3), round(b, 3)) for k, (a, b) in weights().items()})
     print("Q2 flash median: peak", med["flash"].max() , "at month", med["flash"].idxmax(),
           "| month 23:", med["flash"].iloc[-1] )
     print("Q3 top-10 share: min", top.min() , "max", top.max() ,
