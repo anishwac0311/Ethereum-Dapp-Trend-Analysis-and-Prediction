@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group 9 Poster Layout</title>
+<!--
+  Layout mock-up of Group9_Poster.potx (32 x 24 in, landscape).
+  Scale: 1 inch = 60 px, so the poster is 1920 x 1440 px.
+  Every box uses the template's own position (in inches x 60).
+  Edit text freely; figure slots are dashed boxes (class "fig").
+-->
+<style>
+  :root{
+    --blue:#0066A9;      /* template header and box colour */
+    --text:#1A1A1A;
+    --muted:#555;
+    --line:#C9D6E3;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#E9EDF1}
+  body{padding:24px;font-family:Georgia,'Times New Roman',serif;color:var(--text)}
+  #poster{position:relative;width:1920px;height:1440px;background:#FFFFFF;transform-origin:top left;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+
+  /* ---------- header ---------- */
+  header{position:absolute;left:0;top:0;width:1920px;height:205px;background:var(--blue);color:#fff;text-align:center}
+  .logo{position:absolute;left:38px;top:25px;width:155px;height:155px;border-radius:50%;border:3px dashed rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;font:14px Arial,sans-serif}
+  header h1{margin:0;padding-top:16px;font-size:52px;font-weight:700;line-height:1.1}
+  header .authors{margin:34px 0 0;font-size:26px}
+  header .dept{margin:8px 0 0;font-size:22px}
+
+  /* ---------- boxes ---------- */
+  .box{position:absolute;border:3px solid var(--blue);border-radius:14px;overflow:hidden;background:#fff}
+  .box > h2{margin:0;height:51px;background:var(--blue);color:#fff;font:900 22px 'Arial Black',Arial,sans-serif;display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
+  .in{padding:12px 16px 12px 16px}
+
+  h3{margin:12px 0 4px;font-size:17px;font-weight:700}
+  h3:first-child{margin-top:0}
+  p{margin:0 0 6px;font-size:15px;line-height:1.38}
+  b.k{color:var(--blue)}
+  .small{font-size:13px;color:var(--muted)}
+  ul{margin:0 0 6px;padding-left:18px;font-size:15px;line-height:1.38}
+  li{margin-bottom:3px}
+
+  .fig{border:2px dashed #A9B8C6;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;color:var(--muted);font:13px/1.35 Arial,sans-serif}
+  .fig strong{font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .cap{font-size:13px;line-height:1.35;margin:5px 0 0}
+  .cap b{color:var(--text)}
+
+  table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.32}
+  th{text-align:left;font:700 12px Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:2px solid var(--blue);padding:0 8px 4px 0}
+  td{padding:5px 8px 5px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+  td.v{font-weight:700;color:var(--blue);white-space:nowrap}
+
+  /* results grid */
+  .qgrid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:20px;row-gap:16px}
+  .q{font-size:14.5px;font-weight:700;line-height:1.3;margin:0 0 4px;min-height:38px}
+  .ans{display:flex;gap:8px;align-items:baseline;margin:0 0 6px}
+  .ans .num{font-size:28px;font-weight:700;color:var(--blue);white-space:nowrap;line-height:1}
+  .ans span:last-child{font-size:13.5px;line-height:1.32}
+  .divider{border-top:2px solid var(--line);margin:12px 0 10px}
+  .stages{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;font-size:13.5px}
+  .stages b{color:var(--blue)}
+  .folds{display:grid;grid-template-columns:52px repeat(5,1fr);gap:3px;font:600 11.5px Arial,sans-serif;margin-top:4px}
+  .folds span{height:15px;display:flex;align-items:center;justify-content:center;border-radius:3px}
+  .folds .yr{color:var(--muted)}
+  .folds .fl{justify-content:flex-start;color:var(--text)}
+  .folds .tr{background:#CFE0EE}
+  .folds .te{background:var(--blue);color:#fff}
+  /* kicker label above a sub-section, like the deck's "STAGE 2 · THE NEWS DATA" */
+  .kick{margin:0 0 2px;font:700 12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .story{border-left:3px solid var(--blue);padding:2px 0 2px 10px}
+  .story q{display:block;font-size:14px;font-style:italic;line-height:1.35;quotes:none}
+  .chips{display:flex;flex-wrap:wrap;gap:4px 10px;margin:6px 0 0;font:600 12.5px Arial,sans-serif;color:var(--text)}
+  .chips .bear{color:#B3261E}
+  table.score td{padding:3px 8px 3px 0}
+  table.score td.r,table.score th.r{text-align:right}
+  table.score tr.final td{font-weight:700;color:var(--blue)}
+</style>
+</head>
+<body>
+<div id="poster">
+
+<!-- =========================================================
+     HEADER  (template: 32 x 3.42 in)
+     ========================================================= -->
+<header>
+  <div class="logo">UCI seal</div>
+  <h1>Ethereum DApp Trend Analysis and Popularity Prediction</h1>
+  <p class="authors">Anishwar Chakraborty · Austin Lee · Ting-Yu Kao · William Chen · Ved Mistry · Victor Wu</p>
+  <p class="dept">Donald Bren School of Information and Computer Sciences, University of California, Irvine</p>
+</header>
+
+<!-- =========================================================
+     LEFT COLUMN, TOP: INTRODUCTION  (x 0.21, y 3.6, 7.33 x 10.77 in)
+     Motivation -> question -> data -> Fig. 1 funnel
+     ========================================================= -->
+<section class="box" style="left:13px; top:216px; width:440px; height:646px;">
+  <h2>Introduction</h2>
+  <div class="in">
+    <h3>Motivation</h3>
+    <p>Ethereum records every transaction on a public ledger, so we can follow decentralized apps (DApps), from exchanges to games, from launch to decline.</p>
+    <p>Use keeps growing: DEX apps went from <b class="k">657K</b> to <b class="k">1.14M</b> active wallets a month, and news mentions of these apps rose from <b class="k">79</b> (2019) to <b class="k">1,706</b> (2023). Yet <b class="k">68%</b> of the apps that took off peaked near month 3 and kept only about 6%.</p>
+
+    <h3>Our question: Which DApps last?</h3>
+    <p>(1) Describe the market through six questions. (2) Predict success at months 10–12 from an app’s first 3 or 6 months.</p>
+
+    <h3>Data</h3>
+    <p><b>On-chain (market size):</b> wallets, transactions and fees from public Ethereum blocks; 544,296 contracts tied to 676 apps.</p>
+    <p><b>Off-chain (attention):</b> 87,330 news articles (2019–25) scored for tone and impact; audit, open-source and governance flags.</p>
+
+    <div class="fig" style="height:118px; margin-top:8px;"><strong>Fig. 1 · funnel</strong>1,816 registry → 676 mapped → 622 active → 547 with outcome → 512 modeled</div>
+    <p class="cap"><b>Fig. 1:</b> From 1,816 registry apps to 512 modeled (launched 2020–24).</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     LEFT COLUMN, BOTTOM: METHODS  (x 0.21, y 14.49, 7.33 x 9.3 in)
+     Three success rules -> model -> fair testing -> stage scores
+     ========================================================= -->
+<section class="box" style="left:13px; top:869px; width:440px; height:558px;">
+  <h2>Methods</h2>
+  <div class="in">
+    <h3>Defining success <span class="small" style="font-weight:400;">(judge months 10–12)</span></h3>
+    <table>
+      <thead><tr><th>Rule</th><th>Definition</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td class="v">v1</td><td>Ever hit 10,000 wallets</td><td>0.9+ from leakage; dropped</td></tr>
+        <tr><td class="v">v2</td><td>1,000+ wallets at months 10–12 and 25% of early peak (85 of 512)</td><td>Best model 0.60 ≈ early size 0.59</td></tr>
+        <tr><td class="v">v3</td><td>15 rules: 250–5,000 wallets × 15–40% of peak, soft labels</td><td><b>0.72</b> PR-AUC at month 6</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Model</h3>
+    <ul>
+      <li><b>Features:</b> size, movement, stickiness, concentration, context, off-chain; first k months only.</li>
+      <li><b>Final model (v3):</b> forecasters + classifiers, calibrated; labels each app fail, unsure or success.</li>
+    </ul>
+
+    <!-- Fair testing: expanding-window folds, drawn in HTML (no figure needed) -->
+    <h3>Fair testing: past years predict the next</h3>
+    <div class="folds">
+      <span></span><span class="yr">2020</span><span class="yr">2021</span><span class="yr">2022</span><span class="yr">2023</span><span class="yr">2024</span>
+      <span class="fl">Fold 1</span><span class="tr"></span><span class="te">test</span><span></span><span></span><span></span>
+      <span class="fl">Fold 2</span><span class="tr"></span><span class="tr"></span><span class="te">test</span><span></span><span></span>
+      <span class="fl">Fold 3</span><span class="tr"></span><span class="tr"></span><span class="tr"></span><span class="te">test</span><span></span>
+      <span class="fl">Fold 4</span><span class="tr"></span><span class="tr"></span><span class="tr"></span><span class="tr"></span><span class="te">test</span>
+    </div>
+    <p class="small" style="margin-top:4px;">Light = train, dark = test · 396 test apps, 63 successes</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     CENTER: RESULTS (MAIN)  (x 7.77, y 3.63, 16.46 x 20.17 in)
+     Six questions as 3 x 2 grid (Fig. 2-7), then prediction (Fig. 8)
+     ========================================================= -->
+<section class="box" style="left:466px; top:218px; width:988px; height:1210px;">
+  <h2>Results</h2>
+  <div class="in" style="padding:14px 20px;">
+    <p class="kick">Describe · Six questions</p>
+    <h3 style="font-size:18px;">Six questions about the market</h3>
+
+    <div class="qgrid">
+      <div>
+        <p class="q">Q1. Which categories are growing or declining?</p>
+        <div class="ans"><span class="num">DEX</span><span>only clearly growing category; Infrastructure fell 42% in 2025</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 2 · line chart</strong>Monthly wallets by category, DEX highlighted</div>
+      </div>
+      <div>
+        <p class="q">Q2. Which apps last, and which flash and fade?</p>
+        <div class="ans"><span class="num">68%</span><span>of apps that took off flash and fade: peak near month 3, keep ~6%</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 3 · line chart</strong>Wallets by month since launch: lasting vs. flash</div>
+      </div>
+      <div>
+        <p class="q">Q3. How concentrated is activity?</p>
+        <div class="ans"><span class="num">70–80%</span><span>of wallets go to the top 10 apps; half of apps average under 10</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 4 · area chart</strong>Top-10 share of wallets by month</div>
+      </div>
+      <div>
+        <p class="q">Q4. How quickly do successful apps gain users?</p>
+        <div class="ans"><span class="num">1 vs 2 mo</span><span>to 1,000 wallets, flash vs. lasting: fast is not lasting</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 5 · bar chart</strong>Months to 1,000 wallets: flash vs. lasting</div>
+      </div>
+      <div>
+        <p class="q">Q5. How often do users come back?</p>
+        <div class="ans"><span class="num">17% → 3%</span><span>of wallets return after 1 month vs. after 1 year</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 6 · retention curve</strong>Share returning by months since first use</div>
+      </div>
+      <div>
+        <p class="q">Q6. What happens before an app takes off?</p>
+        <div class="ans"><span class="num">46–50%</span><span>monthly retention of lasting apps near 10K wallets; flash 28–44%</span></div>
+        <div class="fig" style="height:150px;"><strong>Fig. 7 · line chart</strong>Retention around the 10K-wallet mark</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Off-chain & sentiment (moved here from the right column) -->
+    <p class="kick">Stage 2 · The news data</p>
+    <h3 style="font-size:18px;">Off-chain news: only press before launch helps</h3>
+    <p class="small" style="margin-bottom:8px;">87,330 articles (EF blog, Cointelegraph, The Block, 2019–25) → 16 features, using only articles from before the prediction date.</p>
+    <!-- Left: our example story. Right: one result figure (deck slide 11, right chart). -->
+    <div style="display:grid; grid-template-columns: 1fr 1.35fr; column-gap:28px;">
+      <div>
+        <p class="q" style="min-height:0;">Our example: one story, scored</p>
+        <div class="story">
+          <q>“North Korean hackers are creating memecoins to wash loot from $6.3 billion Binance hack”</q>
+          <span class="small">CoinDesk</span>
+        </div>
+        <div class="chips"><span class="bear">Bearish</span><span>tone −98</span><span>impact 5.8/10</span><span>0–48h</span><span>84% confident</span></div>
+        <p class="small" style="margin-top:6px;">Cues “hackers”, “hack” → hack-exploit event. 7 articles on this story count as one event.</p>
+      </div>
+      <div>
+        <div class="fig" style="height:138px;"><strong>Fig. 8 · bar chart</strong>Share of apps that last, with vs. without each signal: press before launch · audit · open source · verified · governance</div>
+        <p class="cap"><b>Press before launch:</b> 45% vs. 12% last; +0.63 SD log-odds with all on-chain features controlled, p &lt; 0.001. Audit, open source, verified, governance: p &gt; 0.3.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Final model: scoreboard from deck slide 19 -->
+    <p class="kick">Stage 6 · Final model</p>
+    <h3 style="font-size:18px;">Predicting who lasts: early size is hard to beat</h3>
+    <div style="display:grid; grid-template-columns: 1.15fr 1fr; column-gap:28px; margin-top:6px;">
+      <div>
+        <table class="score">
+          <thead><tr><th>Model (same fair test)</th><th class="r">Month 3</th><th class="r">Month 6</th></tr></thead>
+          <tbody>
+            <tr><td>Early size only (baseline)</td><td class="r">0.61</td><td class="r">0.64</td></tr>
+            <tr><td>v1 boosted trees</td><td class="r">0.55</td><td class="r">0.70</td></tr>
+            <tr><td>Pooled AR forecaster</td><td class="r">0.63</td><td class="r">0.66</td></tr>
+            <tr><td>Boosted panel forecaster</td><td class="r">0.59</td><td class="r">0.74</td></tr>
+            <tr class="final"><td>v3 ensemble (final, chosen blind)</td><td class="r">0.60</td><td class="r">0.72</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:4px;">PR-AUC over 15 success rules; 396 test apps, 63 successes.</p>
+      </div>
+      <div>
+        <p class="q" style="min-height:0;">On unseen 2024 launches</p>
+        <div class="ans"><span class="num">98%</span><span><b>Month 3:</b> “likely fail” calls are right, but find only 4 of 9 successes</span></div>
+        <div class="ans"><span class="num">94.6%</span><span><b>Month 6:</b> confident calls are right, and find 8 of 9</span></div>
+        <div class="ans"><span class="num">0.71–0.77</span><span>at month 6 across Terra and Dencun</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     RIGHT COLUMN, TOP: RESULTS (SIDE)  (x 24.43, y 3.6, 7.36 x 4.98 in)
+     Success shifts with the market (Fig. 9)
+     ========================================================= -->
+<section class="box" style="left:1466px; top:216px; width:442px; height:299px;">
+  <h2>Market Shift</h2>
+  <div class="in">
+    <!-- Same format as Q1-Q6: question, answer, figure -->
+    <p class="q" style="min-height:0;">Does what carries success change with the market?</p>
+    <div class="ans"><span class="num">27% → 19%</span><span>size’s share of model weight, faster vs. slower market at launch</span></div>
+    <div class="fig" style="height:130px;"><strong>Fig. 9 · grouped bars</strong>Size and stickiness weight: faster vs. slower market, all launches and 2023–24</div>
+  </div>
+</section>
+
+<!-- =========================================================
+     RIGHT COLUMN, MIDDLE: CONCLUSIONS  (x 24.46, y 8.74, 7.33 x 8.7 in)
+     Findings / Discussion / Limitations (template's own headings)
+     ========================================================= -->
+<section class="box" style="left:1468px; top:524px; width:440px; height:522px;">
+  <h2>Conclusions</h2>
+  <div class="in">
+    <h3>Findings: So, which DApps last?</h3>
+    <ul>
+      <li><b>Those that start big.</b> Early size predicts best, whatever the model; call winners at month 6.</li>
+      <li><b>Off-chain adds little.</b> Only press before launch is worth collecting.</li>
+      <li><b>It depends on the market.</b> In slower markets, size’s weight falls from 27% to 19%.</li>
+    </ul>
+    <h3>Discussion</h3>
+    <p>Month 3 hits a wall: more data and seven model families stay at 0.54–0.63. The data, not the model, is the limit.</p>
+    <h3>Limitations</h3>
+    <ul>
+      <li>Ethereum mainnet only; wallets are not people.</li>
+      <li>63 test successes; results are associations, not causes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     RIGHT COLUMN, BOTTOM: CONTRIBUTIONS + REFERENCES  (x 24.46, y 17.62, 7.33 x 6.17 in)
+     Team split, dashboard QR, references
+     ========================================================= -->
+<section class="box" style="left:1468px; top:1057px; width:440px; height:370px;">
+  <h2>Contributions</h2>
+  <div class="in">
+    <!-- TODO: confirm names with the team (Terry = Ting-Yu Kao?) -->
+    <ul style="font-size:13.5px;">
+      <li><b>Victor, Ved:</b> Q1 categories, Q2 growth vs. fade</li>
+      <li><b>William, Austin:</b> Q3 concentration, Q4 speed, market regimes, dashboard</li>
+      <li><b>Ting-Yu, Anish:</b> Q5 retention, Q6 before take-off</li>
+    </ul>
+    <div style="display:flex; gap:12px; align-items:center; margin:8px 0;">
+      <div class="fig" style="width:88px; height:88px; flex-shrink:0;"><strong>QR</strong></div>
+      <p style="font-size:13.5px; margin:0;"><b>Live dashboard</b><br>ethereum-dapp-trends.vercel.app<br><span class="small">Six questions, app comparison, prediction game</span></p>
+    </div>
+    <h3 style="font-size:15px;">References</h3>
+    <p class="small">Szabo &amp; Huberman 2010 · Wu et al. 2019 · Bärtl 2023 · Arvanitou et al. 2024</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+  // Fit the 1920 px poster to the window width for viewing only.
+  function fit(){
+    var p=document.getElementById('poster');
+    var s=Math.min(1,(window.innerWidth-48)/1920);
+    p.style.transform='scale('+s+')';
+    document.body.style.height=(1440*s+48)+'px';
+  }
+  window.addEventListener('resize',fit); fit();
+</script>
+</body>
+</html>
